@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    {{#head}}
+      <meta charset="utf-8">
+      <title>{{title}}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{/head}}
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>
+          <a href="/">archive</a>
+        </h1>
+      </nav>
+    </header>
+    {{#post}}
+      <article>
+        {{{contents}}}
+      </article>
+    {{/post}}
+    {{#index}}
+      <nav>
+        <ul>
+          {{#list}}
+            <li>
+              <a href="{{{url}}}">{{title}}</a>
+            </li>
+          {{/list}}
+        </ul>
+      </nav>
+    {{/index}}
+  </body>
+</html>

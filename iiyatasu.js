@@ -3,76 +3,114 @@
 const fs = require('fs');
 const path = require('path');
 
-const ejs = require('ejs');
 const express = require('express');
 const hljs = require('highlight.js');
+const _ = require('lodash');
 const marked = require('marked');
-const metaMarked = require('meta-marked');
+const mustache = require('mustache-express');
 
 const app = express();
-const mdDir = path.join(__dirname, '/post/');
-const viewsDir = path.join(__dirname, '/views/');
+const config = {
+  mdDir: path.join(__dirname, '/post/'),
+  staticDir: path.join(__dirname, '/public/')
+};
 
-app.engine('.html', ejs.__express);
-app.set('views', viewsDir);
-app.set('view engine', 'html');
+app.engine('mustache', mustache());
+app.set('view engine', 'mustache');
+app.set('views', __dirname);
 
-function readMd(req, res, next) {
-  fs.readdir(mdDir, (err, files) => {
-    if (err) {
-      throw new Error('Failed to read md dir');
-    }
-    files.forEach(file => {
+app.use(express.static(config.staticDir));
 
-      const mdPath = path.join(mdDir, file);
-      fs.readFile(mdPath, 'utf-8', (err, md) => {
-        if (err) {
-          throw new Error('Failed to read md file');
+function getPostInfo(mdName, withHtml) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(config.mdDir + mdName, 'utf-8', (err, md) => {
+      if (err) {
+        return reject(err);
+      }
+
+      const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n\s]+/);
+      const postDescription = md.match(/\n>(.)+\n/)[0].match(/[^>\n\s]+/);
+      const postDate = md.match(/\d{4}-\d{2}-\d{2}/);
+
+      marked.setOptions({
+        gfm: true,
+        highlight(code) {
+          return hljs.highlightAuto(code).value;
         }
-        req.filename = file;
-        req.contents = metaMarked(md);
-        next();
+      });
+
+      resolve({
+        title: postTitle[0],
+        description: postDescription[0],
+        date: postDate[0],
+        url: mdName,
+        html: withHtml ? marked(md) : null
       });
     });
   });
 }
 
-app.get('/', readMd, (req, res) => {
-  console.log(req);
-  res.send({
-    postList: {
-      title: req.contents.meta.title,
-      url: req.filename
+app.get('/', (req, res) => {
+  fs.readdir(config.mdDir, (err, mdFiles) => {
+    if (err) {
+      throw err;
+    }
+    const postsInfo = [];
+    for (let i = 0; i < mdFiles.length; i++) {
+      getPostInfo(mdFiles[i], false)
+        .then(postInfo => {
+          postsInfo.push(postInfo);
+          if (i === mdFiles.length - 1) {
+            const sortedPostsInfo = _.sortBy(postsInfo, ['date', 'title']).reverse();
+            res.render('template', {
+              head: {
+                title: '',
+                url: '',
+                description: '',
+                fbimg: 'hoge.jpg',
+                twimg: 'hoge.jpg',
+                twaccount: '@hogehoge',
+                icon: 'hoge.jpg'
+              },
+              index: {
+                list: sortedPostsInfo
+              }
+            });
+          }
+        });
     }
   });
-});
-
-marked.setOptions({
-  gfm: true,
-  highlight(code) {
-    return hljs.highlightAuto(code).value;
-  }
 });
 
 app.get('/:post.md', (req, res) => {
   const file = path.format({
-    dir: mdDir,
     name: req.params.post,
     ext: '.md'
   });
-  fs.readFile(file, 'utf-8', (err, md) => {
-    if (err) {
-      throw new Error('Failed to read md file');
-    }
-    marked(md, (err, html) => {
-      if (err) {
-        throw new Error('Failed to compile md to html');
-      }
-      res.send(html);
+  if (fs.statSync(config.mdDir + file).isFile()) {
+    getPostInfo(file, true).then(postInfo => {
+      res.render('template', {
+        head: {
+          title: postInfo.title,
+          url: postInfo.url,
+          description: postInfo.description,
+          fbimg: 'hoge.jpg',
+          twimg: 'hoge.jpg',
+          twaccount: '@hogehoge',
+          icon: 'hoge.jpg'
+        },
+        post: {
+          url: postInfo.url,
+          contents: postInfo.html
+        }
+      });
     });
-    // marked(contents);
-  });
+  } else {
+    throw err; // 404
+  }
 });
 
-app.listen(3000);
-console.log('Running on http://localhost:3000');
+if (!module.parent) {
+  app.listen(3000);
+  console.log('Express started on http://localhost:3000');
+}
