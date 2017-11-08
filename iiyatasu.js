@@ -11,7 +11,7 @@ const mustache = require('mustache-express');
 
 const app = express();
 const config = {
-  mdDir: path.join(__dirname, '/post/'),
+  mdDir: path.join(__dirname, '/pages/'),
   staticDir: path.join(__dirname, '/public/')
 };
 
