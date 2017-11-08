@@ -1,0 +1,20 @@
+{
+  "name": "iiyatsu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node iiyatasu.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "glob": "^7.1.2",
+    "highlight.js": "^9.12.0",
+    "marked": "^0.3.6",
+    "meta-marked": "^0.4.2"
+  }
+}
