@@ -7,15 +7,22 @@ const express = require('express');
 const hljs = require('highlight.js');
 const _ = require('lodash');
 const marked = require('marked');
-const mustache = require('mustache-express');
+const mustache = require('mustache');
 
-const app = express();
+const app = module.exports = express();
 const config = {
-  mdDir: path.join(__dirname, '/pages/'),
+  mdDir: path.join(__dirname, '/posts/'),
   staticDir: path.join(__dirname, '/public/')
 };
 
-app.engine('mustache', mustache());
+app.engine('mustache', (filePath, options, callback) => {
+  fs.readFile(filePath, 'utf-8', (err, content) => {
+    if (err) return callback(new Error(err));
+
+    const rendered = mustache.render(content, options);
+    return callback(null, rendered);
+  });
+});
 app.set('view engine', 'mustache');
 app.set('views', __dirname);
 
@@ -24,9 +31,7 @@ app.use(express.static(config.staticDir));
 function getPostInfo(mdName, withHtml) {
   return new Promise((resolve, reject) => {
     fs.readFile(config.mdDir + mdName, 'utf-8', (err, md) => {
-      if (err) {
-        return reject(err);
-      }
+      if (err) return reject(err);
 
       const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n\s]+/);
       const postDescription = md.match(/\n>(.)+\n/)[0].match(/[^>\n\s]+/);
@@ -43,7 +48,7 @@ function getPostInfo(mdName, withHtml) {
         title: postTitle[0],
         description: postDescription[0],
         date: postDate[0],
-        url: mdName,
+        url: mdName.replace(/.md/g, '.html'),
         html: withHtml ? marked(md) : null
       });
     });
@@ -52,10 +57,10 @@ function getPostInfo(mdName, withHtml) {
 
 app.get('/', (req, res) => {
   fs.readdir(config.mdDir, (err, mdFiles) => {
-    if (err) {
-      throw err;
-    }
+    if (err) throw err;
+
     const postsInfo = [];
+
     for (let i = 0; i < mdFiles.length; i++) {
       getPostInfo(mdFiles[i], false)
         .then(postInfo => {
@@ -67,10 +72,10 @@ app.get('/', (req, res) => {
                 title: '',
                 url: '',
                 description: '',
-                fbimg: 'hoge.jpg',
-                twimg: 'hoge.jpg',
-                twaccount: '@hogehoge',
-                icon: 'hoge.jpg'
+                fbimg: '',
+                twimg: '',
+                twaccount: '',
+                icon: ''
               },
               index: {
                 list: sortedPostsInfo
@@ -82,22 +87,26 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/:post.md', (req, res) => {
+app.get('/:post.html', (req, res) => {
   const file = path.format({
     name: req.params.post,
     ext: '.md'
   });
-  if (fs.statSync(config.mdDir + file).isFile()) {
+
+  if (!fs.statSync(config.mdDir + file).isFile()) {
+    res.send('404 NOT FOUND', 404);
+  } else if (fs.statSync(config.mdDir + file).isFile()) {
     getPostInfo(file, true).then(postInfo => {
+
       res.render('template', {
         head: {
           title: postInfo.title,
           url: postInfo.url,
           description: postInfo.description,
-          fbimg: 'hoge.jpg',
-          twimg: 'hoge.jpg',
-          twaccount: '@hogehoge',
-          icon: 'hoge.jpg'
+          fbimg: '',
+          twimg: '',
+          twaccount: '',
+          icon: ''
         },
         post: {
           url: postInfo.url,
@@ -105,8 +114,6 @@ app.get('/:post.md', (req, res) => {
         }
       });
     });
-  } else {
-    throw err; // 404
   }
 });
 

@@ -17,7 +17,6 @@
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
     "meta-marked": "^0.4.2",
-    "mustache": "^2.3.0",
-    "mustache-express": "^1.2.5"
+    "mustache": "^2.3.0"
   }
 }
