@@ -1,15 +1,17 @@
 'use strict';
 
-const fs = require('fs');
+const fs = require('mz/fs');
 const path = require('path');
 
 const express = require('express');
+const helmet = require('helmet');
+
 const hljs = require('highlight.js');
 const _ = require('lodash');
 const marked = require('marked');
 const mustache = require('mustache');
 
-const app = module.exports = express();
+const app = express();
 const config = {
   mdDir: path.join(__dirname, '/posts/'),
   staticDir: path.join(__dirname, '/public/')
@@ -27,6 +29,7 @@ app.set('view engine', 'mustache');
 app.set('views', __dirname);
 
 app.use(express.static(config.staticDir));
+app.use(helmet());
 
 function getPostInfo(mdName, withHtml) {
   return new Promise((resolve, reject) => {
@@ -56,34 +59,29 @@ function getPostInfo(mdName, withHtml) {
 }
 
 app.get('/', (req, res) => {
-  fs.readdir(config.mdDir, (err, mdFiles) => {
-    if (err) throw err;
+  async function sortedPostsInfo() {
+    const mdFiles = await fs.readdir(config.mdDir);
+    const postInfo = mdFiles.map(mdFile => getPostInfo(mdFile, false));
+    const postsInfo = await Promise.all(postInfo);
 
-    const postsInfo = [];
+    return _.sortBy(postsInfo, ['date', 'title']).reverse();
+  }
 
-    for (let i = 0; i < mdFiles.length; i++) {
-      getPostInfo(mdFiles[i], false)
-        .then(postInfo => {
-          postsInfo.push(postInfo);
-          if (i === mdFiles.length - 1) {
-            const sortedPostsInfo = _.sortBy(postsInfo, ['date', 'title']).reverse();
-            res.render('template', {
-              head: {
-                title: '',
-                url: '',
-                description: '',
-                fbimg: '',
-                twimg: '',
-                twaccount: '',
-                icon: ''
-              },
-              index: {
-                list: sortedPostsInfo
-              }
-            });
-          }
-        });
-    }
+  sortedPostsInfo().then(sortedPostsInfo => {
+    res.render('template', {
+      head: {
+        title: '',
+        url: '',
+        description: '',
+        fbimg: '',
+        twimg: '',
+        twaccount: '',
+        icon: ''
+      },
+      index: {
+        list: sortedPostsInfo
+      }
+    });
   });
 });
 
@@ -93,28 +91,32 @@ app.get('/:post.html', (req, res) => {
     ext: '.md'
   });
 
-  if (!fs.statSync(config.mdDir + file).isFile()) {
-    res.send('404 NOT FOUND', 404);
-  } else if (fs.statSync(config.mdDir + file).isFile()) {
-    getPostInfo(file, true).then(postInfo => {
-
-      res.render('template', {
-        head: {
-          title: postInfo.title,
-          url: postInfo.url,
-          description: postInfo.description,
-          fbimg: '',
-          twimg: '',
-          twaccount: '',
-          icon: ''
-        },
-        post: {
-          url: postInfo.url,
-          contents: postInfo.html
-        }
-      });
-    });
+  try {
+    fs.statSync(config.mdDir + file);
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      res.status(404).send('Sorry, we cannot find that!');
+    }
   }
+
+  getPostInfo(file, true).then(postInfo => {
+    res.render('template', {
+      head: {
+        title: postInfo.title,
+        url: postInfo.url,
+        description: postInfo.description,
+        fbimg: '',
+        twimg: '',
+        twaccount: '',
+        icon: ''
+      },
+      post: {
+        title: postInfo.title,
+        url: postInfo.url,
+        contents: postInfo.html
+      }
+    });
+  });
 });
 
 if (!module.parent) {
