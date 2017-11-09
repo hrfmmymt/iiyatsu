@@ -94,9 +94,7 @@ app.get('/:post.html', (req, res) => {
   try {
     fs.statSync(config.mdDir + file);
   } catch (err) {
-    if (err.code === 'ENOENT') {
-      res.status(404).send('Sorry, we cannot find that!');
-    }
+    if (err.code === 'ENOENT') res.status(404).send('Sorry, we cannot find that!');
   }
 
   getPostInfo(file, true).then(postInfo => {

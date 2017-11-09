@@ -1,40 +1,51 @@
 <!doctype html>
 <html amp>
   <head>
-    {{#head}}
-      <meta charset="utf-8">
-      <title>{{title}}</title>
-      <link rel="canonical" href="TODO/URL/{{url}}">
-      <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-      <!-- TODO add meta -->
-      <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-      <script async src="https://cdn.ampproject.org/v0.js"></script>
-    {{/head}}
+  {{#head}}
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="canonical" href="TODO/URL/{{url}}">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <!-- TODO add meta -->
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700" rel="stylesheet">
+    <style amp-custom>
+    html,body,div,header,nav,article,ul,li,h1,a,p,time,blockquote {
+      margin: 0;
+      padding: 0;
+    }
+    header,
+    article,
+    nav {
+      width: 80%;
+      margin: 0 auto;
+    }
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+  {{/head}}
   </head>
 
   <body>
     <header>
-      <nav>
-        <h1>
-          <a href="/">archive</a>
-        </h1>
-      </nav>
+      <h1>
+        <a href="/">archive</a>
+      </h1>
     </header>
     {{#post}}
-      <article>
-        {{{contents}}}
-      </article>
+    <article>
+      {{{contents}}}
+    </article>
     {{/post}}
     {{#index}}
-      <nav>
-        <ul>
-          {{#list}}
-            <li>
-              <a href="{{url}}">{{title}}</a>
-            </li>
-          {{/list}}
-        </ul>
-      </nav>
+    <nav>
+      <ul>
+        {{#list}}
+          <li>
+            <a href="{{url}}">{{title}}</a>
+          </li>
+        {{/list}}
+      </ul>
+    </nav>
     {{/index}}
   </body>
 </html>
