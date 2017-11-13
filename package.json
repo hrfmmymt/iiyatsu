@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node iiyatasu.js"
+    "start": "node iiyatasu.js",
+    "build": "workbox-cli generate:sw"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "marked": "^0.3.6",
     "meta-marked": "^0.4.2",
     "mustache": "^2.3.0",
-    "mz": "^2.7.0"
+    "mz": "^2.7.0",
+    "workbox-cli": "^2.1.1"
   }
 }
