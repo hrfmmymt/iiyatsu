@@ -19,8 +19,8 @@ importScripts('workbox-sw.prod.v2.1.1.js');
  */
 const fileManifest = [
   {
-    "url": "iiyatasu.js",
-    "revision": "aff17e6c97c61ab8b01b136053db406a"
+    "url": "install-service-worker.html",
+    "revision": "ca2990b727ec0bf4ccdbb55c09e95ef5"
   },
   {
     "url": "posts/1.md",
@@ -29,6 +29,10 @@ const fileManifest = [
   {
     "url": "posts/2.md",
     "revision": "d20fdcd70217c5cacebf271d6949dce7"
+  },
+  {
+    "url": "server.js",
+    "revision": "aff17e6c97c61ab8b01b136053db406a"
   },
   {
     "url": "static/img/atama.jpg",
