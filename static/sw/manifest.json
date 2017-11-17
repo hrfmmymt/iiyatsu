@@ -3,17 +3,17 @@
   "name": "hrfmmymt's iiyatsu",
   "icons": [
     {
-      "src": "./static/img/atama.jpg",
+      "src": "../img/atama.jpg",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "./static/img/atama.jpg",
+      "src": "../img/atama.jpg",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "./static/img/atama.jpg",
+      "src": "../img/atama.jpg",
       "type": "image/png",
       "sizes": "192x192"
     }
