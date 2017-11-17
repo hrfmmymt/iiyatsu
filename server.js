@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
   }
 
   sortedPostsInfo().then(sortedPostsInfo => {
-    res.render('template', {
+    res.render('index', {
       head: {
         title: '',
         url: '',
@@ -98,7 +98,7 @@ app.get('/:post.html', (req, res) => {
   }
 
   getPostInfo(file, true).then(postInfo => {
-    res.render('template', {
+    res.render('index', {
       head: {
         title: postInfo.title,
         url: postInfo.url,

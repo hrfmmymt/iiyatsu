@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["../img/atama.jpg","dee14b31d24ad2f3a857809d74af0787"]];
+var precacheConfig = [["/","17deb2aaa6f76029b6c5a87675119ed2"],["../img/atama.jpg","dee14b31d24ad2f3a857809d74af0787"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
