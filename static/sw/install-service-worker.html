@@ -4,7 +4,7 @@
     <title>Installing Service Woker</title>
     <script>
       'use strict';
-      const swsource = 'service-worker.js';
+      const swsource = 'sw.js';
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register(swsource)
           .then(function(reg) {
