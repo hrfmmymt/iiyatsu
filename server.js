@@ -85,7 +85,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.get('/:post.html', (req, res) => {
+app.get('/posts/:post.html', (req, res) => {
   const file = path.format({
     name: req.params.post,
     ext: '.md'
@@ -101,7 +101,7 @@ app.get('/:post.html', (req, res) => {
     res.render('index', {
       head: {
         title: postInfo.title,
-        url: postInfo.url,
+        url: 'posts/' + postInfo.url,
         description: postInfo.description,
         fbimg: '',
         twimg: '',
@@ -110,7 +110,7 @@ app.get('/:post.html', (req, res) => {
       },
       post: {
         title: postInfo.title,
-        url: postInfo.url,
+        url: 'posts/' + postInfo.url,
         contents: postInfo.html
       }
     });
