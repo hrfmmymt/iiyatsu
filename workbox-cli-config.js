@@ -9,6 +9,7 @@ module.exports = {
     "node_modules/**/*"
   ],
   "templatedUrls": {
-    '/': ['index.mustache'],
+    '/': ['index.mustache', 'server.js'],
+    '/app-shell': ['index.mustache', 'server.js']
   }
 };

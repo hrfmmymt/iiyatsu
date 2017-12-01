@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "sw-precache --config=sw-precache-config.js"
+    "build": "workbox generate:sw"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "meta-marked": "^0.4.2",
     "mustache": "^2.3.0",
     "mz": "^2.7.0",
-    "sw-precache": "^5.2.0"
+    "sw-precache": "^5.2.0",
+    "workbox-cli": "^2.1.2"
   }
 }

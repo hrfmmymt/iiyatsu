@@ -101,7 +101,7 @@ app.get('/posts/:post.html', (req, res) => {
     res.render('index', {
       head: {
         title: postInfo.title,
-        url: 'posts/' + postInfo.url,
+        url: postInfo.url,
         description: postInfo.description,
         fbimg: '',
         twimg: '',
@@ -110,12 +110,19 @@ app.get('/posts/:post.html', (req, res) => {
       },
       post: {
         title: postInfo.title,
-        url: 'posts/' + postInfo.url,
+        url: postInfo.url,
         contents: postInfo.html
       }
     });
   });
 });
+
+app.get('/app-shell', (req, res, next) => res.render('index', {
+  head: {
+    title: '',
+    url: ''
+  }
+}));
 
 if (!module.parent) {
   app.listen(3000);

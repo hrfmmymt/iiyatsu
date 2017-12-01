@@ -19,16 +19,20 @@ importScripts('workbox-sw.prod.v2.1.2.js');
  */
 const fileManifest = [
   {
-    "url": "../img/atama.jpg",
+    "url": "/img/atama.jpg",
     "revision": "dee14b31d24ad2f3a857809d74af0787"
   },
   {
-    "url": "../sw/install-service-worker.html",
-    "revision": "aa914d7309807b2ff3cdce92f126e4f2"
+    "url": "/sw/install-service-worker.html",
+    "revision": "64bf3c524b108d55af832b4243f8ad31"
   },
   {
     "url": "/",
-    "revision": "7848632d6f4c1fe73b17d032df232c06"
+    "revision": "755346cf1e82621086e89dfcabb3e483"
+  },
+  {
+    "url": "/app-shell",
+    "revision": "755346cf1e82621086e89dfcabb3e483"
   }
 ];
 
