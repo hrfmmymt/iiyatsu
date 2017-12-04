@@ -14,7 +14,8 @@ const mustache = require('mustache');
 const app = express();
 const config = {
   mdDir: path.join(__dirname, '/posts/'),
-  staticDir: path.join(__dirname, '/static/')
+  staticDir: path.join(__dirname, '/static/'),
+  rootDir: path.join(__dirname)
 };
 
 app.engine('mustache', (filePath, options, callback) => {
@@ -29,6 +30,7 @@ app.set('view engine', 'mustache');
 app.set('views', __dirname);
 
 app.use(express.static(config.staticDir));
+app.use(express.static(config.rootDir));
 app.use(helmet());
 
 function getPostInfo(mdName, withHtml) {
@@ -116,13 +118,6 @@ app.get('/posts/:post.html', (req, res) => {
     });
   });
 });
-
-app.get('/app-shell', (req, res, next) => res.render('index', {
-  head: {
-    title: '',
-    url: ''
-  }
-}));
 
 if (!module.parent) {
   app.listen(3000);
