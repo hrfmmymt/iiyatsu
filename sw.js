@@ -42,3 +42,4 @@ const fileManifest = [
 
 const workboxSW = new self.WorkboxSW();
 workboxSW.precache(fileManifest);
+workboxSW.router.registerRoute('**/*.jpg', workboxSW.strategies.cacheFirst({}), 'GET');
