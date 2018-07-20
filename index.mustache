@@ -44,8 +44,9 @@
     {{/index}}
 
     <footer>
-      <address class="copyright">Copyright © <script defer>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script> <a href="https://hrfmmymt.github.io/">hrfmmymt</a>. All Rights Reserved.</address>
+      <address class="copyright">Copyright © <span id="year"></span> <a href="https://hrfmmymt.github.io/">hrfmmymt</a>. All Rights Reserved.</address>
     </footer>
+    <script>document.getElementById('year').innerHTML = new Date().getFullYear()</script> 
 
   </body>
 </html>

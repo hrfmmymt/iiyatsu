@@ -79,7 +79,7 @@ app.get('/', (req, res) => {
       head: {
         title: '',
         url: '',
-        description: '',
+        description: 'the beautiful something',
         fbimg: '',
         twimg: '',
         twaccount: '',
