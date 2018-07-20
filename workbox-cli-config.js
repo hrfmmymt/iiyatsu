@@ -1,12 +1,12 @@
 module.exports = {
   globDirectory: './',
-  globPatterns: [
-    '**/*.{jpg,html,md}'
+  globPatterns: ['**/*.{jpg,html,md}'],
+  runtimeCaching: [
+    {
+      urlPattern: '**/*.jpg',
+      handler: 'cacheFirst'
+    }
   ],
-  runtimeCaching: [{
-    urlPattern: '**/*.jpg',
-    handler: 'cacheFirst'
-  }],
   options: {
     cacheExpiration: {
       maxAgeSeconds: 86400,
@@ -14,11 +14,8 @@ module.exports = {
     }
   },
   swDest: './sw.js',
-  globIgnores: [
-    'workbox-cli-config.js',
-    'node_modules/**/*'
-  ],
+  globIgnores: ['workbox-cli-config.js', 'node_modules/**/*'],
   templatedUrls: {
     '/': ['index.mustache', 'server.js']
   }
-};
+}

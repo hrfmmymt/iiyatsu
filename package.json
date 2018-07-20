@@ -5,23 +5,29 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "workbox generate:sw"
+    "build": "workbox generate:sw",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^2.5.7",
-    "express": "^4.16.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
     "glob": "^7.1.2",
-    "helmet": "^3.9.0",
+    "helmet": "^3.12.1",
     "highlight.js": "^9.12.0",
-    "lodash": "^4.17.4",
-    "marked": "^0.3.6",
+    "marked": "^0.4.0",
     "meta-marked": "^0.4.2",
     "mustache": "^2.3.0",
     "mz": "^2.7.0",
-    "sw-precache": "^5.2.0",
-    "workbox-cli": "^2.1.2"
+    "workbox-cli": "^3.4.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "prettier": "^1.13.7"
   }
 }

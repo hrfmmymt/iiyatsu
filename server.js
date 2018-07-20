@@ -1,72 +1,78 @@
-'use strict';
+'use strict'
 
-const fs = require('mz/fs');
-const path = require('path');
+const fs = require('mz/fs')
+const path = require('path')
 
-const express = require('express');
-const helmet = require('helmet');
+const express = require('express')
+const helmet = require('helmet')
 
-const hljs = require('highlight.js');
-const _ = require('lodash');
-const marked = require('marked');
-const mustache = require('mustache');
+const hljs = require('highlight.js')
+// const _ = require('lodash')
+const marked = require('marked')
+const mustache = require('mustache')
 
-const app = express();
+const app = express()
 const config = {
   mdDir: path.join(__dirname, '/posts/'),
   staticDir: path.join(__dirname, '/static/'),
   rootDir: path.join(__dirname)
-};
+}
 
 app.engine('mustache', (filePath, options, callback) => {
   fs.readFile(filePath, 'utf-8', (err, content) => {
-    if (err) return callback(new Error(err));
+    if (err) return callback(new Error(err))
 
-    const rendered = mustache.render(content, options);
-    return callback(null, rendered);
-  });
-});
-app.set('view engine', 'mustache');
-app.set('views', __dirname);
+    const rendered = mustache.render(content, options)
+    return callback(null, rendered)
+  })
+})
+app.set('view engine', 'mustache')
+app.set('views', __dirname)
 
-app.use(express.static(config.staticDir));
-app.use(express.static(config.rootDir));
-app.use(helmet());
+app.use(express.static(config.staticDir))
+app.use(express.static(config.rootDir))
+app.use(helmet())
 
 function getPostInfo(mdName, withHtml) {
   return new Promise((resolve, reject) => {
     fs.readFile(config.mdDir + mdName, 'utf-8', (err, md) => {
-      if (err) return reject(err);
+      if (err) return reject(err)
 
-      const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n\s]+/);
-      const postDescription = md.match(/\n>(.)+\n/)[0].match(/[^>\n\s]+/);
-      const postDate = md.match(/\d{4}-\d{2}-\d{2}/);
+      const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n\s]+/)
+      const postDescription = md.match(/\n>(.)+\n/)[0].match(/[^>\n\s]+/)
+      const postDate = md.match(/\d{4}-\d{2}-\d{2}/)
 
       marked.setOptions({
         gfm: true,
         highlight(code) {
-          return hljs.highlightAuto(code).value;
+          return hljs.highlightAuto(code).value
         }
-      });
+      })
 
       resolve({
         title: postTitle[0],
         description: postDescription[0],
         date: postDate[0],
-        url: mdName.replace(/.md/g, '.html'),
+        url: mdName.replace(/.md/g, ''),
         html: withHtml ? marked(md) : null
-      });
-    });
-  });
+      })
+    })
+  })
 }
 
 app.get('/', (req, res) => {
   async function sortedPostsInfo() {
-    const mdFiles = await fs.readdir(config.mdDir);
-    const postInfo = mdFiles.map(mdFile => getPostInfo(mdFile, false));
-    const postsInfo = await Promise.all(postInfo);
+    const mdFiles = await fs.readdir(config.mdDir)
+    const postInfo = mdFiles.map(mdFile => getPostInfo(mdFile, false))
+    const postsInfo = await Promise.all(postInfo)
 
-    return _.sortBy(postsInfo, ['date', 'title']).reverse();
+    return postsInfo.sort((a, b) => {
+      if (a.date > b.date) return -1
+      if (a.date < b.date) return 1
+      if (a.title > b.title) return -1
+      if (a.title < b.title) return 1
+      return 0
+    })
   }
 
   sortedPostsInfo().then(sortedPostsInfo => {
@@ -83,20 +89,21 @@ app.get('/', (req, res) => {
       index: {
         list: sortedPostsInfo
       }
-    });
-  });
-});
+    })
+  })
+})
 
-app.get('/posts/:post.html', (req, res) => {
+app.get('/posts/:post', (req, res) => {
   const file = path.format({
     name: req.params.post,
     ext: '.md'
-  });
+  })
 
   try {
-    fs.statSync(config.mdDir + file);
+    fs.statSync(config.mdDir + file)
   } catch (err) {
-    if (err.code === 'ENOENT') res.status(404).send('Sorry, we cannot find that!');
+    if (err.code === 'ENOENT')
+      res.status(404).send('Sorry, we cannot find that!')
   }
 
   getPostInfo(file, true).then(postInfo => {
@@ -115,11 +122,11 @@ app.get('/posts/:post.html', (req, res) => {
         url: postInfo.url,
         contents: postInfo.html
       }
-    });
-  });
-});
+    })
+  })
+})
 
 if (!module.parent) {
-  app.listen(3000);
-  console.log('Express started on http://localhost:3000');
+  app.listen(3000)
+  console.log('Express started on http://localhost:3000')
 }
