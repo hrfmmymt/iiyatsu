@@ -7,7 +7,6 @@ const express = require('express')
 const helmet = require('helmet')
 
 const hljs = require('highlight.js')
-// const _ = require('lodash')
 const marked = require('marked')
 const mustache = require('mustache')
 
