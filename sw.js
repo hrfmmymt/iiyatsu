@@ -1,33 +1,34 @@
-importScripts('workbox-sw.prod.v2.1.2.js');
+/**
+ * Welcome to your Workbox-powered service worker!
+ *
+ * You'll need to register this file in your web app and you should
+ * disable HTTP caching for this file too.
+ * See https://goo.gl/nhQhGp
+ *
+ * The rest of the code is auto-generated. Please don't update this file
+ * directly; instead, make changes to your Workbox build configuration
+ * and re-run your build process.
+ * See https://goo.gl/2aRDsh
+ */
+
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 /**
- * DO NOT EDIT THE FILE MANIFEST ENTRY
- *
- * The method precache() does the following:
- * 1. Cache URLs in the manifest to a local cache.
- * 2. When a network request is made for any of these URLs the response
- *    will ALWAYS comes from the cache, NEVER the network.
- * 3. When the service worker changes ONLY assets with a revision change are
- *    updated, old cache entries are left as is.
- *
- * By changing the file manifest manually, your users may end up not receiving
- * new versions of files because the revision hasn't changed.
- *
- * Please use workbox-build or some other tool / approach to generate the file
- * manifest which accounts for changes to local files and update the revision
- * accordingly.
+ * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+ * requests for URLs in the manifest.
+ * See https://goo.gl/S9QRab
  */
-const fileManifest = [
+self.__precacheManifest = [
   {
     "url": "install-service-worker.html",
     "revision": "705323d3111ee6a78871333109f84e3d"
   },
   {
-    "url": "posts/1.md",
+    "url": "posts/20180720.md",
     "revision": "ae4004ea915aedf83bf4d33b621a94a3"
   },
   {
-    "url": "posts/2.md",
+    "url": "posts/20180721.md",
     "revision": "fdf20384f157c5a3e535d746adf6b823"
   },
   {
@@ -36,10 +37,10 @@ const fileManifest = [
   },
   {
     "url": "/",
-    "revision": "180a6abce221dd6fff1a353ca8ae0a3c"
+    "revision": "e435adb5e04cfd6add5b8240192f0bc0"
   }
-];
+].concat(self.__precacheManifest || []);
+workbox.precaching.suppressWarnings();
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-const workboxSW = new self.WorkboxSW();
-workboxSW.precache(fileManifest);
-workboxSW.router.registerRoute('**/*.jpg', workboxSW.strategies.cacheFirst({}), 'GET');
+workbox.routing.registerRoute("**/*.jpg", workbox.strategies.cacheFirst(), 'GET');

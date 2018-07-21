@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "workbox generate:sw",
+    "build": "workbox generateSW",
     "lint": "eslint ."
   },
   "keywords": [],
