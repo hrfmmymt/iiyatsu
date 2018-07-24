@@ -17,11 +17,25 @@ const config = {
   rootDir: path.join(__dirname)
 }
 
+const loadPartials = dir => {
+  const partials = {}
+
+  fs.readdirSync(dir).map(file => {
+    if (file.match(/\.partial\.mustache$/)) {
+      const name = path.basename(file, '.partial.mustache')
+      partials[name] = fs.readFileSync(path.join(dir, file), {
+        encoding: 'utf-8'
+      })
+    }
+  })
+  return partials
+}
+
 app.engine('mustache', (filePath, options, callback) => {
   fs.readFile(filePath, 'utf-8', (err, content) => {
     if (err) return callback(new Error(err))
 
-    const rendered = mustache.render(content, options)
+    const rendered = mustache.render(content, options, loadPartials('./'))
     return callback(null, rendered)
   })
 })
@@ -101,8 +115,7 @@ app.get('/posts/:post', (req, res) => {
   try {
     fs.statSync(config.mdDir + file)
   } catch (err) {
-    if (err.code === 'ENOENT')
-      res.status(400).render('404.mustache')
+    if (err.code === 'ENOENT') res.status(400).render('404.mustache')
   }
 
   getPostInfo(file, true).then(postInfo => {
