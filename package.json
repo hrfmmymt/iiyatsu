@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "css": "node ./utils/custom-style.js",
     "build": "workbox injectManifest",
     "lint": "eslint ."
   },
@@ -24,10 +25,18 @@
     "workbox-cli": "^3.4.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.0.1",
     "babel-eslint": "^8.2.6",
+    "cssnano": "^4.0.3",
     "eslint": "^5.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
+    "postcss": "^7.0.1",
+    "precss": "^3.1.2",
     "prettier": "^1.13.7"
-  }
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 0.25%"
+  ]
 }
