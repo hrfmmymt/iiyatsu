@@ -61,7 +61,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "faeb86d38c3c826699abaeac675d0fd6"
+    "revision": "00cf79b63f26c682f44a79d2c87d6f95"
   }
 ])
 
@@ -75,7 +75,7 @@ self.addEventListener('install', event => {
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(urls)))
 })
 
-workbox.routing.registerRoute(/\/articles\/(.*)html|(.*)\/$/, args => {
+workbox.routing.registerRoute(/\/posts\/*|(.*)\/$/, args => {
   return workbox.strategies
     .networkFirst()
     .handle(args)

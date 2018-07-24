@@ -48,10 +48,12 @@
     </nav>
     {{/index}}
 
+    {{#footer}}
     <footer>
-      <p class="copyright">Copyright © <span id="year"></span> <a href="https://hrfmmymt.github.io/">hrfmmymt</a>. All Rights Reserved.</p>
+      <p class="copyright">Copyright © {{year}} <a href="https://hrfmmymt.github.io/">hrfmmymt</a>. All Rights Reserved.</p>
     </footer>
-    <script>document.getElementById('year').innerHTML = new Date().getFullYear()</script>
+    {{/footer}}
+
     <amp-install-serviceworker
       src="/sw.js"
       data-iframe-src="/install-serviceworker.html"

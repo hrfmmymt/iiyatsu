@@ -21,21 +21,21 @@ const loadPartials = dir => {
   const partials = {}
 
   fs.readdirSync(dir).map(file => {
-    if (file.match(/\.partial\.mustache$/)) {
-      const name = path.basename(file, '.partial.mustache')
-      partials[name] = fs.readFileSync(path.join(dir, file), {
-        encoding: 'utf-8'
-      })
-    }
+    const name = path.basename(file, '.mustache')
+    partials[name] = fs.readFileSync(path.join(dir, file), {
+      encoding: 'utf-8'
+    })
   })
   return partials
 }
+
+const currentYear =  new Date().getFullYear()
 
 app.engine('mustache', (filePath, options, callback) => {
   fs.readFile(filePath, 'utf-8', (err, content) => {
     if (err) return callback(new Error(err))
 
-    const rendered = mustache.render(content, options, loadPartials('./'))
+    const rendered = mustache.render(content, options, loadPartials('./partials'))
     return callback(null, rendered)
   })
 })
@@ -101,6 +101,9 @@ app.get('/', (req, res) => {
       },
       index: {
         list: sortedPostsInfo
+      },
+      footer: {
+        year: currentYear
       }
     })
   })
