@@ -102,7 +102,7 @@ app.get('/posts/:post', (req, res) => {
     fs.statSync(config.mdDir + file)
   } catch (err) {
     if (err.code === 'ENOENT')
-      res.status(404).send('Sorry, we cannot find that!')
+      res.status(400).render('404.mustache')
   }
 
   getPostInfo(file, true).then(postInfo => {
@@ -123,6 +123,15 @@ app.get('/posts/:post', (req, res) => {
       }
     })
   })
+})
+
+app.use((req, res) => {
+  res.status(400).render('404.mustache')
+})
+
+app.use((err, req, res, next) => {
+  res.status(500)
+  res.end('my 500 error! : ' + err)
 })
 
 if (!module.parent) {
