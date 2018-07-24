@@ -1,12 +1,7 @@
 module.exports = {
   globDirectory: './',
-  globPatterns: ['**/*.{jpg,html,md}'],
-  runtimeCaching: [
-    {
-      urlPattern: '**/*.jpg',
-      handler: 'cacheFirst'
-    }
-  ],
+  globPatterns: ['**/*.{jpg,png,gif,webp,svg,html,md}'],
+  swSrc: './src/sw.js',
   swDest: './sw.js',
   globIgnores: ['workbox-cli-config.js', 'node_modules/**/*'],
   templatedUrls: {
