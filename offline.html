@@ -22,16 +22,17 @@
       justify-content: center;
       align-items: center;
       flex-flow: column;
+      height: 100vh;
     }
 
     h1 {
-      font-size: 36vw;
+      font-size: 16vw;
       text-align: center;
+      text-transform: uppercase;
       line-height: 1;
       font-family: 'Futura', sans-serif;
       font-weight: 700;
       position: absolute;
-      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
       margin: 0;
@@ -44,7 +45,7 @@
     h1::before,
     h1::after {
       display: block;
-      content: '404';
+      content: 'offline';
       position: absolute;
       top: 0;
       left: 0;
@@ -85,39 +86,11 @@
         transform: translate(0)
       }
     }
-
-    .link {
-      position: absolute;
-      bottom: 10%;
-      color: #fff;
-    }
-
-    .wrapper a {
-      color: #fff;
-    }
-
-    .wrapper a:hover {
-      text-decoration: none;
-    }
-
-    h2 {
-      font-weight: 800;
-      text-align: center;
-    }
-
-    h2 a {
-      color: #fff;
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <h1>404</h1>
-    <div class="link">
-      <p>go to <a href="/">toppage</a>.</p>
-      <h2><a href="/">iiyatsu</a></h2>
-    </div>
+    <h1>offline</h1>
   </div>
 </body>
 </html>

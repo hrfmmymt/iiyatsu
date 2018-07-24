@@ -21,7 +21,11 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox
 self.__precacheManifest = [
   {
     "url": "install-service-worker.html",
-    "revision": "705323d3111ee6a78871333109f84e3d"
+    "revision": "7d02b46cb56ca32cd41d5d6622a263ad"
+  },
+  {
+    "url": "offline.html",
+    "revision": "dabdee7fb73e97456092b6dbc650e2db"
   },
   {
     "url": "posts/20180720.md",
@@ -37,7 +41,7 @@ self.__precacheManifest = [
   },
   {
     "url": "/",
-    "revision": "e435adb5e04cfd6add5b8240192f0bc0"
+    "revision": "7859668cb767328e690e8733348603ce"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

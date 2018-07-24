@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Installing Service Woker</title>
-    <script>
-      'use strict';
-      const swsource = '/sw.js';
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(swsource, {scope: './'})
-          .then(function(reg) {
-            console.log('SW scope: ', reg.scope);
-          })
-          .catch(function(err) {
-            console.log('SW registration failed: ', err);
-          });
-      };
-    </script>
-  </head>
-  <body>
-  </body>
+<head>
+  <title>Installing Service Woker</title>
+  <script>
+    'use strict';
+    const swsource = '/sw.js';
+    const OFFLINE_URL = 'offline.html';
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register(swsource, { scope: './' })
+        .then(function (reg) {
+          console.log('SW scope: ', reg.scope);
+        })
+        .catch(function (err) {
+          console.log('SW registration failed: ', err);
+        });
+
+      self.addEventListener('fetch', event => {
+        if (event.request.mode === 'navigate' ||
+          (event.request.method === 'GET' &&
+            event.request.headers.get('accept').includes('text/html'))) {
+          console.log('Handling fetch event for', event.request.url);
+          event.respondWith(
+            fetch(event.request).catch(error => {
+              console.log('Fetch failed; returning offline page instead.', error);
+              return caches.match(OFFLINE_URL);
+            })
+          );
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+</body>
 </html>
