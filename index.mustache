@@ -4,7 +4,7 @@
   {{#head}}
     <meta charset="utf-8">
     <title>iiyatsu - {{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="author" content="hrfmmymt">
     <meta name="description" content="{{description}}">
     <meta name="theme-color" content="#fff">
@@ -24,35 +24,37 @@
   </head>
 
   <body>
-    <header>
-      <h1>
-        <a href="/">iiyatsu</a>
-      </h1>
-    </header>
+    <div class="wrapper">
+      <header>
+        <h1>
+          <a href="/">iiyatsu</a>
+        </h1>
+      </header>
 
-    {{#post}}
-    <article>
-      {{{contents}}}
-    </article>
-    {{/post}}
+      {{#post}}
+      <article>
+        {{{contents}}}
+      </article>
+      {{/post}}
 
-    {{#index}}
-    <nav>
-      <ul>
-        {{#list}}
-        <li>
-          <a href="posts/{{url}}">{{title}}</a>
-        </li>
-        {{/list}}
-      </ul>
-    </nav>
-    {{/index}}
+      {{#index}}
+      <nav>
+        <ul>
+          {{#list}}
+          <li>
+            <a href="posts/{{url}}">{{title}}</a>
+          </li>
+          {{/list}}
+        </ul>
+      </nav>
+      {{/index}}
 
-    {{#footer}}
-    <footer>
-      <p class="copyright">Copyright © {{year}} <a href="https://hrfmmymt.github.io/">hrfmmymt</a>. All Rights Reserved.</p>
-    </footer>
-    {{/footer}}
+      {{#footer}}
+      <footer>
+        <p class="copyright">Copyright © {{year}} <a href="https://hrfmmymt.github.io/">hrfmmymt</a>. All Rights Reserved.</p>
+      </footer>
+      {{/footer}}
+    </div>
 
     <amp-install-serviceworker
       src="/sw.js"
