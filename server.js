@@ -154,7 +154,7 @@ app.use((req, res) => {
   res.status(400).render('404.mustache')
 })
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(500)
   res.end('my 500 error! : ' + err)
 })
