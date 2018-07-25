@@ -2,24 +2,24 @@
 
 const fs = require('mz/fs')
 const path = require('path')
-
 const express = require('express')
 const helmet = require('helmet')
-
 const hljs = require('highlight.js')
 const marked = require('marked')
 const mustache = require('mustache')
 
 const app = express()
+const commonTitle = "iiyatsu - hrfmmymt's weblog"
+const publicURL = 'https://iiyatsu.now.sh/'
 const config = {
   mdDir: path.join(__dirname, '/posts/'),
   staticDir: path.join(__dirname, '/static/'),
-  rootDir: path.join(__dirname)
+  rootDir: path.join(__dirname),
+  ogIcon: `${publicURL}img/icons/icon.png`
 }
 
 const loadPartials = dir => {
   const partials = {}
-
   fs.readdirSync(dir).map(file => {
     const name = path.basename(file, '.mustache')
     partials[name] = fs.readFileSync(path.join(dir, file), {
@@ -30,8 +30,6 @@ const loadPartials = dir => {
 }
 
 const currentYear = new Date().getFullYear()
-
-const commonTitle = "iiyatsu - hrfmmymt's weblog"
 
 app.engine('mustache', (filePath, options, callback) => {
   fs.readFile(filePath, 'utf-8', (err, content) => {
@@ -45,6 +43,7 @@ app.engine('mustache', (filePath, options, callback) => {
     return callback(null, rendered)
   })
 })
+
 app.set('view engine', 'mustache')
 app.set('views', __dirname)
 
@@ -57,8 +56,8 @@ function getPostInfo(mdName, withHtml) {
     fs.readFile(config.mdDir + mdName, 'utf-8', (err, md) => {
       if (err) return reject(err)
 
-      const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n\s]+/)
-      const postDescription = md.match(/\n>(.)+\n/)[0].match(/[^>\n\s]+/)
+      const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n]+/)
+      const postDescription = md.match(/\n>(.)+\n/)[0].match(/[^>\n]+/)
       const postDate = md.match(/\d{4}-\d{2}-\d{2}/)
 
       marked.setOptions({
@@ -98,12 +97,13 @@ app.get('/', (req, res) => {
     res.render('index', {
       head: {
         title: commonTitle,
-        url: '',
-        description: 'the beautiful something',
-        fbimg: '',
-        twimg: '',
-        twaccount: '',
-        icon: ''
+        url: publicURL,
+        description: "hrfmmymt's weblog",
+        ogType: 'website',
+        facebookImg: config.ogIcon,
+        twitterImg: config.ogIcon,
+        twitterAccount: '@hrfmmymt',
+        year: currentYear
       },
       index: {
         list: sortedPostsInfo
@@ -131,12 +131,13 @@ app.get('/posts/:post', (req, res) => {
     res.render('index', {
       head: {
         title: `${postInfo.title} | ${commonTitle}`,
-        url: postInfo.url,
+        url: publicURL + 'posts/' + postInfo.url,
         description: postInfo.description,
-        fbimg: '',
-        twimg: '',
-        twaccount: '',
-        icon: ''
+        ogType: 'article',
+        facebookImg: config.ogIcon,
+        twitterImg: config.ogIcon,
+        twitterAccount: '@hrfmmymt',
+        year: currentYear
       },
       post: {
         title: postInfo.title,
