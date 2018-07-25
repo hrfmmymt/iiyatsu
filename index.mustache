@@ -1,66 +1,19 @@
 <!DOCTYPE html>
 <html amp lang="ja">
   <head>
-  {{#head}}
-    <meta charset="utf-8">
-    <title>iiyatsu - {{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta name="author" content="hrfmmymt">
-    <meta name="description" content="{{description}}">
-    <meta name="theme-color" content="#fff">
-    <link rel="shortcut icon" type="image/x-icon" href="/img/icons/favicon.ico">
-    <link rel="apple-touch-icon" type="image/png" href="/img/icons/icon.png">
-    <link rel="image_src" href="/img/icons/icon.png">
-    <link rel="icon" type="image/png" href="/img/icons/icon.png">
-    <link rel="manifest" href="/sw/manifest.json">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    <style amp-custom>{{> custom-style }}</style>
-    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-  {{/head}}
+  {{> meta}}
   </head>
-
   <body>
     <div class="wrapper">
-      <header>
-        <h1>
-          <a href="/">iiyatsu</a>
-        </h1>
-      </header>
-
-      {{#post}}
-      <article>
-        {{{contents}}}
-      </article>
-      {{/post}}
-
-      {{#index}}
-      <nav>
-        <ul>
-          {{#list}}
-          <li>
-            <a href="posts/{{url}}">{{title}}</a>
-          </li>
-          {{/list}}
-        </ul>
-      </nav>
-      {{/index}}
-
-      {{#footer}}
-      <footer>
-        <p class="copyright">Copyright © {{year}} <a href="https://hrfmmymt.github.io/">hrfmmymt</a>. All Rights Reserved.</p>
-      </footer>
-      {{/footer}}
+      {{> header}}
+      {{> posts}}
+      {{> top}}
+      {{> footer}}
     </div>
-
     <amp-install-serviceworker
       src="/sw.js"
       data-iframe-src="/install-serviceworker.html"
       layout="nodisplay">
     </amp-install-serviceworker>
-
   </body>
 </html>
