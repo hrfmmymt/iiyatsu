@@ -71,6 +71,7 @@ body,
 div,
 footer,
 h1,
+h2,
 header,
 html,
 li,
@@ -88,36 +89,101 @@ html {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  padding: 3%;
-}
-
-.wrapper {
-  display: block;
-  width: 100%;
-  padding: 0 2rem;
 }
 
 article,
 footer,
-header,
-nav {
+header {
   margin: 0 auto;
   line-height: 2;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #db2c17;
+}
+
 header {
-  margin-bottom: 1.2rem;
+  margin: 1rem 0 1.2rem;
+  text-align: center;
+  /* border-bottom: 1px solid #e2e2e2; */
 }
 
 h1 {
+  font-size: 1rem;
   letter-spacing: 0.05rem;
+}
+
+h1 a:visited,
+footer a:visited {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.posts,
+article {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 footer {
   margin-top: 2.4rem;
+  padding: 1rem;
+  font-size: small;
+  text-align: center;
 }
 
-code {
+/* Top page */
+.posts .item {
+  margin: 3rem 0;
+}
+
+.posts .title {
+  margin: 0 0 .4rem;
+}
+
+.posts .meta,
+article time {
+  font-weight: 400;
+  color: #555;
+  word-wrap: break-word;
+}
+
+.post-link:hover {
+  text-decoration: none;
+}
+
+.post-link:hover .title {
+  text-decoration: underline;
+}
+
+.posts .meta time,
+article time {
+  font-size: .8rem;
+}
+
+/* Posts page */
+article h1 {
+  font-size: 2rem;
+}
+
+article h2 {
+  border-bottom: 1px solid;
+}
+
+article code {
   border: 1px solid #ddd;
   background-color: #f4f4f4;
   border-radius: 2px;
@@ -125,7 +191,7 @@ code {
   margin: 1.4em 0;
 }
 
-pre > code {
+article pre > code {
   overflow: auto;
   display: block;
   padding: 0.6em;
@@ -134,15 +200,12 @@ pre > code {
   background-color: #f7f7f7;
 }
 
-blockquote {
+article blockquote {
   padding: 0 1em;
   margin: 1em 0;
-  color: #6a737d;
+  color: #555;
   border-left: 0.25em solid #dfe2e5;
-}
-
-p > time {
-  line-height: 2.4;
+  word-wrap: break-word;
 }
 
 .hljs {
@@ -158,7 +221,7 @@ p > time {
 }
 
 .hljs-comment {
-  color: #888888;
+  color: #888;
 }
 
 .hljs-keyword,
