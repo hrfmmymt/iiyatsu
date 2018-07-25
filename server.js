@@ -29,13 +29,19 @@ const loadPartials = dir => {
   return partials
 }
 
-const currentYear =  new Date().getFullYear()
+const currentYear = new Date().getFullYear()
+
+const commonTitle = "iiyatsu - hrfmmymt's weblog"
 
 app.engine('mustache', (filePath, options, callback) => {
   fs.readFile(filePath, 'utf-8', (err, content) => {
     if (err) return callback(new Error(err))
 
-    const rendered = mustache.render(content, options, loadPartials('./partials'))
+    const rendered = mustache.render(
+      content,
+      options,
+      loadPartials('./partials')
+    )
     return callback(null, rendered)
   })
 })
@@ -91,7 +97,7 @@ app.get('/', (req, res) => {
   sortedPostsInfo().then(sortedPostsInfo => {
     res.render('index', {
       head: {
-        title: '',
+        title: commonTitle,
         url: '',
         description: 'the beautiful something',
         fbimg: '',
@@ -124,7 +130,7 @@ app.get('/posts/:post', (req, res) => {
   getPostInfo(file, true).then(postInfo => {
     res.render('index', {
       head: {
-        title: postInfo.title,
+        title: `${postInfo.title} | ${commonTitle}`,
         url: postInfo.url,
         description: postInfo.description,
         fbimg: '',
@@ -136,6 +142,9 @@ app.get('/posts/:post', (req, res) => {
         title: postInfo.title,
         url: postInfo.url,
         contents: postInfo.html
+      },
+      footer: {
+        year: currentYear
       }
     })
   })
