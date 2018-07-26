@@ -9,19 +9,27 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "offline.html",
-    "revision": "d4ec74979618d4bea178e834c424d492"
+    "revision": "40fe1d2bdd6b3c07526a95efb36d1b98"
+  },
+  {
+    "url": "posts/20180606.md",
+    "revision": "3bbd46d608211331582e3ff2270bc398"
   },
   {
     "url": "posts/20180720.md",
-    "revision": "ae4004ea915aedf83bf4d33b621a94a3"
+    "revision": "e5c0a471430d6703171cdfca50e0a552"
   },
   {
-    "url": "posts/20180721.md",
-    "revision": "fdf20384f157c5a3e535d746adf6b823"
+    "url": "posts/20180725.md",
+    "revision": "73eda8aceace50a12c0bf13209002c96"
   },
   {
-    "url": "static/img/atama.jpg",
-    "revision": "dee14b31d24ad2f3a857809d74af0787"
+    "url": "posts/20180726.md",
+    "revision": "90ea882f3980782939e9b72746636be3"
+  },
+  {
+    "url": "README.md",
+    "revision": "407150ca86782b93a9c586a6688d5c65"
   },
   {
     "url": "static/img/icons/icon-128x128.png",
@@ -60,8 +68,32 @@ workbox.precaching.precacheAndRoute([
     "revision": "b4dc085fd087c943da2206418a26401b"
   },
   {
+    "url": "static/img/posts/20180606-01.jpg",
+    "revision": "ada7de90dbd2137f09050311e84194ee"
+  },
+  {
+    "url": "static/img/posts/20180606-02.jpg",
+    "revision": "f73f84964eeee0ec823d4e84b29fec66"
+  },
+  {
+    "url": "static/img/posts/20180606-03.jpg",
+    "revision": "5acc4a2eaf17399ac2b31deaabd3d985"
+  },
+  {
+    "url": "static/img/posts/20180606-04.jpg",
+    "revision": "470f56a6362fb5e863c813885b03ca78"
+  },
+  {
+    "url": "static/img/posts/20180725.jpg",
+    "revision": "5b92a416979893a1a68d2db8db3ea592"
+  },
+  {
+    "url": "static/img/posts/20180726.jpg",
+    "revision": "dee14b31d24ad2f3a857809d74af0787"
+  },
+  {
     "url": "/",
-    "revision": "00cf79b63f26c682f44a79d2c87d6f95"
+    "revision": "2c3a8ad44de2931821c98047de5ed1f3"
   }
 ])
 

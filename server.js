@@ -6,6 +6,27 @@ const express = require('express')
 const helmet = require('helmet')
 const hljs = require('highlight.js')
 const marked = require('marked')
+const renderer = new marked.Renderer()
+
+const sanitize = str => {
+  return str.replace(/&<"/g, m => {
+    if (m === '&') return '&amp;'
+    if (m === '<') return '&lt;'
+    return '&quot;'
+  })
+}
+
+renderer.image = (src, title, alt) => {
+  const exec = /=\s*(\d*)\s*x\s*(\d*)\s*$/.exec(src)
+  let regExp
+  if (exec && exec[0]) regExp = new RegExp(exec[0], 'g')
+  const mySrc = src.replace(regExp, '')
+  let res = `<amp-img src="${mySrc}" alt="${sanitize(alt)}`
+  if (exec && exec[1]) res += `" width="${exec[1]}`
+  if (exec && exec[2]) res += `" height="${exec[2]}`
+  return `${res}" layout="responsive">`
+}
+
 const mustache = require('mustache')
 
 const app = express()
@@ -72,7 +93,7 @@ function getPostInfo(mdName, withHtml) {
         description: postDescription[0],
         date: postDate[0],
         url: mdName.replace(/.md/g, ''),
-        html: withHtml ? marked(md) : null
+        html: withHtml ? marked(md, { renderer: renderer }) : null
       })
     })
   })
