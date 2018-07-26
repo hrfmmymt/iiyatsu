@@ -16,8 +16,6 @@
   "author": "hrfmmymt",
   "license": "MIT",
   "dependencies": {
-    "firebase-tools": "^4.0.0",
-    "global": "^4.3.2",
     "workbox-cli": "^3.4.1"
   },
   "devDependencies": {

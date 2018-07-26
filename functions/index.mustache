@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html amp lang="ja" prefix="og: http://ogp.me/ns#">
+  <head>
+  {{> meta}}
+  </head>
+  <body>
+    <div class="wrapper">
+      {{> header}}
+      {{> posts}}
+      {{> top}}
+      {{> footer}}
+    </div>
+    <amp-install-serviceworker
+      src="/sw.js"
+      data-iframe-src="/install-serviceworker.html"
+      layout="nodisplay">
+    </amp-install-serviceworker>
+    <amp-analytics type="googleanalytics">
+      <script type="application/json">
+      {
+        "vars": {
+          "account": "UA-122819743-1"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+      </script>
+    </amp-analytics>
+  </body>
+</html>

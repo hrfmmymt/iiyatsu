@@ -1,13 +1,5 @@
 'use strict'
 const functions = require('firebase-functions')
-
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
-
 const fs = require('mz/fs')
 const path = require('path')
 const express = require('express')
@@ -39,12 +31,12 @@ const mustache = require('mustache')
 
 const app = express()
 const commonTitle = "iiyatsu - hrfmmymt's weblog"
-const publicURL = 'https://iiyatsu.now.sh/'
+const publicURL = 'https://iiyatsu-12733.firebaseapp.com/'
 const config = {
   mdDir: path.join(__dirname, '../public/posts/'),
   staticDir: path.join(__dirname, '../public/static/'),
   rootDir: path.join(__dirname, '../public/'),
-  ogIcon: `${publicURL}public/static/img/icons/icon.png`
+  ogIcon: `${publicURL}static/img/icons/icon.png`
 }
 
 const loadPartials = dir => {
@@ -123,7 +115,7 @@ app.get('/', (req, res) => {
   }
 
   sortedPostsInfo().then(sortedPostsInfo => {
-    res.render('../public/index', {
+    res.render('index', {
       head: {
         title: commonTitle,
         url: publicURL,
@@ -153,11 +145,11 @@ app.get('/posts/:post', (req, res) => {
   try {
     fs.statSync(config.mdDir + file)
   } catch (err) {
-    if (err.code === 'ENOENT') res.status(400).render('../public/404.mustache')
+    if (err.code === 'ENOENT') res.status(400).render('404.mustache')
   }
 
   getPostInfo(file, true).then(postInfo => {
-    res.render('../public/index', {
+    res.render('index', {
       head: {
         title: `${postInfo.title} | ${commonTitle}`,
         url: publicURL + 'posts/' + postInfo.url,
@@ -181,7 +173,7 @@ app.get('/posts/:post', (req, res) => {
 })
 
 app.use((req, res) => {
-  res.status(400).render('../public/404.mustache')
+  res.status(400).render('404.mustache')
 })
 
 app.use((err, req, res) => {
