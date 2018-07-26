@@ -1,9 +1,0 @@
-{
-  "name": "iiyatsu",
-  "alias": [
-    "iiyatsu"
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
-}

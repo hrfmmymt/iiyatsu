@@ -4,6 +4,10 @@ importScripts(
 
 workbox.precaching.precacheAndRoute([
   {
+    "url": "404.html",
+    "revision": "0a27a4163254fc8fce870c8cc3a3f94f"
+  },
+  {
     "url": "install-service-worker.html",
     "revision": "404404c2d73ecc89ae89547bd959b761"
   },
@@ -13,7 +17,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180606.md",
-    "revision": "3bbd46d608211331582e3ff2270bc398"
+    "revision": "32cd4f7874c2aced9f19165bcdda2807"
   },
   {
     "url": "posts/20180720.md",
@@ -21,11 +25,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180725.md",
-    "revision": "73eda8aceace50a12c0bf13209002c96"
+    "revision": "a44a321c234a7cfe3a76e43a67046d00"
   },
   {
     "url": "posts/20180726.md",
-    "revision": "90ea882f3980782939e9b72746636be3"
+    "revision": "1d346db12281e63a69b9f18c2a061df4"
   },
   {
     "url": "README.md",
@@ -93,7 +97,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "2c3a8ad44de2931821c98047de5ed1f3"
+    "revision": "422e077c9db1205c9abcc30cf3311119"
   }
 ])
 

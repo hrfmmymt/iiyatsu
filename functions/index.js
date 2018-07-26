@@ -1,4 +1,12 @@
 'use strict'
+const functions = require('firebase-functions')
+
+// // Create and Deploy Your First Cloud Functions
+// // https://firebase.google.com/docs/functions/write-firebase-functions
+//
+// exports.helloWorld = functions.https.onRequest((request, response) => {
+//  response.send("Hello from Firebase!");
+// });
 
 const fs = require('mz/fs')
 const path = require('path')
@@ -33,10 +41,10 @@ const app = express()
 const commonTitle = "iiyatsu - hrfmmymt's weblog"
 const publicURL = 'https://iiyatsu.now.sh/'
 const config = {
-  mdDir: path.join(__dirname, '/posts/'),
-  staticDir: path.join(__dirname, '/static/'),
-  rootDir: path.join(__dirname),
-  ogIcon: `${publicURL}img/icons/icon.png`
+  mdDir: path.join(__dirname, '../posts/'),
+  staticDir: path.join(__dirname, '../static/'),
+  rootDir: path.join(__dirname, '../'),
+  ogIcon: `${publicURL}static/img/icons/icon.png`
 }
 
 const loadPartials = dir => {
@@ -59,7 +67,7 @@ app.engine('mustache', (filePath, options, callback) => {
     const rendered = mustache.render(
       content,
       options,
-      loadPartials('./partials')
+      loadPartials('../partials')
     )
     return callback(null, rendered)
   })
@@ -115,7 +123,7 @@ app.get('/', (req, res) => {
   }
 
   sortedPostsInfo().then(sortedPostsInfo => {
-    res.render('index', {
+    res.render('../index', {
       head: {
         title: commonTitle,
         url: publicURL,
@@ -149,7 +157,7 @@ app.get('/posts/:post', (req, res) => {
   }
 
   getPostInfo(file, true).then(postInfo => {
-    res.render('index', {
+    res.render('../index', {
       head: {
         title: `${postInfo.title} | ${commonTitle}`,
         url: publicURL + 'posts/' + postInfo.url,
@@ -181,7 +189,4 @@ app.use((err, req, res) => {
   res.end('my 500 error! : ' + err)
 })
 
-if (!module.parent) {
-  app.listen(3000)
-  console.log('Express started on http://localhost:3000')
-}
+exports.app = functions.https.onRequest(app)
