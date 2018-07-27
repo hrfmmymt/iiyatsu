@@ -100,7 +100,7 @@ header {
 }
 
 a {
-  color: inherit;
+  color: #db2c17;
   text-decoration: none;
 }
 
@@ -109,7 +109,7 @@ a:hover {
 }
 
 a:visited {
-  color: #db2c17;
+  color: inherit;
 }
 
 header {
