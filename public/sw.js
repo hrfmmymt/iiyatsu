@@ -21,11 +21,15 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180725.md",
-    "revision": "a44a321c234a7cfe3a76e43a67046d00"
+    "revision": "b7bf2d0df22f92148038834893756989"
   },
   {
     "url": "posts/20180726.md",
     "revision": "1d346db12281e63a69b9f18c2a061df4"
+  },
+  {
+    "url": "posts/20180727.md",
+    "revision": "b7bf2d0df22f92148038834893756989"
   },
   {
     "url": "static/img/icons/icon-128x128.png",

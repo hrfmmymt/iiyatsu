@@ -194,6 +194,14 @@ article p {
   word-wrap: break-word;
 }
 
+article a {
+  text-decoration: underline;
+}
+
+article a:hover {
+  text-decoration: none;
+}
+
 article code {
   border: 1px solid #ddd;
   background-color: #f4f4f4;
