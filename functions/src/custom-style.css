@@ -136,7 +136,7 @@ ul {
 article {
   max-width: 32rem;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 .5rem;
 }
 
 footer {
@@ -191,6 +191,7 @@ article h3 {
 
 article p {
   margin: 1rem 0;
+  word-wrap: break-word;
 }
 
 article code {
