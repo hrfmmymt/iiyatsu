@@ -33,9 +33,9 @@ const app = express()
 const commonTitle = "iiyatsu - hrfmmymt's weblog"
 const publicURL = 'https://iiyatsu-12733.firebaseapp.com/'
 const config = {
-  mdDir: path.join(__dirname, '../public/posts/'),
-  staticDir: path.join(__dirname, '../public/static/'),
-  rootDir: path.join(__dirname, '../public/'),
+  mdDir: path.join(__dirname, 'posts/'),
+  staticDir: path.join(__dirname, 'static/'),
+  rootDir: path.join(__dirname),
   ogIcon: `${publicURL}static/img/icons/icon.png`
 }
 
@@ -59,7 +59,7 @@ app.engine('mustache', (filePath, options, callback) => {
     const rendered = mustache.render(
       content,
       options,
-      loadPartials('../public/partials')
+      loadPartials('./partials')
     )
     return callback(null, rendered)
   })
