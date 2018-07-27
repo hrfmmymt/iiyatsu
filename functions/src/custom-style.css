@@ -219,6 +219,10 @@ article blockquote {
   word-wrap: break-word;
 }
 
+article .social {
+  margin-top: 3rem;
+}
+
 .hljs {
   display: block;
   overflow-x: auto;
