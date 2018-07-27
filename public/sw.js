@@ -21,7 +21,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180725.md",
-    "revision": "b7bf2d0df22f92148038834893756989"
+    "revision": "aca80c9f196b10c99be41e96d4fbdb9c"
   },
   {
     "url": "posts/20180726.md",
@@ -29,7 +29,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180727.md",
-    "revision": "b7bf2d0df22f92148038834893756989"
+    "revision": "7563801b36905f13a458baf2f2de76ea"
   },
   {
     "url": "static/img/icons/icon-128x128.png",
@@ -68,6 +68,10 @@ workbox.precaching.precacheAndRoute([
     "revision": "b4dc085fd087c943da2206418a26401b"
   },
   {
+    "url": "static/img/posts/_20180725.jpg",
+    "revision": "5b92a416979893a1a68d2db8db3ea592"
+  },
+  {
     "url": "static/img/posts/20180606-01.jpg",
     "revision": "ada7de90dbd2137f09050311e84194ee"
   },
@@ -82,10 +86,6 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "static/img/posts/20180606-04.jpg",
     "revision": "470f56a6362fb5e863c813885b03ca78"
-  },
-  {
-    "url": "static/img/posts/20180725.jpg",
-    "revision": "5b92a416979893a1a68d2db8db3ea592"
   },
   {
     "url": "static/img/posts/20180726.jpg",

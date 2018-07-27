@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "serve": "firebase serve -p 4444 --only hosting,functions",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "img": "node ./utils/img-opt.js"
   },
   "author": "hrfmmymt",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "jimp": "^0.2.28"
+  }
 }
