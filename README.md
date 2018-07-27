@@ -1,3 +1,2 @@
 # iiyatsu
-a hrfmmymt's weblog.  
-https://iiyatsu.now.sh/
+a hrfmmymt's weblog.
