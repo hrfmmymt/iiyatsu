@@ -31,7 +31,7 @@ const mustache = require('mustache')
 
 const app = express()
 const commonTitle = "iiyatsu - hrfmmymt's weblog"
-const publicURL = 'https://iiyatsu-12733.firebaseapp.com/'
+const publicURL = 'https://iiyatsu.hrfmmymt.com/'
 const config = {
   mdDir: path.join(__dirname, 'posts/'),
   staticDir: path.join(__dirname, 'static/'),
