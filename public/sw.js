@@ -16,12 +16,36 @@ workbox.precaching.precacheAndRoute([
     "revision": "32cd4f7874c2aced9f19165bcdda2807"
   },
   {
+    "url": "posts/20180607.md",
+    "revision": "4e835eb17eaf35b75375f3147312bde3"
+  },
+  {
+    "url": "posts/20180609.md",
+    "revision": "48d8ac08f258a21c1e74958cf40e9c8b"
+  },
+  {
+    "url": "posts/20180610.md",
+    "revision": "55010f336377320b11d0d5f6b97ed400"
+  },
+  {
+    "url": "posts/20180614.md",
+    "revision": "899110b5d6a7b0619dd68c475b9761b6"
+  },
+  {
+    "url": "posts/20180621.md",
+    "revision": "24cedaf45c68e2aaacb86c853c7101a1"
+  },
+  {
+    "url": "posts/20180623.md",
+    "revision": "08a960e93aef6d234cffdc575fed86ab"
+  },
+  {
     "url": "posts/20180720.md",
     "revision": "e5c0a471430d6703171cdfca50e0a552"
   },
   {
     "url": "posts/20180725.md",
-    "revision": "aca80c9f196b10c99be41e96d4fbdb9c"
+    "revision": "b36c1101d195780117a0c17d9fbf3008"
   },
   {
     "url": "posts/20180726.md",
@@ -32,64 +56,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "7563801b36905f13a458baf2f2de76ea"
   },
   {
-    "url": "static/img/icons/icon-128x128.png",
-    "revision": "318514a48dd7b2c8e62a9e1fdfec20f7"
-  },
-  {
-    "url": "static/img/icons/icon-144x144.png",
-    "revision": "cb43b9f0cd0fa2475e13c0f3c4daa344"
-  },
-  {
-    "url": "static/img/icons/icon-152x152.png",
-    "revision": "6fe2c4020e59a0c9f9816410ca716b72"
-  },
-  {
-    "url": "static/img/icons/icon-192x192.png",
-    "revision": "6ddfe5f83bc3dc1fc140f38d8edab71e"
-  },
-  {
-    "url": "static/img/icons/icon-384x384.png",
-    "revision": "5bef84b606049b64f14208f4c145439e"
-  },
-  {
-    "url": "static/img/icons/icon-512x512.png",
-    "revision": "0002e6fd843ba5257b39ed44300343a2"
-  },
-  {
-    "url": "static/img/icons/icon-72x72.png",
-    "revision": "d11e3cdcd45c5d9569216a2b1cd0b54c"
-  },
-  {
-    "url": "static/img/icons/icon-96x96.png",
-    "revision": "4c5b9333309df642c77072116d70825c"
-  },
-  {
-    "url": "static/img/icons/icon.png",
-    "revision": "b4dc085fd087c943da2206418a26401b"
-  },
-  {
-    "url": "static/img/posts/_20180725.jpg",
-    "revision": "5b92a416979893a1a68d2db8db3ea592"
-  },
-  {
-    "url": "static/img/posts/20180606-01.jpg",
-    "revision": "ada7de90dbd2137f09050311e84194ee"
-  },
-  {
-    "url": "static/img/posts/20180606-02.jpg",
-    "revision": "f73f84964eeee0ec823d4e84b29fec66"
-  },
-  {
-    "url": "static/img/posts/20180606-03.jpg",
-    "revision": "5acc4a2eaf17399ac2b31deaabd3d985"
-  },
-  {
-    "url": "static/img/posts/20180606-04.jpg",
-    "revision": "470f56a6362fb5e863c813885b03ca78"
-  },
-  {
-    "url": "static/img/posts/20180726.jpg",
-    "revision": "dee14b31d24ad2f3a857809d74af0787"
+    "url": "posts/20180728.md",
+    "revision": "37783369f31ed3fa99eca0cc9fe11f2a"
   },
   {
     "url": "/",
