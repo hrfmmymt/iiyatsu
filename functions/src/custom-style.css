@@ -115,7 +115,6 @@ a:visited {
 header {
   margin: 1rem 0 1.2rem;
   text-align: center;
-  /* border-bottom: 1px solid #e2e2e2; */
 }
 
 h1 {
@@ -123,6 +122,8 @@ h1 {
   letter-spacing: 0.05rem;
 }
 
+h1 a,
+footer a,
 h1 a:visited,
 footer a:visited {
   color: inherit;
@@ -136,7 +137,7 @@ ul {
 article {
   max-width: 32rem;
   margin: 0 auto;
-  padding: 0 .5rem;
+  padding: 0 1rem;
 }
 
 footer {
