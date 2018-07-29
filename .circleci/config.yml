@@ -19,10 +19,6 @@ jobs:
 
       - run: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc
 
-      - run:
-          name: Deploy dependencies
-          command: yarn global add firebase-tools@4.0.0
-
       - run: yarn install
 
       - save_cache:
