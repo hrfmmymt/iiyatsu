@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/img/icons/favicon.ico" rel="shortcut icon">
+  <title>offline | iiyatsu - hrfmmymt&#39;s blog</title>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      width: 100%;
+      background-color: #000;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 16vw;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1;
+      font-family: 'Futura', sans-serif;
+      font-weight: 700;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      text-decoration: none;
+      color: #fff;
+      letter-spacing: 1rem;
+      cursor: default;
+    }
+
+    h1::before,
+    h1::after {
+      display: block;
+      content: 'offline';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: .8;
+    }
+
+    h1::before {
+      color: #0ff;
+      z-index: -1;
+      animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    }
+
+    h1::after {
+      color: #f0f;
+      z-index: -2;
+      animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        transform: translate(0)
+      }
+      20% {
+        transform: translate(-5px, 5px)
+      }
+      40% {
+        transform: translate(-5px, -5px)
+      }
+      60% {
+        transform: translate(5px, 5px)
+      }
+      80% {
+        transform: translate(5px, -5px)
+      }
+      to {
+        transform: translate(0)
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>offline</h1>
+  </div>
+</body>
+</html>
