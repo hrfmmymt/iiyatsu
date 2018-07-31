@@ -27,6 +27,20 @@ renderer.image = (src, title, alt) => {
   return `${res}" layout="responsive">`
 }
 
+renderer.em = text => {
+  const postDate = /^date:(\d{4}-\d{2}-\d{2})/.exec(text)
+  const postDescription = /^desc&gt;\s.*/.exec(text)
+  if (postDate) {
+    const dateStr = text.substr(postDate + 1).replace('date:', '')
+    return `<time datetime="${dateStr}">${dateStr}</time>`
+  }
+  if (postDescription) {
+    const descStr = text.substr(postDescription + 1).replace('desc&gt; ', '')
+    return `<em class="description">${descStr}</em>`
+  }
+  return `<em>${text.replace('\\/', '/')}</em>`
+}
+
 const mustache = require('mustache')
 
 const app = express()
@@ -78,8 +92,10 @@ function getPostInfo(mdName, withHtml) {
       if (err) return reject(err)
 
       const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n]+/)
-      const postDescription = md.match(/\n>(.)+\n/)[0].match(/[^>\n]+/)
-      const postDate = md.match(/\d{4}-\d{2}-\d{2}/)
+      const postDescription = /\n\*desc>\s((?:(?!\*\n)[^\s　])+)/g.exec(
+        md.match(/\n\*desc>\s(.)+\n/)[0]
+      )
+      const postDate = /\*date\:((?:(?!\*)[^\s　])+)/g.exec(md)
 
       marked.setOptions({
         gfm: true,
@@ -90,8 +106,8 @@ function getPostInfo(mdName, withHtml) {
 
       resolve({
         title: postTitle[0],
-        description: postDescription[0],
-        date: postDate[0],
+        description: postDescription[1],
+        date: postDate[1],
         url: mdName.replace(/.md/g, ''),
         html: withHtml ? marked(md, { renderer: renderer }) : null
       })

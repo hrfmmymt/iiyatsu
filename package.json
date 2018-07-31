@@ -6,8 +6,10 @@
   "scripts": {
     "serve": "firebase serve -p 4444 --only hosting,functions",
     "deploy": "firebase deploy",
+    "test": "npm-run-all -p textlint eslint",
     "img": "node ./utils/img-opt.js",
-    "test": "eslint functions"
+    "textlint": "textlint ./functions/posts/*",
+    "eslint": "eslint functions"
   },
   "author": "hrfmmymt",
   "license": "MIT",
@@ -20,12 +22,19 @@
     "firebase-functions": "^2.0.1",
     "firebase-tools": "^4.0.0",
     "glob": "^7.1.2",
-    "jimp": "^0.2.28",
     "helmet": "^3.12.1",
     "highlight.js": "^9.12.0",
+    "jimp": "^0.2.28",
     "marked": "^0.4.0",
     "meta-marked": "^0.4.2",
     "mustache": "^2.3.0",
-    "mz": "^2.7.0"
+    "mz": "^2.7.0",
+    "npm-run-all": "^4.1.3",
+    "textlint": "^11.0.0",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-filter-rule-whitelist": "^2.0.0",
+    "textlint-rule-max-ten": "^2.0.3",
+    "textlint-rule-no-mix-dearu-desumasu": "^3.0.3",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0"
   }
 }

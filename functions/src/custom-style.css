@@ -91,7 +91,8 @@ footer {
 }
 
 .posts .meta,
-article time {
+article time,
+article .description {
   font-weight: 400;
   color: #555;
   word-wrap: break-word;
@@ -165,6 +166,10 @@ article blockquote {
   color: #555;
   border-left: 0.25em solid #dfe2e5;
   word-wrap: break-word;
+}
+
+article .description {
+  font-size: .9rem;
 }
 
 article .social {
