@@ -168,6 +168,10 @@ article blockquote {
   word-wrap: break-word;
 }
 
+article ul {
+  margin: 1rem 0;
+}
+
 article .description {
   font-size: .9rem;
 }
