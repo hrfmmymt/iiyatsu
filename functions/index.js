@@ -142,6 +142,7 @@ app.get('/', (req, res) => {
         twitterAccount: '@hrfmmymt',
         year: currentYear
       },
+      profile: true,
       index: {
         list: sortedPostsInfo
       },
