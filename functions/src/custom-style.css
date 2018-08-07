@@ -1,3 +1,4 @@
+/* common initial settings */
 a,
 article,
 blockquote,
@@ -68,6 +69,7 @@ ul {
 }
 
 .posts,
+.profile > *,
 article {
   max-width: 32rem;
   margin: 0 auto;
@@ -82,6 +84,49 @@ footer {
 }
 
 /* Top page */
+
+/* profile */
+.profile {
+  padding: 3rem 0;
+}
+
+.profile-img-wrapper {
+  float: right;
+}
+
+.profile h2 {
+  margin-bottom: 2rem;
+}
+
+.profile ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: .9rem;
+  line-height: 2.4;
+}
+
+.profile li {
+  margin-right: 1rem;
+}
+
+.profile a {
+  text-decoration: underline;
+}
+
+.profile a:hover {
+  text-decoration: none;
+}
+
+.profile amp-img {
+  padding: 0;
+  border-radius: 50%;
+}
+
+/* posts list */
+.posts {
+  border-top: 1px solid #ddd;
+}
+
 .posts .item {
   margin: 3rem 0;
 }
@@ -257,4 +302,24 @@ article .social {
 
 .hljs-strong {
   font-weight: bold;
+}
+
+/* for mobile */
+@media (max-width: 414px) {
+  .profile {
+    padding: 0 0 1rem;
+  }
+
+  .profile-img-wrapper {
+    float: none;
+  }
+
+  .profile amp-img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+
+  .profile h2 {
+    margin: 1rem 0;
+  }
 }
