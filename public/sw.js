@@ -60,6 +60,10 @@ workbox.precaching.precacheAndRoute([
     "revision": "ca8e0fa503fa39e97915e8e24f4f07d9"
   },
   {
+    "url": "posts/20180808.md",
+    "revision": "69b1f7f7f1e3495fb127734d56c6f285"
+  },
+  {
     "url": "/",
     "revision": "9bb4685da34ad2553eb085625ecfdeb5"
   }
@@ -89,7 +93,7 @@ workbox.routing.registerRoute(/\/posts\/*|(.*)\/$/, args => {
 
 workbox.routing.registerRoute(
   /\.(?:js|css|png|gif|jpg|svg)$/,
-  workbox.strategies.cacheFirst()
+  workbox.strategies.networkFirst()
 )
 
 workbox.routing.registerRoute(
