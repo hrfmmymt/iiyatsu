@@ -5,11 +5,13 @@
     "node": "8"
   },
   "scripts": {
+    "tslint": "tslint --project tsconfig.json",
+    "tsc": "tsc",
     "css": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css",
     "css-w": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css -w",
     "sw": "workbox injectManifest",
-    "build": "npm-run-all -s css sw",
-    "lint": "eslint ."
+    "build": "npm-run-all -s tsc css sw",
+    "eslint": "eslint ."
   },
   "dependencies": {
     "firebase-admin": "^5.13.1",
