@@ -91,9 +91,9 @@ app.engine('mustache', (filePath, options, callback) => {
 app.set('view engine', 'mustache');
 app.set('views', __dirname);
 app.use(express.static(config.staticDir));
-app.use(express.static(config.rootDir));
+// app.use(express.static(config.rootDir))
 app.use(helmet());
-function getPostInfo(fileName, parseMd) {
+const getPostInfo = (fileName, parseMd) => {
     return new Promise((resolve, reject) => {
         fs.readFile(config.mdDir + fileName, 'utf-8', (err, md) => {
             if (err)
@@ -116,27 +116,27 @@ function getPostInfo(fileName, parseMd) {
             });
         });
     });
+};
+function sortPostsList(parseMd) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const files = yield fs.readdir(config.mdDir);
+        const posts = files.map(file => getPostInfo(file, parseMd));
+        const postsList = yield Promise.all(posts);
+        return postsList.sort((a, b) => {
+            if (a.date > b.date)
+                return -1;
+            if (a.date < b.date)
+                return 1;
+            if (a.title > b.title)
+                return -1;
+            if (a.title < b.title)
+                return 1;
+            return 0;
+        });
+    });
 }
 app.get('/', (req, res) => {
-    function sortedPostsInfo() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const files = yield fs.readdir(config.mdDir);
-            const postInfo = files.map(file => getPostInfo(file, false));
-            const postsInfo = yield Promise.all(postInfo);
-            return postsInfo.sort((a, b) => {
-                if (a.date > b.date)
-                    return -1;
-                if (a.date < b.date)
-                    return 1;
-                if (a.title > b.title)
-                    return -1;
-                if (a.title < b.title)
-                    return 1;
-                return 0;
-            });
-        });
-    }
-    sortedPostsInfo().then(sortedPostsInfo => {
+    sortPostsList(false).then(sortPostsList => {
         res.render('index', {
             head: {
                 title: commonTitle,
@@ -150,7 +150,7 @@ app.get('/', (req, res) => {
             },
             profile: true,
             index: {
-                list: sortedPostsInfo
+                list: sortPostsList
             },
             footer: {
                 year: currentYear
@@ -174,7 +174,7 @@ app.get('/posts/:post', (req, res) => {
         res.render('index', {
             head: {
                 title: `${postInfo.title} | ${commonTitle}`,
-                url: publicURL + 'posts/' + postInfo.url,
+                url: `${publicURL}posts/${postInfo.url}`,
                 description: postInfo.description,
                 ogType: 'article',
                 facebookImg: config.ogIcon,
@@ -191,6 +191,11 @@ app.get('/posts/:post', (req, res) => {
                 year: currentYear
             }
         });
+    });
+});
+app.get('/api', (req, res) => {
+    sortPostsList(true).then(sortPostsList => {
+        res.json(sortPostsList);
     });
 });
 app.use((req, res) => {

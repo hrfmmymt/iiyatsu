@@ -9,6 +9,10 @@
       {
         "source": "/posts/*",
         "function": "app"
+      },
+      {
+        "source": "/api",
+        "function": "app"
       }
     ],
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]

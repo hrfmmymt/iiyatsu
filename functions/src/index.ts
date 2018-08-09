@@ -94,10 +94,10 @@ app.set('view engine', 'mustache')
 app.set('views', __dirname)
 
 app.use(express.static(config.staticDir))
-app.use(express.static(config.rootDir))
+// app.use(express.static(config.rootDir))
 app.use(helmet())
 
-function getPostInfo(fileName, parseMd) {
+const getPostInfo = (fileName, parseMd) => {
   return new Promise((resolve, reject) => {
     fs.readFile(config.mdDir + fileName, 'utf-8', (err, md) => {
       if (err) return reject(err)
@@ -126,22 +126,22 @@ function getPostInfo(fileName, parseMd) {
   })
 }
 
+async function sortPostsList(parseMd) {
+  const files = await fs.readdir(config.mdDir)
+  const posts = files.map(file => getPostInfo(file, parseMd))
+  const postsList = await Promise.all(posts)
+
+  return postsList.sort((a: any, b: any) => {
+    if (a.date > b.date) return -1
+    if (a.date < b.date) return 1
+    if (a.title > b.title) return -1
+    if (a.title < b.title) return 1
+    return 0
+  })
+}
+
 app.get('/', (req, res) => {
-  async function sortedPostsInfo() {
-    const files = await fs.readdir(config.mdDir)
-    const postInfo = files.map(file => getPostInfo(file, false))
-    const postsInfo = await Promise.all(postInfo)
-
-    return postsInfo.sort((a: any, b: any) => {
-      if (a.date > b.date) return -1
-      if (a.date < b.date) return 1
-      if (a.title > b.title) return -1
-      if (a.title < b.title) return 1
-      return 0
-    })
-  }
-
-  sortedPostsInfo().then(sortedPostsInfo => {
+  sortPostsList(false).then(sortPostsList => {
     res.render('index', {
       head: {
         title: commonTitle,
@@ -155,7 +155,7 @@ app.get('/', (req, res) => {
       },
       profile: true,
       index: {
-        list: sortedPostsInfo
+        list: sortPostsList
       },
       footer: {
         year: currentYear
@@ -180,7 +180,7 @@ app.get('/posts/:post', (req, res) => {
     res.render('index', {
       head: {
         title: `${postInfo.title} | ${commonTitle}`,
-        url: publicURL + 'posts/' + postInfo.url,
+        url: `${publicURL}posts/${postInfo.url}`,
         description: postInfo.description,
         ogType: 'article',
         facebookImg: config.ogIcon,
@@ -197,6 +197,12 @@ app.get('/posts/:post', (req, res) => {
         year: currentYear
       }
     })
+  })
+})
+
+app.get('/api', (req, res) => {
+  sortPostsList(true).then(sortPostsList => {
+    res.json(sortPostsList)
   })
 })
 
