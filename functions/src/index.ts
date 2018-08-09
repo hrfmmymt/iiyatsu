@@ -21,6 +21,18 @@ renderer.image = (src, title, alt) => {
   let regExp
   if (exec && exec[0]) regExp = new RegExp(exec[0], 'g')
   const mySrc = src.replace(regExp, '')
+
+  if (alt === 'embed-youtube')
+    return `<amp-youtube data-videoid="${mySrc}" layout="responsive" width="480" height="270"></amp-youtube>`
+  if (alt === 'embed-twitter')
+    return `<amp-twitter width="375" height="472" layout="responsive" data-tweetid="${mySrc}"></amp-twitter>`
+  if (alt === 'embed-gist')
+    return `<amp-gist data-gistid="${mySrc}" layout="fixed-height" height="225"></amp-gist>`
+  if (alt === 'embed-soundcloud')
+    return `<amp-soundcloud height=657 layout="fixed-height" data-trackid="${mySrc}" data-visual="true"></amp-soundcloud>`
+  if (alt === 'embed-instagram')
+    return `<amp-instagram data-shortcode="${mySrc}" data-captioned width="400" height="400" layout="responsive"></amp-instagram>`
+
   let res = `<amp-img src="${mySrc}" alt="${sanitize(alt)}`
   if (exec && exec[1]) res += `" width="${exec[1]}`
   if (exec && exec[2]) res += `" height="${exec[2]}`
@@ -85,9 +97,9 @@ app.use(express.static(config.staticDir))
 app.use(express.static(config.rootDir))
 app.use(helmet())
 
-function getPostInfo(mdName, withHtml) {
+function getPostInfo(fileName, parseMd) {
   return new Promise((resolve, reject) => {
-    fs.readFile(config.mdDir + mdName, 'utf-8', (err, md) => {
+    fs.readFile(config.mdDir + fileName, 'utf-8', (err, md) => {
       if (err) return reject(err)
 
       const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n]+/)
@@ -107,8 +119,8 @@ function getPostInfo(mdName, withHtml) {
         title: postTitle[0],
         description: postDescription[1],
         date: postDate[1],
-        url: mdName.replace(/.md/g, ''),
-        html: withHtml ? marked(md, { renderer: renderer }) : null
+        url: fileName.replace(/.md/g, ''),
+        html: parseMd ? marked(md, { renderer: renderer }) : null
       })
     })
   })
@@ -116,8 +128,8 @@ function getPostInfo(mdName, withHtml) {
 
 app.get('/', (req, res) => {
   async function sortedPostsInfo() {
-    const mdFiles = await fs.readdir(config.mdDir)
-    const postInfo = mdFiles.map(mdFile => getPostInfo(mdFile, false))
+    const files = await fs.readdir(config.mdDir)
+    const postInfo = files.map(file => getPostInfo(file, false))
     const postsInfo = await Promise.all(postInfo)
 
     return postsInfo.sort((a: any, b: any) => {

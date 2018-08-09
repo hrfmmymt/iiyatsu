@@ -7,6 +7,7 @@
   "scripts": {
     "tslint": "tslint --project tsconfig.json",
     "tsc": "tsc",
+    "tsc-w": "tsc --watch",
     "css": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css",
     "css-w": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css -w",
     "sw": "workbox injectManifest",
