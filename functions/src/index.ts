@@ -77,6 +77,85 @@ const loadPartials = dir => {
 
 const currentYear = new Date().getFullYear()
 
+const ORIGIN_REGEX = new RegExp(
+  '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
+)
+
+const SOURCE_ORIGIN_REGEX = new RegExp(
+  '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
+)
+
+function getUrlPrefix(req) {
+  return req.protocol + '://' + req.headers.host
+}
+
+function enableCors(req, res, origin, opt_exposeHeaders) {
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+  res.setHeader('Access-Control-Allow-Origin', origin)
+  res.setHeader(
+    'Access-Control-Expose-Headers',
+    ['AMP-Access-Control-Allow-Source-Origin']
+      .concat(opt_exposeHeaders || [])
+      .join(', ')
+  )
+  if (req.query.__amp_source_origin) {
+    res.setHeader(
+      'AMP-Access-Control-Allow-Source-Origin',
+      req.query.__amp_source_origin
+    )
+  }
+}
+
+function assertCors(
+  req,
+  res,
+  opt_validMethods,
+  opt_exposeHeaders,
+  opt_ignoreMissingSourceOrigin
+) {
+  // Allow disable CORS check (iframe fixtures have origin 'about:srcdoc').
+  // if (req.query.cors === 0) return
+
+  const validMethods = opt_validMethods || ['GET', 'POST', 'OPTIONS']
+  const invalidMethod = req.method + ' method is not allowed. Use POST.'
+  const invalidOrigin = 'Origin header is invalid.'
+  const invalidSourceOrigin = '__amp_source_origin parameter is invalid.'
+  const unauthorized = 'Unauthorized Request'
+  let origin
+
+  if (validMethods.indexOf(req.method) === -1) {
+    res.statusCode = 405
+    res.end(JSON.stringify({ message: invalidMethod }))
+    throw invalidMethod
+  }
+
+  if (req.headers.origin) {
+    origin = req.headers.origin
+    if (!ORIGIN_REGEX.test(req.headers.origin)) {
+      res.statusCode = 500
+      res.end(JSON.stringify({ message: invalidOrigin }))
+      throw invalidOrigin
+    }
+
+    if (
+      !opt_ignoreMissingSourceOrigin &&
+      !SOURCE_ORIGIN_REGEX.test(req.query.__amp_source_origin)
+    ) {
+      res.statusCode = 500
+      res.end(JSON.stringify({ message: invalidSourceOrigin }))
+      throw invalidSourceOrigin
+    }
+  } else if (req.headers['amp-same-origin']) {
+    origin = getUrlPrefix(req)
+  } else {
+    res.statusCode = 401
+    res.end(JSON.stringify({ message: unauthorized }))
+    throw unauthorized
+  }
+
+  enableCors(req, res, origin, opt_exposeHeaders)
+}
+
 app.engine('mustache', (filePath, options, callback) => {
   fs.readFile(filePath, 'utf-8', (err, content) => {
     if (err) return callback(new Error(err))
@@ -201,6 +280,7 @@ app.get('/posts/:post', (req, res) => {
 })
 
 app.get('/api', (req, res) => {
+  assertCors(req, res, ['GET'], undefined, true)
   sortPostsList(true).then(sortPostsList => {
     res.json(sortPostsList)
   })
