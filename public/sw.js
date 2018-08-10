@@ -9,7 +9,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "offline.html",
-    "revision": "40fe1d2bdd6b3c07526a95efb36d1b98"
+    "revision": "0e2aa9f15c4d952556ea4072bb91de85"
   },
   {
     "url": "posts/20180606.md",
@@ -40,12 +40,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "fd880d231658fea078747ad5c5ac23d2"
   },
   {
-    "url": "posts/20180720.md",
-    "revision": "59f766fe55155904f8f64de0ee2a6d5e"
-  },
-  {
     "url": "posts/20180725.md",
-    "revision": "d295c94e5b5778e002c119bc808d749c"
+    "revision": "dbbdb2f64909dbe26305c0c50d76a435"
   },
   {
     "url": "posts/20180726.md",
@@ -57,7 +53,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180730.md",
-    "revision": "ca8e0fa503fa39e97915e8e24f4f07d9"
+    "revision": "c604aa51ecaa586e889d11f47dc0d05b"
   },
   {
     "url": "posts/20180808.md",
