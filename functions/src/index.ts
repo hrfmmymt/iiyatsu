@@ -18,25 +18,35 @@ const sanitize = str => {
 
 renderer.image = (src, title, alt) => {
   const exec = /=\s*(\d*)\s*x\s*(\d*)\s*$/.exec(src)
-  let regExp
-  if (exec && exec[0]) regExp = new RegExp(exec[0], 'g')
+  const regExp = (exec && exec[0]) ? new RegExp(exec[0], 'g') : null
   const mySrc = src.replace(regExp, '')
 
-  if (alt === 'embed-youtube')
+  if (alt === 'embed-youtube') {
     return `<amp-youtube data-videoid="${mySrc}" layout="responsive" width="480" height="270"></amp-youtube>`
-  if (alt === 'embed-twitter')
+  } else if (alt === 'embed-twitter') {
     return `<amp-twitter width="375" height="472" layout="responsive" data-tweetid="${mySrc}"></amp-twitter>`
-  if (alt === 'embed-gist')
+  } else if (alt === 'embed-gist') {
     return `<amp-gist data-gistid="${mySrc}" layout="fixed-height" height="225"></amp-gist>`
-  if (alt === 'embed-soundcloud')
+  } else if (alt === 'embed-soundcloud') {
     return `<amp-soundcloud height=657 layout="fixed-height" data-trackid="${mySrc}" data-visual="true"></amp-soundcloud>`
-  if (alt === 'embed-instagram')
+  } else if (alt === 'embed-instagram') {
     return `<amp-instagram data-shortcode="${mySrc}" data-captioned width="400" height="400" layout="responsive"></amp-instagram>`
+  } else {
+    const srcExec = mySrc.match(/(.*)(?:\.([^.]+$))/)[1]
+    const fileName = srcExec.replace('/static/img/posts/', '')
+    const webpSrc = `/static/img/posts/webp/${fileName}.webp`
 
-  let res = `<amp-img src="${mySrc}" alt="${sanitize(alt)}`
-  if (exec && exec[1]) res += `" width="${exec[1]}`
-  if (exec && exec[2]) res += `" height="${exec[2]}`
-  return `${res}" layout="responsive">`
+    const width = exec && exec[1] ? exec[1] : 0
+    const height = exec && exec[2] ? exec[2] : 0
+
+    const fallback = `<amp-img src="${mySrc}" width="${width}" height="${height}" alt="${sanitize(
+      alt
+    )}" fallback layout="responsive"></amp-img>`
+
+    return `<amp-img src="${webpSrc}" width="${width}" height="${height}" alt="${sanitize(
+      alt
+    )}" layout="responsive">${fallback}</amp-img>`
+  }
 }
 
 renderer.em = text => {
