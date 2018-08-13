@@ -28,7 +28,7 @@ workbox.routing.registerRoute(/\/posts\/*|(.*)\/$/, args => {
 
 workbox.routing.registerRoute(
   /\.(?:js|css|png|gif|jpg|svg)$/,
-  workbox.strategies.networkFirst()
+  workbox.strategies.cacheFirst()
 )
 
 workbox.routing.registerRoute(
