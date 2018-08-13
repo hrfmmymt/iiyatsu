@@ -32,8 +32,8 @@ jobs:
     <<: *container_config
     steps:
       - run:
-        name: Deploy Master to Firebase
-        command: ./node_modules/.bin/firebase deploy --token=1/rWIR6YYdCmhBHeAzLbDoOWYjnzDyFIw7sVd_4czBoIQD7IHTYaV7ROPeqYAffSju
+          name: Deploy Master to Firebase
+          command: ./node_modules/.bin/firebase deploy --token=1/rWIR6YYdCmhBHeAzLbDoOWYjnzDyFIw7sVd_4czBoIQD7IHTYaV7ROPeqYAffSju
 
 workflows:
   version: 2
