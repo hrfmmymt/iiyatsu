@@ -64,6 +64,10 @@ workbox.precaching.precacheAndRoute([
     "revision": "1d3ca60d3a92f5e413e334967e16b43f"
   },
   {
+    "url": "posts/md-amp-img-webp.md",
+    "revision": "d7d591f594e0b0ac8bb3d06a9ab1c1fa"
+  },
+  {
     "url": "/",
     "revision": "9bb4685da34ad2553eb085625ecfdeb5"
   }
