@@ -160,7 +160,7 @@ const getPostInfo = fileName => {
                 }
             });
             resolve({
-                title: postTitle[0],
+                title: postTitle[0].trim(),
                 description: postDescription[1],
                 date: postDate[1],
                 url: fileName.replace(/.md/g, ''),
