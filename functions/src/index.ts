@@ -183,7 +183,6 @@ app.set('view engine', 'mustache')
 app.set('views', __dirname)
 
 app.use(express.static(config.staticDir))
-// app.use(express.static(config.rootDir))
 app.use(helmet())
 
 const getPostInfo = (fileName, parseMd) => {
