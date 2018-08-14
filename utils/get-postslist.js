@@ -45,7 +45,7 @@ async function sortPostsList() {
     return 0
   })
   fs.writeFile(
-    './functions/src/post-list.json',
+    './functions/src/posts-list.json',
     JSON.stringify(list, null, '  ')
   )
 }

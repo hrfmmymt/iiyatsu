@@ -18,7 +18,7 @@ const sanitize = str => {
 
 renderer.image = (src, title, alt) => {
   const exec = /=\s*(\d*)\s*x\s*(\d*)\s*$/.exec(src)
-  const regExp = (exec && exec[0]) ? new RegExp(exec[0], 'g') : null
+  const regExp = exec && exec[0] ? new RegExp(exec[0], 'g') : null
   const mySrc = src.replace(regExp, '')
 
   if (alt === 'embed-youtube') {
@@ -69,6 +69,9 @@ const commonTitle = "iiyatsu - hrfmmymt's weblog"
 const publicURL = 'https://iiyatsu.hrfmmymt.com/'
 const config = {
   mdDir: path.join(__dirname, 'posts/'),
+  postsList: JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'src/posts-list.json'), 'utf8')
+  ),
   staticDir: path.join(__dirname, 'static/'),
   rootDir: path.join(__dirname),
   ogIcon: `${publicURL}static/img/icons/icon.png`
@@ -86,14 +89,6 @@ const loadPartials = dir => {
 }
 
 const currentYear = new Date().getFullYear()
-
-const ORIGIN_REGEX = new RegExp(
-  '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
-)
-
-const SOURCE_ORIGIN_REGEX = new RegExp(
-  '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
-)
 
 function getUrlPrefix(req) {
   return req.protocol + '://' + req.headers.host
@@ -125,6 +120,14 @@ function assertCors(
 ) {
   // Allow disable CORS check (iframe fixtures have origin 'about:srcdoc').
   // if (req.query.cors === 0) return
+
+  const ORIGIN_REGEX = new RegExp(
+    '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
+  )
+
+  const SOURCE_ORIGIN_REGEX = new RegExp(
+    '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
+  )
 
   const validMethods = opt_validMethods || ['GET', 'POST', 'OPTIONS']
   const invalidMethod = req.method + ' method is not allowed. Use POST.'
@@ -158,6 +161,7 @@ function assertCors(
   } else if (req.headers['amp-same-origin']) {
     origin = getUrlPrefix(req)
   } else {
+    console.log('req', req)
     res.statusCode = 401
     res.end(JSON.stringify({ message: unauthorized }))
     throw unauthorized
@@ -185,7 +189,7 @@ app.set('views', __dirname)
 app.use(express.static(config.staticDir))
 app.use(helmet())
 
-const getPostInfo = (fileName, parseMd) => {
+const getPostInfo = fileName => {
   return new Promise((resolve, reject) => {
     fs.readFile(config.mdDir + fileName, 'utf-8', (err, md) => {
       if (err) return reject(err)
@@ -208,15 +212,15 @@ const getPostInfo = (fileName, parseMd) => {
         description: postDescription[1],
         date: postDate[1],
         url: fileName.replace(/.md/g, ''),
-        html: parseMd ? marked(md, { renderer: renderer }) : null
+        html: marked(md, { renderer: renderer })
       })
     })
   })
 }
 
-async function sortPostsList(parseMd) {
+async function sortPostsList() {
   const files = await fs.readdir(config.mdDir)
-  const posts = files.map(file => getPostInfo(file, parseMd))
+  const posts = files.map(file => getPostInfo(file))
   const postsList = await Promise.all(posts)
 
   return postsList.sort((a: any, b: any) => {
@@ -229,26 +233,24 @@ async function sortPostsList(parseMd) {
 }
 
 app.get('/', (req, res) => {
-  sortPostsList(false).then(sortPostsList => {
-    res.render('index', {
-      head: {
-        title: commonTitle,
-        url: publicURL,
-        description: "hrfmmymt's weblog",
-        ogType: 'website',
-        facebookImg: config.ogIcon,
-        twitterImg: config.ogIcon,
-        twitterAccount: '@hrfmmymt',
-        year: currentYear
-      },
-      profile: true,
-      index: {
-        list: sortPostsList
-      },
-      footer: {
-        year: currentYear
-      }
-    })
+  res.render('index', {
+    head: {
+      title: commonTitle,
+      url: publicURL,
+      description: "hrfmmymt's weblog",
+      ogType: 'website',
+      facebookImg: config.ogIcon,
+      twitterImg: config.ogIcon,
+      twitterAccount: '@hrfmmymt',
+      year: currentYear
+    },
+    profile: true,
+    index: {
+      list: config.postsList
+    },
+    footer: {
+      year: currentYear
+    }
   })
 })
 
@@ -264,7 +266,7 @@ app.get('/posts/:post', (req, res) => {
     if (err.code === 'ENOENT') res.status(400).render('404.mustache')
   }
 
-  getPostInfo(file, true).then((postInfo: any) => {
+  getPostInfo(file).then((postInfo: any) => {
     res.render('index', {
       head: {
         title: `${postInfo.title} | ${commonTitle}`,
@@ -290,9 +292,7 @@ app.get('/posts/:post', (req, res) => {
 
 app.get('/api', (req, res) => {
   assertCors(req, res, ['GET'], undefined, true)
-  sortPostsList(true).then(sortPostsList => {
-    res.json(sortPostsList)
-  })
+  res.json(config.postsList)
 })
 
 app.use((req, res) => {

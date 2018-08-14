@@ -26,7 +26,7 @@ const sanitize = str => {
 };
 renderer.image = (src, title, alt) => {
     const exec = /=\s*(\d*)\s*x\s*(\d*)\s*$/.exec(src);
-    const regExp = (exec && exec[0]) ? new RegExp(exec[0], 'g') : null;
+    const regExp = exec && exec[0] ? new RegExp(exec[0], 'g') : null;
     const mySrc = src.replace(regExp, '');
     if (alt === 'embed-youtube') {
         return `<amp-youtube data-videoid="${mySrc}" layout="responsive" width="480" height="270"></amp-youtube>`;
@@ -71,6 +71,7 @@ const commonTitle = "iiyatsu - hrfmmymt's weblog";
 const publicURL = 'https://iiyatsu.hrfmmymt.com/';
 const config = {
     mdDir: path.join(__dirname, 'posts/'),
+    postsList: JSON.parse(fs.readFileSync(path.join(__dirname, 'src/posts-list.json'), 'utf8')),
     staticDir: path.join(__dirname, 'static/'),
     rootDir: path.join(__dirname),
     ogIcon: `${publicURL}static/img/icons/icon.png`
@@ -86,8 +87,6 @@ const loadPartials = dir => {
     return partials;
 };
 const currentYear = new Date().getFullYear();
-const ORIGIN_REGEX = new RegExp('^http://localhost:9000|' + '^https?://hrfmmymt.github.io');
-const SOURCE_ORIGIN_REGEX = new RegExp('^http://localhost:9000|' + '^https?://hrfmmymt.github.io');
 function getUrlPrefix(req) {
     return req.protocol + '://' + req.headers.host;
 }
@@ -104,6 +103,8 @@ function enableCors(req, res, origin, opt_exposeHeaders) {
 function assertCors(req, res, opt_validMethods, opt_exposeHeaders, opt_ignoreMissingSourceOrigin) {
     // Allow disable CORS check (iframe fixtures have origin 'about:srcdoc').
     // if (req.query.cors === 0) return
+    const ORIGIN_REGEX = new RegExp('^http://localhost:9000|' + '^https?://hrfmmymt.github.io');
+    const SOURCE_ORIGIN_REGEX = new RegExp('^http://localhost:9000|' + '^https?://hrfmmymt.github.io');
     const validMethods = opt_validMethods || ['GET', 'POST', 'OPTIONS'];
     const invalidMethod = req.method + ' method is not allowed. Use POST.';
     const invalidOrigin = 'Origin header is invalid.';
@@ -133,6 +134,7 @@ function assertCors(req, res, opt_validMethods, opt_exposeHeaders, opt_ignoreMis
         origin = getUrlPrefix(req);
     }
     else {
+        console.log('req', req);
         res.statusCode = 401;
         res.end(JSON.stringify({ message: unauthorized }));
         throw unauthorized;
@@ -150,9 +152,8 @@ app.engine('mustache', (filePath, options, callback) => {
 app.set('view engine', 'mustache');
 app.set('views', __dirname);
 app.use(express.static(config.staticDir));
-// app.use(express.static(config.rootDir))
 app.use(helmet());
-const getPostInfo = (fileName, parseMd) => {
+const getPostInfo = fileName => {
     return new Promise((resolve, reject) => {
         fs.readFile(config.mdDir + fileName, 'utf-8', (err, md) => {
             if (err)
@@ -171,15 +172,15 @@ const getPostInfo = (fileName, parseMd) => {
                 description: postDescription[1],
                 date: postDate[1],
                 url: fileName.replace(/.md/g, ''),
-                html: parseMd ? marked(md, { renderer: renderer }) : null
+                html: marked(md, { renderer: renderer })
             });
         });
     });
 };
-function sortPostsList(parseMd) {
+function sortPostsList() {
     return __awaiter(this, void 0, void 0, function* () {
         const files = yield fs.readdir(config.mdDir);
-        const posts = files.map(file => getPostInfo(file, parseMd));
+        const posts = files.map(file => getPostInfo(file));
         const postsList = yield Promise.all(posts);
         return postsList.sort((a, b) => {
             if (a.date > b.date)
@@ -195,26 +196,24 @@ function sortPostsList(parseMd) {
     });
 }
 app.get('/', (req, res) => {
-    sortPostsList(false).then(sortPostsList => {
-        res.render('index', {
-            head: {
-                title: commonTitle,
-                url: publicURL,
-                description: "hrfmmymt's weblog",
-                ogType: 'website',
-                facebookImg: config.ogIcon,
-                twitterImg: config.ogIcon,
-                twitterAccount: '@hrfmmymt',
-                year: currentYear
-            },
-            profile: true,
-            index: {
-                list: sortPostsList
-            },
-            footer: {
-                year: currentYear
-            }
-        });
+    res.render('index', {
+        head: {
+            title: commonTitle,
+            url: publicURL,
+            description: "hrfmmymt's weblog",
+            ogType: 'website',
+            facebookImg: config.ogIcon,
+            twitterImg: config.ogIcon,
+            twitterAccount: '@hrfmmymt',
+            year: currentYear
+        },
+        profile: true,
+        index: {
+            list: config.postsList
+        },
+        footer: {
+            year: currentYear
+        }
     });
 });
 app.get('/posts/:post', (req, res) => {
@@ -229,7 +228,7 @@ app.get('/posts/:post', (req, res) => {
         if (err.code === 'ENOENT')
             res.status(400).render('404.mustache');
     }
-    getPostInfo(file, true).then((postInfo) => {
+    getPostInfo(file).then((postInfo) => {
         res.render('index', {
             head: {
                 title: `${postInfo.title} | ${commonTitle}`,
@@ -254,9 +253,7 @@ app.get('/posts/:post', (req, res) => {
 });
 app.get('/api', (req, res) => {
     assertCors(req, res, ['GET'], undefined, true);
-    sortPostsList(true).then(sortPostsList => {
-        res.json(sortPostsList);
-    });
+    res.json(config.postsList);
 });
 app.use((req, res) => {
     res.status(400).render('404.mustache');
