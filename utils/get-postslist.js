@@ -10,7 +10,7 @@ const getPostInfo = fileName => {
     fs.readFile(mdDir + fileName, 'utf-8', (err, md) => {
       if (err) return reject(err)
 
-      const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n]+/)
+      const postTitle = md.match(/^#\s.+\n/)[0].match(/[^#\n]+/)
       const postDescription = /\n\*desc>\s((?:(?!\*\n)[^\s　])+)/g.exec(
         md.match(/\n\*desc>\s(.)+\n/)[0]
       )
@@ -24,7 +24,7 @@ const getPostInfo = fileName => {
       })
 
       resolve({
-        title: postTitle[0],
+        title: postTitle[0].trim(),
         description: postDescription[1],
         date: postDate[1],
         url: fileName.replace(/.md/g, '')
