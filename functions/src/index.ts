@@ -218,20 +218,6 @@ const getPostInfo = fileName => {
   })
 }
 
-async function sortPostsList() {
-  const files = await fs.readdir(config.mdDir)
-  const posts = files.map(file => getPostInfo(file))
-  const postsList = await Promise.all(posts)
-
-  return postsList.sort((a: any, b: any) => {
-    if (a.date > b.date) return -1
-    if (a.date < b.date) return 1
-    if (a.title > b.title) return -1
-    if (a.title < b.title) return 1
-    return 0
-  })
-}
-
 app.get('/', (req, res) => {
   res.render('index', {
     head: {
