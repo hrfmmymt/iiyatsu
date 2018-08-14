@@ -3,6 +3,7 @@ const path = require('path')
 const marked = require('marked')
 
 const mdDir = path.join(__dirname, '../functions/posts/')
+const dist = path.join(__dirname, '../functions/src/')
 
 const getPostInfo = fileName => {
   return new Promise((resolve, reject) => {
@@ -45,7 +46,7 @@ async function sortPostsList() {
     return 0
   })
   fs.writeFile(
-    './functions/src/posts-list.json',
+    `${dist}posts-list.json`,
     JSON.stringify(list, null, '  ')
   )
 }

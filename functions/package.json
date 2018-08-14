@@ -11,7 +11,8 @@
     "css": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css",
     "css-w": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css -w",
     "sw": "workbox injectManifest",
-    "build": "npm-run-all -s tsc css sw",
+    "get-postslist": "node ../utils/get-postslist.js",
+    "build": "npm-run-all -s tsc css sw get-postslist",
     "eslint": "eslint ."
   },
   "dependencies": {
