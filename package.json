@@ -9,7 +9,7 @@
     "fb-deploy": "firebase deploy",
     "test": "npm-run-all -p textlint eslint",
     "img": "node ./utils/img-opt.js",
-    "pre-post": "node ./utils/get-postslist.js",
+    "get-postslist": "node ./utils/get-postslist.js",
     "textlint": "textlint ./functions/posts/*",
     "eslint": "eslint functions"
   },
