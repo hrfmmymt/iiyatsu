@@ -69,7 +69,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "4fc9a4845bef8abf4a392380bd821717"
+    "revision": "9bb4685da34ad2553eb085625ecfdeb5"
   }
 ])
 
@@ -83,6 +83,26 @@ self.addEventListener('install', event => {
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(urls)))
 })
 
+// web push notification
+self.addEventListener('push', event => {
+  console.log('[Service Worker] Push Received.')
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`)
+
+  const title = 'お知らせ'
+  const options = {
+    body: 'Yay it works.',
+    icon: 'https://iiyatsu.hrfmmymt.com/static/img/icon.png'
+  }
+
+  event.waitUntil(self.registration.showNotification(title, options))
+})
+
+self.addEventListener('notificationclick', event => {
+  console.log('[Service Worker] Notification click Received.')
+  event.notification.close()
+  event.waitUntil(clients.openWindow('https://hrfmmymt.com'))
+})
+π
 workbox.routing.registerRoute(/\/posts\/*|(.*)\/$/, args => {
   return workbox.strategies
     .networkFirst()
