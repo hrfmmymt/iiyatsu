@@ -69,7 +69,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "56daf98c77def3cf0395e9820c39bea8"
+    "revision": "f5f4ad6dd102e455e8f853f7de8c9166"
   }
 ])
 
@@ -82,6 +82,27 @@ self.addEventListener('install', event => {
   const cacheName = workbox.core.cacheNames.runtime
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(urls)))
 })
+
+// web push notification
+self.addEventListener('push', event => {
+  console.log('[Service Worker] Push Received.')
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`)
+
+  const title = 'お知らせ'
+  const options = {
+    body: 'Yay it works.',
+    icon: 'https://iiyatsu.hrfmmymt.com/static/img/icon.png'
+  }
+
+  event.waitUntil(self.registration.showNotification(title, options))
+})
+
+self.addEventListener('notificationclick', function (event) {
+  console.log('[Service Worker] Notification click Received.')
+  event.notification.close()
+  event.waitUntil(clients.openWindow('https://hrfmmymt.com'))
+})
+
 
 workbox.routing.registerRoute(/\/posts\/*|(.*)\/$/, args => {
   return workbox.strategies
@@ -104,18 +125,3 @@ workbox.routing.registerRoute(
   /(.*)cdn\.ampproject\.org(.*)/,
   workbox.strategies.staleWhileRevalidate()
 )
-
-// web push notification
-self.addEventListener('push', event => {
-  event.waitUntil(
-    self.registration.showNotification('お知らせ', {
-      body: event.data.text(),
-      icon: 'https://iiyatsu.hrfmmymt.com/static/img/icon.png'
-    })
-  )
-})
-
-self.addEventListener('notificationclick', event => {
-  clients.openWindow('https://hrfmmymt.com')
-  event.notification.close()
-})
