@@ -69,7 +69,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "9bb4685da34ad2553eb085625ecfdeb5"
+    "revision": "56daf98c77def3cf0395e9820c39bea8"
   }
 ])
 
@@ -104,3 +104,18 @@ workbox.routing.registerRoute(
   /(.*)cdn\.ampproject\.org(.*)/,
   workbox.strategies.staleWhileRevalidate()
 )
+
+// web push notification
+self.addEventListener('push', event => {
+  event.waitUntil(
+    self.registration.showNotification('お知らせ', {
+      body: event.data.text(),
+      icon: 'https://iiyatsu.hrfmmymt.com/static/img/icon.png'
+    })
+  )
+})
+
+self.addEventListener('notificationclick', event => {
+  clients.openWindow('https://hrfmmymt.com')
+  event.notification.close()
+})
