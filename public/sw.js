@@ -69,7 +69,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "f5f4ad6dd102e455e8f853f7de8c9166"
+    "revision": "3bb8b76953e9c1f65c64b4006cb74e13"
   }
 ])
 
@@ -77,7 +77,8 @@ self.addEventListener('install', event => {
   const urls = [
     'https://cdn.ampproject.org/v0.js',
     'https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js',
-    'https://cdn.ampproject.org/shadow-v0.js'
+    'https://cdn.ampproject.org/shadow-v0.js',
+    'https://cdn.ampproject.org/v0/amp-web-push-0.1.js'
   ]
   const cacheName = workbox.core.cacheNames.runtime
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(urls)))
