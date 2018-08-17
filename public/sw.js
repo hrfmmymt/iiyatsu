@@ -69,7 +69,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "9bb4685da34ad2553eb085625ecfdeb5"
+    "revision": "f5f4ad6dd102e455e8f853f7de8c9166"
   }
 ])
 
@@ -102,7 +102,7 @@ self.addEventListener('notificationclick', event => {
   event.notification.close()
   event.waitUntil(clients.openWindow('https://hrfmmymt.com'))
 })
-π
+
 workbox.routing.registerRoute(/\/posts\/*|(.*)\/$/, args => {
   return workbox.strategies
     .networkFirst()

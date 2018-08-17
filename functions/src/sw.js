@@ -33,7 +33,7 @@ self.addEventListener('notificationclick', event => {
   event.notification.close()
   event.waitUntil(clients.openWindow('https://hrfmmymt.com'))
 })
-π
+
 workbox.routing.registerRoute(/\/posts\/*|(.*)\/$/, args => {
   return workbox.strategies
     .networkFirst()
