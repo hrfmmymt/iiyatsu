@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "firebase serve -p 4444 --only hosting,functions",
-    "deploy": "npm-run-all -s pre-post fb-deploy",
+    "deploy": "npm-run-all -s get-postslist fb-deploy",
     "fb-deploy": "firebase deploy",
     "test": "npm-run-all -p textlint eslint",
     "img": "node ./utils/img-opt.js",
