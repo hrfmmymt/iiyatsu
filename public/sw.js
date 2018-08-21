@@ -68,6 +68,10 @@ workbox.precaching.precacheAndRoute([
     "revision": "d7d591f594e0b0ac8bb3d06a9ab1c1fa"
   },
   {
+    "url": "posts/trip-to-hkd.md",
+    "revision": "02f36bf49ece421383a045c2e0933252"
+  },
+  {
     "url": "/",
     "revision": "f5f4ad6dd102e455e8f853f7de8c9166"
   }
