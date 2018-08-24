@@ -4,7 +4,7 @@
 
 *desc> 今日のやつ*
 
-## 行程
+## サマソニ行程
 1. 七尾旅人
 1. Nulbarich
 1. Zion.T
@@ -16,7 +16,7 @@
 Beck の直前で [@yoshi_haya](https://twitter.com/yoshi_haya) と合流しました。  
 フルで見れたのは Higher Brothers 、Chance The Rapper 、Beck だけか。
 
-## 気持ち
+## サマソニ気持ち
 - 今思えば Cosmo Pyke 見れた… ([TIMETABLE - SUMMER SONIC 2018](https://summer-sonic-e4f01.firebaseapp.com/))
 - Higher Brothers キレッキレでかっこよかった
 - チャノ（あえてこう書いてる）とベックは順番逆で派
