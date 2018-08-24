@@ -68,12 +68,16 @@ workbox.precaching.precacheAndRoute([
     "revision": "d7d591f594e0b0ac8bb3d06a9ab1c1fa"
   },
   {
+    "url": "posts/summersonic2018.md",
+    "revision": "c16802316271d24a6fd0a00e21c70594"
+  },
+  {
     "url": "posts/trip-to-hkd.md",
-    "revision": "02f36bf49ece421383a045c2e0933252"
+    "revision": "684945ce5285ae9facdf201584e22109"
   },
   {
     "url": "/",
-    "revision": "f5f4ad6dd102e455e8f853f7de8c9166"
+    "revision": "9bb4685da34ad2553eb085625ecfdeb5"
   }
 ])
 
