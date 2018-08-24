@@ -29,7 +29,7 @@ Beck の直前で [@yoshi_haya](https://twitter.com/yoshi_haya) と合流しま�
 翌日は Billboard Live TOKYO でカマシ・ワシントンのライブでした。
 
 ライブの前に 21_21 DESIGN SIGHT で「[AUDIO ARCHITECTURE：音のアーキテクチャ展](http://www.2121designsight.jp/program/audio_architecture/)」に行きました。  
-場所が分からなくて、東京ミッドタウンの案内の方に「にいいちにいいちデザインサイト…」と発したところで「トゥーワン・トゥーワン・デザインサイトですね。」と言って場所を教えてくれたのが印象深いです。  
+場所が分からなくて、東京ミッドタウンの案内の方に「にいいちにいいちデザインサイト…」と発したところで「トゥーワン・トゥーワン・デザインサイトですね」と言って場所を教えてくれたのが印象深いです。  
 展の中を覗いてから、コーネリアスの AUDIO ARCHITECTURE の7インチを購入しました。15秒までなら動画撮影可とのことだったのでちょこちょこ撮ってました。
 
 <amp-twitter width="375" height="472" layout="responsive" data-tweetid="1031457713815871495">
