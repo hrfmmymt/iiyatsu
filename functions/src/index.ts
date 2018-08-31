@@ -31,6 +31,8 @@ renderer.image = (src, title, alt) => {
     return `<amp-soundcloud height=657 layout="fixed-height" data-trackid="${mySrc}" data-visual="true"></amp-soundcloud>`
   } else if (alt === 'embed-instagram') {
     return `<amp-instagram data-shortcode="${mySrc}" data-captioned width="400" height="400" layout="responsive"></amp-instagram>`
+  } else if (alt === 'iiyatsu-vid') {
+    return `<span>${mySrc}</span>`
   } else {
     const srcExec = mySrc.match(/(.*)(?:\.([^.]+$))/)[1]
     const fileName = srcExec.replace('/static/img/posts/', '')
