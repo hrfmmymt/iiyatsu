@@ -41,11 +41,11 @@ renderer.image = (src, title, alt) => {
         const webmSrc = `/static/videos/webm/${fileName}.webm`;
         const width = exec && exec[1] ? exec[1] : 0;
         const height = exec && exec[2] ? exec[2] : 0;
-        const mp4 = `<source src="${mySrc}" type="video/mp4" />`;
+        const mp4Src = `<source src="${mySrc}" type="video/mp4" />`;
         return `<div class="amp-video-wrapper">
       <amp-video controls width="${width}" height="${height}" layout="responsive" title="${sanitize(alt)}">
         <source src="${webmSrc}" type="video/webm" />
-        ${mp4}
+        ${mp4Src}
         <div fallback>This browser does not support the video element.</div>
       </amp-video>
     </div>`;
