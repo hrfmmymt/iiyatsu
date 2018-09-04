@@ -42,7 +42,7 @@ renderer.image = (src, title, alt) => {
     const mp4Src = `<source src="${mySrc}" type="video/mp4" />`
 
     return `<div class="amp-video-wrapper">
-      <amp-video controls width="${width}" height="${height}" layout="responsive" title="${sanitize(alt)}">
+      <amp-video controls preload="metadata" width="${width}" height="${height}" layout="responsive" title="${sanitize(alt)}">
         <source src="${webmSrc}" type="video/webm" />
         ${mp4Src}
         <div fallback>This browser does not support the video element.</div>
