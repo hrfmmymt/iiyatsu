@@ -31,6 +31,23 @@ renderer.image = (src, title, alt) => {
     return `<amp-soundcloud height=657 layout="fixed-height" data-trackid="${mySrc}" data-visual="true"></amp-soundcloud>`
   } else if (alt === 'embed-instagram') {
     return `<amp-instagram data-shortcode="${mySrc}" data-captioned width="400" height="400" layout="responsive"></amp-instagram>`
+  } else if (alt.indexOf('video-') === 0) {
+    const srcExec = mySrc.match(/(.*)(?:\.([^.]+$))/)[1]
+    const fileName = srcExec.replace('/static/videos/', '')
+    const webmSrc = `/static/videos/webm/${fileName}.webm`
+
+    const width = exec && exec[1] ? exec[1] : 0
+    const height = exec && exec[2] ? exec[2] : 0
+
+    const mp4Src = `<source src="${mySrc}" type="video/mp4" />`
+
+    return `<div class="amp-video-wrapper">
+      <amp-video controls width="${width}" height="${height}" layout="responsive" title="${sanitize(alt)}">
+        <source src="${webmSrc}" type="video/webm" />
+        ${mp4Src}
+        <div fallback>This browser does not support the video element.</div>
+      </amp-video>
+    </div>`
   } else {
     const srcExec = mySrc.match(/(.*)(?:\.([^.]+$))/)[1]
     const fileName = srcExec.replace('/static/img/posts/', '')
@@ -39,6 +56,7 @@ renderer.image = (src, title, alt) => {
     const width = exec && exec[1] ? exec[1] : 0
     const height = exec && exec[2] ? exec[2] : 0
 
+    // not webp ( jpg, png, gif... )
     const fallback = `<amp-img src="${mySrc}" width="${width}" height="${height}" alt="${sanitize(
       alt
     )}" fallback layout="responsive"></amp-img>`
