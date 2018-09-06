@@ -41,7 +41,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180725.md",
-    "revision": "0bb6c04ae8359b608bd2cf6a24adea0c"
+    "revision": "2cf1d304f4abde2f59aa5b1482f31328"
   },
   {
     "url": "posts/20180726.md",
@@ -58,6 +58,10 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "posts/20180808.md",
     "revision": "69b1f7f7f1e3495fb127734d56c6f285"
+  },
+  {
+    "url": "posts/20180905.md",
+    "revision": "bad944be3d41999876a253a0376cc848"
   },
   {
     "url": "posts/amp-list.md",
