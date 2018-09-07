@@ -61,7 +61,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180905.md",
-    "revision": "bad944be3d41999876a253a0376cc848"
+    "revision": "81ca20431be697248dfc5de4df9a13cf"
   },
   {
     "url": "posts/amp-list.md",
