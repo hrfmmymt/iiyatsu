@@ -1,9 +1,15 @@
 [
   {
+    "title": "amp-lighthouse でのアクセシビリティ戦略",
+    "description": "AMPで取り組むa11yシリーズ",
+    "date": "2018-09-10",
+    "url": "amp-lighthouse-a11y"
+  },
+  {
     "title": "20180906",
     "description": "amp-videoとかGraphQLとかパフォーマンスやa11yのこととか",
     "date": "2018-09-06",
-    "url": "20180905"
+    "url": "20180906"
   },
   {
     "title": "今年のサマーソニックとカマシ・ワシントンのライブに行ってきた",
