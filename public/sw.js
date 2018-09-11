@@ -77,7 +77,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "93bee3bb549d4b66156fb376d3155371"
+    "revision": "9bb4685da34ad2553eb085625ecfdeb5"
   }
 ])
 
