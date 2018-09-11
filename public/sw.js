@@ -4,14 +4,6 @@ importScripts(
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "install-service-worker.html",
-    "revision": "404404c2d73ecc89ae89547bd959b761"
-  },
-  {
-    "url": "offline.html",
-    "revision": "1d9097e0109ac9202f4eb31263abe8be"
-  },
-  {
     "url": "posts/20180606.md",
     "revision": "87630b556ce0d2fa7d011e8490d93599"
   },
@@ -85,7 +77,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "9bb4685da34ad2553eb085625ecfdeb5"
+    "revision": "93bee3bb549d4b66156fb376d3155371"
   }
 ])
 
