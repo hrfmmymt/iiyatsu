@@ -4,6 +4,14 @@ importScripts(
 
 workbox.precaching.precacheAndRoute([
   {
+    "url": "install-service-worker.html",
+    "revision": "ee945406fa00130ec1cc876a984dc21b"
+  },
+  {
+    "url": "offline.html",
+    "revision": "9b0a89127ccfa7626c79e19755e6d312"
+  },
+  {
     "url": "posts/20180606.md",
     "revision": "87630b556ce0d2fa7d011e8490d93599"
   },
@@ -57,7 +65,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/amp-lighthouse-a11y.md",
-    "revision": "61f783b521ae046818ae01c891142a46"
+    "revision": "ec941ab0418a0e199c112a0b585fae7e"
   },
   {
     "url": "posts/amp-list.md",
