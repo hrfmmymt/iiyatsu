@@ -49,7 +49,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20180727.md",
-    "revision": "5f4d0da4cf18aad0fce9eb5c52e1c22b"
+    "revision": "49d2241b1e0e8c44e84ad5ca0d4f97cc"
   },
   {
     "url": "posts/20180730.md",
