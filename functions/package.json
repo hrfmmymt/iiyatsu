@@ -10,6 +10,7 @@
     "tsc-w": "tsc --watch",
     "css": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css",
     "css-w": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/custom-style.css -w",
+    "watch": "npm-run-all -p tsc-w css-w",
     "sw": "workbox injectManifest",
     "get-postslist": "node ../utils/get-postslist.js",
     "build": "npm-run-all -s tsc css sw get-postslist",
