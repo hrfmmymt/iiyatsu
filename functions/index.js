@@ -73,6 +73,23 @@ renderer.em = text => {
     }
     return `<em>${text.replace('\\/', '/')}</em>`;
 };
+const headings = [];
+renderer.heading = (text, level) => {
+    const escapedText = text.toLowerCase().replace(/[^\w]+/g, '');
+    const duplicateIndex = headings.map(({ text }) => text).indexOf(escapedText);
+    let duplicateText = undefined;
+    if (duplicateIndex === -1) {
+        headings.push({
+            text: escapedText,
+            count: 0
+        });
+    }
+    else {
+        headings[duplicateIndex].count++;
+        duplicateText = `${escapedText}-${headings[duplicateIndex].count}`;
+    }
+    return `<h${level} id="${duplicateText || escapedText}">${text}</h${level}>\n`;
+};
 const mustache = require('mustache');
 const app = express();
 const commonTitle = "iiyatsu - hrfmmymt's weblog";
