@@ -84,10 +84,12 @@ const headings = []
 renderer.heading = (text, level) => {
   const escapedText = text.toLowerCase().replace(/[^\w]+/g, '')
   const duplicateIndex = headings.map(({ text }) => text).indexOf(escapedText)
+  console.log(duplicateIndex)
   let duplicateText = undefined
   if (duplicateIndex === -1) {
     headings.push({
-      text: escapedText,
+      // text: escapedText,
+      text: `heading${level}`,
       count: 0
     })
   } else {
