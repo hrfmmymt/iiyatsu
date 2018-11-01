@@ -69,7 +69,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/20181020.md",
-    "revision": "8768e79318802012ba3ac611e2c54b77"
+    "revision": "c1cb9e7f0c9217a898d6747ecd4d5f11"
   },
   {
     "url": "posts/amp-lightbox-a11y.md",
