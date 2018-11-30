@@ -197,6 +197,10 @@ article a:hover {
   text-decoration: none;
 }
 
+article li a {
+  word-break: break-all;
+}
+
 article code {
   border: 1px solid #ddd;
   background-color: #f4f4f4;
