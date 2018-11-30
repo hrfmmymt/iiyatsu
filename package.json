@@ -22,7 +22,6 @@
     "eslint-plugin-prettier": "^2.6.2",
     "firebase-admin": "^5.13.1",
     "firebase-functions": "^2.0.1",
-    "firebase-tools": "^5.1.1",
     "glob": "^7.1.2",
     "helmet": "^3.12.1",
     "highlight.js": "^9.12.0",
@@ -42,7 +41,6 @@
     "textlint-rule-spellcheck-tech-word": "^5.0.0"
   },
   "dependencies": {
-    "global": "^4.3.2",
     "npm-check-updates": "^2.14.2"
   }
 }
