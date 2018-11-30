@@ -32,18 +32,25 @@ jobs:
 
   deploy:
     <<: *container_config
+
     steps:
       - checkout
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+
       - run: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc
+
       - run: yarn install
+      - run:
+          command: yarn add firebase-tools
+
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
       - run:
           name: Deploy Master to Firebase
           command: ./node_modules/.bin/firebase deploy --token=1/rWIR6YYdCmhBHeAzLbDoOWYjnzDyFIw7sVd_4czBoIQD7IHTYaV7ROPeqYAffSju
