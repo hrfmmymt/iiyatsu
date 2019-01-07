@@ -32,16 +32,6 @@ Beck の直前で [@yoshi_haya](https://twitter.com/yoshi_haya) と合流しま�
 場所が分からなくて、東京ミッドタウンの案内の方に「にいいちにいいちデザインサイト…」と発したところで「トゥーワン・トゥーワン・デザインサイトですね」と言って場所を教えてくれたのが印象深いです。  
 展の中を覗いてから、コーネリアスの AUDIO ARCHITECTURE の7インチを購入しました。15秒までなら動画撮影可とのことだったのでちょこちょこ撮ってました。
 
-<amp-twitter width="375" height="472" layout="responsive" data-tweetid="1031457713815871495">
-  <blockquote placeholder>
-    <p>Cornelius - AUDIO ARCHITECTURE</p>&mdash; Hirofumi Miyamoto (@hrfmmymt)
-    <a href="https://twitter.com/hrfmmymt/status/1031457713815871495">August 20, 2018</a>
-  </blockquote>
-  <div fallback>
-    An error occurred while retrieving the Tweet. It might have been deleted.
-  </div>
-</amp-twitter>
-
 そして、カマシ・ワシントンのライブ。  
 
 ![](/static/img/posts/20180825-01.jpg=780x1040)
