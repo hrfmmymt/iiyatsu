@@ -19,6 +19,18 @@ ul {
   padding: 0;
 }
 
+@media (prefers-color-scheme: light) {
+  --theme-base: white;
+  --theme-font: black;
+  --theme-accent: red;
+}
+
+@media (prefers-color-scheme: dark) {
+  --theme-base: white;
+  --theme-font: black;
+  --theme-accent: red;
+}
+
 html {
   font-size: calc(1em + 0.5vw);
 }
@@ -28,6 +40,9 @@ body {
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  background-color: var(--them-base);
+  font: var(--them-font);
+  strong: var(--them-accent);
 }
 
 article,
