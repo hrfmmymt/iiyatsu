@@ -19,16 +19,10 @@ ul {
   padding: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  --theme-base: white;
-  --theme-font: black;
-  --theme-accent: red;
-}
-
-@media (prefers-color-scheme: dark) {
-  --theme-base: white;
-  --theme-font: black;
-  --theme-accent: red;
+:root {
+  --text-color: #000;
+  --text-color-sub: #555;
+  --page-background-color: #fff;
 }
 
 html {
@@ -40,9 +34,8 @@ body {
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background-color: var(--them-base);
-  font: var(--them-font);
-  strong: var(--them-accent);
+  background-color: var(--page-background-color);
+  color: var(--text-color);
 }
 
 article,
@@ -163,7 +156,7 @@ footer {
 article time,
 article .description {
   font-weight: 400;
-  color: #555;
+  color: var(--text-color-sub);
   word-wrap: break-word;
 }
 
@@ -236,7 +229,7 @@ article pre > code {
 article blockquote {
   padding: 0 1em;
   margin: 1em 0;
-  color: #555;
+  color: var(--text-color-sub);
   border-left: 0.25em solid #dfe2e5;
   word-wrap: break-word;
 }
@@ -359,5 +352,24 @@ article .social {
 
   .profile h2 {
     margin: 1rem 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --text-color-sub: #eaeaea;
+    --page-background-color: #000;
+  }
+
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .posts .meta,
+  article time,
+  article .description {
+    color: var(--text-color-sub);
   }
 }
