@@ -80,6 +80,10 @@ workbox.precaching.precacheAndRoute([
     "revision": "1d3ca60d3a92f5e413e334967e16b43f"
   },
   {
+    "url": "posts/dark-mode.md",
+    "revision": "278a17444117167e38658a83b4e938b0"
+  },
+  {
     "url": "posts/md-amp-img-webp.md",
     "revision": "d7d591f594e0b0ac8bb3d06a9ab1c1fa"
   },
