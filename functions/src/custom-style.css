@@ -22,8 +22,20 @@ ul {
 :root {
   --text-color: #000;
   --text-color-sub: #555;
+  --text-color-anchor: #db2c17;
   --page-background-color: #fff;
 }
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --text-color-sub: #f2f1ef;
+    --text-color-anchor: #00b5b5;
+    --page-background-color: #332f21;
+  }
+}
+
 
 html {
   font-size: calc(1em + 0.5vw);
@@ -46,7 +58,7 @@ header {
 }
 
 a {
-  color: #db2c17;
+  color: var(--text-color-anchor);
   text-decoration: none;
 }
 
@@ -79,6 +91,10 @@ h1 a {
   display: block;
   margin: 0 auto;
   width: 6rem;
+}
+
+.logo {
+  fill: var(--text-color);
 }
 
 ul {
@@ -352,24 +368,5 @@ article .social {
 
   .profile h2 {
     margin: 1rem 0;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #fff;
-    --text-color-sub: #eaeaea;
-    --page-background-color: #000;
-  }
-
-  body {
-    background-color: #000;
-    color: #fff;
-  }
-
-  .posts .meta,
-  article time,
-  article .description {
-    color: var(--text-color-sub);
   }
 }
