@@ -24,6 +24,7 @@ ul {
   --text-color-sub: #555;
   --text-color-anchor: #db2c17;
   --page-background-color: #fff;
+  --code-background-color: #f4f4f4;
 }
 
 
@@ -33,6 +34,7 @@ ul {
     --text-color-sub: #f2f1ef;
     --text-color-anchor: #00b5b5;
     --page-background-color: #332f21;
+    --code-background-color: #000;
   }
 }
 
@@ -227,7 +229,7 @@ article li a {
 
 article code {
   border: 1px solid #ddd;
-  background-color: #f4f4f4;
+  background-color: var(--code-background-color);
   border-radius: 2px;
   padding: 0.1em;
   margin: 1.4em 0;
@@ -239,7 +241,7 @@ article pre > code {
   padding: 0.6em;
   margin: 0;
   border: none;
-  background-color: #f7f7f7;
+  background-color: var(--code-background-color);
 }
 
 article blockquote {
