@@ -19,6 +19,26 @@ ul {
   padding: 0;
 }
 
+:root {
+  --text-color: #000;
+  --text-color-sub: #555;
+  --text-color-anchor: #db2c17;
+  --page-background-color: #fff;
+  --code-background-color: #f4f4f4;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --text-color-sub: #f2f1ef;
+    --text-color-anchor: #00b5b5;
+    --page-background-color: #332f21;
+    --code-background-color: #000;
+  }
+}
+
+
 html {
   font-size: calc(1em + 0.5vw);
 }
@@ -28,6 +48,8 @@ body {
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  background-color: var(--page-background-color);
+  color: var(--text-color);
 }
 
 article,
@@ -38,7 +60,7 @@ header {
 }
 
 a {
-  color: #db2c17;
+  color: var(--text-color-anchor);
   text-decoration: none;
 }
 
@@ -71,6 +93,10 @@ h1 a {
   display: block;
   margin: 0 auto;
   width: 6rem;
+}
+
+.logo {
+  fill: var(--text-color);
 }
 
 ul {
@@ -148,7 +174,7 @@ footer {
 article time,
 article .description {
   font-weight: 400;
-  color: #555;
+  color: var(--text-color-sub);
   word-wrap: break-word;
 }
 
@@ -203,7 +229,7 @@ article li a {
 
 article code {
   border: 1px solid #ddd;
-  background-color: #f4f4f4;
+  background-color: var(--code-background-color);
   border-radius: 2px;
   padding: 0.1em;
   margin: 1.4em 0;
@@ -215,13 +241,13 @@ article pre > code {
   padding: 0.6em;
   margin: 0;
   border: none;
-  background-color: #f7f7f7;
+  background-color: var(--code-background-color);
 }
 
 article blockquote {
   padding: 0 1em;
   margin: 1em 0;
-  color: #555;
+  color: var(--text-color-sub);
   border-left: 0.25em solid #dfe2e5;
   word-wrap: break-word;
 }
