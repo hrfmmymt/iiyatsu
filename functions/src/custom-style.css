@@ -25,6 +25,10 @@ ul {
   --text-color-anchor: #db2c17;
   --page-background-color: #fff;
   --code-background-color: #f4f4f4;
+  --code-text-color: #fff;
+  --code-subst-color: #444;
+  --code-keyword-color: #fff;
+  --code-type-color: #800;
 }
 
 
@@ -34,7 +38,11 @@ ul {
     --text-color-sub: #f2f1ef;
     --text-color-anchor: #00b5b5;
     --page-background-color: #332f21;
-    --code-background-color: #000;
+    --code-background-color: #002b36;
+    --code-text-color: #b58900;
+    --code-subst-color: #b58900;
+    --code-keyword-color: #268bd2;
+    --code-type-color: #2aa198;
   }
 }
 
@@ -242,6 +250,7 @@ article pre > code {
   margin: 0;
   border: none;
   background-color: var(--code-background-color);
+  color: #fff;
 }
 
 article blockquote {
@@ -283,7 +292,7 @@ article .social {
 
 .hljs,
 .hljs-subst {
-  color: #444;
+  color: var(--code-subst-color);
 }
 
 .hljs-comment {
@@ -297,6 +306,7 @@ article .social {
 .hljs-doctag,
 .hljs-name {
   font-weight: bold;
+  color: var(--code-keyword-color);
 }
 
 .hljs-type,
@@ -307,7 +317,7 @@ article .social {
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion {
-  color: #800;
+  color: var(--code-type-color);
 }
 
 .hljs-title,
@@ -351,6 +361,14 @@ article .social {
 
 .hljs-strong {
   font-weight: bold;
+}
+
+.hljs-function {
+  color: #fff;
+}
+
+.hljs-params {
+  color: var(--code-text-color);
 }
 
 /* for mobile */
