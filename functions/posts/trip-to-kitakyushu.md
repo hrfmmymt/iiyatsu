@@ -22,17 +22,17 @@ GW に福岡県北九州市に行ってきた（1年振り n 度目）ので記�
 
 妻の実家にはかなり臆病な猫がいて、これまでは触れ合うのもままならない感じだったのですが、今回かなり間合いを詰められました。ちょいちょい触れたし寄ってきた。
 
-![](/static/img/posts/kitakyushu-2019-04.jpg=780x1040)
+![久留米ラーメン](/static/img/posts/kitakyushu-2019-04.jpg=780x1040)
 
-![](/static/img/posts/kitakyushu-2019-05.jpg=780x1040)
+![いちご狩り1](/static/img/posts/kitakyushu-2019-05.jpg=780x1040)
 
-![](/static/img/posts/kitakyushu-2019-06.jpg=780x1385)
+![いちご狩り2](/static/img/posts/kitakyushu-2019-06.jpg=780x1385)
 
 前半のメインイベント、いちご狩り。蛙いた。
 
-![](/static/img/posts/kitakyushu-2019-07.jpg=780x585)
+![海1](/static/img/posts/kitakyushu-2019-07.jpg=780x585)
 
-![](/static/img/posts/kitakyushu-2019-08.jpg=780x585)
+![海2](/static/img/posts/kitakyushu-2019-08.jpg=780x585)
 
 海。生き物いなかった。
 
@@ -43,7 +43,7 @@ GW に福岡県北九州市に行ってきた（1年振り n 度目）ので記�
     height="360"
     layout="responsive"
     poster="/static/videos/poster/kitakyushu-2019-01.png"
-    title="ika">
+    title="イカ">
     <source src="/static/videos/webm/kitakyushu-2019-01.webm"
       type="video/webm" />
     <source src="/static/videos/mp4/kitakyushu-2019-01test.mp4"
@@ -54,10 +54,21 @@ GW に福岡県北九州市に行ってきた（1年振り n 度目）ので記�
   </amp-video>
 </div>
 
-![](/static/img/posts/kitakyushu-2019-09.jpg=780x1040)
+透明なイカ動いてる〜
 
-![](/static/img/posts/kitakyushu-2019-10.jpg=780x439)
+![](/static/img/posts/kitakyushu-2019-09.jpg=780x1040)
+辛麺屋桝元5辛こんにゃく麺をご覧いただきつつ。
+
+滞在後半戦は妻と合流して法事。これがこの滞在の本当のメインながらも、晒せる写真は一切ありません。
+
+![うさぎ](/static/img/posts/kitakyushu-2019-10.jpg=780x439)
+
+到津の森動物園
 
 ![](/static/img/posts/kitakyushu-2019-11.jpg=780x585)
 
+もう一回資さんうどん。ざる蕎麦に生姜ついてる。
+
 ![](/static/img/posts/kitakyushu-2019-12.jpg=780x585)
+
+北九州空港からさようなら。
