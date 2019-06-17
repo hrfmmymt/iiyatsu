@@ -17,29 +17,29 @@
     "eslint": "eslint ."
   },
   "dependencies": {
-    "firebase-admin": "^7.4.0",
-    "firebase-functions": "^2.3.1",
+    "firebase-admin": "^8.1.0",
+    "firebase-functions": "^3.0.1",
     "glob": "^7.1.4",
     "helmet": "^3.18.0",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^9.15.8",
     "marked": "^0.6.2",
     "meta-marked": "^0.4.2",
     "mustache": "^3.0.1",
     "mz": "^2.7.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.0",
     "babel-eslint": "^10.0.1",
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "firebase-functions-test": "^0.1.6",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.2",
-    "prettier": "^1.17.1",
-    "tslint": "^5.16.0",
-    "typescript": "^3.4.5",
+    "prettier": "^1.18.2",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.2",
     "workbox-cli": "^4.3.1"
   },
   "browserslist": [
