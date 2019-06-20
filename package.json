@@ -11,7 +11,7 @@
     "img": "node ./utils/img-opt.js",
     "get-postslist": "node ./utils/get-postslist.js",
     "textlint": "textlint ./functions/posts/*",
-    "eslint": "eslint functions"
+    "eslint": "eslint ."
   },
   "author": "hrfmmymt",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "highlight.js": "^9.15.8",
     "imagemin": "^6.1.0",
     "imagemin-webp": "^5.1.0",
-    "jimp": "^0.6.4",
+    "jimp": "^0.2.28",
     "marked": "^0.6.2",
     "meta-marked": "^0.4.2",
     "mustache": "^3.0.1",
