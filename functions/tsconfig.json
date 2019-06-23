@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "lib": ["es6"],
+    "allowJs": true,
     "module": "commonjs",
     "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "outDir": "./",
     "sourceMap": true,
-    "target": "es6"
+    "strict": true,
+    "target": "es2017"
   },
   "compileOnSave": true,
-  "include": ["src/scripts"],
-  "exclude": ["node_modeles"]
+  "include": ["src"],
+  "exclude": ["node_modeles", "src/sw.js"]
 }
