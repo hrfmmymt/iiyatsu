@@ -6,6 +6,9 @@ import * as helmet from 'helmet'
 import * as hljs from 'highlight.js'
 import * as marked from 'marked'
 import * as mustache from 'mustache'
+import { mdRender } from './scripts/md-render'
+
+console.log(mdRender('hello, webpack world!'))
 
 const renderer = new marked.Renderer()
 const sanitize = (str: string) => {
@@ -87,12 +90,12 @@ const app = express()
 const commonTitle = "iiyatsu - hrfmmymt's weblog"
 const publicURL = 'https://iiyatsu.hrfmmymt.com/'
 const config = {
-  mdDir: path.join(__dirname, 'posts/'),
+  mdDir: path.join(__dirname, '../posts/'),
   postsList: JSON.parse(
-    fs.readFileSync(path.join(__dirname, 'src/posts-list.json'), 'utf8')
+    fs.readFileSync(path.join(__dirname, 'posts-list.json'), 'utf8')
   ),
-  staticDir: path.join(__dirname, 'static/'),
-  rootDir: path.join(__dirname),
+  staticDir: path.join(__dirname, '../static/'),
+  rootDir: path.join('./'),
   ogIcon: `${publicURL}static/img/icons/icon.png`
 }
 
@@ -113,7 +116,12 @@ function getUrlPrefix(req: express.Request) {
   return req.protocol + '://' + req.headers.host
 }
 
-function enableCors(req: express.Request, res: express.Response, origin:any, opt_exposeHeaders:any) {
+function enableCors(
+  req: express.Request,
+  res: express.Response,
+  origin: any,
+  opt_exposeHeaders: any
+) {
   res.setHeader('Access-Control-Allow-Credentials', 'true')
   res.setHeader('Access-Control-Allow-Origin', origin)
   res.setHeader(
@@ -188,21 +196,28 @@ function assertCors(
   enableCors(req, res, origin, opt_exposeHeaders)
 }
 
-app.engine('mustache', (filePath: string, options: any, callback: (err: any, str: string) => void) => {
-  fs.readFile(filePath, 'utf-8', (err, content) => {
-    if (err) return callback(new Error('mustache render error!'), '')
+app.engine(
+  'mustache',
+  (
+    filePath: string,
+    options: any,
+    callback: (err: any, str: string) => void
+  ) => {
+    fs.readFile(filePath, 'utf-8', (err, content) => {
+      if (err) return callback(new Error('mustache render error!'), '')
 
-    const rendered = mustache.render(
-      content,
-      options,
-      loadPartials('./partials')
-    )
-    return callback(null, rendered)
-  })
-})
+      const rendered = mustache.render(
+        content,
+        options,
+        loadPartials('./partials')
+      )
+      return callback(null, rendered)
+    })
+  }
+)
 
 app.set('view engine', 'mustache')
-app.set('views', __dirname)
+app.set('views', './')
 
 app.use(express.static(config.staticDir))
 app.use(helmet())

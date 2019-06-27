@@ -8,6 +8,7 @@
     "tslint": "tslint --project tsconfig.json",
     "tsc": "tsc --project tsconfig.json",
     "tsc-w": "tsc --watch",
+    "tsc-wp:dev": "webpack --mode=development --watch",
     "css": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/styles/custom-style.css",
     "css-w": "postcss -c postcss.config.js -o ./partials/custom-style.mustache ./src/styles/custom-style.css -w",
     "watch": "npm-run-all -p tsc-w css-w",
@@ -45,8 +46,12 @@
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.2",
     "prettier": "^1.18.2",
+    "ts-loader": "^6.0.4",
     "tslint": "^5.17.0",
     "typescript": "^3.5.2",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5",
+    "webpack-node-externals": "^1.7.2",
     "workbox-cli": "^4.3.1"
   },
   "browserslist": [

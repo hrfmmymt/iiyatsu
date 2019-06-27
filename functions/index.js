@@ -1,13 +1,111 @@
+(function(e, a) { for(var i in a) e[i] = a[i]; }(this, /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.ts");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
 Object.defineProperty(exports, "__esModule", { value: true });
-const functions = require("firebase-functions");
-const fs = require("mz/fs");
-const path = require("path");
-const express = require("express");
-const helmet = require("helmet");
-const hljs = require("highlight.js");
-const marked = require("marked");
-const mustache = require("mustache");
+const functions = __webpack_require__(/*! firebase-functions */ "firebase-functions");
+const fs = __webpack_require__(/*! mz/fs */ "mz/fs");
+const path = __webpack_require__(/*! path */ "path");
+const express = __webpack_require__(/*! express */ "express");
+const helmet = __webpack_require__(/*! helmet */ "helmet");
+const hljs = __webpack_require__(/*! highlight.js */ "highlight.js");
+const marked = __webpack_require__(/*! marked */ "marked");
+const mustache = __webpack_require__(/*! mustache */ "mustache");
+const md_render_1 = __webpack_require__(/*! ./scripts/md-render */ "./src/scripts/md-render.ts");
+console.log(md_render_1.mdRender('hello, webpack world!'));
 const renderer = new marked.Renderer();
 const sanitize = (str) => {
     return str.replace(/&<"/g, m => {
@@ -47,7 +145,7 @@ renderer.image = (src, title, alt) => {
         const mp4Src = `<source src="${mySrc}" type="video/mp4" />`;
         return `<div class="amp-video-wrapper">
       <amp-video controls preload="metadata" width="${width}" height="${height}" layout="responsive" poster="/static/videos/poster/${fileName}.${`png` ||
-            `jpg`}" title="${sanitize(alt)}">
+            false}" title="${sanitize(alt)}">
         <source src="${webmSrc}" type="video/webm" />
         ${mp4Src}
         <div fallback>This browser does not support the video element.</div>
@@ -82,10 +180,10 @@ const app = express();
 const commonTitle = "iiyatsu - hrfmmymt's weblog";
 const publicURL = 'https://iiyatsu.hrfmmymt.com/';
 const config = {
-    mdDir: path.join(__dirname, 'posts/'),
-    postsList: JSON.parse(fs.readFileSync(path.join(__dirname, 'src/posts-list.json'), 'utf8')),
-    staticDir: path.join(__dirname, 'static/'),
-    rootDir: path.join(__dirname),
+    mdDir: path.join(__dirname, '../posts/'),
+    postsList: JSON.parse(fs.readFileSync(path.join(__dirname, 'posts-list.json'), 'utf8')),
+    staticDir: path.join(__dirname, '../static/'),
+    rootDir: path.join('./'),
     ogIcon: `${publicURL}static/img/icons/icon.png`
 };
 const loadPartials = (dir) => {
@@ -161,7 +259,7 @@ app.engine('mustache', (filePath, options, callback) => {
     });
 });
 app.set('view engine', 'mustache');
-app.set('views', __dirname);
+app.set('views', './');
 app.use(express.static(config.staticDir));
 app.use(helmet());
 const getPostInfo = (fileName) => {
@@ -262,4 +360,116 @@ app.use((err, req, res) => {
     res.end('my 500 error! : ' + err);
 });
 exports.app = functions.https.onRequest(app);
+
+/* WEBPACK VAR INJECTION */}.call(this, "src"))
+
+/***/ }),
+
+/***/ "./src/scripts/md-render.ts":
+/*!**********************************!*\
+  !*** ./src/scripts/md-render.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function mdRender(str) {
+    return console.log(str);
+}
+exports.mdRender = mdRender;
+
+
+/***/ }),
+
+/***/ "express":
+/*!**************************!*\
+  !*** external "express" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
+
+/***/ }),
+
+/***/ "firebase-functions":
+/*!*************************************!*\
+  !*** external "firebase-functions" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase-functions");
+
+/***/ }),
+
+/***/ "helmet":
+/*!*************************!*\
+  !*** external "helmet" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("helmet");
+
+/***/ }),
+
+/***/ "highlight.js":
+/*!*******************************!*\
+  !*** external "highlight.js" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("highlight.js");
+
+/***/ }),
+
+/***/ "marked":
+/*!*************************!*\
+  !*** external "marked" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("marked");
+
+/***/ }),
+
+/***/ "mustache":
+/*!***************************!*\
+  !*** external "mustache" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("mustache");
+
+/***/ }),
+
+/***/ "mz/fs":
+/*!************************!*\
+  !*** external "mz/fs" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("mz/fs");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ })
+
+/******/ })));
 //# sourceMappingURL=index.js.map
