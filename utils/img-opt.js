@@ -1,5 +1,8 @@
 const Jimp = require('jimp')
 const glob = require('glob')
+const path = require('path')
+const imagemin = require('imagemin')
+const imageminWebp = require('imagemin-webp')
 
 const dist = path.join(__dirname, '../public/static/img/posts/')
 const convertList = []
