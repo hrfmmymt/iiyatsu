@@ -93,7 +93,11 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "posts/trip-to-kanazawa.md",
-    "revision": "792891d519da93dd5a0b700ea772fa56"
+    "revision": "6a8ae9afebc0822ce6a69bf5c9f698c7"
+  },
+  {
+    "url": "posts/trip-to-kitakyushu.md",
+    "revision": "cae943d8081460fd92829185b8659b7b"
   },
   {
     "url": "/",
