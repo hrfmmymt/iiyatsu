@@ -8,9 +8,7 @@
     "deploy": "npm-run-all -s get-postslist fb-deploy",
     "fb-deploy": "firebase deploy",
     "test": "npm-run-all -p textlint eslint",
-    "img": "npm-run-all -s img-opt webp",
-    "img-opt": "node ./utils/img-opt.js",
-    "webp": "node ./utils/webp.js",
+    "img": "node ./utils/img-opt.js",
     "get-postslist": "node ./utils/get-postslist.js",
     "textlint": "textlint ./functions/posts/*",
     "eslint": "eslint ."
