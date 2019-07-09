@@ -1,13 +1,15 @@
-'use strict';
-const functions = require('firebase-functions');
-const fs = require('mz/fs');
-const path = require('path');
-const express = require('express');
-const helmet = require('helmet');
-const hljs = require('highlight.js');
-const marked = require('marked');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const functions = require("firebase-functions");
+const fs = require("mz/fs");
+const path = require("path");
+const express = require("express");
+const helmet = require("helmet");
+const hljs = require("highlight.js");
+const marked = require("marked");
+const mustache = require("mustache");
 const renderer = new marked.Renderer();
-const sanitize = str => {
+const sanitize = (str) => {
     return str.replace(/&<"/g, m => {
         if (m === '&')
             return '&amp;';
@@ -18,7 +20,7 @@ const sanitize = str => {
 };
 renderer.image = (src, title, alt) => {
     const exec = /=\s*(\d*)\s*x\s*(\d*)\s*$/.exec(src);
-    const regExp = exec && exec[0] ? new RegExp(exec[0], 'g') : null;
+    const regExp = exec && exec[0] ? new RegExp(exec[0], 'g') : '';
     const mySrc = src.replace(regExp, '');
     if (alt === 'embed-youtube') {
         return `<amp-youtube data-videoid="${mySrc}" layout="responsive" width="480" height="270"></amp-youtube>`;
@@ -36,14 +38,16 @@ renderer.image = (src, title, alt) => {
         return `<amp-instagram data-shortcode="${mySrc}" data-captioned width="400" height="400" layout="responsive"></amp-instagram>`;
     }
     else if (alt.indexOf('video-') === 0) {
-        const srcExec = mySrc.match(/(.*)(?:\.([^.]+$))/)[1];
+        const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/);
+        const srcExec = mySrcRegex !== null ? mySrcRegex[1] : '';
         const fileName = srcExec.replace('/static/videos/', '');
         const webmSrc = `/static/videos/webm/${fileName}.webm`;
         const width = exec && exec[1] ? exec[1] : 0;
         const height = exec && exec[2] ? exec[2] : 0;
         const mp4Src = `<source src="${mySrc}" type="video/mp4" />`;
         return `<div class="amp-video-wrapper">
-      <amp-video controls preload="metadata" width="${width}" height="${height}" layout="responsive" poster="/static/videos/poster/${fileName}.${`png` || `jpg`}" title="${sanitize(alt)}">
+      <amp-video controls preload="metadata" width="${width}" height="${height}" layout="responsive" poster="/static/videos/poster/${fileName}.${`png` ||
+            `jpg`}" title="${sanitize(alt)}">
         <source src="${webmSrc}" type="video/webm" />
         ${mp4Src}
         <div fallback>This browser does not support the video element.</div>
@@ -51,7 +55,8 @@ renderer.image = (src, title, alt) => {
     </div>`;
     }
     else {
-        const srcExec = mySrc.match(/(.*)(?:\.([^.]+$))/)[1];
+        const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/);
+        const srcExec = mySrcRegex !== null ? mySrcRegex[1] : '';
         const fileName = srcExec.replace('/static/img/posts/', '');
         const webpSrc = `/static/img/posts/webp/${fileName}.webp`;
         const width = exec && exec[1] ? exec[1] : 0;
@@ -61,7 +66,7 @@ renderer.image = (src, title, alt) => {
         return `<amp-img src="${webpSrc}" width="${width}" height="${height}" alt="${sanitize(alt)}" layout="responsive">${fallback}</amp-img>`;
     }
 };
-renderer.em = text => {
+renderer.em = (text) => {
     let postDate, postDescription;
     if ((postDate = /^date:(\d{4}-\d{2}-\d{2})/.exec(text)) !== null) {
         const dateStr = postDate[0].replace('date:', '');
@@ -73,7 +78,6 @@ renderer.em = text => {
     }
     return `<em>${text.replace('\\/', '/')}</em>`;
 };
-const mustache = require('mustache');
 const app = express();
 const commonTitle = "iiyatsu - hrfmmymt's weblog";
 const publicURL = 'https://iiyatsu.hrfmmymt.com/';
@@ -84,7 +88,7 @@ const config = {
     rootDir: path.join(__dirname),
     ogIcon: `${publicURL}static/img/icons/icon.png`
 };
-const loadPartials = dir => {
+const loadPartials = (dir) => {
     const partials = {};
     fs.readdirSync(dir).map(file => {
         const name = path.basename(file, '.mustache');
@@ -126,7 +130,7 @@ function assertCors(req, res, opt_validMethods, opt_exposeHeaders, opt_ignoreMis
     }
     if (req.headers.origin) {
         origin = req.headers.origin;
-        if (!ORIGIN_REGEX.test(req.headers.origin)) {
+        if (!ORIGIN_REGEX.test(origin)) {
             res.statusCode = 500;
             res.end(JSON.stringify({ message: invalidOrigin }));
             throw invalidOrigin;
@@ -142,7 +146,6 @@ function assertCors(req, res, opt_validMethods, opt_exposeHeaders, opt_ignoreMis
         origin = getUrlPrefix(req);
     }
     else {
-        console.log('req', req);
         res.statusCode = 401;
         res.end(JSON.stringify({ message: unauthorized }));
         throw unauthorized;
@@ -152,7 +155,7 @@ function assertCors(req, res, opt_validMethods, opt_exposeHeaders, opt_ignoreMis
 app.engine('mustache', (filePath, options, callback) => {
     fs.readFile(filePath, 'utf-8', (err, content) => {
         if (err)
-            return callback(new Error(err));
+            return callback(new Error('mustache render error!'), '');
         const rendered = mustache.render(content, options, loadPartials('./partials'));
         return callback(null, rendered);
     });
@@ -161,13 +164,19 @@ app.set('view engine', 'mustache');
 app.set('views', __dirname);
 app.use(express.static(config.staticDir));
 app.use(helmet());
-const getPostInfo = fileName => {
+const getPostInfo = (fileName) => {
     return new Promise((resolve, reject) => {
         fs.readFile(config.mdDir + fileName, 'utf-8', (err, md) => {
             if (err)
                 return reject(err);
-            const postTitle = md.match(/^#\s(.)+\n/)[0].match(/[^#\n]+/);
-            const postDescription = /\n\*desc>\s((?:(?!\*\n)[^\s　])+)/g.exec(md.match(/\n\*desc>\s(.)+\n/)[0]);
+            // # POST TITLE
+            const h1Regex = md.match(/^#\s(.)+\n/);
+            const postTitle = h1Regex !== null ? h1Regex[0].match(/[^#\n]+/) : [];
+            // *desc> POST DESCRIPTION*
+            const descRegex = md.match(/\n\*desc>\s(.)+\n/);
+            const mdDesc = descRegex !== null ? descRegex[0] : '';
+            const postDescription = /\n\*desc>\s((?:(?!\*\n)[^\s　])+)/g.exec(mdDesc);
+            // *date:yyyy-mm-dd*
             const postDate = /\*date\:((?:(?!\*)[^\s　])+)/g.exec(md);
             marked.setOptions({
                 gfm: true,
@@ -176,9 +185,9 @@ const getPostInfo = fileName => {
                 }
             });
             resolve({
-                title: postTitle[0].trim(),
-                description: postDescription[1],
-                date: postDate[1],
+                title: postTitle !== null && postTitle[0].trim(),
+                description: postDescription !== null && postDescription[1],
+                date: postDate !== null && postDate[1],
                 url: fileName.replace(/.md/g, ''),
                 html: marked(md, { renderer: renderer })
             });

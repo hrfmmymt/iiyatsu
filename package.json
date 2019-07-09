@@ -13,23 +13,23 @@
     "webp": "node ./utils/webp.js",
     "get-postslist": "node ./utils/get-postslist.js",
     "textlint": "textlint ./functions/posts/*",
-    "eslint": "eslint functions"
+    "eslint": "eslint ."
   },
   "author": "hrfmmymt",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "firebase-admin": "^8.0.0",
-    "firebase-functions": "^2.3.1",
+    "firebase-admin": "^8.1.0",
+    "firebase-functions": "^3.0.1",
     "glob": "^7.1.4",
     "helmet": "^3.18.0",
-    "highlight.js": "^9.15.6",
+    "highlight.js": "^9.15.8",
     "imagemin": "^6.1.0",
     "imagemin-webp": "^5.1.0",
-    "jimp": "^0.6.4",
+    "jimp": "^0.2.28",
     "marked": "^0.6.2",
     "meta-marked": "^0.4.2",
     "mustache": "^3.0.1",
@@ -43,6 +43,6 @@
     "textlint-rule-spellcheck-tech-word": "^5.0.0"
   },
   "dependencies": {
-    "npm-check-updates": "^3.1.9"
+    "npm-check-updates": "^3.1.10"
   }
 }
