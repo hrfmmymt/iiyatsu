@@ -47,7 +47,7 @@ GW に福岡県北九州市に行ってきた（1 年振り n 度目）ので記
     title="イカ">
     <source src="/static/videos/webm/kitakyushu-2019-01.webm"
       type="video/webm" />
-    <source src="/static/videos/mp4/kitakyushu-2019-01test.mp4"
+    <source src="/static/videos/mp4/kitakyushu-2019-01.mp4"
       type="video/mp4" />
     <div fallback>
       <p>This browser does not support the video element.</p>
