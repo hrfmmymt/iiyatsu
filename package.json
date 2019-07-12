@@ -16,31 +16,26 @@
   "author": "hrfmmymt",
   "license": "MIT",
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^5.0.0",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "firebase-admin": "^8.1.0",
-    "firebase-functions": "^3.0.1",
     "glob": "^7.1.4",
     "helmet": "^3.18.0",
     "highlight.js": "^9.15.8",
-    "imagemin": "^6.1.0",
+    "imagemin": "^7.0.0",
     "imagemin-webp": "^5.1.0",
     "jimp": "^0.2.28",
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "meta-marked": "^0.4.2",
     "mustache": "^3.0.1",
     "mz": "^2.7.0",
     "npm-run-all": "^4.1.5",
-    "textlint": "^11.2.5",
+    "textlint": "^11.2.6",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-filter-rule-whitelist": "^2.0.0",
     "textlint-rule-max-ten": "^2.0.3",
     "textlint-rule-no-mix-dearu-desumasu": "^4.0.0",
     "textlint-rule-spellcheck-tech-word": "^5.0.0"
-  },
-  "dependencies": {
-    "npm-check-updates": "^3.1.10"
   }
 }
