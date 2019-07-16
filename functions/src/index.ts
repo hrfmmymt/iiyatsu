@@ -245,14 +245,17 @@ const getPostInfo = (fileName: string) => {
 app.get('/', (req, res) => {
   res.render('index', {
     head: {
+      name: 'hrfmmymt',
       title: commonTitle,
       url: publicURL,
-      description: "hrfmmymt's weblog",
+      description: 'hrfmmymt\'s weblog',
       ogType: 'website',
-      facebookImg: config.ogIcon,
+      ogImg: config.ogIcon,
       twitterImg: config.ogIcon,
       twitterAccount: '@hrfmmymt',
-      year: currentYear
+      year: currentYear,
+      publishedTime: '2018-06-06T00:00:00.000+09:00',
+      modifiedTime: ''
     },
     profile: true,
     index: {
@@ -270,8 +273,10 @@ app.get('/posts/:post', (req, res) => {
     ext: '.md'
   })
 
+  let fileStats: any
+
   try {
-    fs.statSync(config.mdDir + file)
+    fileStats = fs.statSync(config.mdDir + file)
   } catch (err) {
     if (err.code === 'ENOENT') res.status(400).render('404.mustache')
   }
@@ -283,10 +288,12 @@ app.get('/posts/:post', (req, res) => {
         url: `${publicURL}posts/${postInfo.url}`,
         description: postInfo.description,
         ogType: 'article',
-        facebookImg: config.ogIcon,
+        ogImg: config.ogIcon,
         twitterImg: config.ogIcon,
         twitterAccount: '@hrfmmymt',
-        year: currentYear
+        year: currentYear,
+        publishedTime: fileStats.birthtime,
+        modifiedTime: fileStats.mtime
       },
       post: {
         title: postInfo.title,
