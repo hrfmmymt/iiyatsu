@@ -93,7 +93,8 @@ const config = {
   ),
   staticDir: path.join(__dirname, 'static/'),
   rootDir: path.join(__dirname),
-  ogIcon: `${publicURL}static/img/icons/icon.png`
+  ogIcon: `${publicURL}static/img/icons/icon.png`,
+  fileStats: fs.statSync((path.join(__dirname, 'src/posts-list.json')))
 }
 
 const loadPartials = (dir: string) => {
@@ -254,8 +255,8 @@ app.get('/', (req, res) => {
       twitterImg: config.ogIcon,
       twitterAccount: '@hrfmmymt',
       year: currentYear,
-      publishedTime: '2018-06-06T00:00:00.000+09:00',
-      modifiedTime: ''
+      publishedTime: '2018-06-06T00:00:00.000+09:00', // 最初の記事 post 時
+      modifiedTime: config.fileStats.mtime // postsList 更新時
     },
     profile: true,
     index: {
@@ -292,8 +293,8 @@ app.get('/posts/:post', (req, res) => {
         twitterImg: config.ogIcon,
         twitterAccount: '@hrfmmymt',
         year: currentYear,
-        publishedTime: fileStats.birthtime,
-        modifiedTime: fileStats.mtime
+        publishedTime: fileStats.birthtime, // 記事 md 作成時
+        modifiedTime: fileStats.mtime // 記事 md 更新時
       },
       post: {
         title: postInfo.title,

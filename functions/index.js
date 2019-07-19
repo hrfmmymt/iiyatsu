@@ -86,7 +86,8 @@ const config = {
     postsList: JSON.parse(fs.readFileSync(path.join(__dirname, 'src/posts-list.json'), 'utf8')),
     staticDir: path.join(__dirname, 'static/'),
     rootDir: path.join(__dirname),
-    ogIcon: `${publicURL}static/img/icons/icon.png`
+    ogIcon: `${publicURL}static/img/icons/icon.png`,
+    fileStats: fs.statSync((path.join(__dirname, 'src/posts-list.json')))
 };
 const loadPartials = (dir) => {
     const partials = {};
@@ -207,7 +208,7 @@ app.get('/', (req, res) => {
             twitterAccount: '@hrfmmymt',
             year: currentYear,
             publishedTime: '2018-06-06T00:00:00.000+09:00',
-            modifiedTime: ''
+            modifiedTime: config.fileStats.mtime // postsList 更新時
         },
         profile: true,
         index: {
@@ -243,7 +244,7 @@ app.get('/posts/:post', (req, res) => {
                 twitterAccount: '@hrfmmymt',
                 year: currentYear,
                 publishedTime: fileStats.birthtime,
-                modifiedTime: fileStats.mtime
+                modifiedTime: fileStats.mtime // 記事 md 更新時
             },
             post: {
                 title: postInfo.title,
