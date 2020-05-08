@@ -1,2 +1,2 @@
-**/workbox-sw.*
-**/node_modules/**/*
+workbox-sw.*
+node_modules/**/*

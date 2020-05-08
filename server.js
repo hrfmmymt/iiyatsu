@@ -271,4 +271,4 @@ if (!module.parent) {
     app.listen(3000);
     console.log('Express started on http://localhost:3000');
 }
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=server.js.map

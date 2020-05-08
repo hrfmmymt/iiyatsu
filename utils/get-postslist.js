@@ -2,8 +2,8 @@ const fs = require('mz/fs')
 const path = require('path')
 const marked = require('marked')
 
-const mdDir = path.join(__dirname, '../functions/posts/')
-const dist = path.join(__dirname, '../functions/src/')
+const mdDir = path.join(__dirname, '../posts/')
+const dist = path.join(__dirname, '../src/')
 
 const getPostInfo = fileName => {
   return new Promise((resolve, reject) => {

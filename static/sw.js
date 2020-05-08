@@ -4,26 +4,6 @@ importScripts(
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "raw/kitakyushu-2019-03.jpg",
-    "revision": "7db8a298b394243e2398562fce615c87"
-  },
-  {
-    "url": "raw/kitakyushu-2019-04.jpg",
-    "revision": "2406c0d6838db8f07773cdc6e8bdd95d"
-  },
-  {
-    "url": "raw/kitakyushu-2019-06.jpg",
-    "revision": "7d4321a004ce2702e0f8532525e8d9af"
-  },
-  {
-    "url": "raw/kitakyushu-2019-10.jpg",
-    "revision": "6cfd5994ebc153608d05a78f947cd65d"
-  },
-  {
-    "url": "raw/kitakyushu-2019-12.jpg",
-    "revision": "7f1a94bc33e2334b70eb69e09f15302d"
-  },
-  {
     "url": "static/img/posts/20180606-01.jpg",
     "revision": "ada7de90dbd2137f09050311e84194ee"
   },
@@ -365,7 +345,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "/",
-    "revision": "2d189b2aefb1b96798fe297bdeed8600"
+    "revision": "666c6385f175dba277428b3915eff8fb"
   }
 ])
 
