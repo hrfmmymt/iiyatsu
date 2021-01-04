@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{head.title}}</title>
+    <meta name="author" content="{{head.author}}">
+    <meta name="copyright" content="Copyright(c){{head.author}}. {{head.year}} All Rights Reserved.">
+    <meta name="description" content="{{head.description}}">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff">
+    <meta property="og:description" content="{{head.description}}">
+    <meta property="og:title" content="{{head.title}}">
+    <meta property="og:url" content="{{head.url}}">
+    <meta property="og:image" content="{{head.ogImage}}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <style>{%- include '../style/not_found.njk' -%}</style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>404</h1>
+      <div class="link">
+        <p>go to <a href="/">toppage</a>.</p>
+        <a href="/">
+          {%- include '../partial/logo.njk' -%}
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

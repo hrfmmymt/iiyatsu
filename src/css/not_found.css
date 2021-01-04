@@ -1,0 +1,106 @@
+/*
+ * 404 page
+ */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000;
+  width: 100%;
+}
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+h1 {
+  color: #fff;
+  cursor: default;
+  font-family: 'Futura', sans-serif;
+  font-size: 36vw;
+  font-weight: 700;
+  left: 50%;
+  letter-spacing: 1rem;
+  line-height: 1;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+h1::before,
+h1::after {
+  content: '404';
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+h1::before {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: #0ff;
+  z-index: -1;
+}
+
+h1::after {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  color: #f0f;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-5px, 5px);
+  }
+
+  40% {
+    transform: translate(-5px, -5px);
+  }
+
+  60% {
+    transform: translate(5px, 5px);
+  }
+
+  80% {
+    transform: translate(5px, -5px);
+  }
+
+  to {
+    transform: translate(0);
+  }
+}
+
+.link {
+  bottom: 10%;
+  color: #fff;
+  position: absolute;
+}
+
+.wrapper a {
+  color: #fff;
+}
+
+.wrapper a:hover {
+  text-decoration: none;
+}
+
+.logo {
+  fill: #fff;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    {%- include '../partial/head.njk' -%}
+    <style>{%- include '../style/post.njk' -%}</style>
+  </head>
+  <body>
+    {%- include '../partial/header.njk' -%}
+    <article class="post-article">
+      {{post.contents | safe}}
+      <footer>&#8718;</footer>
+      <nav class="post-recent">
+        <dl>
+          {% if post.nextPost %}
+          <dt>次に出た記事</dt>
+          <dd><a href="{{post.nextPost.url}}">{{post.nextPost.title}}</a></dd>
+          {% endif %}
+          {% if post.prevPost %}
+          <dt>前に出た記事</dt>
+          <dd><a href="{{post.prevPost.url}}">{{post.prevPost.title}}</a></dd>
+          {% endif %}
+        </dl>
+      </nav>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "include": ["index.ts", "src/app.ts"],
+  "exclude": ["./utils/*", "test/*"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true
+  }
+}
