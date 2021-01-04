@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const functions = require("firebase-functions");
 const fs = require("mz/fs");
 const path = require("path");
 const express = require("express");
@@ -40,8 +39,8 @@ renderer.image = (src, title, alt) => {
     else if (alt.indexOf('video-') === 0) {
         const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/);
         const srcExec = mySrcRegex !== null ? mySrcRegex[1] : '';
-        const fileName = srcExec.replace('/static/videos/', '');
-        const webmSrc = `/static/videos/webm/${fileName}.webm`;
+        const fileName = srcExec.replace('./public/static/videos/', '');
+        const webmSrc = `./public/static/videos/webm/${fileName}.webm`;
         const width = exec && exec[1] ? exec[1] : 0;
         const height = exec && exec[2] ? exec[2] : 0;
         const mp4Src = `<source src="${mySrc}" type="video/mp4" />`;
@@ -57,8 +56,8 @@ renderer.image = (src, title, alt) => {
     else {
         const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/);
         const srcExec = mySrcRegex !== null ? mySrcRegex[1] : '';
-        const fileName = srcExec.replace('/static/img/posts/', '');
-        const webpSrc = `/static/img/posts/webp/${fileName}.webp`;
+        const fileName = srcExec.replace('./public/static/img/posts/', '');
+        const webpSrc = `./public/static/img/posts/webp/${fileName}.webp`;
         const width = exec && exec[1] ? exec[1] : 0;
         const height = exec && exec[2] ? exec[2] : 0;
         // not webp ( jpg, png, gif... )
@@ -82,12 +81,12 @@ const app = express();
 const commonTitle = "iiyatsu - hrfmmymt's weblog";
 const publicURL = 'https://iiyatsu.hrfmmymt.com/';
 const config = {
-    mdDir: path.join(__dirname, 'posts/'),
-    postsList: JSON.parse(fs.readFileSync(path.join(__dirname, 'src/posts-list.json'), 'utf8')),
-    staticDir: path.join(__dirname, 'static/'),
-    rootDir: path.join(__dirname),
+    mdDir: path.join(__dirname, './public/posts/'),
+    postsList: JSON.parse(fs.readFileSync(path.join(__dirname, './public/src/posts-list.json'), 'utf8')),
+    staticDir: path.join(__dirname, './public/static/'),
+    rootDir: path.join(__dirname, './public/'),
     ogIcon: `${publicURL}static/img/icons/icon.png`,
-    fileStats: fs.statSync((path.join(__dirname, 'src/posts-list.json')))
+    fileStats: fs.statSync((path.join(__dirname, './public/src/posts-list.json')))
 };
 const loadPartials = (dir) => {
     const partials = {};
@@ -109,15 +108,11 @@ function enableCors(req, res, origin, opt_exposeHeaders) {
     res.setHeader('Access-Control-Expose-Headers', ['AMP-Access-Control-Allow-Source-Origin']
         .concat(opt_exposeHeaders || [])
         .join(', '));
-    if (req.query.__amp_source_origin) {
-        res.setHeader('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
-    }
 }
 function assertCors(req, res, opt_validMethods, opt_exposeHeaders, opt_ignoreMissingSourceOrigin) {
     // Allow disable CORS check (iframe fixtures have origin 'about:srcdoc').
     // if (req.query.cors === 0) return
     const ORIGIN_REGEX = new RegExp('^http://localhost:9000|' + '^https?://hrfmmymt.github.io');
-    const SOURCE_ORIGIN_REGEX = new RegExp('^http://localhost:9000|' + '^https?://hrfmmymt.github.io');
     const validMethods = opt_validMethods || ['GET', 'POST', 'OPTIONS'];
     const invalidMethod = req.method + ' method is not allowed. Use POST.';
     const invalidOrigin = 'Origin header is invalid.';
@@ -136,8 +131,7 @@ function assertCors(req, res, opt_validMethods, opt_exposeHeaders, opt_ignoreMis
             res.end(JSON.stringify({ message: invalidOrigin }));
             throw invalidOrigin;
         }
-        if (!opt_ignoreMissingSourceOrigin &&
-            !SOURCE_ORIGIN_REGEX.test(req.query.__amp_source_origin)) {
+        if (!opt_ignoreMissingSourceOrigin) {
             res.statusCode = 500;
             res.end(JSON.stringify({ message: invalidSourceOrigin }));
             throw invalidSourceOrigin;
@@ -157,7 +151,7 @@ app.engine('mustache', (filePath, options, callback) => {
     fs.readFile(filePath, 'utf-8', (err, content) => {
         if (err)
             return callback(new Error('mustache render error!'), '');
-        const rendered = mustache.render(content, options, loadPartials('./partials'));
+        const rendered = mustache.render(content, options, loadPartials('./public/partials'));
         return callback(null, rendered);
     });
 });
@@ -230,7 +224,7 @@ app.get('/posts/:post', (req, res) => {
     }
     catch (err) {
         if (err.code === 'ENOENT')
-            res.status(400).render('404.mustache');
+            res.status(400).render('./public/404.mustache');
     }
     getPostInfo(file).then((postInfo) => {
         res.render('index', {
@@ -262,11 +256,14 @@ app.get('/api', (req, res) => {
     res.json(config.postsList);
 });
 app.use((req, res) => {
-    res.status(400).render('404.mustache');
+    res.status(400).render('./public/404.mustache');
 });
 app.use((err, req, res) => {
     res.status(500);
     res.end('my 500 error! : ' + err);
 });
-exports.app = functions.https.onRequest(app);
+if (!module.parent) {
+    app.listen(3000);
+    console.log('Express started on http://localhost:3000');
+}
 //# sourceMappingURL=index.js.map

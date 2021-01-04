@@ -1,4 +1,3 @@
-import * as functions from 'firebase-functions'
 import * as fs from 'mz/fs'
 import * as path from 'path'
 import * as express from 'express'
@@ -34,8 +33,8 @@ renderer.image = (src: string, title: string, alt: string) => {
   } else if (alt.indexOf('video-') === 0) {
     const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/)
     const srcExec = mySrcRegex !== null ? mySrcRegex[1] : ''
-    const fileName = srcExec.replace('/static/videos/', '')
-    const webmSrc = `/static/videos/webm/${fileName}.webm`
+    const fileName = srcExec.replace('./public/static/videos/', '')
+    const webmSrc = `./public/static/videos/webm/${fileName}.webm`
 
     const width = exec && exec[1] ? exec[1] : 0
     const height = exec && exec[2] ? exec[2] : 0
@@ -53,8 +52,8 @@ renderer.image = (src: string, title: string, alt: string) => {
   } else {
     const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/)
     const srcExec = mySrcRegex !== null ? mySrcRegex[1] : ''
-    const fileName = srcExec.replace('/static/img/posts/', '')
-    const webpSrc = `/static/img/posts/webp/${fileName}.webp`
+    const fileName = srcExec.replace('./public/static/img/posts/', '')
+    const webpSrc = `./public/static/img/posts/webp/${fileName}.webp`
 
     const width = exec && exec[1] ? exec[1] : 0
     const height = exec && exec[2] ? exec[2] : 0
@@ -87,14 +86,14 @@ const app = express()
 const commonTitle = "iiyatsu - hrfmmymt's weblog"
 const publicURL = 'https://iiyatsu.hrfmmymt.com/'
 const config = {
-  mdDir: path.join(__dirname, 'posts/'),
+  mdDir: path.join(__dirname, './public/posts/'),
   postsList: JSON.parse(
-    fs.readFileSync(path.join(__dirname, 'src/posts-list.json'), 'utf8')
+    fs.readFileSync(path.join(__dirname, './public/src/posts-list.json'), 'utf8')
   ),
-  staticDir: path.join(__dirname, 'static/'),
-  rootDir: path.join(__dirname),
+  staticDir: path.join(__dirname, './public/static/'),
+  rootDir: path.join(__dirname, './public/'),
   ogIcon: `${publicURL}static/img/icons/icon.png`,
-  fileStats: fs.statSync((path.join(__dirname, 'src/posts-list.json')))
+  fileStats: fs.statSync((path.join(__dirname, './public/src/posts-list.json')))
 }
 
 const loadPartials = (dir: string) => {
@@ -123,12 +122,6 @@ function enableCors(req: express.Request, res: express.Response, origin:any, opt
       .concat(opt_exposeHeaders || [])
       .join(', ')
   )
-  if (req.query.__amp_source_origin) {
-    res.setHeader(
-      'AMP-Access-Control-Allow-Source-Origin',
-      req.query.__amp_source_origin
-    )
-  }
 }
 
 function assertCors(
@@ -142,10 +135,6 @@ function assertCors(
   // if (req.query.cors === 0) return
 
   const ORIGIN_REGEX = new RegExp(
-    '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
-  )
-
-  const SOURCE_ORIGIN_REGEX = new RegExp(
     '^http://localhost:9000|' + '^https?://hrfmmymt.github.io'
   )
 
@@ -170,10 +159,7 @@ function assertCors(
       throw invalidOrigin
     }
 
-    if (
-      !opt_ignoreMissingSourceOrigin &&
-      !SOURCE_ORIGIN_REGEX.test(req.query.__amp_source_origin)
-    ) {
+    if (!opt_ignoreMissingSourceOrigin) {
       res.statusCode = 500
       res.end(JSON.stringify({ message: invalidSourceOrigin }))
       throw invalidSourceOrigin
@@ -196,7 +182,7 @@ app.engine('mustache', (filePath: string, options: any, callback: (err: any, str
     const rendered = mustache.render(
       content,
       options,
-      loadPartials('./partials')
+      loadPartials('./public/partials')
     )
     return callback(null, rendered)
   })
@@ -279,7 +265,7 @@ app.get('/posts/:post', (req, res) => {
   try {
     fileStats = fs.statSync(config.mdDir + file)
   } catch (err) {
-    if (err.code === 'ENOENT') res.status(400).render('404.mustache')
+    if (err.code === 'ENOENT') res.status(400).render('./public/404.mustache')
   }
 
   getPostInfo(file).then((postInfo: any) => {
@@ -314,7 +300,7 @@ app.get('/api', (req, res) => {
 })
 
 app.use((req, res) => {
-  res.status(400).render('404.mustache')
+  res.status(400).render('./public/404.mustache')
 })
 
 app.use((err, req: express.Request, res: express.Response) => {
@@ -322,4 +308,7 @@ app.use((err, req: express.Request, res: express.Response) => {
   res.end('my 500 error! : ' + err)
 })
 
-exports.app = functions.https.onRequest(app)
+if (!module.parent) {
+  app.listen(3000)
+  console.log('Express started on http://localhost:3000')
+}

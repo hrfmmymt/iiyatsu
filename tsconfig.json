@@ -10,6 +10,6 @@
     "target": "es2017"
   },
   "compileOnSave": true,
-  "include": ["src"],
-  "exclude": ["node_modeles", "src/sw.js"]
+  "include": ["./"],
+  "exclude": ["node_modeles", "src/sw.js", "./public/", "./utils/", "workbox-config.js"]
 }
