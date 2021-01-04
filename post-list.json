@@ -1,0 +1,71 @@
+[
+  {
+    "title": "handle 404",
+    "description": "wei",
+    "date": "2021-09-01",
+    "url": "handle-404",
+    "html": "<h1 id=\"handle-404\">handle 404</h1>\n<p><time datetime=\"2021-09-01\">2021-09-01</time></p>\n<p><em class=\"description\">wei</em></p>\n<p>vercel デプロイ時、↓で 404 のハンドリングができず 500 が返ってしまってた ( ローカルだとOK )。</p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-keyword\">try</span> {\n  fs.<span class=\"hljs-title function_\">statSync</span>(filePath);\n} <span class=\"hljs-keyword\">catch</span> (error) {\n  <span class=\"hljs-keyword\">if</span> (error.<span class=\"hljs-property\">code</span> === <span class=\"hljs-string\">&#x27;ENOENT&#x27;</span>) {\n    reply.<span class=\"hljs-title function_\">code</span>(<span class=\"hljs-number\">404</span>).<span class=\"hljs-title function_\">view</span>(<span class=\"hljs-string\">&#x27;./templates/page/404.njk&#x27;</span>);\n  }\n}\n\n<span class=\"hljs-title function_\">getPostInfo</span>({ fileName, <span class=\"hljs-attr\">withHtml</span>: <span class=\"hljs-literal\">true</span> }).<span class=\"hljs-title function_\">then</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">postInfo</span>) =&gt;</span> {\n...\n</code></pre>\n<p>↓で解決。</p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-keyword\">if</span> (fs.<span class=\"hljs-title function_\">existsSync</span>(filePath)) {\n  <span class=\"hljs-title function_\">getPostInfo</span>({ fileName, <span class=\"hljs-attr\">withHtml</span>: <span class=\"hljs-literal\">true</span> }).<span class=\"hljs-title function_\">then</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">postInfo</span>) =&gt;</span> {\n  ...\n} <span class=\"hljs-keyword\">else</span> {\n  reply.<span class=\"hljs-title function_\">code</span>(<span class=\"hljs-number\">404</span>).<span class=\"hljs-title function_\">view</span>(<span class=\"hljs-string\">&#x27;./templates/page/404.njk&#x27;</span>);\n}\n</code></pre>\n",
+    "nextPost": null,
+    "prevPost": {
+      "title": "トゥードゥー",
+      "url": "%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC"
+    }
+  },
+  {
+    "title": "トゥードゥー",
+    "description": "todo",
+    "date": "2021-08-30",
+    "url": "%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC",
+    "html": "<h1 id=\"トゥードゥー\">トゥードゥー</h1>\n<p><time datetime=\"2021-08-30\">2021-08-30</time></p>\n<p><em class=\"description\">todo</em></p>\n<h2 id=\"ci-✅\">CI ✅</h2>\n<p>テスト =&gt; ビルド =&gt; Vercel デプロイ</p>\n<ul>\n<li>Circle CI?</li>\n<li>GitHub Actions? ✅</li>\n</ul>\n<h2 id=\"404css-✅\">404.css ✅</h2>\n<h2 id=\"service-worker\">service worker</h2>\n<ul>\n<li>リビジョン設定 ✅</li>\n<li>workbox の <code>ignoreURLParametersMatching: [/^utm_/, /^fbclid$/]</code> これなんだっけ？</li>\n</ul>\n<h2 id=\"ページ機能\">ページ機能</h2>\n<ul>\n<li>前の記事次の記事？ ✅<ul>\n<li>スタイル ✅</li>\n</ul>\n</li>\n<li>カテゴリ？タグ？</li>\n</ul>\n<h2 id=\"スタイル\">スタイル</h2>\n<ul>\n<li>hightlight.js いまいち？ ✅<ul>\n<li>a11y theme とりあえず ✅</li>\n</ul>\n</li>\n<li>ページの下の方 <code>padding-bottom</code> もうちょいいる？ ✅</li>\n</ul>\n<h2 id=\"ga\">GA</h2>\n<p>既存からコピペするだけ</p>\n<h2 id=\"ドメイン設定\">ドメイン設定</h2>\n<ul>\n<li>iiyatsu.hrfmmymt.com</li>\n<li>既存 ( Firebase Hosting ) をキャンセル</li>\n<li>Vercel に移行</li>\n</ul>\n<h2 id=\"imagemin\">imagemin</h2>\n<p>画像の最適化で使っている imagemin 最新 ver. が ESM を使っているので、対応しなければならない。\n<a href=\"https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c\">対応方法</a></p>\n<h3 id=\"懸念\">懸念</h3>\n<ul>\n<li>他の既存コードの修正がめんどくさそう<ul>\n<li>TS のとことか</li>\n<li>他の pkg は？</li>\n</ul>\n</li>\n<li>Vercel でのデプロイ</li>\n</ul>\n<p>まあでも今後を考えるとやった方がよい</p>\n",
+    "nextPost": {
+      "title": "handle 404",
+      "url": "handle-404"
+    },
+    "prevPost": {
+      "title": "hello, world!",
+      "url": "hello-world!"
+    }
+  },
+  {
+    "title": "hello, world!",
+    "description": "hello,",
+    "date": "2021-08-29",
+    "url": "hello-world!",
+    "html": "<h1 id=\"hello-world\">hello, world!</h1>\n<p><time datetime=\"2021-08-29\">2021-08-29</time></p>\n<p><em class=\"description\">hello, world!</em></p>\n<p>aaaaaaaaaaa</p>\n<h2 id=\"img\">img</h2>\n<p><img src=\"https://lh3.googleusercontent.com/pw/AM-JKLVXUJtGnnBBN5SaVbSpSAynOiedhj-Jmj5WikYx2HXdnkFW8sRzZzsVoa-UGd5kDTAFQEkUGssvtbQLxqZSkmTeq6Cy_vPMhAsdi_L8NaWItXn3E0X98VtzrHFHS-NGijH4mxkitmbWn63ESli4Rvlndg\" alt=\"eye-catch\" width=\"780\" height=\"1386\" loading=\"lazy\" /></p>\n<ol>\n<li>画像を所定ディレクトリに配置</li>\n<li>配置した画像を最適化する</li>\n<li>最適化した画像を Google フォトに上げる</li>\n<li>Google フォトからパーマリンクを取得</li>\n<li>markdown 記述↑↑</li>\n</ol>\n<h2 id=\"video\">video</h2>\n<pre><code class=\"language-html\">&lt;div class=&quot;video-wrapper&quot;&gt;\n  &lt;video controls\n    preload=&quot;metadata&quot;\n    width=&quot;640&quot;\n    height=&quot;360&quot;\n    poster=&quot;https://user-images.githubusercontent.com/4241290/131988834-79b76fd9-345e-4a58-84cd-1ab4809df1f6.png&quot;\n    title=&quot;video-test&quot;&gt;\n    &lt;source src=&quot;https://user-images.githubusercontent.com/4241290/131988806-9bf0744d-7069-4c37-a70b-466460caa26f.mp4&quot;\n      type=&quot;video/mp4&quot; /&gt;\n    &lt;div fallback&gt;\n      &lt;p&gt;This browser does not support the video element.&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/video&gt;\n&lt;/div&gt;\n</code></pre>\n<div class=\"video-wrapper\">\n  <video controls\n    preload=\"metadata\"\n    width=\"640\"\n    height=\"360\"\n    layout=\"responsive\"\n    poster=\"https://user-images.githubusercontent.com/4241290/131988834-79b76fd9-345e-4a58-84cd-1ab4809df1f6.png\"\n    title=\"video-test\">\n    <source src=\"https://user-images.githubusercontent.com/4241290/131988806-9bf0744d-7069-4c37-a70b-466460caa26f.mp4\"\n      type=\"video/mp4\" />\n    <div fallback>\n      This browser does not support the video element.\n    </div>\n  </video>\n</div>\n\n<pre><code class=\"language-html\">&lt;iframe src=&quot;https://open.spotify.com/embed/user/hrfmmymt/playlist/4rmnvhEv080DI0AX0XqfqD&quot;\n  sandbox=&quot;allow-scripts allow-same-origin&quot;\n  width=&quot;300&quot;\n  height=&quot;380&quot;\n  frameborder=&quot;0&quot;\n  allow=&quot;encrypted-media&quot;&gt;&lt;/iframe&gt;\n</code></pre>\n<iframe src=\"https://open.spotify.com/embed/user/hrfmmymt/playlist/4rmnvhEv080DI0AX0XqfqD\"\n  sandbox=\"allow-scripts allow-same-origin\"\n  width=\"300\"\n  height=\"380\"\n  frameborder=\"0\"\n  allow=\"encrypted-media\"></iframe>",
+    "nextPost": {
+      "title": "トゥードゥー",
+      "url": "%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC"
+    },
+    "prevPost": {
+      "title": "0",
+      "url": "0"
+    }
+  },
+  {
+    "title": "0",
+    "description": "enable",
+    "date": "1999-09-11",
+    "url": "0",
+    "html": "<h1 id=\"0\">0</h1>\n<p><time datetime=\"1999-09-11\">1999-09-11</time></p>\n<p><em class=\"description\">enable sort</em></p>\n<h2 id=\"h2\">h2</h2>\n<p>0000000</p>\n",
+    "nextPost": {
+      "title": "hello, world!",
+      "url": "hello-world!"
+    },
+    "prevPost": {
+      "title": "h1",
+      "url": "1"
+    }
+  },
+  {
+    "title": "h1",
+    "description": "wei",
+    "date": "1999-09-09",
+    "url": "1",
+    "html": "<h1 id=\"h1\">h1</h1>\n<p><time datetime=\"1999-09-09\">1999-09-09</time></p>\n<p><em class=\"description\">wei</em></p>\n<h2 id=\"h2\">h2</h2>\n<pre><code class=\"language-javascript\">marked.<span class=\"hljs-title function_\">setOptions</span>({\n  <span class=\"hljs-attr\">renderer</span>: <span class=\"hljs-keyword\">new</span> marked.<span class=\"hljs-title class_\">Renderer</span>(),\n  <span class=\"hljs-attr\">highlight</span>: <span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">code, lang</span>) {\n    <span class=\"hljs-keyword\">const</span> hljs = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">&#x27;highlight.js&#x27;</span>)\n    <span class=\"hljs-keyword\">const</span> language = hljs.<span class=\"hljs-title function_\">getLanguage</span>(lang) ? lang : <span class=\"hljs-string\">&#x27;plaintext&#x27;</span>\n    <span class=\"hljs-keyword\">return</span> hljs.<span class=\"hljs-title function_\">highlight</span>(code, { language }).<span class=\"hljs-property\">value</span>\n  },\n  <span class=\"hljs-attr\">pedantic</span>: <span class=\"hljs-literal\">false</span>,\n  <span class=\"hljs-attr\">gfm</span>: <span class=\"hljs-literal\">true</span>,\n  <span class=\"hljs-attr\">breaks</span>: <span class=\"hljs-literal\">false</span>,\n  <span class=\"hljs-attr\">sanitize</span>: <span class=\"hljs-literal\">false</span>,\n  <span class=\"hljs-attr\">smartLists</span>: <span class=\"hljs-literal\">true</span>,\n  <span class=\"hljs-attr\">smartypants</span>: <span class=\"hljs-literal\">false</span>,\n  <span class=\"hljs-attr\">xhtml</span>: <span class=\"hljs-literal\">false</span>\n})\n<span class=\"hljs-comment\">// https://marked.js.org/using_advanced</span>\n</code></pre>\n<ul>\n<li>list1</li>\n<li>list2</li>\n</ul>\n",
+    "nextPost": {
+      "title": "0",
+      "url": "0"
+    },
+    "prevPost": null
+  }
+]

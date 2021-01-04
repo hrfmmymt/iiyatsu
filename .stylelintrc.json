@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    "stylelint-order"
+  ],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-prettier/recommended"
+  ],
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "indentation": 2
+  }
+}
