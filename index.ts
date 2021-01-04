@@ -20,52 +20,27 @@ renderer.image = (src: string, title: string, alt: string) => {
   const regExp = exec && exec[0] ? new RegExp(exec[0], 'g') : ''
   const mySrc = src.replace(regExp, '')
 
-  if (alt === 'embed-youtube') {
-    return `<amp-youtube data-videoid="${mySrc}" layout="responsive" width="480" height="270"></amp-youtube>`
-  } else if (alt === 'embed-twitter') {
-    return `<amp-twitter width="375" height="472" layout="responsive" data-tweetid="${mySrc}"></amp-twitter>`
-  } else if (alt === 'embed-gist') {
-    return `<amp-gist data-gistid="${mySrc}" layout="fixed-height" height="225"></amp-gist>`
-  } else if (alt === 'embed-soundcloud') {
-    return `<amp-soundcloud height=657 layout="fixed-height" data-trackid="${mySrc}" data-visual="true"></amp-soundcloud>`
-  } else if (alt === 'embed-instagram') {
-    return `<amp-instagram data-shortcode="${mySrc}" data-captioned width="400" height="400" layout="responsive"></amp-instagram>`
-  } else if (alt.indexOf('video-') === 0) {
+  if (alt.indexOf('video-') === 0) {
     const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/)
     const srcExec = mySrcRegex !== null ? mySrcRegex[1] : ''
-    const fileName = srcExec.replace('./public/static/videos/', '')
-    const webmSrc = `./public/static/videos/webm/${fileName}.webm`
-
+    const fileName = srcExec.replace('/videos/mp4/', '')
+    const webmSrc = `/videos/webm/${fileName}.webm`
     const width = exec && exec[1] ? exec[1] : 0
     const height = exec && exec[2] ? exec[2] : 0
+    const mp4SourceTag = `<source src="${mySrc}" type="video/mp4" />`
+    const videoTag = `<video controls poster="/videos/poster/${fileName}.${`png` || `jpg`}" title="${sanitize(alt)}" width="${width}" height="${height}">${mp4SourceTag}<source src="${webmSrc}" type="video/webm" /><span>This browser does not support the video element.</span></video>`
 
-    const mp4Src = `<source src="${mySrc}" type="video/mp4" />`
-
-    return `<div class="amp-video-wrapper">
-      <amp-video controls preload="metadata" width="${width}" height="${height}" layout="responsive" poster="/static/videos/poster/${fileName}.${`png` ||
-      `jpg`}" title="${sanitize(alt)}">
-        <source src="${webmSrc}" type="video/webm" />
-        ${mp4Src}
-        <div fallback>This browser does not support the video element.</div>
-      </amp-video>
-    </div>`
+    return videoTag
   } else {
     const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/)
     const srcExec = mySrcRegex !== null ? mySrcRegex[1] : ''
-    const fileName = srcExec.replace('./public/static/img/posts/', '')
-    const webpSrc = `./public/static/img/posts/webp/${fileName}.webp`
-
+    const fileName = srcExec.replace('/img/posts/', '')
+    const webpSrc = `/img/posts/webp/${fileName}.webp`
     const width = exec && exec[1] ? exec[1] : 0
     const height = exec && exec[2] ? exec[2] : 0
+    const imgTag = `<picture><source type="image/webp" srcset="${webpSrc}"><img src="${mySrc}" alt="${sanitize(alt)}" width="${width}" height="${height}" loading="lazy"></picture>`
 
-    // not webp ( jpg, png, gif... )
-    const fallback = `<amp-img src="${mySrc}" width="${width}" height="${height}" alt="${sanitize(
-      alt
-    )}" fallback layout="responsive"></amp-img>`
-
-    return `<amp-img src="${webpSrc}" width="${width}" height="${height}" alt="${sanitize(
-      alt
-    )}" layout="responsive">${fallback}</amp-img>`
+    return imgTag
   }
 }
 

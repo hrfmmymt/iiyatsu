@@ -7,11 +7,11 @@
 こんにちは、ワーキングプアです。  
 北海道に行ってきました（1年振り n 度目）。
 
-![羽田空港](/static/img/posts/hkd-2018-01.jpg=780x585)
+![羽田空港](/img/posts/hkd-2018-01.jpg=780x585)
 
 まずは先に新千歳空港に到着した hrfmmymt 家が空港近くでレンタカーを借りました。娘が慣れない車でキツそうにしていて、生唾ベーと出したりしていました。
 
-![新千歳空港](/static/img/posts/hkd-2018-02.jpg=780x1040)
+![新千歳空港](/img/posts/hkd-2018-02.jpg=780x1040)
 
 それから妻の親夫婦と合流して、自分の母の実家に行きました。  
 母、叔父、叔母、従姉妹と合流して「やいの x2」とやるやつをして、これまた何度目かの定山渓ビューホテルへ。娘とプールで遊びました。  
@@ -25,82 +25,82 @@
 
 適当に写真をご覧ください。
 
-![何か](/static/img/posts/hkd-2018-03.jpg=780x1040)
+![何か](/img/posts/hkd-2018-03.jpg=780x1040)
 
-![何か近影](/static/img/posts/hkd-2018-04.jpg=780x1040)
+![何か近影](/img/posts/hkd-2018-04.jpg=780x1040)
 
-![いももち](/static/img/posts/hkd-2018-05.jpg=780x1040)
+![いももち](/img/posts/hkd-2018-05.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-06.jpg=780x585)
+![](/img/posts/hkd-2018-06.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-07.jpg=780x1040)
+![](/img/posts/hkd-2018-07.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-08.jpg=780x585)
+![](/img/posts/hkd-2018-08.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-09.jpg=780x585)
+![](/img/posts/hkd-2018-09.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-10.jpg=780x1040)
+![](/img/posts/hkd-2018-10.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-11.jpg=780x585)
+![](/img/posts/hkd-2018-11.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-12.jpg=780x585)
+![](/img/posts/hkd-2018-12.jpg=780x585)
 
 [旅館一乃松](http://www.ichinomatsu.co.jp/)に到着。いいところでした。義父の趣味をガッツリ抑えた妻のチョイスが冴え渡ったのでは。中庭に入ってみたかった。
 
-![](/static/img/posts/hkd-2018-14.jpg=780x1040)
+![](/img/posts/hkd-2018-14.jpg=780x1040)
 
 夕食をとってからタクシーで函館山に行きました。運転手がちょっと不安になるくらい親切で、道中のガイドはもちろんのこと、到着後にはデジカメで写真を撮りまくってコンビニで現像して渡してくれました。ありがとう（木々たちよ）。
 
-![](/static/img/posts/hkd-2018-15.jpg=780x585)
+![](/img/posts/hkd-2018-15.jpg=780x585)
 
 翌朝は朝市へ。三日目となります。函館の朝市の雰囲気はなんとなく、人の多い韓国の済州島を想起させられましたが、まあ漁港つながりって感じでしょうか。  
 それはともかく、おいしいイカが食べられます。個人的な今回の旅行の楽しみ事項は、完全にイカだけでした。これはいやがうえにも、イカが食べれて嬉しい僕の体の一部がホットになっていくというものです。  
 
 〜またしばらく写真をご覧ください。
 
-![](/static/img/posts/hkd-2018-17.jpg=780x585)
+![](/img/posts/hkd-2018-17.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-18.jpg=780x585)
+![](/img/posts/hkd-2018-18.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-19.jpg=780x585)
+![](/img/posts/hkd-2018-19.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-20.jpg=780x585)
+![](/img/posts/hkd-2018-20.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-21.jpg=780x585)
+![](/img/posts/hkd-2018-21.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-22.jpg=780x585)
+![](/img/posts/hkd-2018-22.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-23.jpg=780x1040)
+![](/img/posts/hkd-2018-23.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-24.jpg=780x1040)
+![](/img/posts/hkd-2018-24.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-25.jpg=780x1040)
+![](/img/posts/hkd-2018-25.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-26.jpg=780x1040)
+![](/img/posts/hkd-2018-26.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-27.jpg=780x1040)
+![](/img/posts/hkd-2018-27.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-28.jpg=780x1040)
+![](/img/posts/hkd-2018-28.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-29.jpg=780x585)
+![](/img/posts/hkd-2018-29.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-30.jpg=780x585)
+![](/img/posts/hkd-2018-30.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-31.jpg=780x1040)
+![](/img/posts/hkd-2018-31.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-32.jpg=780x585)
+![](/img/posts/hkd-2018-32.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-33.jpg=780x1040)
+![](/img/posts/hkd-2018-33.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-34.jpg=780x585)
+![](/img/posts/hkd-2018-34.jpg=780x585)
 
 そのあとは洞爺湖に移動しました。目的は、この時期毎日打ち上げているという花火を旅館から眺めるためです。  
 
-![](/static/img/posts/hkd-2018-35.jpg=780x1040)
+![](/img/posts/hkd-2018-35.jpg=780x1040)
 
-![](/static/img/posts/hkd-2018-36.jpg=780x585)
+![](/img/posts/hkd-2018-36.jpg=780x585)
 
-![](/static/img/posts/hkd-2018-37.jpg=780x585)
+![](/img/posts/hkd-2018-37.jpg=780x585)
 
 だったのですが夜になり、娘の体調不良というアクシデントが発生しました。  
 夜ごろから熱が 39℃ ほどまで上がり、翌朝から病院をいくつか電話をかけて（その日は日曜日）なんとか見つけた、車で 20 分ほどの小児科を受診しました。医師にこの日に東京に帰るという旨を話すと、点滴を受けることになりました。そのおかげか、ほどなくして体温は 37℃ 台までには下がり、一安心はできました。しかし万全には及ばず、娘から笑顔が一切失われ半日ほど真顔のまま過ごしていました。
@@ -120,7 +120,7 @@
 最後に、帰りの飛行機の機内誌にあった星占いを紹介してみます。  
 まずは自分の魚座。
 
-![](/static/img/posts/hkd-2018-38.jpg=780x585)
+![](/img/posts/hkd-2018-38.jpg=780x585)
 
 > 初めてのことが多くドキドキやワクワクがいっぱいの星回り。お誘いも受けてくださいね。ただし少しでも嫌な予感がした時はやめておくのが正解。  
 ラッキーワード：夏祭り、花火、コンサート  
@@ -129,7 +129,7 @@
 
 続いて娘の（さそり座の女）。
 
-![](/static/img/posts/hkd-2018-39.jpg=780x585)
+![](/img/posts/hkd-2018-39.jpg=780x585)
 
 > 用心は健康運。疲れをためないように体のケアを丁寧にしましょう。レジャーも無理は禁物。対人関係では懐かしい交際が復活するなど嬉しいことあり。  
 ラッキーワード：海や湖、絵はがき  
