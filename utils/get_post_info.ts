@@ -11,8 +11,6 @@ import { markedCustomRender } from './marked_custom_render';
 const postDir = path.join(__dirname, '../post/');
 const renderer = markedCustomRender();
 
-const postList = JSON.parse(fs.readFileSync(path.join(__dirname, '../post-list.json'), 'utf8'));
-
 export const getPostInfo = function ({
   fileName,
   withHtml,
@@ -45,18 +43,12 @@ export const getPostInfo = function ({
         },
       });
 
-      const thisPostIndex = postList.findIndex((post: PostInfo) => post.url === url);
-      const nextPost = postList[thisPostIndex].nextPost;
-      const prevPost = postList[thisPostIndex].prevPost;
-
       resolve({
         title,
         description,
         date,
         url,
         html,
-        nextPost,
-        prevPost,
       });
     });
   });
