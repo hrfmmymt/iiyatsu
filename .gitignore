@@ -3,6 +3,7 @@ yarn-error.log*
 .DS_Store
 
 *.js
+!script.js
 !test_*.js
 !build_sw.js
 !sw.js
