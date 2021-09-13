@@ -4,7 +4,7 @@ import * as path from 'path';
 const request = require('supertest');
 
 const build = require('../src/app');
-import {checkFileExistence} from '../utils/check_file_existence';
+import { checkFileExistence } from '../utils/check_file_existence';
 
 tap.test('GET `/` route', (t) => {
   t.plan(3);
@@ -22,7 +22,7 @@ tap.test('GET `/` route', (t) => {
       t.error(err);
       t.equal(response.statusCode, 200);
       t.equal(response.headers['content-type'], 'text/html; charset=utf-8');
-    }
+    },
   );
 });
 
@@ -36,13 +36,13 @@ tap.test('GET `/:post` post', (t) => {
   fastify.inject(
     {
       method: 'GET',
-      url: '/1',
+      url: '/20180606',
     },
     (err: Error, response: any) => {
       t.error(err);
       t.equal(response.statusCode, 200);
       t.equal(response.headers['content-type'], 'text/html; charset=utf-8');
-    }
+    },
   );
 });
 
@@ -61,11 +61,8 @@ tap.test('GET `/api` api', (t) => {
     (err: Error, response: any) => {
       t.error(err);
       t.equal(response.statusCode, 200);
-      t.equal(
-        response.headers['content-type'],
-        'application/json; charset=utf-8'
-      );
-    }
+      t.equal(response.headers['content-type'], 'application/json; charset=utf-8');
+    },
   );
 });
 
@@ -84,7 +81,7 @@ tap.test('GET `/favicon.ico` favicon.ico', (t) => {
     (err: Error, response: any) => {
       t.error(err);
       t.equal(response.statusCode, 404);
-    }
+    },
   );
 });
 
@@ -108,15 +105,15 @@ tap.test('GET `/favicon.ico` favicon.ico', (t) => {
 // });
 
 // tap.test('404', function (t) {
-  // const fastify: FastifyInstance = build();
-  // const request = supertest(fastify);
-  // request(fastify)
-  //   .get('/333')
-  //   .expect(404)
-    // .end((err: any) => {
-    //   t.error(err);
-    //   t.end();
-    // });
+// const fastify: FastifyInstance = build();
+// const request = supertest(fastify);
+// request(fastify)
+//   .get('/333')
+//   .expect(404)
+// .end((err: any) => {
+//   t.error(err);
+//   t.end();
+// });
 // });
 
 // describe('POST Not found', () => {
@@ -154,4 +151,3 @@ tap.test('GET `/favicon.ico` favicon.ico', (t) => {
 //     t.fail();
 //   }
 // })
-

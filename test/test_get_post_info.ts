@@ -3,15 +3,15 @@ import tap from 'tap';
 import { getPostInfo } from '../utils/get_post_info';
 
 const expect = {
-  title: '0',
-  description: 'enable',
-  date: '1999-09-11',
-  url: '0',
+  title: 'preact-cli でポートフォリオサイトを作った',
+  description: 'ギジュツテキ',
+  date: '2018-06-06',
+  url: '20180606',
   html: null,
 };
 
 tap.test('return data if `withHtml` is true', (t) => {
-  return getPostInfo({ fileName: '0.md', withHtml: true }).then((data) => {
+  return getPostInfo({ fileName: '20180606.md', withHtml: true }).then((data) => {
     t.equal(data.title, expect.title);
     t.equal(data.description, expect.description);
     t.equal(data.date, expect.date);
@@ -21,7 +21,7 @@ tap.test('return data if `withHtml` is true', (t) => {
 });
 
 tap.test('return html null if `withHtml` is false', async (t) => {
-  return getPostInfo({ fileName: '0.md', withHtml: false }).then((data) => {
+  return getPostInfo({ fileName: '20180606.md', withHtml: false }).then((data) => {
     t.equal(data.title, expect.title);
     t.equal(data.description, expect.description);
     t.equal(data.date, expect.date);
@@ -32,6 +32,6 @@ tap.test('return html null if `withHtml` is false', async (t) => {
 
 tap.test('error: ENOENT', async (t) => {
   return getPostInfo({ fileName: 'XXX', withHtml: false }).catch(() =>
-    t.pass('expected rejection')
+    t.pass('expected rejection'),
   );
 });
