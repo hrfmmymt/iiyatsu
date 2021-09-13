@@ -27,6 +27,7 @@ ul {
   --text-color-anchor: #db2c17;
   --page-background-color: #fff;
   --code-background-color: #f4f4f4;
+  --skeleton-color: #f4f4f4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +37,7 @@ ul {
     --text-color-anchor: #00b5b5;
     --page-background-color: #332f21;
     --code-background-color: #000;
+    --skeleton-color: #272419;
   }
 }
 

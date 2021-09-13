@@ -47,6 +47,7 @@
 
 .post-article img,
 .post-article video {
+  background-color: var(--skeleton-color);
   height: auto;
   width: 100%;
 }
