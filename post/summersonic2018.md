@@ -34,11 +34,11 @@ Beck の直前で [@yoshi_haya](https://twitter.com/yoshi_haya) と合流しま�
 
 そして、カマシ・ワシントンのライブ。  
 
-![](/static/img/posts/20180825-01.jpg=780x1040)
+![店内俯瞰](https://lh3.googleusercontent.com/pw/AM-JKLVEXx8Fg3XdvHkk8gfpkip4P_Cl-H6_X1QIfNp1iiabpK08_AmVWS7qwakJ-y3pXvwW8rt3ozIPky06gpfBqI2MatUJeBIrjWFLbrDZYOlQ3g-5gzbrTMBLBAwi04M7It5I1P1-nXuLXJhuNPOUacPxng=w780-h1040)
 
-![](/static/img/posts/20180825-02.jpg=780x1040)
+![黒ビール](https://lh3.googleusercontent.com/pw/AM-JKLVIKKyxlS356mhgFOK33kPnG0lNyyJl_o8Tj3-czhM3hjb3-wnj9E-GeVxuW827waUzTGfAy0vffAuj6sB10j4WP6aVW9t2KHnbP6G9o2_lXxJDKB3FeGZkc_c3TLhh_ZlbPIFAmp0TLQ8ZouxOS4kNNw=w780-h585)
 
-![](/static/img/posts/20180825-03.jpg=780x585)
+![席からステージ見た感じ](https://lh3.googleusercontent.com/pw/AM-JKLXLfaGjxu2D_zVDNPlgys0kWanYuLkrBA9RzV3P8wp7Q4QNyiKlV_iQxBo258KOLpWci3oBEvFL7kD4VWOoJySi2z9_ZsdKZuBkejJdRY5WBQYMA_CkBAZAtxxL0GYyZ6kn42D4-kcrEY8Ltuxt9eOYTQ=w780-h1040)
 
 微妙な場違い感を楽しみながら待機してました。始まったらもう最高でした。テーブルと椅子は邪魔。  
 カマシバンドはベースが一番かっこいいなと思っていたんですが、トロンボーンの人もかっこよかったです。バスキアの絵が背中にプリントされたダンガリーシャツ着てました。欲しい。高そうな気がする。知らんけど。
