@@ -36,6 +36,7 @@
 }
 
 .profile-img {
+  background-color: var(--skeleton-color);
   border-radius: 50%;
   padding: 0;
 }
