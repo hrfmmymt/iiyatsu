@@ -1,10 +1,8 @@
-# hello, world!
+# hello, world! season 2
 
 *date:2021-08-29*
 
-*desc> hello, world!*
-
-aaaaaaaaaaa
+*desc> これのやつ*
 
 ## img
 ![eye-catch](https://lh3.googleusercontent.com/pw/AM-JKLVXUJtGnnBBN5SaVbSpSAynOiedhj-Jmj5WikYx2HXdnkFW8sRzZzsVoa-UGd5kDTAFQEkUGssvtbQLxqZSkmTeq6Cy_vPMhAsdi_L8NaWItXn3E0X98VtzrHFHS-NGijH4mxkitmbWn63ESli4Rvlndg=w780-h1386)
@@ -14,6 +12,7 @@ aaaaaaaaaaa
 3. 最適化した画像を Google フォトに上げる
 4. Google フォトからパーマリンクを取得
 5. markdown 記述↑↑
+6. めんどくさ
 
 ## video
 ```html
