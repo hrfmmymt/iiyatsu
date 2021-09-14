@@ -37,7 +37,10 @@ GW に福岡県北九州市に行ってきた（1 年振り n 度目）ので記
 
 海。生き物いなかった。
 
-![video-](https://lh3.googleusercontent.com/Ibq5beX_Te96hObav_tqegeLpcI2nlYepDTI0-DI3bZ8WRUeW_IOshoeAvY1VD2wpgLWX0WAMDg2_Bl8ZrOvxhh7m3s6h1jfG4zinAP-AMCMFvHPtpmLdBv_liOfSYYNm_QrMGy1DD4=w780)
+<video controls preload="metadata" poster="https://lh3.googleusercontent.com/pw/AM-JKLWOT99nxKGDJvJjxLQJlgDYaeKqH9moSl9v58W1ArhG7AM2ATH6MTLz0uwIj7Upr5r5KVjFbi-wZ_9ui5sBGrJlg9seOg_tY-Wwbrj1OgJ8mE_dxYQHboyOR1p1pMr6wERiSNWncBGSFIerunP_qQrG7Q=w1112-h1968" title="イカ動画" width="780">
+  <source src="https://user-images.githubusercontent.com/4241290/133202579-e476bc08-bf57-4832-95fb-870ad5e232c1.mp4" type="video/mp4">
+  This browser does not support the video element.
+</video>
 
 透明なイカ動いてる〜
 
