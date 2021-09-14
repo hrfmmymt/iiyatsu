@@ -45,7 +45,8 @@ Beck の直前で [@yoshi_haya](https://twitter.com/yoshi_haya) と合流しま�
 
 雰囲気はこんな。
 
-![embed-youtube](OxzIuLD1R98)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OxzIuLD1R98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
 <small>Kamasi Washington - Truth</small>
 
 最高っしょ。
@@ -54,5 +55,6 @@ Beck の直前で [@yoshi_haya](https://twitter.com/yoshi_haya) と合流しま�
 それでは、僕の後頭部でお別れしましょう。  
 チャノ（あえてこう書いてる）も最高でしたよ。
 
-![embed-youtube](LZKC3pRzmZk)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LZKC3pRzmZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
 <small>Chance The Rapper - Live at SUMMER SONIC 2018 - Chiba Marine Stadium (JAPAN) - 19/08/2018</small>
