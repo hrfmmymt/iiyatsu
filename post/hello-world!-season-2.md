@@ -35,16 +35,12 @@
 <div class="video-wrapper">
   <video controls
     preload="metadata"
-    width="640"
-    height="360"
-    layout="responsive"
+    width="780"
     poster="https://user-images.githubusercontent.com/4241290/131988834-79b76fd9-345e-4a58-84cd-1ab4809df1f6.png"
     title="video-test">
     <source src="https://user-images.githubusercontent.com/4241290/131988806-9bf0744d-7069-4c37-a70b-466460caa26f.mp4"
       type="video/mp4" />
-    <div fallback>
-      This browser does not support the video element.
-    </div>
+    This browser does not support the video element.
   </video>
 </div>
 
