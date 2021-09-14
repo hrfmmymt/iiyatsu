@@ -16,47 +16,13 @@ function markedRenderImage() {
     const regExp = exec && exec[0] ? new RegExp(exec[0], 'g') : '';
     const mySrc = src.replace(regExp, '');
 
-    // if (alt.indexOf('video-') === 0) {
-    //   // render <video> tag
-    //   const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/);
-    //   const srcExec = mySrcRegex !== null ? mySrcRegex[1] : '';
-    //   const fileName = srcExec.replace('public/videos/', '');
-    //   const webmSrc = `public/videos/webm/${fileName}.webm`;
-
-    //   const width = exec && exec[1] ? exec[1] : 0;
-    //   const height = exec && exec[2] ? exec[2] : 0;
-
-    //   const mp4Src = `<source src="${mySrc}" type="video/mp4" />`;
-
-    //   return `<div class="video-wrapper">
-    //     <video controls preload="metadata" width="${width}" height="${height}" poster="public/videos/poster/${fileName}.${
-    //     `png` || `jpg`
-    //   }" title="${sanitize(alt)}">
-    //       <source src="${webmSrc}" type="video/webm" />
-    //       ${mp4Src}
-    //       <div fallback>This browser does not support the video element.</div>
-    //     </video>
-    //   </div>`;
-    // } else {
-    //   // render <img> tag
-    //   const mySrcRegex = mySrc.match(/(.*)(?:\.([^.]+$))/);
-    //   const srcExec = mySrcRegex !== null ? mySrcRegex[1] : '';
-    //   const fileName = srcExec.replace('public/img/post/', '');
-    //   const webpSrc = `public/img/post/webp/${fileName}.webp`;
+    // render <img> tag
     const width = exec && exec[1] ? exec[1].replace('w', '') : 0;
     const height = exec && exec[2] ? exec[2].replace('h', '') : 0;
 
-    //   return `<picture>
-    //   <source srcset="${webpSrc}" type="image/webp">
-    //   <source srcset="${mySrc}" type="image/jpeg">
-    //   <img src="${mySrc}" alt="${sanitize(
-    //     alt
-    //   )}" width="${width}" height="${height}" />
-    // </picture>`;
     return `<img src="${mySrc}" alt="${sanitize(
       alt,
     )}" width="${width}" height="${height}" loading="lazy" />`;
-    // }
   };
 }
 
