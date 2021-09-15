@@ -1,29 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { PostInfo } from './types';
+import { FOOTER_TAG, createTagOfPostEnd } from './create_tag_of_post_end';
 
 const postDir = path.join(__dirname, '../post/');
 const postList = JSON.parse(fs.readFileSync(path.join(__dirname, '../post-list.json'), 'utf8'));
-
-const FOOTER_TAG = '<footer>&#8718;</footer>';
-
-const createTagOfPostEnd = ({
-  nextPost,
-  prevPost,
-}: {
-  nextPost: PostInfo['nextPost'];
-  prevPost: PostInfo['prevPost'];
-}) => {
-  const next = nextPost
-    ? `<dt>次に出た記事</dt><dd><a href="${nextPost.url}">${nextPost.title}</a></dd>`
-    : '';
-  const prev = prevPost
-    ? `<dt>前に出た記事</dt><dd><a href="${prevPost.url}">${prevPost.title}</a></dd>`
-    : '';
-  const result = `${FOOTER_TAG}<nav class="post-recent"><dl>${next}${prev}</dl></nav>`;
-
-  return result;
-};
 
 export const setRecentPostData = (): void => {
   fs.readdir(postDir, (err, mdFiles) => {
