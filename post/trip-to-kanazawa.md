@@ -51,10 +51,4 @@
 
 なんとなくかけ蕎麦食べた。
 
-
-<footer>&#8718;</footer>
-<nav class="post-recent">
-  <dl><dt>次に出た記事</dt>
-  <dd><a href="trip-to-kitakyushu">これはもう帰省 北九州</a></dd><dt>前に出た記事</dt>
-  <dd><a href="20181102">論理無職の日々</a></dd></dl>
-</nav>
+<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="trip-to-kitakyushu">これはもう帰省 北九州</a></dd><dt>前に出た記事</dt><dd><a href="20181102">論理無職の日々</a></dd></dl></nav>

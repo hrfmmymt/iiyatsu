@@ -21,9 +21,4 @@ API 実装はここまでで、あとは公式ドキュメント ( [amp-list –
 
 やったぜ。
 
-<footer>&#8718;</footer>
-<nav class="post-recent">
-  <dl><dt>次に出た記事</dt>
-  <dd><a href="md-amp-img-webp">markdown から amp-img で webp 表示＆フォールバックのやつした</a></dd><dt>前に出た記事</dt>
-  <dd><a href="20180808">TypeScript はじめました</a></dd></dl>
-</nav>
+<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="md-amp-img-webp">markdown から amp-img で webp 表示＆フォールバックのやつした</a></dd><dt>前に出た記事</dt><dd><a href="20180808">TypeScript はじめました</a></dd></dl></nav>

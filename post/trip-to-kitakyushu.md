@@ -65,10 +65,4 @@ GW に福岡県北九州市に行ってきた（1 年振り n 度目）ので記
 
 夜寝んねの時寂しそうだったけど頑張ったね。えらかったね。
 
-
-<footer>&#8718;</footer>
-<nav class="post-recent">
-  <dl><dt>次に出た記事</dt>
-  <dd><a href="hello-world!-season-2">hello, world! season 2</a></dd><dt>前に出た記事</dt>
-  <dd><a href="trip-to-kanazawa">ワンス・アポン・ア・タイム・イン金沢</a></dd></dl>
-</nav>
+<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="hello-world!-season-2">hello, world! season 2</a></dd><dt>前に出た記事</dt><dd><a href="trip-to-kanazawa">ワンス・アポン・ア・タイム・イン金沢</a></dd></dl></nav>
