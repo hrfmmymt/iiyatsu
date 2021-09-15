@@ -5,7 +5,7 @@ import { PostInfo } from './types';
 const postDir = path.join(__dirname, '../post/');
 const postList = JSON.parse(fs.readFileSync(path.join(__dirname, '../post-list.json'), 'utf8'));
 
-const hogehoge = 'hogehoge';
+const FOOTER_TAG = '<footer>&#8718;</footer>';
 
 const createTagOfPostEnd = ({
   nextPost,
@@ -22,7 +22,7 @@ const createTagOfPostEnd = ({
     ? `<dt>前に出た記事</dt>
   <dd><a href="${prevPost.url}">${prevPost.title}</a></dd>`
     : '';
-  const result = `\n\n<footer>&#8718;</footer>\n<nav class="post-recent">
+  const result = `\n\n${FOOTER_TAG}\n<nav class="post-recent">
   <dl>${next}${prev}</dl>\n</nav>`;
 
   return result;
@@ -34,28 +34,45 @@ export const setRecentPostData = (): void => {
       console.log(err);
       return;
     }
+
     mdFiles.forEach((mdFile) => {
       const thisFileIndex = postList.findIndex(
         (post: PostInfo) => mdFile.replace(/.md/g, '') === decodeURI(post.url),
       );
       const nextPost: PostInfo | undefined = postList[thisFileIndex].nextPost;
       const prevPost: PostInfo | undefined = postList[thisFileIndex].prevPost;
-      const replace = createTagOfPostEnd({ nextPost, prevPost });
+      const destination = createTagOfPostEnd({ nextPost, prevPost });
+      const filePath = postDir + '/' + mdFile;
 
-      fs.readFile(`${postDir}/${mdFile}`, 'utf8', (err, mdString) => {
+      fs.readFile(filePath, 'utf8', (err, mdString) => {
         if (err) {
           return console.log(err);
         }
 
-        if (mdString.match(replace)) {
-          return;
-        }
+        // md にフッターがなかった
+        if (!mdString.match(FOOTER_TAG)) {
+          fs.appendFile(filePath, destination, 'utf8', (err) => {
+            if (err) {
+              return console.log(err);
+            }
+          });
+        } else {
+          // md と json のデータに差分なかった
+          if (mdString.match(destination)) {
+            return;
+          } else {
+            // md と json のデータに差分があった
+            const existingEndTag = mdString.substring(
+              mdString.indexOf(FOOTER_TAG) + 0,
+              mdString.length,
+            );
+            const replacement = mdString.replace(existingEndTag, destination);
 
-        fs.appendFile(`${postDir}/${mdFile}`, replace, 'utf8', (err) => {
-          if (err) {
-            return console.log(err);
+            fs.writeFile(filePath, replacement, 'utf8', (err) => {
+              if (err) return console.log(err);
+            });
           }
-        });
+        }
       });
     });
   });
