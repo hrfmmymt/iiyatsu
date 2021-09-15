@@ -15,15 +15,12 @@ const createTagOfPostEnd = ({
   prevPost: PostInfo['prevPost'];
 }) => {
   const next = nextPost
-    ? `<dt>次に出た記事</dt>
-  <dd><a href="${nextPost.url}">${nextPost.title}</a></dd>`
+    ? `<dt>次に出た記事</dt><dd><a href="${nextPost.url}">${nextPost.title}</a></dd>`
     : '';
   const prev = prevPost
-    ? `<dt>前に出た記事</dt>
-  <dd><a href="${prevPost.url}">${prevPost.title}</a></dd>`
+    ? `<dt>前に出た記事</dt><dd><a href="${prevPost.url}">${prevPost.title}</a></dd>`
     : '';
-  const result = `\n\n${FOOTER_TAG}\n<nav class="post-recent">
-  <dl>${next}${prev}</dl>\n</nav>`;
+  const result = `${FOOTER_TAG}<nav class="post-recent"><dl>${next}${prev}</dl></nav>`;
 
   return result;
 };
