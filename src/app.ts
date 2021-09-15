@@ -3,7 +3,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import { getPostInfo } from '../utils/get_post_info';
-import { PostInfo } from '../utils/types';
 
 const COMMON_TITLE = "iiyatsu - hrfmmymt's weblog";
 const PUBLIC_URL = 'https://iiyatsu.hrfmmymt.com/';
