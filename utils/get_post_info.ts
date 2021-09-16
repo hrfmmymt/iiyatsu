@@ -11,15 +11,15 @@ import { markedCustomRender } from './marked_custom_render';
 const postDir = path.join(__dirname, '../post/');
 const renderer = markedCustomRender();
 
-export const getPostInfo = function ({
-  fileName,
+export const getPostInfo = ({
+  fileName, // postDir + fileName
   withHtml,
 }: {
   fileName: string;
   withHtml: boolean;
-}): Promise<PostInfo> {
+}): Promise<PostInfo> => {
   return new Promise((resolve, reject) => {
-    fs.readFile(postDir + fileName, 'utf-8', (err, md) => {
+    fs.readFile(fileName, 'utf-8', (err, md) => {
       if (err) return reject(err);
 
       const h1 = md.match(/^#\s.+\n/);
@@ -33,7 +33,9 @@ export const getPostInfo = function ({
       const postDate = /\*date\:((?:(?!\*)[^\s　])+)/g.exec(md);
       const date = postDate ? postDate[1] : '';
 
-      const url = encodeURI(fileName.replace(/.md/g, ''));
+      const regPostDir = new RegExp(postDir, 'g');
+
+      const url = encodeURI(fileName.replace(regPostDir, '').replace(/.md/g, ''));
       const html = withHtml ? marked(md, { renderer }) : null;
 
       marked.setOptions({

@@ -1,11 +1,12 @@
 const CACHE_NAME = '::iiyatsu_serviceworker';
-const CACHE_VERSION = 1
+const CACHE_VERSION = 2;
 const URLS_TO_CACHE = [
   "./",
   "./offline",
+  "./test",
   "./handle-404",
   "./%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC",
-  "./hello-world!",
+  "./hello-world!-season-2",
   "./trip-to-kitakyushu",
   "./trip-to-kanazawa",
   "./20181102",
@@ -28,9 +29,6 @@ const URLS_TO_CACHE = [
   "./20180609",
   "./20180607",
   "./20180606",
-  "./0",
-  "./1",
-  "./public/css/style.css",
   "./public/img/icon/favicon.ico",
   "./public/img/icon/icon-128x128.png",
   "./public/img/icon/icon-144x144.png",
