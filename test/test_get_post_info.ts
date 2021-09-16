@@ -1,4 +1,6 @@
 import tap from 'tap';
+const marked = require('marked');
+const hljs = require('highlight.js');
 
 import { getPostInfo } from '../utils/get_post_info';
 

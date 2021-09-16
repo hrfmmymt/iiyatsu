@@ -10,7 +10,7 @@ const buildSW = (): void => {
   const postList = JSON.parse(fs.readFileSync('./post-list.json', 'utf8'));
   const postFiles = postList.map((item: PostInfo) => `./${item.url}`);
   const publicFiles = glob.sync(PUBLIC_DIR + '**/*.{css,js,json,png,jpg,webp,ico}', {
-    ignore: [PUBLIC_DIR + 'videos/**/*', PUBLIC_DIR + '**/post/**', PUBLIC_DIR + '**/raw/*'],
+    ignore: [PUBLIC_DIR + '**/post/**', PUBLIC_DIR + '**/raw/*'],
   });
   const staticFiles = publicFiles.map((item: string) => `./${item}`);
   const postAndStaticFiles = postFiles.concat(staticFiles);
