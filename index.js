@@ -1,11 +1,11 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const server = require('./src/app')({
+exports.__esModule = true;
+var server = require('./src/app')({
     logger: true,
-    ignoreTrailingSlash: true,
+    ignoreTrailingSlash: true
 });
-server.listen(3000, (err, address) => {
+server.listen(4567, function (err, address) {
     if (err)
         throw err;
-    console.log(`server listening on ${address}`);
+    console.log("server listening on " + address);
 });
