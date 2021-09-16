@@ -5,7 +5,7 @@ const server: FastifyInstance = require('./src/app')({
   ignoreTrailingSlash: true,
 });
 
-server.listen(3000, (err: Error, address) => {
+server.listen(4567, (err: Error, address) => {
   if (err) throw err;
   console.log(`server listening on ${address}`);
 });
