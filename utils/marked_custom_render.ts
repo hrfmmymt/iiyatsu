@@ -2,7 +2,7 @@
 const marked = require('marked');
 const renderer = new marked.Renderer();
 
-const sanitize = (str: string) => {
+export const sanitize = (str: string) => {
   return str.replace(/&<"/g, (m) => {
     if (m === '&') return '&amp;';
     if (m === '<') return '&lt;';
