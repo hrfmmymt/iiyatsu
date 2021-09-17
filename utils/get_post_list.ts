@@ -10,7 +10,7 @@ async function generatePostList() {
   const dist = path.join(__dirname, '../');
   const files = await fs.readdir(postDir);
   const posts = files.map((file: string) =>
-    getPostInfo({ fileName: postDir + file, withHtml: true }),
+    getPostInfo({ postDir, fileName: file, withHtml: true }),
   );
   const postList: PostInfo[] = await Promise.all(posts);
 

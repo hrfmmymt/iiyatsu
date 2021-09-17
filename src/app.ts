@@ -60,17 +60,14 @@ function build(opts = {}) {
 
   app.get('/:post', (req: any, reply: any) => {
     const { post } = req.params;
-    const postDir = path.join(__dirname, '../post/');
-    const fileName =
-      postDir +
-      path.format({
-        name: post,
-        ext: '.md',
-      });
+    const fileName = path.format({
+      name: post,
+      ext: '.md',
+    });
     const filePath = config.postDir + fileName;
 
     if (fs.existsSync(filePath)) {
-      getPostInfo({ fileName, withHtml: true }).then((postInfo) => {
+      getPostInfo({ postDir: config.postDir, fileName, withHtml: true }).then((postInfo) => {
         reply.view('./templates/page/post.njk', {
           head: {
             author: metadata.author,
