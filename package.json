@@ -16,7 +16,7 @@
     "img": "run-s img-opt webp",
     "img-opt": "ts-node-dev ./utils/img-opt.ts",
     "run-set-recent-post-data": "ts-node-dev ./utils/set_recent_post_data.ts",
-    "test": "tap --ts --reporter=list",
+    "test": "tap --ts --reporter=list --no-coverage",
     "vercel": "vercel",
     "vercel-dev": "vercel dev",
     "webp": "node ./utils/webp.js"

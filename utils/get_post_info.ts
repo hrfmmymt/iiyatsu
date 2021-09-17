@@ -8,14 +8,13 @@ const hljs = require('highlight.js');
 import { PostInfo } from './types';
 import { markedCustomRender } from './marked_custom_render';
 
+const postDir = path.join(__dirname, '../post/');
 const renderer = markedCustomRender();
 
 export const getPostInfo = ({
-  postDir,
   fileName,
   withHtml,
 }: {
-  postDir: string;
   fileName: string;
   withHtml: boolean;
 }): Promise<PostInfo> => {
@@ -34,9 +33,7 @@ export const getPostInfo = ({
       const postDate = /\*date\:((?:(?!\*)[^\s　])+)/g.exec(md);
       const date = postDate ? postDate[1] : '';
 
-      const regPostDir = new RegExp(postDir, 'g');
-
-      const url = encodeURI(fileName.replace(regPostDir, '').replace(/.md/g, ''));
+      const url = encodeURI(fileName.replace(/.md/g, ''));
       const html = withHtml ? marked(md, { renderer }) : null;
 
       marked.setOptions({
