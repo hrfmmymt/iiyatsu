@@ -29,7 +29,7 @@ const buildSW = (): void => {
 
       const replacement = data.replace(
         `const CACHE_VERSION = ${existingVersion[1]};\nconst URLS_TO_CACHE = ${existingList[1]};`,
-        `const CACHE_VERSION = ${nextVersionNumber}\nconst URLS_TO_CACHE = ${cacheUrlListString};`,
+        `const CACHE_VERSION = ${nextVersionNumber};\nconst URLS_TO_CACHE = ${cacheUrlListString};`,
       );
 
       fs.writeFile('./public/sw.js', replacement, 'utf8', (err) => {

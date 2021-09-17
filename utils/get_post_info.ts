@@ -8,18 +8,19 @@ const hljs = require('highlight.js');
 import { PostInfo } from './types';
 import { markedCustomRender } from './marked_custom_render';
 
-const postDir = path.join(__dirname, '../post/');
 const renderer = markedCustomRender();
 
 export const getPostInfo = ({
-  fileName, // postDir + fileName
+  postDir,
+  fileName,
   withHtml,
 }: {
+  postDir: string;
   fileName: string;
   withHtml: boolean;
 }): Promise<PostInfo> => {
   return new Promise((resolve, reject) => {
-    fs.readFile(fileName, 'utf-8', (err, md) => {
+    fs.readFile(postDir + fileName, 'utf-8', (err, md) => {
       if (err) return reject(err);
 
       const h1 = md.match(/^#\s.+\n/);
