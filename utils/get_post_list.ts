@@ -9,9 +9,7 @@ const postDir = path.join(__dirname, '../post/');
 async function generatePostList() {
   const dist = path.join(__dirname, '../');
   const files = await fs.readdir(postDir);
-  const posts = files.map((file: string) =>
-    getPostInfo({ postDir, fileName: file, withHtml: true }),
-  );
+  const posts = files.map((file: string) => getPostInfo({ fileName: file, withHtml: true }));
   const postList: PostInfo[] = await Promise.all(posts);
 
   const sortedPostList = postList.sort((a, b) => {
