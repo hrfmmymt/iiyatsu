@@ -1,7 +1,6 @@
 /*
  * 404 page
  */
-
 html,
 body {
   margin: 0;
@@ -10,6 +9,11 @@ body {
 
 body {
   background-color: #000;
+  font-feature-settings: 'palt';
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.1em;
+  text-rendering: optimizeLegibility;
   width: 100%;
 }
 
@@ -95,10 +99,6 @@ h1::after {
 
 .wrapper a {
   color: #fff;
-}
-
-.wrapper a:hover {
-  text-decoration: none;
 }
 
 .logo {

@@ -49,8 +49,10 @@ body {
   background-color: var(--page-background-color);
   color: var(--text-color);
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-feature-settings: 'palt';
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.1em;
   text-rendering: optimizeLegibility;
 }
 
@@ -64,12 +66,6 @@ a:visited {
 
 ul {
   list-style-type: none;
-}
-
-.post-article,
-.header {
-  line-height: 2;
-  margin: 0 auto;
 }
 
 .header {
