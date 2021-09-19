@@ -4,6 +4,15 @@
 
 *desc> これのやつ*
 
+## リフォーム
+- AMP をやめた
+- Express を Fastify に変えた
+- テンプレート・エンジンを mustache から Nunjucks に変えた
+- Workbox をやめた
+- ホスティングを Firebase から Vercel に変えた
+- CI のワークフローを Circle CI から GitHub Actions に移植した
+- 「次に出た記事」「前に出た記事」リンク追加
+
 ## img
 ![eye-catch](https://lh3.googleusercontent.com/pw/AM-JKLVXUJtGnnBBN5SaVbSpSAynOiedhj-Jmj5WikYx2HXdnkFW8sRzZzsVoa-UGd5kDTAFQEkUGssvtbQLxqZSkmTeq6Cy_vPMhAsdi_L8NaWItXn3E0X98VtzrHFHS-NGijH4mxkitmbWn63ESli4Rvlndg=w780-h1386)
 
