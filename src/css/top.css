@@ -4,7 +4,8 @@
 @import 'base.css';
 
 .profile > *,
-.post-list {
+.post-list,
+.footer {
   margin: 0 auto;
   max-width: 32rem;
   padding: 0 1rem;
@@ -55,17 +56,19 @@
   margin-bottom: 0.4rem;
 }
 
-.post-meta,
-.post-article time,
-.post-article .description {
+.post-meta {
   color: var(--text-color-sub);
   font-weight: 400;
   word-wrap: break-word;
 }
 
 .post-date,
-.post-article time {
+.footer {
   font-size: 0.8rem;
+}
+
+.footer {
+  margin-bottom: 1.5rem;
 }
 
 /*

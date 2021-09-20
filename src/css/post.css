@@ -87,10 +87,22 @@
 
 .post-article ul li ul {
   list-style-type: circle;
+  margin: 0;
 }
 
 .post-article ol {
   padding-left: 2rem;
+}
+
+.post-article time,
+.post-article .description {
+  color: var(--text-color-sub);
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.post-article time {
+  font-size: 0.8rem;
 }
 
 .post-article .description {
