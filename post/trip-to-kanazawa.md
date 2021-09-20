@@ -50,5 +50,4 @@
 ![金沢駅 白山そばのかけ蕎麦](https://lh3.googleusercontent.com/pw/AM-JKLXc-0AhV47Te14pDWPv2b2sqipRFB_juiQSLrNd-9YVsLyHLlqSoclCoByqOKivFh6adQBQNfna52mZjiJZ6PvqqcYwBxwlotbS8U_5JDXdfk2Vgb1SwKQgr4vnhYVA22YoN7V5--kUO9SO1DzY-XsSow=w780-h1040)
 
 なんとなくかけ蕎麦食べた。
-
-<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="trip-to-kitakyushu">これはもう帰省 北九州</a></dd><dt>前に出た記事</dt><dd><a href="20181102">論理無職の日々</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="trip-to-kitakyushu">これはもう帰省 北九州</a></dd><dt>前に出た記事</dt><dd><a href="20181102">論理無職の日々</a></dd></dl></nav>

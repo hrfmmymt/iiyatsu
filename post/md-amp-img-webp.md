@@ -40,5 +40,4 @@
 やったぜ。
 
 *2021年アップデート時に AMP をやめました*
-
-<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="trip-to-hkd">北海道に行ってきました</a></dd><dt>前に出た記事</dt><dd><a href="amp-list">amp-list でこのサイトの最新記事 n 件をリスト表示する</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="trip-to-hkd">北海道に行ってきました</a></dd><dt>前に出た記事</dt><dd><a href="amp-list">amp-list でこのサイトの最新記事 n 件をリスト表示する</a></dd></dl></nav>

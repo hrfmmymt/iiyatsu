@@ -141,5 +141,4 @@
 おせえわ。
 
 おしまい。
-
-<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="summersonic2018">今年のサマーソニックとカマシ・ワシントンのライブに行ってきた</a></dd><dt>前に出た記事</dt><dd><a href="md-amp-img-webp">markdown から amp-img で webp 表示＆フォールバックのやつした</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="summersonic2018">今年のサマーソニックとカマシ・ワシントンのライブに行ってきた</a></dd><dt>前に出た記事</dt><dd><a href="md-amp-img-webp">markdown から amp-img で webp 表示＆フォールバックのやつした</a></dd></dl></nav>

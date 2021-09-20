@@ -48,5 +48,4 @@
 - [モーダルウィンドウを考える &mdash; Website Usability Info](https://website-usability.info/2015/07/entry_150706.html)
 - [アクセシブルなモーダルダイアログの作り方 #scripty05](https://www.slideshare.net/techblogyahoo/scripty05)
 - [モーダルダイアログを視覚表現だけで終わらせない - Web Accessibility Advent Calendar 2013 - neotagの雑文](http://d.hatena.ne.jp/neotag/20131202/1385950612)
-
-<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="20181017">転職のこと</a></dd><dt>前に出た記事</dt><dd><a href="20180906">20180906</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="20181017">転職のこと</a></dd><dt>前に出た記事</dt><dd><a href="20180906">20180906</a></dd></dl></nav>
