@@ -6,11 +6,17 @@ import { getPostInfo } from '../utils/get_post_info';
 
 const COMMON_TITLE = "iiyatsu - hrfmmymt's weblog";
 const PUBLIC_URL = 'https://iiyatsu.hrfmmymt.com/';
+const GA_SUMMARY =
+  'This website uses Google Analytics, a web analytics service provided by Google.';
+const GA_DETAILS =
+  'Google Analytics uses "cookies", which are text files placed on your computer, to help the website analyse how users use the site.';
 
 const config = {
   currentYear: new Date().getFullYear(),
   postDir: path.join(__dirname, '../post/'),
   postList: JSON.parse(fs.readFileSync(path.join(__dirname, '../post-list.json'), 'utf8')),
+  gaSummary: GA_SUMMARY,
+  gaDetails: GA_DETAILS,
 };
 
 const metadata = {
@@ -20,8 +26,6 @@ const metadata = {
   ogImage: 'public/img/icon/icon.png',
   favicon: 'public/img/icon/favicon.ico',
   title: COMMON_TITLE,
-  twitterAccount: '@hrfmmymt',
-  twitterCard: 'summary',
   url: PUBLIC_URL,
 };
 
@@ -53,7 +57,8 @@ function build(opts = {}) {
       },
       postList: config.postList,
       footer: {
-        year: config.currentYear,
+        gaDetails: config.gaDetails,
+        gaSummary: config.gaSummary,
       },
     });
   });
@@ -81,9 +86,6 @@ function build(opts = {}) {
           },
           post: {
             contents: postInfo.html,
-          },
-          footer: {
-            year: config.currentYear,
           },
         });
       });
