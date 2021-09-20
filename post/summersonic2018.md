@@ -58,5 +58,4 @@ Beck の直前で [@yoshi_haya](https://twitter.com/yoshi_haya) と合流しま�
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LZKC3pRzmZk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 <small>Chance The Rapper - Live at SUMMER SONIC 2018 - Chiba Marine Stadium (JAPAN) - 19/08/2018</small>
-
-<footer>&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="20180906">20180906</a></dd><dt>前に出た記事</dt><dd><a href="trip-to-hkd">北海道に行ってきました</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="20180906">20180906</a></dd><dt>前に出た記事</dt><dd><a href="trip-to-hkd">北海道に行ってきました</a></dd></dl></nav>

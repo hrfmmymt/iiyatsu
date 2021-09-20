@@ -1,6 +1,6 @@
 import { PostInfo } from './types';
 
-export const FOOTER_TAG = '<footer>&#8718;</footer>';
+export const FOOTER_TAG = '<footer class="post-footer">&#8718;</footer>';
 
 export const createTagOfPostEnd = ({
   nextPost,
