@@ -1,0 +1,16 @@
+{
+  "overrides": [
+    {
+      "files": [ "public/sw.js" ],
+      "rules": {
+        "no-unused-vars": "error"
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "es6": true
+  }
+}
