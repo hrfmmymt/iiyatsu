@@ -95,8 +95,14 @@ const update = (request) =>
 //   });
 // };
 
+const isIgnorePatterns = (event) => {
+  if (event.request.url.indexOf('http') !== 0) {
+    return true;
+  }
+};
+
 self.addEventListener('fetch', (event) => {
-  if (!(event.request.url.indexOf('http') === 0)) return;
+  if (isIgnorePatterns(event)) return;
   console.log('The service worker is serving the asset.');
   event.respondWith(
     fromNetwork(event.request, 10000).catch(() => fromCache(event.request))
