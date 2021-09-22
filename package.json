@@ -39,6 +39,7 @@
     "@vercel/node": "^1.12.1",
     "autoprefixer": "^10.3.3",
     "cssnano": "^5.0.8",
+    "eslint": "^7.32.0",
     "fastify-static": "^4.2.3",
     "fs": "^0.0.1-security",
     "glob": "^7.1.7",
