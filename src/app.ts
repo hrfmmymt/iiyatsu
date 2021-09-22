@@ -87,6 +87,10 @@ function build(opts = {}) {
           post: {
             contents: postInfo.html,
           },
+          footer: {
+            gaDetails: config.gaDetails,
+            gaSummary: config.gaSummary,
+          },
         });
       });
     } else {
