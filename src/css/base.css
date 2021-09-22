@@ -92,3 +92,10 @@ ul {
 .logo {
   fill: var(--text-color);
 }
+
+.footer {
+  font-size: 0.8rem;
+  margin: 0 auto 1.5rem;
+  max-width: 32rem;
+  padding: 0 1rem;
+}
