@@ -117,8 +117,7 @@
  * for mobile
  */
 @media (max-width: 414px) {
-  .post-article,
-  .post-recent {
+  .post-article {
     padding: 0 1rem;
   }
 }
