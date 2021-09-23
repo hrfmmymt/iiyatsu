@@ -1,5 +1,5 @@
 import { sanitize } from '../marked_custom_render';
 
-test('sanitize', () => {
+test('should return string', () => {
   expect(sanitize('input')).toBe('input');
 });
