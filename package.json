@@ -36,7 +36,6 @@
     "@types/marked": "^2.0.4",
     "@types/mz": "^2.7.4",
     "@types/node": "^16.4.13",
-    "@types/tap": "^15.0.5",
     "@vercel/node": "^1.12.1",
     "autoprefixer": "^10.3.3",
     "cssnano": "^5.0.8",
@@ -64,8 +63,6 @@
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.2.0",
-    "supertest": "^6.1.6",
-    "tap": "^15.0.9",
     "ts-jest": "^27.0.5",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"
