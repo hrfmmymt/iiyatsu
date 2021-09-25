@@ -4,12 +4,11 @@ import * as path from 'path';
 import { getPostInfo } from './get_post_info';
 import { PostInfo } from './types';
 
-const postDir = path.join(__dirname, '../post/');
-
-async function generatePostList() {
-  const dist = path.join(__dirname, '../');
+export async function generatePostList({ postDir, dist }: { postDir: string; dist: string }) {
   const files = await fs.readdir(postDir);
-  const posts = files.map((file: string) => getPostInfo({ fileName: file, withHtml: true }));
+  const posts = files.map((file: string) =>
+    getPostInfo({ postDir, fileName: file, withHtml: true }),
+  );
   const postList: PostInfo[] = await Promise.all(posts);
 
   const sortedPostList = postList.sort((a, b) => {
@@ -47,7 +46,17 @@ async function generatePostList() {
     [],
   );
 
-  fs.writeFile(`${dist}post-list.json`, JSON.stringify(masterPostList, null, '  '));
+  if (process.env.NODE_ENV === 'test') {
+    const tmp = path.join(__dirname, '__tests__/tmp/');
+    fs.writeFile(`${tmp}post-list.json`, JSON.stringify(masterPostList, null, '  '));
+  } else {
+    fs.writeFile(`${dist}post-list.json`, JSON.stringify(masterPostList, null, '  '));
+  }
 }
 
-generatePostList();
+if (process.env.NODE_ENV !== 'test') {
+  const postDir = path.join(__dirname, '../post/');
+  const dist = path.join(__dirname, '../');
+
+  generatePostList({ postDir, dist });
+}
