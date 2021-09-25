@@ -72,7 +72,7 @@ function build(opts = {}) {
     const filePath = config.postDir + fileName;
 
     if (fs.existsSync(filePath)) {
-      getPostInfo({ fileName, withHtml: true }).then((postInfo) => {
+      getPostInfo({ postDir: config.postDir, fileName, withHtml: true }).then((postInfo) => {
         reply.view('./templates/page/post.njk', {
           head: {
             author: metadata.author,
