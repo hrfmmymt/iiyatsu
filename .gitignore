@@ -16,5 +16,6 @@ coverage
 
 public/img/post
 videos
+tmp
 
 .vercel
