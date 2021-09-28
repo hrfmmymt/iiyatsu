@@ -119,10 +119,6 @@ function build(opts = {}) {
     });
   });
 
-  app.get('/favicon.ico', (_req, reply) => {
-    reply.code(404).send();
-  });
-
   app.get('/robots.txt', (_req, reply) => {
     reply.type('text/plain').send('User-agent: *\nDisallow: /');
   });
