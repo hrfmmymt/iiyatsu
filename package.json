@@ -1,7 +1,7 @@
 {
   "name": "iiyatsu",
   "version": "1.0.0",
-  "description": "",
+  "description": "hrfmmymt's iiyatsu",
   "main": "index.js",
   "scripts": {
     "build": "run-p build-posts css build-sw build-index",
