@@ -1,5 +1,5 @@
-import { sanitize } from '../marked_custom_render';
+import { emEscape } from '../marked_custom_render';
 
-test('should return string', () => {
-  expect(sanitize('input')).toBe('input');
+test('should return escaped string', () => {
+  expect(emEscape('1234\\/input')).toBe('1234/input');
 });
