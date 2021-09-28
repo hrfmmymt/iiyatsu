@@ -47,15 +47,6 @@ describe('server test', () => {
     expect(response.headers['content-type']).toBe('text/javascript');
   });
 
-  test('GET `/favicon.ico`: responds with 404 on request /favicon.ico', async () => {
-    const response = await fastify.inject({
-      method: 'GET',
-      url: '/favicon.ico',
-    });
-
-    expect(response.statusCode).toBe(404);
-  });
-
   test('GET `/robots.txt`: responds with success on request /robots.txt', async () => {
     const response = await fastify.inject({
       method: 'GET',
