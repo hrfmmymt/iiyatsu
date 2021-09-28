@@ -2,14 +2,6 @@
 const marked = require('marked');
 const renderer = new marked.Renderer();
 
-export const sanitize = (str: string) => {
-  return str.replace(/&<"/g, (m) => {
-    if (m === '&') return '&amp;';
-    if (m === '<') return '&lt;';
-    return '&quot;';
-  });
-};
-
 function markedRenderImage() {
   renderer.image = (src: string, _title: string, alt: string) => {
     const exec = /=\s*(w\d*)\s*-\s*(h\d*)\s*$/.exec(src);
@@ -20,10 +12,13 @@ function markedRenderImage() {
     const width = exec && exec[1] ? exec[1].replace('w', '') : 0;
     const height = exec && exec[2] ? exec[2].replace('h', '') : 0;
 
-    return `<img src="${mySrc}" alt="${sanitize(
-      alt,
-    )}" width="${width}" height="${height}" loading="lazy" />`;
+    return `<img src="${mySrc}" alt="${alt}" width="${width}" height="${height}" loading="lazy" />`;
   };
+}
+
+// export for testing
+export function emEscape(text: string) {
+  return text.replace('\\/', '/');
 }
 
 function markedRenderEm() {
@@ -37,7 +32,7 @@ function markedRenderEm() {
       const descStr = postDescription[0].replace('desc&gt; ', '');
       return `<em class="description">${descStr}</em>`;
     }
-    return `<em>${text.replace('\\/', '/')}</em>`;
+    return `<em>${emEscape(text)}</em>`;
   };
 }
 
