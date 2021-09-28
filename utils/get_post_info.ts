@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import * as path from 'path';
 // @ts-ignore
 const marked = require('marked');
 // @ts-ignore
@@ -9,6 +8,11 @@ import { PostInfo } from './types';
 import { markedCustomRender } from './marked_custom_render';
 
 const renderer = markedCustomRender();
+
+// export for testing
+export function highlight(code: string, lang: string) {
+  return hljs.highlightAuto(code, [lang]).value;
+}
 
 export const getPostInfo = ({
   postDir,
@@ -39,9 +43,7 @@ export const getPostInfo = ({
 
       marked.setOptions({
         gfm: true,
-        highlight(code: any, lang: any) {
-          return hljs.highlightAuto(code, [lang]).value;
-        },
+        highlight,
       });
 
       resolve({
