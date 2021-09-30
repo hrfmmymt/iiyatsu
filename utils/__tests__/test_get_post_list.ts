@@ -1,18 +1,19 @@
 import * as fs from 'mz/fs';
 import path from 'path';
 
-import { generatePostList, byNewest } from '../get_post_list';
+import { generatePostList } from '../get_post_list';
 import { PostInfo } from '../types';
 
 const mockDir = path.join(__dirname, './mock/');
 
-const EXPECT_POST_INFO: PostInfo = {
-  title: 'mock-title',
-  description: 'mock-desc',
-  date: '2021-09-01',
-  url: 'mock',
-  html: '<h1 id="mock-title">mock-title</h1>\n<p><time datetime="2021-09-01">2021-09-01</time></p>\n<p><em class="description">mock-desc</em></p>\n<p>mock-html</p>\n',
-};
+const EXPECT_TITLE = 'mock-title';
+const EXPECT_DATE = '2021-09-01';
+const EXPECT_DESC = 'mock-desc';
+const EXPECT_HTML = `<h1 id="${EXPECT_TITLE}">${EXPECT_TITLE}</h1>
+<p><time datetime="${EXPECT_DATE}">${EXPECT_DATE}</time></p>
+<p><em class="description">${EXPECT_DESC}</em></p>
+<p>mock-html</p>
+`;
 
 test('should generate a post-list.json', async (): Promise<void> => {
   const dist = path.join(__dirname, 'tmp');
@@ -28,11 +29,11 @@ test('should generate a post-list.json', async (): Promise<void> => {
         expect(path.join(dist, tmpFile[0])).toBe(path.join(dist, 'post-list.json'));
 
         postList.map((postListItem: PostInfo) => {
-          expect(postListItem.title).toBe(EXPECT_POST_INFO.title);
-          expect(postListItem.description).toBe(EXPECT_POST_INFO.description);
-          expect(postListItem.date).toBe(EXPECT_POST_INFO.date);
-          expect(postListItem.url).toBe(EXPECT_POST_INFO.url);
-          expect(postListItem.html).toBe(EXPECT_POST_INFO.html);
+          expect(postListItem.title).toBe(EXPECT_TITLE);
+          expect(postListItem.description).toBe(EXPECT_DESC);
+          expect(postListItem.date).toBe(EXPECT_DATE);
+          expect(postListItem.url).toBe('mock');
+          expect(postListItem.html).toBe(EXPECT_HTML);
         });
 
         fs.unlinkSync(path.join(dist, '/', tmpFile[0]));
@@ -40,44 +41,6 @@ test('should generate a post-list.json', async (): Promise<void> => {
       }, 500);
     })
     .catch((e) => {
-      console.error(e);
+      console.error([e, 'you must `rm -rf utils/__tests__/tmp/`']);
     });
-});
-
-test('should order PostInfo data by newest date', () => {
-  const olderPostInfo: PostInfo = {
-    title: 'mock-title',
-    description: 'mock-desc',
-    date: '2021-08-31',
-    url: 'mock',
-    html: 'mock-html',
-  };
-
-  expect(byNewest(EXPECT_POST_INFO, olderPostInfo)).toBe(-1);
-  expect(byNewest(olderPostInfo, EXPECT_POST_INFO)).toBe(1);
-});
-
-test('should order PostInfo data by title when same date', () => {
-  const sameDateVer2: PostInfo = {
-    title: 'mock-title-ver2',
-    description: 'mock-desc',
-    date: '2021-09-01',
-    url: 'mock',
-    html: 'mock-html',
-  };
-
-  expect(byNewest(sameDateVer2, EXPECT_POST_INFO)).toBe(-1);
-  expect(byNewest(EXPECT_POST_INFO, sameDateVer2)).toBe(1);
-});
-
-test('should do nothing when same date and same title', () => {
-  const samePost: PostInfo = {
-    title: 'mock-title',
-    description: 'mock-desc',
-    date: '2021-09-01',
-    url: 'mock',
-    html: 'mock-html',
-  };
-
-  expect(byNewest(EXPECT_POST_INFO, samePost)).toBe(0);
 });
