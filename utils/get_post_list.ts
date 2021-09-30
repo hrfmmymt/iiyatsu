@@ -4,20 +4,22 @@ import * as path from 'path';
 import { getPostInfo } from './get_post_info';
 import { PostInfo } from './types';
 
+// export for testing
+export const byNewest = (a: PostInfo, b: PostInfo) => {
+  if (a.date > b.date) return -1;
+  if (a.date < b.date) return 1;
+  if (a.title > b.title) return -1;
+  if (a.title < b.title) return 1;
+  return 0;
+};
+
 export async function generatePostList({ postDir, dist }: { postDir: string; dist: string }) {
   const files = await fs.readdir(postDir);
   const posts = files.map((file: string) =>
     getPostInfo({ postDir, fileName: file, withHtml: true }),
   );
   const postList: PostInfo[] = await Promise.all(posts);
-
-  const sortedPostList = postList.sort((a, b) => {
-    if (a.date > b.date) return -1;
-    if (a.date < b.date) return 1;
-    if (a.title > b.title) return -1;
-    if (a.title < b.title) return 1;
-    return 0;
-  });
+  const sortedPostList = postList.sort(byNewest);
 
   const masterPostList = sortedPostList.reduce(
     (acc: any, cur: any, index: number, arr: PostInfo[]): PostInfo[] => {
