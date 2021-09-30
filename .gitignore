@@ -19,3 +19,5 @@ videos
 tmp
 
 .vercel
+
+.secrets
