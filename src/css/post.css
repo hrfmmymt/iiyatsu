@@ -56,9 +56,10 @@
 
 .post-article code {
   background-color: var(--code-background-color);
-  border: 1px solid #ddd;
+  border: 1px solid var(--code-border-color);
   border-radius: 2px;
   margin: 1.4em 0;
+  overflow-wrap: break-word;
   padding: 0.1em;
 }
 

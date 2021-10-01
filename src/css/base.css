@@ -27,6 +27,7 @@ ul {
   --text-color-anchor: #db2c17;
   --page-background-color: #fff;
   --code-background-color: #f4f4f4;
+  --code-border-color: #ddd;
   --skeleton-color: #f4f4f4;
 }
 
@@ -36,7 +37,8 @@ ul {
     --text-color-sub: #f2f1ef;
     --text-color-anchor: #00b5b5;
     --page-background-color: #332f21;
-    --code-background-color: #000;
+    --code-background-color: #1e1d16;
+    --code-border-color: #424137;
     --skeleton-color: #272419;
   }
 }
