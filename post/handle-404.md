@@ -29,4 +29,4 @@ if (fs.existsSync(filePath)) {
   reply.code(404).view('./templates/page/404.njk');
 }
 ```
-<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="test">test</a></dd><dt>前に出た記事</dt><dd><a href="%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC">トゥードゥー</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>前に出た記事</dt><dd><a href="%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC">トゥードゥー</a></dd></dl></nav>
