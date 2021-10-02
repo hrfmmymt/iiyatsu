@@ -55,10 +55,3 @@ export async function generatePostList({ postDir, dist }: { postDir: string; dis
     fs.writeFile(`${dist}post-list.json`, JSON.stringify(masterPostList, null, '  '));
   }
 }
-
-if (process.env.NODE_ENV !== 'test') {
-  const postDir = path.join(__dirname, '../post/');
-  const dist = path.join(__dirname, '../');
-
-  generatePostList({ postDir, dist });
-}
