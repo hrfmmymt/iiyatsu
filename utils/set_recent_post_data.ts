@@ -55,5 +55,3 @@ export const setRecentPostData = (): void => {
     });
   });
 };
-
-setRecentPostData();

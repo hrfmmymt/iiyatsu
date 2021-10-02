@@ -6,7 +6,7 @@ import { PostInfo } from './types';
 const PUBLIC_DIR = 'public/';
 const STATIC_CACHE_URL_LIST = ['./', './offline'];
 
-const buildSW = (): void => {
+export const buildSW = (): void => {
   const postList = JSON.parse(fs.readFileSync('./post-list.json', 'utf8'));
   const postFiles = postList.map((item: PostInfo) => `./${item.url}`);
   const publicFiles = glob.sync(PUBLIC_DIR + '**/*.{css,js,json,png,jpg,webp,ico}', {
@@ -40,5 +40,3 @@ const buildSW = (): void => {
     }
   });
 };
-
-buildSW();
