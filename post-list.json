@@ -1,15 +1,30 @@
 [
   {
+    "title": "test0",
+    "description": "wei",
+    "date": "2021-10-01",
+    "url": "tset0",
+    "html": "<h1 id=\"test0\">test0</h1>\n<p><time datetime=\"2021-10-01\">2021-10-01</time></p>\n<p><em class=\"description\">wei</em></p>\n<p>test0</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"handle-404\">handle 404</a></dd></dl></nav>",
+    "prevPost": {
+      "title": "handle 404",
+      "url": "handle-404"
+    },
+    "nextPost": null
+  },
+  {
     "title": "handle 404",
     "description": "wei",
     "date": "2021-09-01",
     "url": "handle-404",
-    "html": "<h1 id=\"handle-404\">handle 404</h1>\n<p><time datetime=\"2021-09-01\">2021-09-01</time></p>\n<p><em class=\"description\">wei</em></p>\n<p>vercel デプロイ時、↓で 404 のハンドリングができず 500 が返ってしまってた ( ローカルだとOK )。</p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-keyword\">try</span> {\n  fs.<span class=\"hljs-title function_\">statSync</span>(filePath);\n} <span class=\"hljs-keyword\">catch</span> (error) {\n  <span class=\"hljs-keyword\">if</span> (error.<span class=\"hljs-property\">code</span> === <span class=\"hljs-string\">&#x27;ENOENT&#x27;</span>) {\n    reply.<span class=\"hljs-title function_\">code</span>(<span class=\"hljs-number\">404</span>).<span class=\"hljs-title function_\">view</span>(<span class=\"hljs-string\">&#x27;./templates/page/404.njk&#x27;</span>);\n  }\n}\n\n<span class=\"hljs-title function_\">getPostInfo</span>({ fileName, <span class=\"hljs-attr\">withHtml</span>: <span class=\"hljs-literal\">true</span> }).<span class=\"hljs-title function_\">then</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">postInfo</span>) =&gt;</span> {\n...\n</code></pre>\n<p>↓で解決。</p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-keyword\">if</span> (fs.<span class=\"hljs-title function_\">existsSync</span>(filePath)) {\n  <span class=\"hljs-title function_\">getPostInfo</span>({ fileName, <span class=\"hljs-attr\">withHtml</span>: <span class=\"hljs-literal\">true</span> }).<span class=\"hljs-title function_\">then</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">postInfo</span>) =&gt;</span> {\n  ...\n} <span class=\"hljs-keyword\">else</span> {\n  reply.<span class=\"hljs-title function_\">code</span>(<span class=\"hljs-number\">404</span>).<span class=\"hljs-title function_\">view</span>(<span class=\"hljs-string\">&#x27;./templates/page/404.njk&#x27;</span>);\n}\n</code></pre>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC\">トゥードゥー</a></dd></dl></nav>",
+    "html": "<h1 id=\"handle-404\">handle 404</h1>\n<p><time datetime=\"2021-09-01\">2021-09-01</time></p>\n<p><em class=\"description\">wei</em></p>\n<p>vercel デプロイ時、↓で 404 のハンドリングができず 500 が返ってしまってた ( ローカルだとOK )。</p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-keyword\">try</span> {\n  fs.<span class=\"hljs-title function_\">statSync</span>(filePath);\n} <span class=\"hljs-keyword\">catch</span> (error) {\n  <span class=\"hljs-keyword\">if</span> (error.<span class=\"hljs-property\">code</span> === <span class=\"hljs-string\">&#x27;ENOENT&#x27;</span>) {\n    reply.<span class=\"hljs-title function_\">code</span>(<span class=\"hljs-number\">404</span>).<span class=\"hljs-title function_\">view</span>(<span class=\"hljs-string\">&#x27;./templates/page/404.njk&#x27;</span>);\n  }\n}\n\n<span class=\"hljs-title function_\">getPostInfo</span>({ fileName, <span class=\"hljs-attr\">withHtml</span>: <span class=\"hljs-literal\">true</span> }).<span class=\"hljs-title function_\">then</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">postInfo</span>) =&gt;</span> {\n...\n</code></pre>\n<p>↓で解決。</p>\n<pre><code class=\"language-javascript\"><span class=\"hljs-keyword\">if</span> (fs.<span class=\"hljs-title function_\">existsSync</span>(filePath)) {\n  <span class=\"hljs-title function_\">getPostInfo</span>({ fileName, <span class=\"hljs-attr\">withHtml</span>: <span class=\"hljs-literal\">true</span> }).<span class=\"hljs-title function_\">then</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">postInfo</span>) =&gt;</span> {\n  ...\n} <span class=\"hljs-keyword\">else</span> {\n  reply.<span class=\"hljs-title function_\">code</span>(<span class=\"hljs-number\">404</span>).<span class=\"hljs-title function_\">view</span>(<span class=\"hljs-string\">&#x27;./templates/page/404.njk&#x27;</span>);\n}\n</code></pre>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"tset0\">test0</a></dd><dt>前に出た記事</dt><dd><a href=\"%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC\">トゥードゥー</a></dd></dl></nav>",
     "prevPost": {
       "title": "トゥードゥー",
       "url": "%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC"
     },
-    "nextPost": null
+    "nextPost": {
+      "title": "test0",
+      "url": "tset0"
+    }
   },
   {
     "title": "トゥードゥー",
