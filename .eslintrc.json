@@ -1,4 +1,14 @@
 {
+  "plugins": ["import"],
+  "rules": {
+    "import/order": ["error", 
+    {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+      "newlines-between": "always",
+      "alphabetize": {"order": "asc", "caseInsensitive": true}
+    }],
+    "import/newline-after-import": "error"
+  },
   "overrides": [
     {
       "files": [ "public/sw.js" ],
@@ -7,8 +17,10 @@
       }
     }
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2017,
+    "sourceType": "module"
   },
   "env": {
     "es6": true
