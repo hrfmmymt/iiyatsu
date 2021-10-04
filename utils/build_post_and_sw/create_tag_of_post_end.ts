@@ -1,4 +1,4 @@
-import { PostInfo } from './types';
+import { PostInfo } from '../types';
 
 export const FOOTER_TAG = '<footer class="post-footer">&#8718;</footer>';
 

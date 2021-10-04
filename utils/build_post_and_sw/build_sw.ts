@@ -1,7 +1,7 @@
 import * as fs from 'mz/fs';
 import * as glob from 'glob';
 
-import { PostInfo } from './types';
+import { PostInfo } from '../types';
 
 const PUBLIC_DIR = 'public/';
 const STATIC_CACHE_URL_LIST = ['./', './offline'];

@@ -1,10 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { PostInfo } from './types';
+import { PostInfo } from '../types';
 import { FOOTER_TAG, createTagOfPostEnd } from './create_tag_of_post_end';
 
-const postDir = path.join(__dirname, '../post/');
-const postList = JSON.parse(fs.readFileSync(path.join(__dirname, '../post-list.json'), 'utf8'));
+const postDir = path.join(__dirname, '../../post/');
+const postList = JSON.parse(fs.readFileSync(path.join(__dirname, '../../post-list.json'), 'utf8'));
 
 export const setRecentPostData = (): void => {
   fs.readdir(postDir, (err, mdFiles) => {

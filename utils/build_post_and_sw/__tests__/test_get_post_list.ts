@@ -2,9 +2,9 @@ import * as fs from 'mz/fs';
 import path from 'path';
 
 import { generatePostList, byNewest } from '../get_post_list';
-import { PostInfo } from '../types';
+import { PostInfo } from '../../types';
 
-const mockDir = path.join(__dirname, './mock/');
+const mockDir = path.join(__dirname, '../../__tests__/mock/');
 
 const EXPECT_POST_INFO: PostInfo = {
   title: 'mock-title',

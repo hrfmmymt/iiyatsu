@@ -1,8 +1,8 @@
 import * as fs from 'mz/fs';
 import * as path from 'path';
 
-import { getPostInfo } from './get_post_info';
-import { PostInfo } from './types';
+import { getPostInfo } from '../get_post_info';
+import { PostInfo } from '../types';
 
 // export for testing
 export const byNewest = (a: PostInfo, b: PostInfo) => {
