@@ -1,8 +1,9 @@
 const CACHE_NAME = '::iiyatsu_serviceworker';
-const CACHE_VERSION = 4;
+const CACHE_VERSION = 7;
 const URLS_TO_CACHE = [
   "./",
   "./offline",
+  "./tset1",
   "./tset0",
   "./handle-404",
   "./%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC",

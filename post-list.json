@@ -1,15 +1,30 @@
 [
   {
+    "title": "test1",
+    "description": "wei",
+    "date": "2021-10-02",
+    "url": "tset1",
+    "html": "<h1 id=\"test1\">test1</h1>\n<p><time datetime=\"2021-10-02\">2021-10-02</time></p>\n<p><em class=\"description\">wei</em></p>\n<p>test1<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"tset0\">test0</a></dd></dl></nav></p>\n",
+    "prevPost": {
+      "title": "test0",
+      "url": "tset0"
+    },
+    "nextPost": null
+  },
+  {
     "title": "test0",
     "description": "wei",
     "date": "2021-10-01",
     "url": "tset0",
-    "html": "<h1 id=\"test0\">test0</h1>\n<p><time datetime=\"2021-10-01\">2021-10-01</time></p>\n<p><em class=\"description\">wei</em></p>\n<p>test0</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"handle-404\">handle 404</a></dd></dl></nav>",
+    "html": "<h1 id=\"test0\">test0</h1>\n<p><time datetime=\"2021-10-01\">2021-10-01</time></p>\n<p><em class=\"description\">wei</em></p>\n<p>test0</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"tset1\">test1</a></dd><dt>前に出た記事</dt><dd><a href=\"handle-404\">handle 404</a></dd></dl></nav>",
     "prevPost": {
       "title": "handle 404",
       "url": "handle-404"
     },
-    "nextPost": null
+    "nextPost": {
+      "title": "test1",
+      "url": "tset1"
+    }
   },
   {
     "title": "handle 404",
