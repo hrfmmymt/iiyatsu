@@ -1,5 +1,5 @@
-import Jimp from 'jimp';
 import glob from 'glob';
+import Jimp from 'jimp';
 
 const POST_DIR = './public/img/post/';
 

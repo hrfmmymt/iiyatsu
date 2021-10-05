@@ -1,5 +1,6 @@
-import * as fs from 'mz/fs';
 import * as path from 'path';
+
+import * as fs from 'mz/fs';
 
 import { getPostInfo } from '../get_post_info';
 import { PostInfo } from '../types';
@@ -22,7 +23,7 @@ export async function generatePostList({ postDir, dist }: { postDir: string; dis
   const sortedPostList = postList.sort(byNewest);
 
   const masterPostList = sortedPostList.reduce(
-    (acc: any, cur: any, index: number, arr: PostInfo[]): PostInfo[] => {
+    (_acc: any, _cur: any, index: number, arr: PostInfo[]): PostInfo[] => {
       const prev = arr[index + 1] || null;
       const next = arr[index - 1] || null;
 

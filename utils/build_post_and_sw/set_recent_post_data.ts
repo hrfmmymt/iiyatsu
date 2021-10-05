@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
+
 import { PostInfo } from '../types';
+
 import { FOOTER_TAG, createTagOfPostEnd } from './create_tag_of_post_end';
 
 const postDir = path.join(__dirname, '../../post/');
