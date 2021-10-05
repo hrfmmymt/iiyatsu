@@ -6,10 +6,26 @@
     }
   ],
   "settings": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    },
     "css.validate": false,
     "[css]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.formatOnSave": true
+    },
+    "eslint.options": {
+      "configFile": ".eslintrc.json"
+    },
+    "eslint.packageManager": "yarn",
+    "eslint.alwaysShowStatus": true,
+    "prettier.requireConfig": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
     },
     "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -17,9 +33,6 @@
     },
     "[markdown]": {
       "editor.formatOnSave": false
-    },
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
     }
   }
 }
