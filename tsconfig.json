@@ -1,9 +1,19 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
   "include": ["index.ts", "src/app.ts"],
-  "exclude": ["./utils/*", "test/*"],
+  "exclude": ["node_modules", "__tests__"],
   "compilerOptions": {
     "module": "commonjs",
-    "esModuleInterop": true
+    "sourceMap": true,
+    "pretty": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
   }
 }
