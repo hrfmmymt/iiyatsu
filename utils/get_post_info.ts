@@ -1,11 +1,10 @@
 import * as fs from 'fs';
-// @ts-ignore
-const marked = require('marked');
-// @ts-ignore
-const hljs = require('highlight.js');
 
-import { PostInfo } from './types';
 import { markedCustomRender } from './marked_custom_render';
+import { PostInfo } from './types';
+
+const hljs = require('highlight.js');
+const marked = require('marked');
 
 const renderer = markedCustomRender();
 

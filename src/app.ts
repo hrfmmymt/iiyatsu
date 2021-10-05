@@ -1,6 +1,7 @@
-import fastify, { FastifyInstance } from 'fastify';
 import * as fs from 'fs';
 import * as path from 'path';
+
+import fastify, { FastifyInstance } from 'fastify';
 
 import { getPostInfo } from '../utils/get_post_info';
 

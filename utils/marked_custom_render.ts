@@ -1,5 +1,6 @@
 // @ts-ignore
 const marked = require('marked');
+
 const renderer = new marked.Renderer();
 
 function markedRenderImage() {

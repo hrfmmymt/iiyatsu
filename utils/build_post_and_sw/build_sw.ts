@@ -1,5 +1,5 @@
-import * as fs from 'mz/fs';
 import * as glob from 'glob';
+import * as fs from 'mz/fs';
 
 import { PostInfo } from '../types';
 
