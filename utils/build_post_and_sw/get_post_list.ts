@@ -1,5 +1,3 @@
-import * as path from 'path';
-
 import * as fs from 'mz/fs';
 
 import { getPostInfo } from '../get_post_info';
@@ -49,10 +47,5 @@ export async function generatePostList({ postDir, dist }: { postDir: string; dis
     [],
   );
 
-  if (process.env.NODE_ENV === 'test') {
-    const tmp = path.join(__dirname, '__tests__/tmp/');
-    fs.writeFile(`${tmp}post-list.json`, JSON.stringify(masterPostList, null, '  '));
-  } else {
-    fs.writeFile(`${dist}post-list.json`, JSON.stringify(masterPostList, null, '  '));
-  }
+  fs.writeFile(`${dist}post-list.json`, JSON.stringify(masterPostList, null, '  '));
 }
