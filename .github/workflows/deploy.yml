@@ -1,4 +1,4 @@
-name: deploy website
+name: deploy iiytasu
 on:
   push:
     branches:
