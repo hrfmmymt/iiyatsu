@@ -1,8 +1,9 @@
-import * as fs from 'mz/fs';
 import path from 'path';
 
-import { generatePostList, byNewest } from '../get_post_list';
+import * as fs from 'mz/fs';
+
 import { PostInfo } from '../../types';
+import { generatePostList, byNewest } from '../get_post_list';
 
 const mockDir = path.join(__dirname, '../../__tests__/mock/');
 
@@ -16,14 +17,16 @@ const EXPECT_POST_INFO: PostInfo = {
 
 describe('get_post_list test', () => {
   test('should generate a post-list.json', async (): Promise<void> => {
-    const dist = path.join(__dirname, 'tmp');
+    const dist = path.join(__dirname, 'tmp/');
     fs.mkdirSync(dist);
 
     const test = () => {
       const tmpFile = fs.readdirSync(dist);
       const postList = JSON.parse(fs.readFileSync(path.join(dist, tmpFile[0]), 'utf8'));
+
       expect(tmpFile.length).toEqual(1);
       expect(path.join(dist, tmpFile[0])).toBe(path.join(dist, 'post-list.json'));
+
       postList.map((postListItem: PostInfo) => {
         expect(postListItem.title).toBe(EXPECT_POST_INFO.title);
         expect(postListItem.description).toBe(EXPECT_POST_INFO.description);
