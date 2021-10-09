@@ -1,8 +1,8 @@
-# swift playgrouds 1 コマンド
+# Swift Playgrounds 1 コマンド
 
 *date:2021-10-09*
 
-*desc> swift playgrounds*
+*desc> Swift Playgrounds*
 
 ## まえがき
 わたし、hrfmmymt！テック企業に勤める中学二年生！ひょんなことから iPad Pro を手に入れたんだけど、使い道が定まらなくて何となく Swift Playgrounds をインストールしてみたよ。  
