@@ -19,8 +19,8 @@ export const setRecentPostData = (): void => {
       const thisFileIndex = postList.findIndex(
         (post: PostInfo) => mdFile.replace(/.md/g, '') === decodeURI(post.url),
       );
-      const nextPost: PostInfo | undefined = postList[thisFileIndex].nextPost;
-      const prevPost: PostInfo | undefined = postList[thisFileIndex].prevPost;
+      const nextPost: PostInfo | null = postList[thisFileIndex].nextPost;
+      const prevPost: PostInfo | null = postList[thisFileIndex].prevPost;
       const destination = createTagOfPostEnd({ nextPost, prevPost });
       const filePath = postDir + '/' + mdFile;
 
