@@ -15,4 +15,4 @@
 今のところですが、自分にはやや退屈かも。始まったばかりでアレだけれども。  
 5歳児が「これゲーム？」などと言いながら覗き込んできて興味ありげ。
 
-<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>前に出た記事</dt><dd><a href="handle-404">handle 404</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="20211009">今日</a></dd><dt>前に出た記事</dt><dd><a href="handle-404">handle 404</a></dd></dl></nav>
