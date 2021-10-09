@@ -31,10 +31,10 @@ export const getPostInfo = ({
       const title = postTitle ? postTitle[0].trim() : '';
 
       const desc = md.match(/\n\*desc>\s(.)+\n/);
-      const postDescription = desc ? /\n\*desc>\s((?:(?!\*\n)[^\s　])+)/g.exec(desc[0]) : null;
+      const postDescription = desc ? /\n\*desc>\s((?:(?!\*\n)[^　])+)/g.exec(desc[0]) : null;
       const description = postDescription ? postDescription[1] : '';
 
-      const postDate = /\*date\:((?:(?!\*)[^\s　])+)/g.exec(md);
+      const postDate = /\*date\:((?:(?!\*)[^　])+)/g.exec(md);
       const date = postDate ? postDate[1] : '';
 
       const url = encodeURI(fileName.replace(/.md/g, ''));
