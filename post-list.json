@@ -4,7 +4,7 @@
     "description": "今日のやつ",
     "date": "2021-10-09",
     "url": "20211009",
-    "html": "<h1 id=\"今日\">今日</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">今日のやつ</em></p>\n<p>娘氏、英語教室初日。体験の時に泣いてしまったので心配していたものの特に問題なく楽しく過ごしていたようで一安心。</p>\n",
+    "html": "<h1 id=\"今日\">今日</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">今日のやつ</em></p>\n<p>娘氏、英語教室初日。体験の時に泣いてしまったので心配していたものの特に問題なく楽しく過ごしていたようで一安心。</p>\n<p>帰宅してからの娘氏、なぜかズボンに入っていたという小さなレゴのパーツを鼻の穴の中に入れてしまったらしく、一瞬慌てたが強く鼻息を出したらスポーンと取れた。今年一番笑った気がする。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"swift-playgrounds-1\">Swift Playgrounds 1 コマンド</a></dd></dl></nav>",
     "prevPost": {
       "title": "Swift Playgrounds 1 コマンド",
       "url": "swift-playgrounds-1"
@@ -16,7 +16,7 @@
     "description": "Swift Playgrounds",
     "date": "2021-10-09",
     "url": "swift-playgrounds-1",
-    "html": "<h1 id=\"swift-playgrounds-1-コマンド\">Swift Playgrounds 1 コマンド</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">Swift Playgrounds</em></p>\n<h2 id=\"まえがき\">まえがき</h2>\n<p>わたし、hrfmmymt！テック企業に勤める中学二年生！ひょんなことから iPad Pro を手に入れたんだけど、使い道が定まらなくて何となく Swift Playgrounds をインストールしてみたよ。<br>これからしばらくは Swift Playgrounds のプレイ記録やメモをとっていくかもしれないからよろしくね！</p>\n<h2 id=\"コードを学ぼう-1-1-コマンド\">コードを学ぼう 1-1 コマンド</h2>\n<p>まずはコマンドが何たるかの説明と、コマンドを使って Byte (バイト) という非実在生物 (?) を動かすというミッションが課せられます。そのあとは <code>moveForward()</code> とか <code>turnLeft()</code> など、あらかじめ用意されている関数を組み合わせて入力し、それらを実行してステージごとのミッションをクリアしていきます。すでに入力されているコードの実行順を修正するデバッグの課題もありました。</p>\n<h2 id=\"所感など\">所感など</h2>\n<p>今のところですが、自分にはやや退屈かも。始まったばかりでアレだけれども。<br>5歳児が「これゲーム？」などと言いながら覗き込んできて興味ありげ。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"handle-404\">handle 404</a></dd></dl></nav>",
+    "html": "<h1 id=\"swift-playgrounds-1-コマンド\">Swift Playgrounds 1 コマンド</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">Swift Playgrounds</em></p>\n<h2 id=\"まえがき\">まえがき</h2>\n<p>わたし、hrfmmymt！テック企業に勤める中学二年生！ひょんなことから iPad Pro を手に入れたんだけど、使い道が定まらなくて何となく Swift Playgrounds をインストールしてみたよ。<br>これからしばらくは Swift Playgrounds のプレイ記録やメモをとっていくかもしれないからよろしくね！</p>\n<h2 id=\"コードを学ぼう-1-1-コマンド\">コードを学ぼう 1-1 コマンド</h2>\n<p>まずはコマンドが何たるかの説明と、コマンドを使って Byte (バイト) という非実在生物 (?) を動かすというミッションが課せられます。そのあとは <code>moveForward()</code> とか <code>turnLeft()</code> など、あらかじめ用意されている関数を組み合わせて入力し、それらを実行してステージごとのミッションをクリアしていきます。すでに入力されているコードの実行順を修正するデバッグの課題もありました。</p>\n<h2 id=\"所感など\">所感など</h2>\n<p>今のところですが、自分にはやや退屈かも。始まったばかりでアレだけれども。<br>5歳児が「これゲーム？」などと言いながら覗き込んできて興味ありげ。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"20211009\">今日</a></dd><dt>前に出た記事</dt><dd><a href=\"handle-404\">handle 404</a></dd></dl></nav>",
     "prevPost": {
       "title": "handle 404",
       "url": "handle-404"
