@@ -30,6 +30,18 @@ const metadata = {
   url: PUBLIC_URL,
 };
 
+function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
+  reply.header('Access-Control-Allow-Credentials', 'true');
+  reply.header('Access-Control-Allow-Origin', '*');
+  reply.header(
+    'Access-Control-Expose-Headers',
+    ['AMP-Access-Control-Allow-Source-Origin'].concat(opt_exposeHeaders || []).join(', '),
+  );
+  if (req.query.__amp_source_origin) {
+    reply.header('AMP-Access-Control-Allow-Source-Origin', req.query.__amp_source_origin);
+  }
+}
+
 function build(opts = {}) {
   const app: FastifyInstance = fastify(opts);
 
@@ -110,7 +122,8 @@ function build(opts = {}) {
     }
   });
 
-  app.get('/api', (_req, reply) => {
+  app.get('/api', (req, reply) => {
+    enableCors(req, reply, undefined)
     reply.send(config.postList);
   });
 
