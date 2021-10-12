@@ -79,19 +79,6 @@ const update = (request) =>
     .open(`v${CACHE_VERSION}${CACHE_NAME}`)
     .then((cache) => fetch(request).then((response) => cache.put(request, response)));
 
-// const refresh = (response) => {
-//   return self.clients.matchAll().then((clients) => {
-//     clients.forEach((client) => {
-//       const message = {
-//         type: 'refresh',
-//         url: response.url,
-//         eTag: response.headers.get('ETag'),
-//       };
-//       client.postMessage(JSON.stringify(message));
-//     });
-//   });
-// };
-
 const isIgnorePatterns = (event) => {
   if (event.request.url.indexOf('http') !== 0) {
     return true;
