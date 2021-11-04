@@ -1,22 +1,37 @@
 [
   {
+    "title": "今日 (2021年10月22日〜2021年11月4日)",
+    "description": "今日のやつ",
+    "date": "2021-11-4",
+    "url": "20211022",
+    "html": "<h1 id=\"今日-2021年10月22日〜2021年11月4日\">今日 (2021年10月22日〜2021年11月4日)</h1>\n<p><em>date:2021-11-4</em></p>\n<p><em class=\"description\">今日のやつ</em></p>\n<p>何も書くことがない。アウトプットしたいことが何もない。Twitter も、意識的にツイートを控え始めたのはいつだったろうか。記憶が定かでなくなってきた。<br>今のところわかったこととしては、tweet を控えていると twitter 自体への距離も開いていくということ。それはそうと言えばそれはそうなのだろう。<br>それにつけても、選挙前後の Twitter のしんどさよ。</p>\n<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">In response to narrowly spread demand, here are my Rules of Twitter. Note that each was learned by violating it repeatedly over the years, so don&#39;t bother going back in my feed to find contradictions... trust me, I know. <a href=\"https://t.co/QtzhBkx9LP\">pic.twitter.com/QtzhBkx9LP</a></p>&mdash; Peter Sagal (@petersagal) <a href=\"https://twitter.com/petersagal/status/1452698959974129669?ref_src=twsrc%5Etfw\">October 25, 2021</a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n\n<hr>\n<p>iPad Pro を手に入れてから iPad 用の Magic Keyboard を買うか無限に悩んでいる。iPad 自体の使用頻度は今のところそこまで高くないけど、たまに触ると欲しくなる。でも抽選で手に入ったことで散財するって何なんという。</p>\n<hr>\n<p>このブログというか、SSG みたいなものを勘で自作しているのをず〜っとよしとしているのをどうかと思いつつ、11ty あたりが気になりつつ。node だし。</p>\n<hr>\n<p>「〇〇でなく（より）〇〇」みたいな論法って、比較じゃなくて語感の雰囲気作りで使ってるパターンがあるな。（これもそう）</p>\n<hr>\n<p>国会で行われている政治に対しては、何よりも「外交・安全保障」が最優先的に求められている。「ジェンダー平等」とか「多様性」とかは優先度が低い。事実として。</p>\n<hr>\n<p>やっぱタブレットスタンドが欲しいかなー。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"20211009\">今日</a></dd></dl></nav>",
+    "prevPost": {
+      "title": "今日",
+      "url": "20211009"
+    },
+    "nextPost": null
+  },
+  {
     "title": "今日",
     "description": "今日のやつ",
     "date": "2021-10-09",
     "url": "20211009",
-    "html": "<h1 id=\"今日\">今日</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">今日のやつ</em></p>\n<p>娘氏、英語教室初日。体験の時に泣いてしまったので心配していたものの特に問題なく楽しく過ごしていたようで一安心。</p>\n<p>帰宅してからの娘氏、なぜかズボンに入っていたという小さなレゴのパーツを鼻の穴の中に入れてしまったらしく、一瞬慌てたが強く鼻息を出したらスポーンと取れた。今年一番笑った気がする。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"swift-playgrounds-1\">Swift Playgrounds 1 コマンド</a></dd></dl></nav>",
+    "html": "<h1 id=\"今日\">今日</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">今日のやつ</em></p>\n<p>娘氏、英語教室初日。体験の時に泣いてしまったので心配していたものの特に問題なく楽しく過ごしていたようで一安心。</p>\n<p>帰宅してからの娘氏、なぜかズボンに入っていたという小さなレゴのパーツを鼻の穴の中に入れてしまったらしく、一瞬慌てたが強く鼻息を出したらスポーンと取れた。今年一番笑った気がする。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"20211022\">今日</a></dd><dt>前に出た記事</dt><dd><a href=\"swift-playgrounds-1\">Swift Playgrounds 1 コマンド</a></dd></dl></nav>",
     "prevPost": {
       "title": "Swift Playgrounds 1 コマンド",
       "url": "swift-playgrounds-1"
     },
-    "nextPost": null
+    "nextPost": {
+      "title": "今日 (2021年10月22日〜2021年11月4日)",
+      "url": "20211022"
+    }
   },
   {
     "title": "Swift Playgrounds 1 コマンド",
     "description": "Swift Playgrounds",
     "date": "2021-10-09",
     "url": "swift-playgrounds-1",
-    "html": "<h1 id=\"swift-playgrounds-1-コマンド\">Swift Playgrounds 1 コマンド</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">Swift Playgrounds</em></p>\n<h2 id=\"まえがき\">まえがき</h2>\n<p>わたし、hrfmmymt！テック企業に勤める中学二年生！ひょんなことから iPad Pro を手に入れたんだけど、使い道が定まらなくて何となく Swift Playgrounds をインストールしてみたよ。<br>これからしばらくは Swift Playgrounds のプレイ記録やメモをとっていくかもしれないからよろしくね！</p>\n<h2 id=\"コードを学ぼう-1-1-コマンド\">コードを学ぼう 1-1 コマンド</h2>\n<p>まずはコマンドが何たるかの説明と、コマンドを使って Byte (バイト) という非実在生物 (?) を動かすというミッションが課せられます。そのあとは <code>moveForward()</code> とか <code>turnLeft()</code> など、あらかじめ用意されている関数を組み合わせて入力し、それらを実行してステージごとのミッションをクリアしていきます。すでに入力されているコードの実行順を修正するデバッグの課題もありました。</p>\n<h2 id=\"所感など\">所感など</h2>\n<p>今のところですが、自分にはやや退屈かも。始まったばかりでアレだけれども。<br>5歳児が「これゲーム？」などと言いながら覗き込んできて興味ありげ。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"20211009\">今日</a></dd><dt>前に出た記事</dt><dd><a href=\"handle-404\">handle 404</a></dd></dl></nav>",
+    "html": "<h1 id=\"swift-playgrounds-1-コマンド\">Swift Playgrounds 1 コマンド</h1>\n<p><time datetime=\"2021-10-09\">2021-10-09</time></p>\n<p><em class=\"description\">Swift Playgrounds</em></p>\n<h2 id=\"まえがき\">まえがき</h2>\n<p>わたし、hrfmmymt！テック企業に勤める中学二年生！ひょんなことから iPad Pro を手に入れたんだけど、使い道が定まらなくて何となく Swift Playgrounds をインストールしてみたよ。<br>これからしばらくは Swift Playgrounds のプレイ記録やメモをとっていくかもしれないからよろしくね！</p>\n<h2 id=\"コードを学ぼう-1-1-コマンド\">コードを学ぼう 1-1 コマンド</h2>\n<p>まずはコマンドが何たるかの説明と、コマンドを使って Byte (バイト) という非実在生物 (?) を動かすというミッションが課せられます。そのあとは <code>moveForward()</code> とか <code>turnLeft()</code> など、あらかじめ用意されている関数を組み合わせて入力し、それらを実行してステージごとのミッションをクリアしていきます。すでに入力されているコードの実行順を修正するデバッグの課題もありました。</p>\n<h2 id=\"所感など\">所感など</h2>\n<p>今のところですが、自分にはやや退屈かも。始まったばかりでアレだけれども。<br>5歳児が「これゲーム？」などと言いながら覗き込んできて興味ありげ。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"20211009\">今日</a></dd><dt>前に出た記事</dt><dd><a href=\"%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC\">トゥードゥー</a></dd></dl></nav>",
     "prevPost": {
       "title": "トゥードゥー",
       "url": "%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC"
@@ -31,7 +46,7 @@
     "description": "todo",
     "date": "2021-08-30",
     "url": "%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC",
-    "html": "<h1 id=\"トゥードゥー\">トゥードゥー</h1>\n<p><time datetime=\"2021-08-30\">2021-08-30</time></p>\n<p><em class=\"description\">todo</em></p>\n<h2 id=\"service-worker\">service worker</h2>\n<ul>\n<li>たまに出るエラー<ul>\n<li><code>Uncaught (in promise) TypeError: Failed to execute &#39;Cache&#39; on &#39;addAll&#39;: Request failed</code></li>\n<li><code>Uncaught (in promise) TypeError: Failed to execute &#39;put&#39; on &#39;Cache&#39;: Partial response (status code 206) is unsupported</code></li>\n<li><code>Error while trying to use the following icon from the Manifest: http://127.0.0.1:4567/public/img/icon/icon-144x144.png (Download error or resource isn&#39;t a valid image)</code></li>\n</ul>\n</li>\n</ul>\n<h2 id=\"ページ機能\">ページ機能</h2>\n<ul>\n<li>カテゴリ？タグ？年別？</li>\n</ul>\n<h2 id=\"記事\">記事</h2>\n<ul>\n<li>video タグ、img みたいにできた方がいいかしら 🤔</li>\n<li>markdown の linter, formatter あった方がいいかしら 🤔</li>\n</ul>\n<h2 id=\"imagemin\">imagemin</h2>\n<p>画像の最適化で使っている imagemin 最新 ver. が ESM を使っているので、対応しなければならない。\n<a href=\"https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c\">対応方法</a></p>\n<h3 id=\"懸念\">懸念</h3>\n<ul>\n<li>他の既存コードの修正がめんどくさそう<ul>\n<li>TS のとことか</li>\n<li>他の pkg は？</li>\n</ul>\n</li>\n<li>Vercel でのデプロイ</li>\n</ul>\n<p>まあでも今後を考えるとやった方がよい</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"handle-404\">handle 404</a></dd><dt>前に出た記事</dt><dd><a href=\"hello-world!-season-2\">hello, world! season 2</a></dd></dl></nav>",
+    "html": "<h1 id=\"トゥードゥー\">トゥードゥー</h1>\n<p><time datetime=\"2021-08-30\">2021-08-30</time></p>\n<p><em class=\"description\">todo</em></p>\n<h2 id=\"service-worker\">service worker</h2>\n<ul>\n<li>たまに出るエラー<ul>\n<li><code>Uncaught (in promise) TypeError: Failed to execute &#39;Cache&#39; on &#39;addAll&#39;: Request failed</code></li>\n<li><code>Uncaught (in promise) TypeError: Failed to execute &#39;put&#39; on &#39;Cache&#39;: Partial response (status code 206) is unsupported</code></li>\n<li><code>Error while trying to use the following icon from the Manifest: http://127.0.0.1:4567/public/img/icon/icon-144x144.png (Download error or resource isn&#39;t a valid image)</code></li>\n</ul>\n</li>\n</ul>\n<h2 id=\"ページ機能\">ページ機能</h2>\n<ul>\n<li>カテゴリ？タグ？年別？</li>\n</ul>\n<h2 id=\"記事\">記事</h2>\n<ul>\n<li>video タグ、img みたいにできた方がいいかしら 🤔</li>\n<li>markdown の linter, formatter あった方がいいかしら 🤔</li>\n</ul>\n<h2 id=\"imagemin\">imagemin</h2>\n<p>画像の最適化で使っている imagemin 最新 ver. が ESM を使っているので、対応しなければならない。\n<a href=\"https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c\">対応方法</a></p>\n<h3 id=\"懸念\">懸念</h3>\n<ul>\n<li>他の既存コードの修正がめんどくさそう<ul>\n<li>TS のとことか</li>\n<li>他の pkg は？</li>\n</ul>\n</li>\n<li>Vercel でのデプロイ</li>\n</ul>\n<p>まあでも今後を考えるとやった方がよい</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"swift-playgrounds-1\">Swift Playgrounds 1 コマンド</a></dd><dt>前に出た記事</dt><dd><a href=\"hello-world!-season-2\">hello, world! season 2</a></dd></dl></nav>",
     "prevPost": {
       "title": "hello, world! season 2",
       "url": "hello-world!-season-2"

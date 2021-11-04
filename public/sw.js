@@ -1,11 +1,11 @@
 const CACHE_NAME = '::iiyatsu_serviceworker';
-const CACHE_VERSION = 10;
+const CACHE_VERSION = 11;
 const URLS_TO_CACHE = [
   "./",
   "./offline",
+  "./20211022",
   "./20211009",
   "./swift-playgrounds-1",
-  "./handle-404",
   "./%E3%83%88%E3%82%A5%E3%83%BC%E3%83%89%E3%82%A5%E3%83%BC",
   "./hello-world!-season-2",
   "./trip-to-kitakyushu",
