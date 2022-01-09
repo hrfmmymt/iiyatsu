@@ -1,0 +1,72 @@
+<h1>hello, world!</h1>
+<p><em>date:2018-07-25</em></p>
+<p><em>desc> はじめのごあいさつ</em></p>
+<p>オイース！ それじゃあ、いっぱい書くね。</p>
+<h2>amp-img</h2>
+<p><img src="" alt="eye-catch"></p>
+<h2>amp-youtube</h2>
+<pre><code>![embed-youtube](vI8cDhfSiNE)
+</code></pre>
+<p><img src="vI8cDhfSiNE" alt="embed-youtube"></p>
+<h2>amp-soundcloud</h2>
+<pre><code>![embed-soundcloud](8679644)
+</code></pre>
+<p><img src="8679644" alt="embed-soundcloud"></p>
+<h2>amp-instagram</h2>
+<pre><code>![embed-instagram](BkfJtE7hFt-)
+</code></pre>
+<p><img src="BkfJtE7hFt-" alt="embed-instagram"></p>
+<h2>amp-video</h2>
+<pre><code class="language-html">&#x3C;div class="amp-video-wrapper">
+  &#x3C;amp-video controls
+    preload="metadata"
+    width="640"
+    height="360"
+    layout="responsive"
+    poster="/static/videos/poster/test.png"
+    title="video-test">
+    &#x3C;source src="/static/videos/webm/test.webm"
+      type="video/webm" />
+    &#x3C;source src="/static/videos/test.mp4"
+      type="video/mp4" />
+    &#x3C;div fallback>
+      &#x3C;p>This browser does not support the video element.&#x3C;/p>
+    &#x3C;/div>
+  &#x3C;/amp-video>
+&#x3C;/div>
+</code></pre>
+<div class="amp-video-wrapper">
+  <amp-video controls
+    preload="metadata"
+    width="640"
+    height="360"
+    layout="responsive"
+    poster="/static/videos/poster/test.png"
+    title="video-test">
+    <source src="/static/videos/webm/test.webm"
+      type="video/webm" />
+    <source src="/static/videos/test.mp4"
+      type="video/mp4" />
+    <div fallback>
+      This browser does not support the video element.
+    </div>
+  </amp-video>
+</div>
+<pre><code class="language-sh">![video-test](/static/videos/test.mp4=640x360)
+</code></pre>
+<p><img src="/static/videos/test.mp4=640x360" alt="video-test"></p>
+<pre><code class="language-html">&#x3C;amp-iframe src="https://open.spotify.com/embed/user/hrfmmymt/playlist/4rmnvhEv080DI0AX0XqfqD"
+  sandbox="allow-scripts allow-same-origin"
+  width="300"
+  height="380"
+  frameborder="0"
+  allow="encrypted-media">&#x3C;/amp-iframe>
+</code></pre>
+<p><amp-iframe src="https://open.spotify.com/embed/user/hrfmmymt/playlist/4rmnvhEv080DI0AX0XqfqD"
+sandbox="allow-scripts allow-same-origin"
+width="300"
+height="380"
+frameborder="0"
+allow="encrypted-media"></amp-iframe></p>
+<p><em>2021年アップデート時に AMP をやめました</em></p>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="20180726">amp-img</a></dd><dt>前に出た記事</dt><dd><a href="20180623">20180623</a></dd></dl></nav>

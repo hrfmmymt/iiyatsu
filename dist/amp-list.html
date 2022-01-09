@@ -1,0 +1,16 @@
+<h1>amp-list でこのサイトの最新記事 n 件をリスト表示する</h1>
+<p><em>date:2018-08-11</em></p>
+<p><em>desc> これのやつ</em></p>
+<ol>
+<li>このサイトの記事の API エンドポイントを作る</li>
+<li><a href="https://hrfmmymt.github.io/">別の AMP サイト</a>で <code>amp-list</code> コンポーネントを使ってこのサイトに上がった記事のタイトルとリンクをリスト表示する</li>
+</ol>
+<p>というのをやりました。</p>
+<p><code>amp-list</code> の XMLHttpRequest で取得するデータは Cross-Origin Resource Sharing 対応しなければならないので、しました ( バックエンドは Cloud Functions for Firebase ) 。これ (<a href="https://github.com/ampproject/amphtml/blob/master/spec/amp-cors-requests.md">amphtml/amp-cors-requests.md at master · ampproject/amphtml</a>) を参考にしました。</p>
+<p>API 実装はここまでで、あとは公式ドキュメント ( <a href="https://www.ampproject.org/docs/reference/components/amp-list">amp-list – AMP</a> ) を参考に<a href="https://hrfmmymt.github.io/">別の AMP サイト</a>側で <code>amp-list</code> の実装を適当にやったら適当に全リスト表示できたので、あとは微調整です。<br>
+もともと "recent posts" というくくりで、最新の記事 5 件だけが表示されればよしと考えていたのでリストの表示数の制御できないかなと前述のドキュメントくまなく見直してみたら、下の方に <a href="https://www.ampproject.org/docs/reference/components/amp-list#validation">Validation</a> という項目を発見しました。で、そこの <a href="https://github.com/ampproject/amphtml/blob/master/extensions/amp-list/validator-amp-list.protoascii">amp-list rules</a> というリンク先のソースコードに <a href="https://github.com/ampproject/amphtml/blob/master/extensions/amp-list/validator-amp-list.protoascii#L102">attrs: { name: "max-items" }</a> という記述があったので、これかと思って勘で以下のように書いてみたら当たりでした。</p>
+<pre><code class="language-html">&#x3C;!-- 最新の 5 件のみ表示 -->
+&#x3C;amp-list max-items="5" width="auto" height="120" layout="fixed-height">
+</code></pre>
+<p>やったぜ。</p>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="md-amp-img-webp">markdown から amp-img で webp 表示＆フォールバックのやつした</a></dd><dt>前に出た記事</dt><dd><a href="20180808">TypeScript はじめました</a></dd></dl></nav>

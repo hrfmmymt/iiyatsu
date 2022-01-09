@@ -1,0 +1,43 @@
+<h1>amp-img</h1>
+<p><em>date:2018-07-26</em></p>
+<p><em>desc> markdown で amp-img を表示する</em></p>
+<p>〜ために marked.js の override を使用した。</p>
+<pre><code class="language-javascript">const renderer = new marked.Renderer()
+
+const sanitize = str => {
+  return str.replace(/&#x26;&#x3C;"/g, m => {
+    if (m === '&#x26;') return '&#x26;amp;'
+    if (m === '&#x3C;') return '&#x26;lt;'
+    return '&#x26;quot;'
+  })
+}
+
+renderer.image = (src, title, alt) => {
+  const exec = /=\s*(\d*)\s*x\s*(\d*)\s*$/.exec(src)
+  let regExp
+  if (exec &#x26;&#x26; exec[0]) regExp = new RegExp(exec[0], 'g')
+  const mySrc = src.replace(regExp, '')
+  let res = `&#x3C;amp-img src="${mySrc}" alt="${sanitize(alt)}`
+  if (exec &#x26;&#x26; exec[1]) res += `" width="${exec[1]}`
+  if (exec &#x26;&#x26; exec[2]) res += `" height="${exec[2]}`
+  return `${res}" layout="responsive">`
+}
+
+---
+
+marked(md, { renderer: renderer })
+</code></pre>
+<p>参照元: <a href="https://github.com/markedjs/marked/issues/339#issuecomment-172230403">https://github.com/markedjs/marked/issues/339#issuecomment-172230403</a><br>
+この通りに <code>スペース=100x100</code> の指定でしたかったが、仕様変更があったのかスペース含みだと <code>&#x3C;img></code> 用の第一引数 ( 上例だと src ) が取れなかったので、スペース無しで指定する処理を書いた。</p>
+<pre><code>![atama](-)
+</code></pre>
+<p><img src="-" alt="atama"></p>
+<pre><code class="language-html">&#x3C;amp-img alt="atama"
+  src="-"
+  width="536"
+  height="536"
+  layout="responsive">
+&#x3C;/amp-img>
+</code></pre>
+<p><em>2021年アップデート時に AMP をやめました</em></p>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="20180727">おーい御社</a></dd><dt>前に出た記事</dt><dd><a href="20180725">hello, world!</a></dd></dl></nav>
