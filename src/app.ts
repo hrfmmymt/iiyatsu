@@ -80,50 +80,55 @@ function build(opts = {}) {
     const { post } = req.params;
     const fileName = path.format({
       name: post,
-      ext: '.md',
+      ext: '.html',
     });
-    const filePath = config.postDir + fileName;
+    const filePath = './public/' + fileName;
 
     if (fs.existsSync(filePath)) {
-      getPostInfo({ postDir: config.postDir, fileName, withHtml: true }).then((postInfo) => {
-        reply.view('./templates/page/post.njk', {
-          head: {
-            author: metadata.author,
-            description: postInfo.description,
-            favicon: metadata.favicon,
-            ogImage: metadata.ogImage,
-            ogType: 'article',
-            title: `${postInfo.title} | ${metadata.title}`,
-            url: `${metadata.url}${postInfo.url}`,
-            year: config.currentYear,
-          },
-          post: {
-            contents: postInfo.html,
-          },
-          footer: {
-            gaDetails: config.gaDetails,
-            gaSummary: config.gaSummary,
-          },
-        });
-      });
+      console.log('200');
+      reply.sendFile(`./public/${post}.html`);
+      // reply.view(`./templates/page/${post}.html`);
+      // getPostInfo({ postDir: config.postDir, fileName, withHtml: true }).then((postInfo) => {
+      //   reply.view('./templates/page/post.njk', {
+      //     head: {
+      //       author: metadata.author,
+      //       description: postInfo.description,
+      //       favicon: metadata.favicon,
+      //       ogImage: metadata.ogImage,
+      //       ogType: 'article',
+      //       title: `${postInfo.title} | ${metadata.title}`,
+      //       url: `${metadata.url}${postInfo.url}`,
+      //       year: config.currentYear,
+      //     },
+      //     post: {
+      //       contents: postInfo.html,
+      //     },
+      //     footer: {
+      //       gaDetails: config.gaDetails,
+      //       gaSummary: config.gaSummary,
+      //     },
+      //   });
+      // });
     } else {
-      reply.code(404).view('./templates/page/404.njk', {
-        head: {
-          author: metadata.author,
-          description: `404, page not found | ${metadata.description}`,
-          favicon: metadata.favicon,
-          ogImage: metadata.ogImage,
-          ogType: 'website',
-          title: `404 | ${metadata.title}`,
-          url: `${metadata.url}${post}`,
-          year: config.currentYear,
-        },
-      });
+      console.log('404');
+      reply.sendFile('<html>404</html>');
+      // reply.code(404).view('./templates/page/404.njk', {
+      //   head: {
+      //     author: metadata.author,
+      //     description: `404, page not found | ${metadata.description}`,
+      //     favicon: metadata.favicon,
+      //     ogImage: metadata.ogImage,
+      //     ogType: 'website',
+      //     title: `404 | ${metadata.title}`,
+      //     url: `${metadata.url}${post}`,
+      //     year: config.currentYear,
+      //   },
+      // });
     }
   });
 
   app.get('/api', (req, reply) => {
-    enableCors(req, reply, undefined)
+    enableCors(req, reply, undefined);
     reply.send(config.postList);
   });
 
