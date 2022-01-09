@@ -1,5 +1,4 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
   "include": ["index.ts", "src/app.ts"],
   "exclude": ["node_modules", "__tests__"],
   "compilerOptions": {
