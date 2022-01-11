@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 const POST_DIR = path.join(__dirname, '../../post/');
 const DIST_PATH = path.join(__dirname, '../../dist/');
 
-async function main(inputMdFile: string, fileName: string) {
+async function createFile(inputMdFile: string, fileName: string) {
   const file = await unified()
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
@@ -29,7 +29,7 @@ async function main(inputMdFile: string, fileName: string) {
   });
 }
 
-const mdToHtml = () => {
+const markdownToHtml = () => {
   fs.readdir(POST_DIR, (err, mdFiles) => {
     if (err) {
       console.log(err);
@@ -40,9 +40,9 @@ const mdToHtml = () => {
       const fileName = mdFile.replace(/.md/g, '');
       const inputMdFile = fs.readFileSync(filePath, 'utf8');
 
-      main(inputMdFile, fileName);
+      createFile(inputMdFile, fileName);
     }
   });
 };
 
-mdToHtml();
+markdownToHtml();
