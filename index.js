@@ -7,5 +7,5 @@ var server = require('./src/app')({
 server.listen(4567, function (err, address) {
     if (err)
         throw err;
-    console.log("server listening on " + address);
+    console.log("server listening on ".concat(address));
 });
