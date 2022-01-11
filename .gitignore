@@ -10,6 +10,7 @@ yarn-error.log*
 !img-opt.js
 !webp.js
 !postcss.config.js
+*.mjs
 
 .nyc_output
 coverage
