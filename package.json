@@ -22,7 +22,8 @@
     "test-cov": "run-s jest-cov rm-rf-tmp",
     "vercel": "vercel",
     "vercel-dev": "vercel dev",
-    "webp": "node ./utils/webp.js"
+    "webp": "node ./utils/webp.js",
+    "ssg": "ts-node-dev ./utils/generate_html/generate_html.ts"
   },
   "keywords": [],
   "author": "hrfmmymt",
