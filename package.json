@@ -12,7 +12,6 @@
     "deploy-prd": "vercel --prod",
     "dev": "ts-node-dev index.ts",
     "get-post-info": "ts-node-dev utils/get_post_info.ts",
-    "get-post-list": "ts-node-dev ./utils/get_post_list.ts",
     "html": "yarn workspaces run html",
     "img": "run-s img-opt webp",
     "img-opt": "ts-node-dev ./utils/img-opt.ts",

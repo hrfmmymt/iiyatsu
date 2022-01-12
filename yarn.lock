@@ -8281,6 +8281,11 @@ typescript@4.3.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
   integrity sha512-uauPG7XZn9F/mo+7MrsRjyvbxFpzemRjKEZXS4AK83oP2KKOJPvb+9cO/gmnv8arWZvhnjVOXz7B49m1l0e9Ew==
 
+typescript@^4.5.0-beta:
+  version "4.5.0-beta"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.0-beta.tgz#f2e2724d93c35e7a0d0d1e55a22d1e4efb2181c7"
+  integrity sha512-7PvWhki2lwukaR9osVhFnNzxaE4LM+gC94dlwcvS+Tqz8+U65va7FbKo02bT+/MFlnMPM8bsPUXvHiMD/Mg3Jg==
+
 typescript@^4.5.4:
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"

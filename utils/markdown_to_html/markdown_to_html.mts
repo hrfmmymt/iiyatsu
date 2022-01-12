@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 const POST_DIR = path.join(__dirname, '../../post/');
 const DIST_PATH = path.join(__dirname, '../../dist/');
 
-async function createFile(inputMdFile: string, fileName: string) {
+export async function createFile(inputMdFile: string) {
   const file = await unified()
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
@@ -21,12 +21,14 @@ async function createFile(inputMdFile: string, fileName: string) {
     .use(rehypeStringify)
     .process(inputMdFile);
 
-  if (!fs.existsSync(DIST_PATH)) fs.mkdirSync(DIST_PATH);
-  const outputFilePath = `${DIST_PATH}${fileName}.html`;
+  // if (!fs.existsSync(DIST_PATH)) fs.mkdirSync(DIST_PATH);
+  // const outputFilePath = `${DIST_PATH}${fileName}.html`;
 
-  fs.writeFile(outputFilePath, String(file), 'utf-8', (err) => {
-    if (err) console.error(err);
-  });
+  // fs.writeFile(outputFilePath, String(file), 'utf-8', (err) => {
+  //   if (err) console.error(err);
+  // });
+  console.log(String(file));
+  return String(file);
 }
 
 const markdownToHtml = () => {
@@ -37,10 +39,9 @@ const markdownToHtml = () => {
 
     for (const mdFile of mdFiles) {
       const filePath = POST_DIR + mdFile;
-      const fileName = mdFile.replace(/.md/g, '');
       const inputMdFile = fs.readFileSync(filePath, 'utf8');
 
-      createFile(inputMdFile, fileName);
+      createFile(inputMdFile);
     }
   });
 };
