@@ -5,7 +5,7 @@ import { PostInfo } from '../types';
 
 import { generatePostPage } from './generate_post_page';
 
-const DIST_PATH = path.join(__dirname, '../../dist/');
+const DIST_PATH = path.join(__dirname, '../../public/posts/');
 const postList = JSON.parse(fs.readFileSync(path.join(__dirname, '../../post-list.json'), 'utf8'));
 
 export const generateHtml = (): void => {

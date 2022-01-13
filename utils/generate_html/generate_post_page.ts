@@ -1,9 +1,14 @@
+import fs from 'fs';
+import path from 'path';
+
 import { PostInfo } from '../types';
 
 const AUTHOR = 'hrfmmymt';
-const year = '';
-const OG_IMG = '';
-const FAVICON = '';
+const year = new Date().getFullYear();
+const OG_IMG = 'public/img/icon/icon.png';
+const FAVICON = 'public/img/icon/favicon.ico';
+
+const style = fs.readFileSync(path.join(__dirname, '../../templates/style/post.njk'), 'utf8');
 
 export function generatePostPage(content: PostInfo) {
   return `<!DOCTYPE html>
@@ -33,6 +38,7 @@ export function generatePostPage(content: PostInfo) {
       <link rel="apple-touch-icon" href="${OG_IMG}">
       <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+      <style>${style}</style>
     </head>
     <body>
       ${content.html}
