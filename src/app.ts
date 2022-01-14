@@ -42,6 +42,65 @@ function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
   }
 }
 
+function ssrPostPage(post: string, reply: any) {
+  const fileName = path.format({
+    name: post,
+    ext: '.md',
+  });
+  const filePath = config.postDir + fileName;
+
+  if (fs.existsSync(filePath)) {
+    getPostInfo({ postDir: config.postDir, fileName, withHtml: true }).then((postInfo) => {
+      reply.view('./templates/page/post.njk', {
+        head: {
+          author: metadata.author,
+          description: postInfo.description,
+          favicon: metadata.favicon,
+          ogImage: metadata.ogImage,
+          ogType: 'article',
+          title: `${postInfo.title} | ${metadata.title}`,
+          url: `${metadata.url}${postInfo.url}`,
+          year: config.currentYear,
+        },
+        post: {
+          contents: postInfo.html,
+        },
+        footer: {
+          gaDetails: config.gaDetails,
+          gaSummary: config.gaSummary,
+        },
+      });
+    });
+  } else {
+    reply.code(404).view('./templates/page/404.njk', {
+      head: {
+        author: metadata.author,
+        description: `404, page not found | ${metadata.description}`,
+        favicon: metadata.favicon,
+        ogImage: metadata.ogImage,
+        ogType: 'website',
+        title: `404 | ${metadata.title}`,
+        url: `${metadata.url}${post}`,
+        year: config.currentYear,
+      },
+    });
+  }
+}
+
+function ssgPostPage(post: string, reply: any) {
+  const fileName = path.format({
+    name: post,
+    ext: '.html',
+  });
+  const filePath = './public/posts/' + fileName;
+
+  if (fs.existsSync(filePath)) {
+    reply.sendFile(filePath);
+  } else {
+    reply.sendFile('<html>404</html>');
+  }
+}
+
 function build(opts = {}) {
   const app: FastifyInstance = fastify(opts);
 
@@ -77,65 +136,12 @@ function build(opts = {}) {
   });
 
   app.get('/:post', (req: any, reply: any) => {
+    const { post } = req.params;
+
     if (process.env.NODE_ENV !== 'ssg') {
-      const { post } = req.params;
-      const fileName = path.format({
-        name: post,
-        ext: '.md',
-      });
-      const filePath = config.postDir + fileName;
-
-      if (fs.existsSync(filePath)) {
-        getPostInfo({ postDir: config.postDir, fileName, withHtml: true }).then((postInfo) => {
-          reply.view('./templates/page/post.njk', {
-            head: {
-              author: metadata.author,
-              description: postInfo.description,
-              favicon: metadata.favicon,
-              ogImage: metadata.ogImage,
-              ogType: 'article',
-              title: `${postInfo.title} | ${metadata.title}`,
-              url: `${metadata.url}${postInfo.url}`,
-              year: config.currentYear,
-            },
-            post: {
-              contents: postInfo.html,
-            },
-            footer: {
-              gaDetails: config.gaDetails,
-              gaSummary: config.gaSummary,
-            },
-          });
-        });
-      } else {
-        reply.code(404).view('./templates/page/404.njk', {
-          head: {
-            author: metadata.author,
-            description: `404, page not found | ${metadata.description}`,
-            favicon: metadata.favicon,
-            ogImage: metadata.ogImage,
-            ogType: 'website',
-            title: `404 | ${metadata.title}`,
-            url: `${metadata.url}${post}`,
-            year: config.currentYear,
-          },
-        });
-      }
+      ssrPostPage(post, reply);
     } else {
-      const { post } = req.params;
-      const fileName = path.format({
-        name: post,
-        ext: '.html',
-      });
-      const filePath = './public/posts/' + fileName;
-
-      if (fs.existsSync(filePath)) {
-        console.log('200');
-        reply.sendFile(`./public/posts/${post}.html`);
-      } else {
-        console.log('404');
-        reply.sendFile('<html>404</html>');
-      }
+      ssgPostPage(post, reply);
     }
   });
 
