@@ -9,6 +9,7 @@ const OG_IMG = 'public/img/icon/icon.png';
 const FAVICON = 'public/img/icon/favicon.ico';
 
 const style = fs.readFileSync(path.join(__dirname, '../../templates/style/post.njk'), 'utf8');
+const logo = fs.readFileSync(path.join(__dirname, '../../templates/partial/logo.njk'), 'utf8');
 
 export function generatePostPage(content: PostInfo) {
   return `<!DOCTYPE html>
@@ -41,7 +42,23 @@ export function generatePostPage(content: PostInfo) {
       <style>${style}</style>
     </head>
     <body>
-      ${content.html}
+      <header class="header">
+        <h1 class="header-title">
+          <a href="/" class="header-title-link">
+            ${logo}
+          </a>
+        </h1>
+      </header>
+      <article class="post-article">
+        <h1>this is static html</h1>
+        ${content.html}
+      </article>
+      <footer class="footer">
+        <details>
+          <summary>This website uses Google Analytics, a web analytics service provided by Google.</summary>
+          Google Analytics uses "cookies", which are text files placed on your computer, to help the website analyse how users use the site.
+        </details>
+      </footer>
     </body>
   </html>
   `;
