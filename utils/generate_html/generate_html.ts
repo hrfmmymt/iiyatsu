@@ -12,7 +12,7 @@ export const generateHtml = (): void => {
   if (!fs.existsSync(DIST_PATH)) fs.mkdirSync(DIST_PATH);
 
   postList.forEach((post: PostInfo) => {
-    fs.writeFileSync(path.join(DIST_PATH, post.url + '.html'), generatePostPage(post));
+    fs.writeFileSync(path.join(DIST_PATH, post.name + '.html'), generatePostPage(post));
   });
 };
 
