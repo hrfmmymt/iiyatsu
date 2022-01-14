@@ -12,7 +12,6 @@
     "dev": "ts-node-dev index.ts",
     "dev-ssg": "NODE_ENV=ssg ts-node-dev index.ts",
     "get-post-info": "ts-node-dev utils/get_post_info.ts",
-    "get-post-list": "ts-node-dev ./utils/get_post_list.ts",
     "img": "run-s img-opt webp",
     "img-opt": "ts-node-dev ./utils/img-opt.ts",
     "jest": "jest",
