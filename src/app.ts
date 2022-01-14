@@ -42,6 +42,35 @@ function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
   }
 }
 
+function ssrIndexPage(reply: any) {
+  reply.view('./templates/index.njk', {
+    head: {
+      author: metadata.author,
+      description: metadata.description,
+      favicon: metadata.favicon,
+      ogImage: metadata.ogImage,
+      ogType: 'website',
+      title: metadata.title,
+      url: metadata.url,
+      year: config.currentYear,
+    },
+    postList: config.postList,
+    footer: {
+      gaDetails: config.gaDetails,
+      gaSummary: config.gaSummary,
+    },
+  });
+}
+
+function ssgIndexPage(reply: any) {
+  const filePath = './public/index.html';
+  if (fs.existsSync(filePath)) {
+    reply.sendFile(filePath);
+  } else {
+    reply.sendFile('<html>404</html>');
+  }
+}
+
 function ssrPostPage(post: string, reply: any) {
   const fileName = path.format({
     name: post,
@@ -116,23 +145,11 @@ function build(opts = {}) {
   });
 
   app.get('/', (_req, reply: any) => {
-    reply.view('./templates/index.njk', {
-      head: {
-        author: metadata.author,
-        description: metadata.description,
-        favicon: metadata.favicon,
-        ogImage: metadata.ogImage,
-        ogType: 'website',
-        title: metadata.title,
-        url: metadata.url,
-        year: config.currentYear,
-      },
-      postList: config.postList,
-      footer: {
-        gaDetails: config.gaDetails,
-        gaSummary: config.gaSummary,
-      },
-    });
+    if (process.env.NODE_ENV !== 'ssg') {
+      ssrIndexPage(reply);
+    } else {
+      ssgIndexPage(reply);
+    }
   });
 
   app.get('/:post', (req: any, reply: any) => {
