@@ -4,6 +4,7 @@ type RecentPost = {
 };
 
 export type PostInfo = {
+  name: string;
   title: string;
   description: string;
   date: string;

@@ -1,5 +1,6 @@
 [
   {
+    "name": "20211022",
     "title": "今日 (2021年10月22日〜2021年11月4日)",
     "description": "今日のやつ",
     "date": "2021-11-04",
@@ -12,6 +13,7 @@
     "nextPost": null
   },
   {
+    "name": "20211009",
     "title": "今日",
     "description": "今日のやつ",
     "date": "2021-10-09",
@@ -27,6 +29,7 @@
     }
   },
   {
+    "name": "swift-playgrounds-1",
     "title": "Swift Playgrounds 1 コマンド",
     "description": "Swift Playgrounds",
     "date": "2021-10-09",
@@ -42,6 +45,7 @@
     }
   },
   {
+    "name": "トゥードゥー",
     "title": "トゥードゥー",
     "description": "todo",
     "date": "2021-08-30",
@@ -57,6 +61,7 @@
     }
   },
   {
+    "name": "hello-world!-season-2",
     "title": "hello, world! season 2",
     "description": "これのやつ",
     "date": "2021-08-29",
@@ -72,6 +77,7 @@
     }
   },
   {
+    "name": "trip-to-kitakyushu",
     "title": "これはもう帰省 北九州",
     "description": "書いていき",
     "date": "2019-07-10",
@@ -87,6 +93,7 @@
     }
   },
   {
+    "name": "trip-to-kanazawa",
     "title": "ワンス・アポン・ア・タイム・イン金沢",
     "description": "いつかのやつ",
     "date": "2019-03-06",
@@ -102,6 +109,7 @@
     }
   },
   {
+    "name": "20181102",
     "title": "論理無職の日々",
     "description": "今日のやつ",
     "date": "2018-11-02",
@@ -117,6 +125,7 @@
     }
   },
   {
+    "name": "20181017",
     "title": "転職のこと",
     "description": "今日のやつ",
     "date": "2018-10-17",
@@ -132,6 +141,7 @@
     }
   },
   {
+    "name": "amp-lightbox-a11y",
     "title": "amp-lightbox でのアクセシビリティ戦略",
     "description": "AMPで取り組むa11yシリーズ",
     "date": "2018-09-10",
@@ -147,6 +157,7 @@
     }
   },
   {
+    "name": "20180906",
     "title": "20180906",
     "description": "amp-videoとかGraphQLとかパフォーマンスやa11yのこととか",
     "date": "2018-09-06",
@@ -162,6 +173,7 @@
     }
   },
   {
+    "name": "summersonic2018",
     "title": "今年のサマーソニックとカマシ・ワシントンのライブに行ってきた",
     "description": "今日のやつ",
     "date": "2018-08-25",
@@ -177,6 +189,7 @@
     }
   },
   {
+    "name": "trip-to-hkd",
     "title": "北海道に行ってきました",
     "description": "いつかのやつ",
     "date": "2018-08-22",
@@ -192,6 +205,7 @@
     }
   },
   {
+    "name": "md-amp-img-webp",
     "title": "markdown から amp-img で webp 表示＆フォールバックのやつした",
     "description": "これのやつ",
     "date": "2018-08-14",
@@ -207,6 +221,7 @@
     }
   },
   {
+    "name": "amp-list",
     "title": "amp-list でこのサイトの最新記事 n 件をリスト表示する",
     "description": "これのやつ",
     "date": "2018-08-11",
@@ -222,6 +237,7 @@
     }
   },
   {
+    "name": "20180808",
     "title": "TypeScript はじめました",
     "description": "これのやつ",
     "date": "2018-08-08",
@@ -237,6 +253,7 @@
     }
   },
   {
+    "name": "20180730",
     "title": "いいやつの作りかた",
     "description": "これのやつ",
     "date": "2018-07-30",
@@ -252,6 +269,7 @@
     }
   },
   {
+    "name": "20180727",
     "title": "おーい御社",
     "description": "今日のやつ",
     "date": "2018-07-27",
@@ -267,6 +285,7 @@
     }
   },
   {
+    "name": "20180726",
     "title": "amp-img",
     "description": "markdown で amp-img を表示する",
     "date": "2018-07-26",
@@ -282,6 +301,7 @@
     }
   },
   {
+    "name": "20180725",
     "title": "hello, world!",
     "description": "はじめのごあいさつ",
     "date": "2018-07-25",
@@ -297,6 +317,7 @@
     }
   },
   {
+    "name": "20180623",
     "title": "20180623",
     "description": "今日のやつ",
     "date": "2018-06-23",
@@ -312,6 +333,7 @@
     }
   },
   {
+    "name": "20180621",
     "title": "20180621",
     "description": "今日のやつ",
     "date": "2018-06-21",
@@ -327,6 +349,7 @@
     }
   },
   {
+    "name": "20180614",
     "title": "20180614",
     "description": "今日のやつ",
     "date": "2018-06-14",
@@ -342,6 +365,7 @@
     }
   },
   {
+    "name": "20180610",
     "title": "20180610",
     "description": "今日のやつ",
     "date": "2018-06-10",
@@ -357,6 +381,7 @@
     }
   },
   {
+    "name": "20180609",
     "title": "20180609",
     "description": "今日のやつ",
     "date": "2018-06-09",
@@ -372,6 +397,7 @@
     }
   },
   {
+    "name": "20180607",
     "title": "20180607",
     "description": "今日のやつ",
     "date": "2018-06-07",
@@ -387,6 +413,7 @@
     }
   },
   {
+    "name": "20180606",
     "title": "preact-cli でポートフォリオサイトを作った",
     "description": "ギジュツテキ",
     "date": "2018-06-06",
