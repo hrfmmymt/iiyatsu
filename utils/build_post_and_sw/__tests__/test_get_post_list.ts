@@ -8,6 +8,7 @@ import { generatePostList, byNewest } from '../get_post_list';
 const mockDir = path.join(__dirname, '../../__tests__/mock/');
 
 const EXPECT_POST_INFO: PostInfo = {
+  name: 'mock-name',
   title: 'mock-title',
   description: 'mock-desc',
   date: '2021-09-01',
@@ -50,6 +51,7 @@ describe('get_post_list test', () => {
 
   test('should order PostInfo data by newest date', () => {
     const olderPostInfo: PostInfo = {
+      name: 'mock-name',
       title: 'mock-title',
       description: 'mock-desc',
       date: '2021-08-31',
@@ -63,6 +65,7 @@ describe('get_post_list test', () => {
 
   test('should order PostInfo data by title when same date', () => {
     const sameDateVer2: PostInfo = {
+      name: 'mock-name',
       title: 'mock-title-ver2',
       description: 'mock-desc',
       date: '2021-09-01',
@@ -76,6 +79,7 @@ describe('get_post_list test', () => {
 
   test('should do nothing when same date and same title', () => {
     const samePost: PostInfo = {
+      name: 'mock-name',
       title: 'mock-title',
       description: 'mock-desc',
       date: '2021-09-01',
