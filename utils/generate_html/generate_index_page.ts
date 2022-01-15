@@ -92,7 +92,6 @@ export function generateIndexPage(content: PostInfo[]) {
         </header>
         ${profile}
         <ul class="post-list">${postList}</ul>
-        </article>
         <footer class="footer">
           <details>
             <summary>${config.gaSummary}</summary>

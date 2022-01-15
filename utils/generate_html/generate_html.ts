@@ -25,4 +25,4 @@ export const generatePostHtml = (): void => {
 };
 
 generateIndexHtml();
-// generatePostHtml();
+generatePostHtml();
