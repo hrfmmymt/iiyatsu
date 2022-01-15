@@ -4,31 +4,7 @@ import * as path from 'path';
 import fastify, { FastifyInstance } from 'fastify';
 
 import { getPostInfo } from '../utils/get_post_info';
-
-const COMMON_TITLE = "iiyatsu - hrfmmymt's weblog";
-const PUBLIC_URL = 'https://iiyatsu.hrfmmymt.com/';
-const GA_SUMMARY =
-  'This website uses Google Analytics, a web analytics service provided by Google.';
-const GA_DETAILS =
-  'Google Analytics uses "cookies", which are text files placed on your computer, to help the website analyse how users use the site.';
-
-const config = {
-  currentYear: new Date().getFullYear(),
-  postDir: path.join(__dirname, '../post/'),
-  postList: JSON.parse(fs.readFileSync(path.join(__dirname, '../post-list.json'), 'utf8')),
-  gaSummary: GA_SUMMARY,
-  gaDetails: GA_DETAILS,
-};
-
-const metadata = {
-  author: 'hrfmmymt',
-  copyright: 'Copyright &copy; 2021 iiyatsu of hrfmmymt All Rights Reserved.',
-  description: "hrfmmymt's weblog",
-  ogImage: 'public/img/icon/icon.png',
-  favicon: 'public/img/icon/favicon.ico',
-  title: COMMON_TITLE,
-  url: PUBLIC_URL,
-};
+import { CONFIG, META } from '../constants';
 
 function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
   reply.header('Access-Control-Allow-Credentials', 'true');
@@ -45,19 +21,19 @@ function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
 function ssrIndexPage(reply: any) {
   reply.view('./templates/index.njk', {
     head: {
-      author: metadata.author,
-      description: metadata.description,
-      favicon: metadata.favicon,
-      ogImage: metadata.ogImage,
+      author: META.AUTHOR,
+      description: META.DESCRIPTION,
+      favicon: META.FAVICON,
+      ogImage: META.OG_IMAGE,
       ogType: 'website',
-      title: metadata.title,
-      url: metadata.url,
-      year: config.currentYear,
+      title: META.TITLE,
+      url: META.URL,
+      year: CONFIG.CURRENT_YEAR,
     },
-    postList: config.postList,
+    postList: CONFIG.POST_LIST,
     footer: {
-      gaDetails: config.gaDetails,
-      gaSummary: config.gaSummary,
+      gaDetails: CONFIG.GA_DETAILS,
+      gaSummary: CONFIG.GA_SUMMARY,
     },
   });
 }
@@ -76,41 +52,41 @@ function ssrPostPage(post: string, reply: any) {
     name: post,
     ext: '.md',
   });
-  const filePath = config.postDir + fileName;
+  const filePath = CONFIG.POST_DIR + fileName;
 
   if (fs.existsSync(filePath)) {
-    getPostInfo({ postDir: config.postDir, fileName, withHtml: true }).then((postInfo) => {
+    getPostInfo({ postDir: CONFIG.POST_DIR, fileName, withHtml: true }).then((postInfo) => {
       reply.view('./templates/page/post.njk', {
         head: {
-          author: metadata.author,
+          author: META.AUTHOR,
           description: postInfo.description,
-          favicon: metadata.favicon,
-          ogImage: metadata.ogImage,
+          favicon: META.FAVICON,
+          ogImage: META.OG_IMAGE,
           ogType: 'article',
-          title: `${postInfo.title} | ${metadata.title}`,
-          url: `${metadata.url}${postInfo.url}`,
-          year: config.currentYear,
+          title: `${postInfo.title} | ${META.TITLE}`,
+          url: `${META.URL}${postInfo.url}`,
+          year: CONFIG.CURRENT_YEAR,
         },
         post: {
           contents: postInfo.html,
         },
         footer: {
-          gaDetails: config.gaDetails,
-          gaSummary: config.gaSummary,
+          gaDetails: CONFIG.GA_DETAILS,
+          gaSummary: CONFIG.GA_SUMMARY,
         },
       });
     });
   } else {
     reply.code(404).view('./templates/page/404.njk', {
       head: {
-        author: metadata.author,
-        description: `404, page not found | ${metadata.description}`,
-        favicon: metadata.favicon,
-        ogImage: metadata.ogImage,
+        author: META.AUTHOR,
+        description: `404, page not found | ${META.DESCRIPTION}`,
+        favicon: META.FAVICON,
+        ogImage: META.OG_IMAGE,
         ogType: 'website',
-        title: `404 | ${metadata.title}`,
-        url: `${metadata.url}${post}`,
-        year: config.currentYear,
+        title: `404 | ${META.TITLE}`,
+        url: `${META.URL}${post}`,
+        year: CONFIG.CURRENT_YEAR,
       },
     });
   }
@@ -164,7 +140,7 @@ function build(opts = {}) {
 
   app.get('/api', (req, reply) => {
     enableCors(req, reply, undefined);
-    reply.send(config.postList);
+    reply.send(CONFIG.POST_LIST);
   });
 
   app.get('/sw.js', (_req, reply) => {
