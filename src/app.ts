@@ -6,6 +6,8 @@ import fastify, { FastifyInstance } from 'fastify';
 import { getPostInfo } from '../utils/get_post_info';
 import { CONFIG, META } from '../constants';
 
+const isSSG = process.env.NODE_ENV !== 'ssg' || !process.env.BUILD_SSG;
+
 function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
   reply.header('Access-Control-Allow-Credentials', 'true');
   reply.header('Access-Control-Allow-Origin', '*');
@@ -121,10 +123,10 @@ function build(opts = {}) {
   });
 
   app.get('/', (_req, reply: any) => {
-    if (process.env.NODE_ENV !== 'ssg') {
-      ssrIndexPage(reply);
-    } else {
+    if (isSSG) {
       ssgIndexPage(reply);
+    } else {
+      ssrIndexPage(reply);
     }
   });
 
