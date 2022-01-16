@@ -26,7 +26,7 @@ export function generateIndexPage(content: PostInfo[]) {
   <html lang="ja-jp">
     <head>
       <title>${META.TITLE}</title>
-      <meta charset="UTF-8">
+      <meta charset="utf-8">
       <meta name="author" content="hrfmmymt">
       <meta name="copyright" content="Copyright(c)${META.AUTHOR}. ${CONFIG.CURRENT_YEAR} All Rights Reserved.">
       <meta name="description" content="${META.DESCRIPTION}">
@@ -52,13 +52,9 @@ export function generateIndexPage(content: PostInfo[]) {
       <style>${style}</style>
     </head>
     <body>
+      <span style="position:absolute;top:0;left:0;">this is static page</span>
       <main class="wrapper">
-
-      <!-- 後で消す -->
-      <h1>this is static html</h1>
-      <!-- 後で消す -->
-
-      <header class="header">
+        <header class="header">
           <h1 class="header-title">
             <a href="/" class="header-title-link">
               ${logo}

@@ -6,7 +6,7 @@ import fastify, { FastifyInstance } from 'fastify';
 import { getPostInfo } from '../utils/get_post_info';
 import { CONFIG, META } from '../constants';
 
-const isSSG = process.env.NODE_ENV !== 'ssg' || !process.env.BUILD_SSG;
+const isSSG = process.env.BUILD_SSG;
 
 function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
   reply.header('Access-Control-Allow-Credentials', 'true');
@@ -133,10 +133,10 @@ function build(opts = {}) {
   app.get('/:post', (req: any, reply: any) => {
     const { post } = req.params;
 
-    if (process.env.NODE_ENV !== 'ssg') {
-      ssrPostPage(post, reply);
-    } else {
+    if (isSSG) {
       ssgPostPage(post, reply);
+    } else {
+      ssrPostPage(post, reply);
     }
   });
 

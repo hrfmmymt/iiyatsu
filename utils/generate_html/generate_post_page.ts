@@ -12,7 +12,7 @@ export function generatePostPage(content: PostInfo) {
   <html lang="ja-jp">
     <head>
       <title>${content.title}</title>
-      <meta charset="UTF-8">
+      <meta charset="utf-8">
       <meta name="author" content="hrfmmymt">
       <meta name="copyright" content="Copyright(c)${META.AUTHOR}. ${CONFIG.CURRENT_YEAR} All Rights Reserved.">
       <meta name="description" content="${content.description}">
@@ -38,6 +38,7 @@ export function generatePostPage(content: PostInfo) {
       <style>${style}</style>
     </head>
     <body>
+      <span style="position:absolute;top:0;left:0;">this is static page</span>
       <header class="header">
         <h1 class="header-title">
           <a href="/" class="header-title-link">
@@ -46,7 +47,6 @@ export function generatePostPage(content: PostInfo) {
         </h1>
       </header>
       <article class="post-article">
-        <h1>this is static html</h1>
         ${content.html}
       </article>
       <footer class="footer">
