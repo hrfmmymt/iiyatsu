@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { minify } from 'html-minifier';
 
 import { PostInfo } from '../types';
 import { CONFIG, META } from '../../constants';
@@ -22,7 +23,8 @@ export function generateIndexPage(content: PostInfo[]) {
     })
     .join('');
 
-  return `<!DOCTYPE html>
+  const html = minify(
+    `<!DOCTYPE html>
   <html lang="ja-jp">
     <head>
       <title>${META.TITLE}</title>
@@ -73,5 +75,16 @@ export function generateIndexPage(content: PostInfo[]) {
       <script src="public/js/script.js" defer></script>
     </body>
   </html>
-  `;
+  `,
+    {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true,
+    },
+  );
+
+  return html;
 }

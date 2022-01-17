@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { minify } from 'html-minifier';
 
 import { PostInfo } from '../types';
 import { CONFIG, META } from '../../constants';
@@ -8,7 +9,8 @@ const style = fs.readFileSync(path.join(__dirname, '../../templates/style/post.n
 const logo = fs.readFileSync(path.join(__dirname, '../../templates/partial/logo.njk'), 'utf8');
 
 export function generatePostPage(content: PostInfo) {
-  return `<!DOCTYPE html>
+  return minify(
+    `<!DOCTYPE html>
   <html lang="ja-jp">
     <head>
       <title>${content.title}</title>
@@ -57,5 +59,14 @@ export function generatePostPage(content: PostInfo) {
       </footer>
     </body>
   </html>
-  `;
+  `,
+    {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true,
+    },
+  );
 }
