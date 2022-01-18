@@ -4,6 +4,7 @@ import { minify } from 'html-minifier';
 
 import { CONFIG, META } from '../../../constants';
 import { generateNotFoundPage } from '../generate_not_found_page';
+import { minifierOption } from '../minifier_option';
 
 const style = fs.readFileSync(
   path.join(__dirname, '../../../templates/style/not_found.njk'),
@@ -24,7 +25,7 @@ const EXPECT = minify(
   
         gtag('config', 'UA-122819743-1');
       </script>
-      <meta charset="UTF-8">
+      <meta charset="utf-8">
       <title>404 not found ${META.TITLE}</title>
       <meta name="author" content="${META.AUTHOR}">
       <meta name="copyright" content="Copyright(c)${META.AUTHOR}. ${CONFIG.CURRENT_YEAR} All Rights Reserved.">
@@ -54,16 +55,7 @@ const EXPECT = minify(
     </body>
   </html>
 `,
-  {
-    collapseInlineTagWhitespace: true,
-    collapseWhitespace: true,
-    minifyJS: true,
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    useShortDoctype: true,
-  },
+  minifierOption,
 );
 
 test('should render next and prev post links', () => {

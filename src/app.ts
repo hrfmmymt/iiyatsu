@@ -45,9 +45,9 @@ function ssgIndexPage(reply: any) {
   const filePath = './public/index.html';
 
   if (fs.existsSync(filePath)) {
-    reply.sendFile(filePath);
+    reply.code(200).sendFile(filePath);
   } else {
-    reply.sendFile('./public/404.html');
+    reply.code(404).sendFile('./public/404.html');
   }
 }
 
@@ -104,9 +104,9 @@ function ssgPostPage(post: string, reply: any) {
   const filePath = './public/posts/' + fileName;
 
   if (fs.existsSync(filePath)) {
-    reply.sendFile(filePath);
+    reply.code(200).sendFile(filePath);
   } else {
-    reply.sendFile('./public/404.html');
+    reply.code(404).sendFile('./public/404.html');
   }
 }
 

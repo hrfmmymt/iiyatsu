@@ -4,6 +4,8 @@ import { minify } from 'html-minifier';
 
 import { CONFIG, META } from '../../constants';
 
+import { minifierOption } from './minifier_option';
+
 const style = fs.readFileSync(path.join(__dirname, '../../templates/style/not_found.njk'), 'utf8');
 const logo = fs.readFileSync(path.join(__dirname, '../../templates/partial/logo.njk'), 'utf8');
 
@@ -21,7 +23,7 @@ export function generateNotFoundPage() {
     
           gtag('config', 'UA-122819743-1');
         </script>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <title>404 not found ${META.TITLE}</title>
         <meta name="author" content="${META.AUTHOR}">
         <meta name="copyright" content="Copyright(c)${META.AUTHOR}. ${CONFIG.CURRENT_YEAR} All Rights Reserved.">
@@ -51,16 +53,7 @@ export function generateNotFoundPage() {
       </body>
     </html>
   `,
-    {
-      collapseInlineTagWhitespace: true,
-      collapseWhitespace: true,
-      minifyJS: true,
-      removeComments: true,
-      removeRedundantAttributes: true,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      useShortDoctype: true,
-    },
+    minifierOption,
   );
 
   return html;

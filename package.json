@@ -19,7 +19,7 @@
     "jest-cov": "jest --coverage",
     "rm-rf-tmp": "rimraf utils/build_post_and_sw/__tests__/tmp",
     "run-set-recent-post-data": "ts-node-dev ./utils/set_recent_post_data.ts",
-    "test": "run-s jest rm-rf-tmp",
+    "test": "NODE_ENV=test run-s jest rm-rf-tmp",
     "test-cov": "run-s jest-cov rm-rf-tmp",
     "vercel": "vercel",
     "vercel-dev": "vercel dev",

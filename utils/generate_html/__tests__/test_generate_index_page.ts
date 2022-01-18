@@ -5,6 +5,7 @@ import { minify } from 'html-minifier';
 import { PostInfo } from '../../types';
 import { generateIndexPage } from '../generate_index_page';
 import { CONFIG, META } from '../../../constants';
+import { minifierOption } from '../minifier_option';
 
 const MOCK_DATA: PostInfo[] = [
   {
@@ -34,6 +35,15 @@ const EXPECT = minify(
   `<!DOCTYPE html>
   <html lang="ja">
     <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122819743-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+  
+        gtag('config', 'UA-122819743-1');
+      </script>
       <title>${META.TITLE}</title>
       <meta charset="utf-8">
       <meta name="author" content="${META.AUTHOR}">
@@ -83,15 +93,7 @@ const EXPECT = minify(
     </body>
   </html>
   `,
-  {
-    collapseInlineTagWhitespace: true,
-    collapseWhitespace: true,
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    useShortDoctype: true,
-  },
+  minifierOption,
 );
 
 test('should render next and prev post links', () => {

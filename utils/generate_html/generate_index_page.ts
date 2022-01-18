@@ -5,6 +5,8 @@ import { minify } from 'html-minifier';
 import { PostInfo } from '../types';
 import { CONFIG, META } from '../../constants';
 
+import { minifierOption } from './minifier_option';
+
 const profile = fs.readFileSync(
   path.join(__dirname, '../../templates/partial/profile.njk'),
   'utf8',
@@ -27,6 +29,15 @@ export function generateIndexPage(content: PostInfo[]) {
     `<!DOCTYPE html>
   <html lang="ja">
     <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122819743-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122819743-1');
+      </script>
       <title>${META.TITLE}</title>
       <meta charset="utf-8">
       <meta name="author" content="${META.AUTHOR}">
@@ -76,15 +87,7 @@ export function generateIndexPage(content: PostInfo[]) {
     </body>
   </html>
   `,
-    {
-      collapseInlineTagWhitespace: true,
-      collapseWhitespace: true,
-      removeComments: true,
-      removeRedundantAttributes: true,
-      removeScriptTypeAttributes: true,
-      removeStyleLinkTypeAttributes: true,
-      useShortDoctype: true,
-    },
+    minifierOption,
   );
 
   return html;
