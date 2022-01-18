@@ -4,6 +4,7 @@ import path from 'path';
 import { PostInfo } from '../types';
 
 import { generateIndexPage } from './generate_index_page';
+import { generateNotFoundPage } from './generate_not_found_page';
 import { generatePostPage } from './generate_post_page';
 
 const postList = JSON.parse(fs.readFileSync(path.join(__dirname, '../../post-list.json'), 'utf8'));
@@ -24,5 +25,12 @@ export const generatePostHtml = (): void => {
   });
 };
 
+export const generateNotFoundHtml = (): void => {
+  const DIST_PATH = path.join(__dirname, '../../public/');
+
+  fs.writeFileSync(path.join(DIST_PATH, '404.html'), generateNotFoundPage());
+};
+
 generateIndexHtml();
 generatePostHtml();
+generateNotFoundHtml();

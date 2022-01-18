@@ -5,7 +5,7 @@ import { generatePostPage } from '../generate_post_page';
 
 const EXPECT = minify(
   `<!DOCTYPE html>
-  <html lang="ja-jp">
+  <html lang="ja">
     <head>
       <title>mock-title</title>
       <meta charset="utf-8">

@@ -25,11 +25,11 @@ export function generateIndexPage(content: PostInfo[]) {
 
   const html = minify(
     `<!DOCTYPE html>
-  <html lang="ja-jp">
+  <html lang="ja">
     <head>
       <title>${META.TITLE}</title>
       <meta charset="utf-8">
-      <meta name="author" content="hrfmmymt">
+      <meta name="author" content="${META.AUTHOR}">
       <meta name="copyright" content="Copyright(c)${META.AUTHOR}. ${CONFIG.CURRENT_YEAR} All Rights Reserved.">
       <meta name="description" content="${META.DESCRIPTION}">
       <meta name="format-detection" content="telephone=no,address=no,email=no">

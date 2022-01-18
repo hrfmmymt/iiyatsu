@@ -5,7 +5,7 @@ import { generateIndexPage } from '../generate_index_page';
 
 const EXPECT = minify(
   `<!DOCTYPE html>
-  <html lang="ja-jp">
+  <html lang="ja">
     <head>
       <title>iiyatsu - hrfmmymt's weblog</title>
       <meta charset="utf-8">

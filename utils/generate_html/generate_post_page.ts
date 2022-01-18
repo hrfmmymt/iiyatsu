@@ -9,9 +9,9 @@ const style = fs.readFileSync(path.join(__dirname, '../../templates/style/post.n
 const logo = fs.readFileSync(path.join(__dirname, '../../templates/partial/logo.njk'), 'utf8');
 
 export function generatePostPage(content: PostInfo) {
-  return minify(
+  const html = minify(
     `<!DOCTYPE html>
-  <html lang="ja-jp">
+  <html lang="ja">
     <head>
       <title>${content.title}</title>
       <meta charset="utf-8">
@@ -69,4 +69,6 @@ export function generatePostPage(content: PostInfo) {
       useShortDoctype: true,
     },
   );
+
+  return html;
 }
