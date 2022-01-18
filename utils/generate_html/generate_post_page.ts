@@ -5,11 +5,11 @@ import { minify } from 'html-minifier';
 import { PostInfo } from '../types';
 import { CONFIG, META } from '../../constants';
 
-import { minifierOption } from './minifier_option';
+import { logoTag, minifierOption } from './common';
 
 const style = fs.readFileSync(path.join(__dirname, '../../templates/style/post.njk'), 'utf8');
-const logo = fs.readFileSync(path.join(__dirname, '../../templates/partial/logo.njk'), 'utf8');
 
+// export for testing
 export function generatePostPage(content: PostInfo) {
   const html = minify(
     `<!DOCTYPE html>
@@ -55,7 +55,7 @@ export function generatePostPage(content: PostInfo) {
       <header class="header">
         <h1 class="header-title">
           <a href="/" class="header-title-link">
-            ${logo}
+            ${logoTag}
           </a>
         </h1>
       </header>
@@ -76,3 +76,15 @@ export function generatePostPage(content: PostInfo) {
 
   return html;
 }
+
+export const generatePostHtml = (): void => {
+  const DIST_PATH = path.join(__dirname, '../../public/posts/');
+
+  if (!fs.existsSync(DIST_PATH)) fs.mkdirSync(DIST_PATH);
+
+  const postList = CONFIG.POST_LIST;
+
+  postList.forEach((post: PostInfo) => {
+    fs.writeFileSync(path.join(DIST_PATH, post.name + '.html'), generatePostPage(post));
+  });
+};

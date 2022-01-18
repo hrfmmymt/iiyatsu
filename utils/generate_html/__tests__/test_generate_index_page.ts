@@ -5,7 +5,7 @@ import { minify } from 'html-minifier';
 import { PostInfo } from '../../types';
 import { generateIndexPage } from '../generate_index_page';
 import { CONFIG, META } from '../../../constants';
-import { minifierOption } from '../minifier_option';
+import { logoTag, minifierOption } from '../common';
 
 const MOCK_DATA: PostInfo[] = [
   {
@@ -23,7 +23,6 @@ const profile = fs.readFileSync(
   'utf8',
 );
 const style = fs.readFileSync(path.join(__dirname, '../../../templates/style/top.njk'), 'utf8');
-const logo = fs.readFileSync(path.join(__dirname, '../../../templates/partial/logo.njk'), 'utf8');
 
 const postList = `<li class="post-item">
 <p class="post-meta"><time class="post-date" datetime="${MOCK_DATA[0].date}">${MOCK_DATA[0].date}</time></p>
@@ -76,7 +75,7 @@ const EXPECT = minify(
         <header class="header">
           <h1 class="header-title">
             <a href="/" class="header-title-link">
-              ${logo}
+              ${logoTag}
             </a>
           </h1>
         </header>

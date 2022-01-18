@@ -4,13 +4,12 @@ import { minify } from 'html-minifier';
 
 import { CONFIG, META } from '../../../constants';
 import { generateNotFoundPage } from '../generate_not_found_page';
-import { minifierOption } from '../minifier_option';
+import { logoTag, minifierOption } from '../common';
 
 const style = fs.readFileSync(
   path.join(__dirname, '../../../templates/style/not_found.njk'),
   'utf8',
 );
-const logo = fs.readFileSync(path.join(__dirname, '../../../templates/partial/logo.njk'), 'utf8');
 
 const EXPECT = minify(
   `<!DOCTYPE html>
@@ -48,7 +47,7 @@ const EXPECT = minify(
         <div class="link">
           <p>go to <a href="/">toppage</a>.</p>
           <a href="/">
-            ${logo}
+            ${logoTag}
           </a>
         </div>
       </div>

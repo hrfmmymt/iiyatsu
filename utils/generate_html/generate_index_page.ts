@@ -5,15 +5,15 @@ import { minify } from 'html-minifier';
 import { PostInfo } from '../types';
 import { CONFIG, META } from '../../constants';
 
-import { minifierOption } from './minifier_option';
+import { logoTag, minifierOption } from './common';
 
 const profile = fs.readFileSync(
   path.join(__dirname, '../../templates/partial/profile.njk'),
   'utf8',
 );
 const style = fs.readFileSync(path.join(__dirname, '../../templates/style/top.njk'), 'utf8');
-const logo = fs.readFileSync(path.join(__dirname, '../../templates/partial/logo.njk'), 'utf8');
 
+// export for testing
 export function generateIndexPage(content: PostInfo[]) {
   const postList = content
     .map((item) => {
@@ -70,7 +70,7 @@ export function generateIndexPage(content: PostInfo[]) {
         <header class="header">
           <h1 class="header-title">
             <a href="/" class="header-title-link">
-              ${logo}
+              ${logoTag}
             </a>
           </h1>
         </header>
@@ -92,3 +92,10 @@ export function generateIndexPage(content: PostInfo[]) {
 
   return html;
 }
+
+export const generateIndexHtml = (): void => {
+  const DIST_PATH = path.join(__dirname, '../../public/');
+  const postList = CONFIG.POST_LIST;
+
+  fs.writeFileSync(path.join(DIST_PATH, 'index.html'), generateIndexPage(postList));
+};

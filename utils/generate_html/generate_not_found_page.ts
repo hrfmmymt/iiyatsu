@@ -4,11 +4,11 @@ import { minify } from 'html-minifier';
 
 import { CONFIG, META } from '../../constants';
 
-import { minifierOption } from './minifier_option';
+import { logoTag, minifierOption } from './common';
 
 const style = fs.readFileSync(path.join(__dirname, '../../templates/style/not_found.njk'), 'utf8');
-const logo = fs.readFileSync(path.join(__dirname, '../../templates/partial/logo.njk'), 'utf8');
 
+// export for testing
 export function generateNotFoundPage() {
   const html = minify(
     `<!DOCTYPE html>
@@ -46,7 +46,7 @@ export function generateNotFoundPage() {
           <div class="link">
             <p>go to <a href="/">toppage</a>.</p>
             <a href="/">
-              ${logo}
+              ${logoTag}
             </a>
           </div>
         </div>
@@ -58,3 +58,9 @@ export function generateNotFoundPage() {
 
   return html;
 }
+
+export const generateNotFoundHtml = (): void => {
+  const DIST_PATH = path.join(__dirname, '../../public/');
+
+  fs.writeFileSync(path.join(DIST_PATH, '404.html'), generateNotFoundPage());
+};
