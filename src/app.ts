@@ -43,12 +43,7 @@ function ssrIndexPage(reply: any) {
 
 function ssgIndexPage(reply: any) {
   const filePath = './public/index.html';
-
-  if (fs.existsSync(filePath)) {
-    reply.code(200).sendFile(filePath);
-  } else {
-    reply.code(404).sendFile('./public/404.html');
-  }
+  reply.code(200).sendFile(filePath);
 }
 
 function ssrPostPage(post: string, reply: any) {
@@ -106,7 +101,7 @@ function ssgPostPage(post: string, reply: any) {
   if (fs.existsSync(filePath)) {
     reply.code(200).sendFile(filePath);
   } else {
-    reply.code(404).sendFile('./public/404.html');
+    reply.code(404).type('text/html').sendFile('./public/404.html');
   }
 }
 
