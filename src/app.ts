@@ -7,6 +7,7 @@ import { getPostInfo } from '../utils/get_post_info';
 import { CONFIG, META } from '../constants';
 
 const isSSG = process.env.BUILD_SSG;
+const isDev = process.env.NODE_ENV === 'development';
 
 function enableCors(req: any, reply: any, opt_exposeHeaders: any) {
   reply.header('Access-Control-Allow-Credentials', 'true');
@@ -42,6 +43,7 @@ function ssrIndexPage(reply: any) {
 
 function ssgIndexPage(reply: any) {
   const filePath = './public/index.html';
+
   if (fs.existsSync(filePath)) {
     reply.sendFile(filePath);
   } else {
@@ -123,20 +125,22 @@ function build(opts = {}) {
   });
 
   app.get('/', (_req, reply: any) => {
-    if (isSSG) {
-      ssgIndexPage(reply);
-    } else {
+    if (isDev) {
       ssrIndexPage(reply);
+    }
+    if (isSSG || !isDev) {
+      ssgIndexPage(reply);
     }
   });
 
   app.get('/:post', (req: any, reply: any) => {
     const { post } = req.params;
 
-    if (isSSG) {
-      ssgPostPage(post, reply);
-    } else {
+    if (isDev) {
       ssrPostPage(post, reply);
+    }
+    if (isSSG || !isDev) {
+      ssgPostPage(post, reply);
     }
   });
 
