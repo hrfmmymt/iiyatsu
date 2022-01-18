@@ -61,6 +61,7 @@ export function generatePostPage(content: PostInfo) {
   </html>
   `,
     {
+      collapseInlineTagWhitespace: true,
       collapseWhitespace: true,
       removeComments: true,
       removeRedundantAttributes: true,

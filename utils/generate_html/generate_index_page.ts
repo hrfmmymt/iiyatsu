@@ -77,6 +77,7 @@ export function generateIndexPage(content: PostInfo[]) {
   </html>
   `,
     {
+      collapseInlineTagWhitespace: true,
       collapseWhitespace: true,
       removeComments: true,
       removeRedundantAttributes: true,
