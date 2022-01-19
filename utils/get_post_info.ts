@@ -25,6 +25,7 @@ export const getPostInfo = ({
   return new Promise((resolve, reject) => {
     fs.readFile(postDir + fileName, 'utf-8', (err, md) => {
       if (err) return reject(err);
+      const name = fileName.replace(/.md/g, '');
 
       const h1 = md.match(/^#\s.+\n/);
       const postTitle = h1 ? h1[0].match(/[^#\n]+/) : null;
@@ -37,7 +38,7 @@ export const getPostInfo = ({
       const postDate = /\*date\:((?:(?!\*)[^　])+)/g.exec(md);
       const date = postDate ? postDate[1] : '';
 
-      const url = encodeURI(fileName.replace(/.md/g, ''));
+      const url = encodeURI(name);
       const html = withHtml ? marked(md, { renderer }) : null;
 
       marked.setOptions({
@@ -46,6 +47,7 @@ export const getPostInfo = ({
       });
 
       resolve({
+        name,
         title,
         description,
         date,

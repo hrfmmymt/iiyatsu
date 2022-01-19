@@ -1,5 +1,9 @@
 const build = require('../app');
 
+const responseHeadersContentType = (response: any): string => {
+  return response.headers['content-type'].toLowerCase();
+};
+
 describe('server test', () => {
   const fastify = build();
 
@@ -14,7 +18,7 @@ describe('server test', () => {
     });
 
     expect(response.statusCode).toBe(200);
-    expect(response.headers['content-type']).toBe('text/html; charset=utf-8');
+    expect(responseHeadersContentType(response)).toBe('text/html; charset=utf-8');
   });
 
   test('GET `/:post`: responds with success on request /:post', async () => {
@@ -24,7 +28,7 @@ describe('server test', () => {
     });
 
     expect(response.statusCode).toBe(200);
-    expect(response.headers['content-type']).toBe('text/html; charset=utf-8');
+    expect(responseHeadersContentType(response)).toBe('text/html; charset=utf-8');
   });
 
   test('GET `/api`: responds with success on request /api', async () => {
@@ -34,7 +38,7 @@ describe('server test', () => {
     });
 
     expect(response.statusCode).toBe(200);
-    expect(response.headers['content-type']).toBe('application/json; charset=utf-8');
+    expect(responseHeadersContentType(response)).toBe('application/json; charset=utf-8');
   });
 
   test('GET `/sw.js`: responds with success on request /sw.js', async () => {
@@ -65,6 +69,6 @@ describe('server test', () => {
     });
 
     expect(response.statusCode).toBe(404);
-    expect(response.headers['content-type']).toBe('text/html; charset=utf-8');
+    expect(responseHeadersContentType(response)).toBe('text/html');
   });
 });
