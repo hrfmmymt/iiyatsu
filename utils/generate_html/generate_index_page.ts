@@ -65,7 +65,6 @@ export function generateIndexPage(content: PostInfo[]) {
       <style>${style}</style>
     </head>
     <body>
-      <span style="position:absolute;top:0;left:0;">this is static page</span>
       <main class="wrapper">
         <header class="header">
           <h1 class="header-title">

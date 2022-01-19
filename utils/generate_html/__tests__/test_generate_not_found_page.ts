@@ -41,7 +41,6 @@ const EXPECT = minify(
       <style>${style}</style>
     </head>
     <body>
-      <span style="position:absolute;top:0;left:0;color:#fff;">this is static page</span>
       <div class="wrapper">
         <h1>404</h1>
         <div class="link">
