@@ -1,5 +1,5 @@
 const CACHE_NAME = '::iiyatsu_serviceworker';
-const CACHE_VERSION = 12;
+const CACHE_VERSION = 13;
 const URLS_TO_CACHE = [
   './',
   './offline',
@@ -41,8 +41,6 @@ const URLS_TO_CACHE = [
   './public/img/icon/icon-72x72.png',
   './public/img/icon/icon-96x96.png',
   './public/img/icon/icon.png',
-  './public/img/profile/profile.jpg',
-  './public/img/profile/profile.webp',
   './public/js/script.js',
   './public/manifest.json',
   './public/sw.js',

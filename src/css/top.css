@@ -15,12 +15,8 @@
   padding: 3rem 0;
 }
 
-.profile-img-wrapper {
-  float: right;
-}
-
 .profile-name {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .profile-list {
