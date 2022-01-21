@@ -47,7 +47,7 @@ const EXPECT = minify(
       <meta property="og:type" content="website">
       <meta property="og:locale" content="ja_JP">
 
-      <link rel="canonical" href="${MOCK_DATA.url}">
+      <link rel="canonical" href="${META.URL}${MOCK_DATA.url}">
       <link rel="shortcut icon" type="image/x-icon" href="${META.FAVICON}">
       <link rel="manifest" href="public/manifest.json">
       <link rel="image_src" href="${META.OG_IMAGE}">
