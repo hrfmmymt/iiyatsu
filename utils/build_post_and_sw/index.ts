@@ -8,8 +8,9 @@ async function buildPost() {
   const postDir = path.join(__dirname, '../../post/');
   const dist = path.join(__dirname, '../../');
 
-  await generatePostList({ postDir, dist });
-  setRecentPostData();
+  await generatePostList({ dist, postDir }).then((postListStr) => {
+    setRecentPostData({ postDir, postListStr });
+  });
 }
 
 buildSW();
