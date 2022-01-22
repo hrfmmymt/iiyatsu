@@ -12,11 +12,11 @@ export const byNewest = (a: PostInfo, b: PostInfo) => {
   return 0;
 };
 
-export async function generatePostList({ postDir, dist }: { postDir: string; dist: string }) {
+export async function generatePostList({ dist, postDir }: { dist: string; postDir: string }) {
   const files = await fs.readdir(postDir);
-  const posts = files.map((file: string) =>
-    getPostInfo({ postDir, fileName: file, withHtml: true }),
-  );
+  const posts = files
+    .filter((file) => !/(^|\/)\.[^\/\.]/g.test(file))
+    .map((file: string) => getPostInfo({ postDir, fileName: file, withHtml: true }));
   const postList: PostInfo[] = await Promise.all(posts);
   const sortedPostList = postList.sort(byNewest);
 
@@ -47,5 +47,8 @@ export async function generatePostList({ postDir, dist }: { postDir: string; dis
     [],
   );
 
-  fs.writeFile(`${dist}post-list.json`, JSON.stringify(masterPostList, null, '  '));
+  const masterList = JSON.stringify(masterPostList, null, '  ');
+  fs.writeFile(`${dist}post-list.json`, masterList);
+
+  return masterList;
 }

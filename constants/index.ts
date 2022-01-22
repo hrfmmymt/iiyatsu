@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export const CONFIG = {
+  DEV_PORT: 4567 as const,
   CURRENT_YEAR: new Date().getFullYear(),
   POST_DIR: path.join(__dirname, '../post/'),
   POST_LIST: JSON.parse(fs.readFileSync(path.join(__dirname, '../post-list.json'), 'utf8')),
@@ -13,7 +14,8 @@ export const CONFIG = {
 
 export const META = {
   AUTHOR: 'hrfmmymt' as const,
-  COPYRIGHT: 'Copyright &copy; 2021 iiyatsu of hrfmmymt All Rights Reserved.' as const,
+  COPYRIGHT:
+    `Copyright &copy; ${CONFIG.CURRENT_YEAR} iiyatsu of hrfmmymt All Rights Reserved.` as const,
   DESCRIPTION: "hrfmmymt's weblog" as const,
   OG_IMAGE: 'public/img/icon/icon.png' as const,
   FAVICON: 'public/img/icon/favicon.ico' as const,

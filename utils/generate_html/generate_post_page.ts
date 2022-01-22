@@ -76,12 +76,12 @@ export function generatePostPage(content: PostInfo) {
   return html;
 }
 
-export const generatePostHtml = (): void => {
+export const generatePostHtml = (postListStr: string): void => {
   const DIST_PATH = path.join(__dirname, '../../public/posts/');
 
   if (!fs.existsSync(DIST_PATH)) fs.mkdirSync(DIST_PATH);
 
-  const postList = CONFIG.POST_LIST;
+  const postList = JSON.parse(postListStr);
 
   postList.forEach((post: PostInfo) => {
     fs.writeFileSync(path.join(DIST_PATH, post.name + '.html'), generatePostPage(post));
