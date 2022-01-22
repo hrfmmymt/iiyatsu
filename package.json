@@ -10,7 +10,7 @@
     "css": "postcss -c postcss.config.js -d ./templates/style/ --ext njk ./src/css/[!base]*",
     "deploy-prd": "vercel --prod",
     "dev": "NODE_ENV=development ts-node-dev index.ts",
-    "dev-ssg": "BUILD_SSG=true ts-node-dev index.ts",
+    "dev-ssg": "NODE_ENV=development BUILD_SSG=true ts-node-dev index.ts",
     "get-post-info": "ts-node-dev utils/get_post_info.ts",
     "generate-html": "ts-node-dev ./utils/generate_html",
     "html": "run-s build-post-and-sw generate-html",

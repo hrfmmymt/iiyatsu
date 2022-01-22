@@ -1,10 +1,11 @@
 "use strict";
 exports.__esModule = true;
+var constants_1 = require("./constants");
 var server = require('./src/app')({
     logger: true,
     ignoreTrailingSlash: true
 });
-server.listen(4567, function (err, address) {
+server.listen(constants_1.CONFIG.DEV_PORT, function (err, address) {
     if (err)
         throw err;
     console.log("server listening on " + address);
