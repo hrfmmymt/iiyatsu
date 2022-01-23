@@ -8,9 +8,10 @@ import { generatePostList } from '../build_post_and_sw/get_post_list';
 async function buildPostHtml() {
   const postDir = path.join(__dirname, '../../post/');
   const dist = path.join(__dirname, '../../');
+  const postHtmlDist = path.join(__dirname, '../../public/posts/');
 
   await generatePostList({ dist, postDir }).then((postListStr) => {
-    generatePostHtml(postListStr);
+    generatePostHtml({ postHtmlDist, postListStr });
   });
 }
 

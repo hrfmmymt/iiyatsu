@@ -76,14 +76,18 @@ export function generatePostPage(content: PostInfo) {
   return html;
 }
 
-export const generatePostHtml = (postListStr: string): void => {
-  const DIST_PATH = path.join(__dirname, '../../public/posts/');
-
-  if (!fs.existsSync(DIST_PATH)) fs.mkdirSync(DIST_PATH);
+export const generatePostHtml = ({
+  postHtmlDist,
+  postListStr,
+}: {
+  postHtmlDist: string;
+  postListStr: string;
+}): void => {
+  if (!fs.existsSync(postHtmlDist)) fs.mkdirSync(postHtmlDist);
 
   const postList = JSON.parse(postListStr);
 
   postList.forEach((post: PostInfo) => {
-    fs.writeFileSync(path.join(DIST_PATH, post.name + '.html'), generatePostPage(post));
+    fs.writeFileSync(path.join(postHtmlDist, post.name + '.html'), generatePostPage(post));
   });
 };

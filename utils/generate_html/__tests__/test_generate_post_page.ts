@@ -3,7 +3,7 @@ import path from 'path';
 import { minify } from 'html-minifier';
 
 import { PostInfo } from '../../types';
-import { generatePostPage } from '../generate_post_page';
+import { generatePostHtml, generatePostPage } from '../generate_post_page';
 import { CONFIG, META } from '../../../constants';
 import { logoTag, minifierOption } from '../common';
 
@@ -17,6 +17,8 @@ const MOCK_DATA: PostInfo = {
   url: 'mock',
   html: '<h1 id="mock-title">mock-title</h1>\n<p><time datetime="2021-09-01">2021-09-01</time></p>\n<p><em class="description">mock-desc</em></p>\n<p>mock-html</p>\n',
 };
+
+// const mockDir = path.join(__dirname, '../../__tests__/mock/');
 
 const EXPECT = minify(
   `<!DOCTYPE html>
@@ -79,6 +81,31 @@ const EXPECT = minify(
   minifierOption,
 );
 
-test('should render next and prev post links', () => {
-  expect(generatePostPage(MOCK_DATA)).toBe(EXPECT);
+describe('generatre_post_page test', () => {
+  const postHtmlDist = path.join(__dirname, 'tmp/');
+
+  afterAll(() => {
+    fs.rmdirSync(postHtmlDist, { recursive: true });
+  });
+
+  test('should generate post page html', () => {
+    expect(generatePostPage(MOCK_DATA)).toBe(EXPECT);
+  });
+
+  test('should write a post page html', (): void => {
+    const postList = new Array(MOCK_DATA);
+    const postListStr = JSON.stringify(postList, null, '  ');
+
+    const test = () => {
+      const tmpFile = fs.readdirSync(postHtmlDist);
+
+      expect(tmpFile.length).toEqual(1);
+      expect(path.join(postHtmlDist, tmpFile[0])).toBe(
+        path.join(postHtmlDist, `${MOCK_DATA.name}.html`),
+      );
+    };
+
+    generatePostHtml({ postHtmlDist, postListStr });
+    test();
+  });
 });
