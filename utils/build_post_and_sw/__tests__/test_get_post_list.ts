@@ -17,8 +17,13 @@ const EXPECT_POST_INFO: PostInfo = {
 };
 
 describe('get_post_list test', () => {
+  const dist = path.join(__dirname, 'tmp/');
+
+  afterAll(() => {
+    fs.rmdirSync(dist, { recursive: true });
+  });
+
   test('should generate a post-list.json', async (): Promise<void> => {
-    const dist = path.join(__dirname, 'tmp/');
     fs.mkdirSync(dist);
 
     const test = () => {
