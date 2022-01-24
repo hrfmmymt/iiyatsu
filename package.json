@@ -38,7 +38,7 @@
     "@types/glob": "^7.1.4",
     "@types/html-minifier": "^4.0.2",
     "@types/jest": "^27.0.2",
-    "@types/marked": "^2.0.4",
+    "@types/marked": "^4.0.1",
     "@types/mz": "^2.7.4",
     "@types/node": "^16.4.13",
     "@vercel/node": "^1.12.1",
