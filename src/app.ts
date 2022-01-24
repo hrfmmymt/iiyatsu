@@ -120,10 +120,10 @@ function build(opts = {}) {
   });
 
   app.get('/', (_req, reply: any) => {
-    if (isDev) {
+    if (isDev && !isSSG) {
       ssrIndexPage(reply);
     }
-    if (isSSG || !isDev) {
+    if (!isDev || isSSG) {
       ssgIndexPage(reply);
     }
   });
