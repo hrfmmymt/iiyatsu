@@ -1,11 +1,10 @@
 import * as fs from 'fs';
+import { marked } from 'marked';
 
 import { markedCustomRender } from './marked_custom_render';
 import { PostInfo } from './types';
 
 const hljs = require('highlight.js');
-const marked = require('marked');
-
 const renderer = markedCustomRender();
 
 // export for testing
