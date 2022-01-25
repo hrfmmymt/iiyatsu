@@ -33,7 +33,7 @@
     "vercel": "^23.1.2"
   },
   "devDependencies": {
-    "@openameba/spindle-syntax-themes": "0.1.1",
+    "@openameba/spindle-syntax-themes": "0.2.0",
     "@tsconfig/node16": "1.0.2",
     "@types/glob": "7.1.4",
     "@types/html-minifier": "4.0.2",
