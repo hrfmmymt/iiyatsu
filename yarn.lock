@@ -1055,10 +1055,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@openameba/spindle-syntax-themes@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@openameba/spindle-syntax-themes/-/spindle-syntax-themes-0.1.1.tgz#78195c392344f97be37a637ffdc8c50535483cd5"
-  integrity sha512-yrid09uHjSHhzAsBE5Um2A+zDCS8L/ZYBFAfKWVIJg9kt6h20auMmL22Dx4nORgy+w5OWTSpeXY8h16Ptx22pA==
+"@openameba/spindle-syntax-themes@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@openameba/spindle-syntax-themes/-/spindle-syntax-themes-0.2.0.tgz#c0bf02e4f337e78ee0007210d6a89c1b98c389c9"
+  integrity sha512-bR6ExyxpN2bEURz3LpK+tgALqPSYgH/2ciHURD2SpzsG1SrX8dc2E6PUvYeG9lNUG5NwACOzeSaNlRqln3d8TA==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
