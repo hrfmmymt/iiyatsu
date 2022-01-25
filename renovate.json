@@ -1,7 +1,16 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":automergeTypes"
   ],
   "timezone": "Asia/Tokyo",
-  "labels": ["renovate"]
+  "labels": ["renovate"],
+  "assignAutomerge": true,
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
+  ]
 }
