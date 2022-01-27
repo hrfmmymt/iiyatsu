@@ -35,7 +35,7 @@
   "devDependencies": {
     "@openameba/spindle-syntax-themes": "0.2.0",
     "@tsconfig/node16": "1.0.2",
-    "@types/glob": "7.1.4",
+    "@types/glob": "7.2.0",
     "@types/html-minifier": "4.0.2",
     "@types/jest": "27.4.0",
     "@types/marked": "4.0.1",
@@ -48,7 +48,7 @@
     "eslint-plugin-import": "2.25.4",
     "fastify-static": "4.4.1",
     "fs": "0.0.1-security",
-    "glob": "7.1.7",
+    "glob": "7.2.0",
     "highlight.js": "11.4.0",
     "html-minifier": "4.0.0",
     "imagemin": "7.0.1",
