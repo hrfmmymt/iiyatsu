@@ -5973,10 +5973,10 @@ pngjs@^3.0.0, pngjs@^3.3.3:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-3.4.0.tgz#99ca7d725965fb655814eaf65f38f12bbdbf555f"
   integrity sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==
 
-point-of-view@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-5.0.0.tgz#a3b7483e29728f0527d3172d4501d621c3adfb1f"
-  integrity sha512-JY12G3+jVFYccKTexe2OHG9WHrEUb3eLKPtLM/YEnaJf2i2OuzIun/v6SBzjHFm5sOuNXyKKo47HIe/YkGtEMA==
+point-of-view@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-5.1.0.tgz#733a8637f17e18e28207be84dd1c337f1ee15a0c"
+  integrity sha512-jrQXgIAY4Lv30REMVeLA7vEkpLGREMPjxR4uiD+ysDlgtPqcJH9UBD8qBPBpAHH01XgTmjrle9U4gmjnLCr2XA==
   dependencies:
     fastify-plugin "^3.0.0"
     hashlru "^2.3.0"
