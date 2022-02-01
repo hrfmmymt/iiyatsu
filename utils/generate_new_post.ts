@@ -7,16 +7,16 @@ const arg = process.argv[2];
 const newDate = new Date();
 const year = newDate.getFullYear();
 const rawMonth = newDate.getMonth() + 1;
-const zeroPad = (num: number) => {
-  if (num < 10) {
-    return '0' + num;
-  }
+
+const zeroPad = (num: number): number | string => {
+  if (num < 10) return '0' + num;
   return num;
 };
+
 const month = zeroPad(rawMonth);
 const day = zeroPad(newDate.getDate());
 
-const fileName = arg ? arg + '.md' : 'new_post.md';
+const fileName = arg ? arg + '.md' : 'new-post.md';
 
 const newPostTemplate = `# ${
   arg || 'new post'
