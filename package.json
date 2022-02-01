@@ -18,6 +18,7 @@
     "img-opt": "ts-node-dev ./utils/img-opt.ts",
     "jest": "jest",
     "jest-cov": "jest --coverage",
+    "new": "ts-node-dev ./utils/generate_new_post.ts",
     "run-set-recent-post-data": "ts-node-dev ./utils/set_recent_post_data.ts",
     "test": "NODE_ENV=test run-s jest",
     "test-cov": "run-s jest-cov",
