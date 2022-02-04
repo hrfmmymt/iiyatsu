@@ -9,7 +9,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7_n9DdSFrjE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-はい。  
+はい。  
 こんにちは、技術ブログです。このブログ自体の実装はまだまだ続けているので、記事が日報的になっていきます。
 
 ということで、今回は当サイトの画像表示に webp を使うことにしました。それにあたって、
