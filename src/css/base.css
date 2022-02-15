@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../public/font/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../public/font/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+}
+
 /*
  * common and initial settings
  */
