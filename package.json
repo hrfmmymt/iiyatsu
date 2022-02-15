@@ -52,7 +52,7 @@
     "glob": "7.2.0",
     "highlight.js": "11.4.0",
     "html-minifier": "4.0.0",
-    "imagemin": "7.0.1",
+    "imagemin": "8.0.1",
     "imagemin-webp": "6.0.0",
     "jest": "27.5.1",
     "jimp": "0.16.1",
