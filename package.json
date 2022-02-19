@@ -31,7 +31,7 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^3.19.2",
-    "vercel": "^23.1.2"
+    "vercel": "^24.0.0"
   },
   "devDependencies": {
     "@openameba/spindle-syntax-themes": "0.2.0",
