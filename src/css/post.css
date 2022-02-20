@@ -86,9 +86,13 @@
   padding-left: 2rem;
 }
 
-.post-article ul li ul {
+.post-article ul ul {
   list-style-type: circle;
   margin: 0;
+}
+
+.post-article ul ul ul {
+  list-style-type: square;
 }
 
 .post-article ol {

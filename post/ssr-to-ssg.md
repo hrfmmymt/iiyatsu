@@ -12,4 +12,4 @@
 これまでの SSR の部分をより詳しく書くと、Markdown から生成された HTML はサーバー上で [Nujucks](https://mozilla.github.io/nunjucks/) のテンプレートに組み込んで表示していました。ただこれらのフローは、このサイトが自分個人のブログであるという形式上必須なものではなく、オーバーヘッドとして捉えられるものでした。そこで Markdown のパースから HTML ファイルの生成はローカルで行い、サーバーの処理ではリクエストとホスティングした HTML ファイルを元にルーティングとレンダリングだけを扱うようにしました。  
 ちなみに既存の SSR のフローは production ではお役御免ではあるのですが、ローカル環境での確認を目的に一応残してあります。  
 まだ運用フローが全然固まっていないゆるゆるな状態なので、いろいろ試して改善していこう。
-<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>前に出た記事</dt><dd><a href="20211022">今日 (2021年10月22日〜2021年11月4日)</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="intake-guideline">コーヒーと酒の摂取ガイドライン</a></dd><dt>前に出た記事</dt><dd><a href="20211022">今日 (2021年10月22日〜2021年11月4日)</a></dd></dl></nav>
