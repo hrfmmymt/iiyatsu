@@ -96,7 +96,7 @@ function ssgPostPage(post: string, reply: any) {
     name: post,
     ext: '.html',
   });
-  const filePath = './public/posts/' + fileName;
+  const filePath = './public/post/' + fileName;
 
   if (fs.existsSync(filePath)) {
     reply.code(200).sendFile(filePath);

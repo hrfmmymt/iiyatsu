@@ -1,2 +1,3 @@
 raw
-videos
+/post
+!/public/post
