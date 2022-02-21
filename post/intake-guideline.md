@@ -19,4 +19,4 @@
     - 仏壇や墓に供えられること自体は拒まない
       - 冥府でも飲まない
 
-<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>前に出た記事</dt><dd><a href="ssr-to-ssg">Static Site Generate</a></dd></dl></nav>
+<footer class="post-footer">&#8718;</footer><nav class="post-recent"><dl><dt>次に出た記事</dt><dd><a href="convert-portfolio-site-to-nextjs">ポートフォリオサイトを Next.js で換装した</a></dd><dt>前に出た記事</dt><dd><a href="ssr-to-ssg">Static Site Generate</a></dd></dl></nav>

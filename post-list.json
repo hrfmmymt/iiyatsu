@@ -3,14 +3,30 @@
     "name": "convert-portfolio-site-to-nextjs",
     "title": "ポートフォリオサイトを Next.js で換装した",
     "description": "今日のやつ",
-    "date": "2022-02-04",
+    "date": "2022-02-21",
     "url": "convert-portfolio-site-to-nextjs",
-    "html": "<h1 id=\"ポートフォリオサイトを-nextjs-で換装した\">ポートフォリオサイトを Next.js で換装した</h1>\n<p><time datetime=\"2022-02-04\">2022-02-04</time></p>\n<p><em class=\"description\">今日のやつ</em></p>\n<p>表題通り</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"ssr-to-ssg\">Static Site Generate</a></dd></dl></nav>",
+    "html": "<h1 id=\"ポートフォリオサイトを-nextjs-で換装した\">ポートフォリオサイトを Next.js で換装した</h1>\n<p><time datetime=\"2022-02-21\">2022-02-21</time></p>\n<p><em class=\"description\">今日のやつ</em></p>\n<p>表題通り。以前 Preact CLI を使って作ったポートフォリオサイト (<a href=\"/20180606\">参考</a>) を Next.js で作り直しました。見た目、機能は以前と同様です。</p>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>前に出た記事</dt><dd><a href=\"intake-guideline\">コーヒーと酒の摂取ガイドライン</a></dd></dl></nav>",
+    "prevPost": {
+      "title": "コーヒーと酒の摂取ガイドライン",
+      "url": "intake-guideline"
+    },
+    "nextPost": null
+  },
+  {
+    "name": "intake-guideline",
+    "title": "コーヒーと酒の摂取ガイドライン",
+    "description": "guideline",
+    "date": "2022-02-20",
+    "url": "intake-guideline",
+    "html": "<h1 id=\"コーヒーと酒の摂取ガイドライン\">コーヒーと酒の摂取ガイドライン</h1>\n<p><time datetime=\"2022-02-20\">2022-02-20</time></p>\n<p><em class=\"description\">guideline</em></p>\n<h2 id=\"コーヒー\">コーヒー</h2>\n<ul>\n<li>自ら飲まない<ul>\n<li>外出時、自販機や店で自分で飲むためにコーヒーを買わない</li>\n<li>店などで料理に付帯してくるサービスの注文時にコーヒーを選ばない</li>\n<li>人の家、会社、店などで飲み物を複数種類出してくれる場合コーヒーを選ばない</li>\n</ul>\n</li>\n<li>他に飲み物の選択肢がなく、人が作ってくれる場合、一杯だけいただく</li>\n</ul>\n<h2 id=\"酒\">酒</h2>\n<ul>\n<li>飲まない<ul>\n<li>例外なし<ul>\n<li>自ら飲まない</li>\n<li>人に促されても飲まない</li>\n<li>仏壇や墓に供えられること自体は拒まない<ul>\n<li>冥府でも飲まない</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n<footer class=\"post-footer\">&#8718;</footer><nav class=\"post-recent\"><dl><dt>次に出た記事</dt><dd><a href=\"convert-portfolio-site-to-nextjs\">ポートフォリオサイトを Next.js で換装した</a></dd><dt>前に出た記事</dt><dd><a href=\"ssr-to-ssg\">Static Site Generate</a></dd></dl></nav>",
     "prevPost": {
       "title": "Static Site Generate",
       "url": "ssr-to-ssg"
     },
-    "nextPost": null
+    "nextPost": {
+      "title": "ポートフォリオサイトを Next.js で換装した",
+      "url": "convert-portfolio-site-to-nextjs"
+    }
   },
   {
     "name": "ssr-to-ssg",
