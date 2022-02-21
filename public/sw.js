@@ -1,8 +1,9 @@
 const CACHE_NAME = '::iiyatsu_serviceworker';
-const CACHE_VERSION = 17;
+const CACHE_VERSION = 19;
 const URLS_TO_CACHE = [
   "./",
   "./offline",
+  "./convert-portfolio-site-to-nextjs",
   "./intake-guideline",
   "./ssr-to-ssg",
   "./20211022",
