@@ -2,7 +2,7 @@
 
 *date:2022-02-21*
 
-*desc> 今日のやつ*
+*desc> tech*
 
 表題通り。以前 Preact CLI を使って作ったポートフォリオサイト ([参考](/20180606)) を Next.js で作り直しました。  
 https://hrfmmymt.com/  
