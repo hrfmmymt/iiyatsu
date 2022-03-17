@@ -60,8 +60,6 @@ export function generateIndexPage(content: PostInfo[]) {
       <link rel="image_src" href="${META.OG_IMAGE}">
       <link rel="icon" type="image/png" href="${META.OG_IMAGE}">
       <link rel="apple-touch-icon" href="${META.OG_IMAGE}">
-      <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
       <style>${style}</style>
     </head>
     <body>
