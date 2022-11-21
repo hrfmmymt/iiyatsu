@@ -30,7 +30,7 @@
   "author": "hrfmmymt",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^3.19.2",
+    "fastify": "^3.29.4",
     "vercel": "^24.0.0"
   },
   "devDependencies": {
