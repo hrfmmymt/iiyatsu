@@ -14,14 +14,14 @@ export function generateNotFoundPage() {
     `<!DOCTYPE html>
     <html lang="ja">
       <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122819743-1"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXQ1HCL844"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-    
-          gtag('config', 'UA-122819743-1');
+        
+          gtag('config', 'G-SXQ1HCL844');
         </script>
         <meta charset="utf-8">
         <title>404 not found ${META.TITLE}</title>
