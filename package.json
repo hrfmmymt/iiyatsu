@@ -37,7 +37,7 @@
     "@openameba/spindle-syntax-themes": "0.3.0",
     "@tsconfig/node16": "1.0.2",
     "@types/glob": "7.2.0",
-    "@types/html-minifier": "4.0.2",
+    "@types/html-minifier": "4.0.4",
     "@types/jest": "27.4.1",
     "@types/marked": "4.0.2",
     "@types/mz": "2.7.4",
