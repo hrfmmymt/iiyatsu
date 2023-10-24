@@ -49,7 +49,7 @@
     "eslint-plugin-import": "2.25.4",
     "fastify-static": "4.5.0",
     "fs": "0.0.1-security",
-    "glob": "7.2.0",
+    "glob": "7.2.3",
     "highlight.js": "11.4.0",
     "html-minifier": "4.0.0",
     "imagemin": "7.0.1",
