@@ -1219,10 +1219,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/mz@2.7.6":
-  version "2.7.6"
-  resolved "https://registry.yarnpkg.com/@types/mz/-/mz-2.7.6.tgz#20e076b3198878c139608432e7e4a2f0e0200986"
-  integrity sha512-+y7boPceq5fyKDhD0wnnEtGgBJop/hewqmCwtjlF6XIjZ06VNe5GLLOoRTzUzal+FwXcTFegOyTOV7WAXC1yOw==
+"@types/mz@2.7.8":
+  version "2.7.8"
+  resolved "https://registry.yarnpkg.com/@types/mz/-/mz-2.7.8.tgz#5ac05b34f08e6225d7ad9b05e158b03d9ca9e2d4"
+  integrity sha512-mGLNqqwt8yu4pDw9rEphAiyWnEdok0GzOGrwi5EiTuDFxw7H3ZaEI4ASFKq4HaZtemtjQ8MkcmtWcrU4V0WkIw==
   dependencies:
     "@types/node" "*"
 
