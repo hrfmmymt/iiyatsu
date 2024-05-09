@@ -62,7 +62,7 @@
     "nunjucks": "3.2.4",
     "path": "0.12.7",
     "point-of-view": "5.1.0",
-    "postcss": "8.4.31",
+    "postcss": "8.4.38",
     "postcss-cli": "9.1.0",
     "postcss-import": "14.0.2",
     "prettier": "2.5.1",
