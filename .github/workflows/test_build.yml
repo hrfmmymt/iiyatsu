@@ -13,6 +13,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: yarn
-      - run: yarn test
-      - run: yarn build
+      - run: npm install
+      - run: npm test
+      - run: npm run build
