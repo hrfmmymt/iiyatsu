@@ -41,7 +41,8 @@ test('should return an error: ENOENT', async () => {
   try {
     await getPostInfo({ postDir: mockDir, fileName: 'XXX', withHtml: false });
   } catch (e) {
-    expect(e.code).toEqual('ENOENT');
+    const error = e as NodeJS.ErrnoException;
+    expect(error.code).toEqual('ENOENT');
   }
 });
 
