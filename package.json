@@ -43,7 +43,7 @@
     "@types/mz": "2.7.8",
     "@types/node": "22.1.0",
     "@vercel/node": "1.13.0",
-    "autoprefixer": "10.4.19",
+    "autoprefixer": "10.4.20",
     "cssnano": "5.1.15",
     "eslint": "8.9.0",
     "fastify-static": "4.5.0",
