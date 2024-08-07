@@ -57,7 +57,7 @@
     "jimp": "0.16.1",
     "marked": "4.0.12",
     "mz": "2.7.0",
-    "npm-run-all2": "5.0.0",
+    "npm-run-all2": "5.0.2",
     "nunjucks": "3.2.4",
     "path": "0.12.7",
     "point-of-view": "5.1.0",
