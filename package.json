@@ -54,7 +54,7 @@
     "imagemin": "8.0.1",
     "imagemin-webp": "6.0.0",
     "jest": "29.7.0",
-    "jimp": "0.16.1",
+    "jimp": "0.22.12",
     "marked": "4.0.12",
     "mz": "2.7.0",
     "npm-run-all2": "5.0.0",
