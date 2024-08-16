@@ -114,7 +114,7 @@ function build(opts = {}) {
     },
   });
 
-  app.register(require('fastify-static'), {
+  app.register(require('@fastify/static'), {
     root: path.join(__dirname, '../'),
     prefix: '/',
   });
