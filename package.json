@@ -42,7 +42,7 @@
     "@types/marked": "4.3.2",
     "@types/mz": "2.7.8",
     "@types/node": "22.4.1",
-    "@vercel/node": "3.2.8",
+    "@vercel/node": "3.2.10",
     "autoprefixer": "10.4.20",
     "cssnano": "7.0.5",
     "eslint": "9.9.1",
