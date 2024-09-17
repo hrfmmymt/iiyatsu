@@ -48,7 +48,7 @@
     "eslint": "9.9.1",
     "@fastify/static": "5.0.2",
     "fs": "0.0.1-security",
-    "glob": "7.2.3",
+    "glob": "11.0.0",
     "highlight.js": "11.10.0",
     "html-minifier": "4.0.0",
     "imagemin": "9.0.0",
