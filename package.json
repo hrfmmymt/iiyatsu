@@ -41,7 +41,7 @@
     "@types/jest": "29.5.13",
     "@types/marked": "4.3.2",
     "@types/mz": "2.7.8",
-    "@types/node": "22.5.1",
+    "@types/node": "22.5.5",
     "@vercel/node": "3.2.10",
     "autoprefixer": "10.4.20",
     "cssnano": "7.0.5",
