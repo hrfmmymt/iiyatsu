@@ -46,7 +46,7 @@
     "autoprefixer": "10.4.20",
     "cssnano": "7.0.5",
     "eslint": "9.9.1",
-    "@fastify/static": "5.0.2",
+    "@fastify/static": "7.0.4",
     "fs": "0.0.1-security",
     "glob": "7.2.3",
     "highlight.js": "11.10.0",
