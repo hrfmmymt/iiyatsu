@@ -55,7 +55,7 @@
     "imagemin-webp": "6.1.0",
     "jest": "29.7.0",
     "jimp": "0.22.12",
-    "marked": "4.3.0",
+    "marked": "14.1.4",
     "mz": "2.7.0",
     "npm-run-all2": "5.0.2",
     "nunjucks": "3.2.4",
