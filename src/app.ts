@@ -108,7 +108,7 @@ function ssgPostPage(post: string, reply: any) {
 function build(opts = {}) {
   const app: FastifyInstance = fastify(opts);
 
-  app.register(require('point-of-view'), {
+  app.register(require('@fastify/view'), {
     engine: {
       nunjucks: require('nunjucks'),
     },
