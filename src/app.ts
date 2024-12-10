@@ -158,3 +158,5 @@ function build(opts = {}) {
 }
 
 module.exports = build;
+
+export default build;

@@ -1,7 +1,9 @@
 import { FastifyInstance } from 'fastify';
-import { CONFIG } from './constants';
 
-const server: FastifyInstance = require('./src/app')({
+import { CONFIG } from './constants';
+import createServer from './src/app';
+
+const server: FastifyInstance = createServer({
   logger: true,
   ignoreTrailingSlash: true,
 });

@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var constants_1 = require("./constants");
-var server = require('./src/app')({
+var app_1 = require("./src/app");
+var server = (0, app_1.default)({
     logger: true,
     ignoreTrailingSlash: true,
 });
