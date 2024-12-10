@@ -1,6 +1,5 @@
 import { FastifyInstance } from 'fastify';
 import { CONFIG } from './constants';
-// import fastifyView from '@fastify/view';  // 変更
 
 const server: FastifyInstance = require('./src/app')({
   logger: true,
