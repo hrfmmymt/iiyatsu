@@ -47,7 +47,7 @@
     "@vercel/node": "3.2.29",
     "autoprefixer": "10.4.20",
     "cssnano": "7.0.6",
-    "eslint": "9.16.0",
+    "eslint": "9.17.0",
     "fs": "0.0.1-security",
     "glob": "11.0.0",
     "highlight.js": "11.10.0",
