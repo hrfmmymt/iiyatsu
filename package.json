@@ -2,28 +2,32 @@
   "name": "iiyatsu",
   "version": "2.0.0",
   "description": "hrfmmymt's iiyatsu",
-	"keywords": [],
+  "keywords": [],
   "author": "hrfmmymt",
   "license": "ISC",
   "scripts": {
-    "dev": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy src/index.ts",
+    "dev": "wrangler dev src/index.tsx",
+    "deploy": "wrangler deploy src/index.tsx",
     "build": "run-p build:*",
     "build:content": "ts-node scripts/build-content.ts",
     "build:css": "postcss src/styles/main.css -o public/styles/main.css",
-    "new-post": "ts-node scripts/new-post.ts"
+    "new-post": "ts-node scripts/new-post.ts",
+    "lint": "biome lint .",
+    "format": "biome format . --write"
   },
   "dependencies": {
     "hono": "^3.12.0",
     "marked": "^4.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@cloudflare/workers-types": "^4.20241224.0",
     "@types/node": "^20.0.0",
-    "typescript": "^5.0.0",
-    "wrangler": "^3.0.0",
+    "npm-run-all": "^4.0.0",
     "postcss": "^8.0.0",
     "postcss-cli": "^10.0.0",
     "ts-node": "^10.0.0",
-    "npm-run-all": "^4.0.0"
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0"
   }
 }
