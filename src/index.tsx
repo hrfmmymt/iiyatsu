@@ -21,14 +21,32 @@ type Post = {
 import postsData from '../public/posts/posts.json';
 const posts = postsData as Post[];
 
+const createSiteConfig = (env: Env) => ({
+  author: env.SITE_AUTHOR,
+  title: env.SITE_TITLE,
+  description: env.SITE_DESCRIPTION,
+  url: env.SITE_URL,
+  ogImage: env.SITE_OG_IMAGE,
+  gaId: env.GA_ID,
+  year: new Date().getFullYear().toString(),
+});
+
 app.use('/styles/*', serveStatic({ root: './', manifest: {} }));
 app.use('/favicon.ico', serveStatic({ path: './favicon.ico', manifest: {} }));
 app.use('/posts/*', serveStatic({ path: './', manifest: {} }));
+app.use('/manifest.json', serveStatic({ path: './manifest.json', manifest: {} }));
+app.use('/img/*', serveStatic({ path: './img', manifest: {} }));
 
 // トップページ
 app.get('/', (c) => {
+  const siteConfig = createSiteConfig(c.env as Env);
+
   return c.html(
-    <Layout title="My Blog" cssPath="top.css">
+    <Layout 
+      title={siteConfig.title}
+      cssPath="top.css"
+      siteConfig={siteConfig}
+    >
       <h1>記事一覧</h1>
       <ul>
         {posts.map((post: Post) => (
@@ -47,10 +65,15 @@ app.get('/', (c) => {
 app.get('/posts/:slug', (c) => {
   const slug = c.req.param('slug');
   const post = posts.find((p: Post) => p.slug === slug);
+  const siteConfig = createSiteConfig(c.env as Env);
   
   if (!post) {
     return c.html(
-      <Layout title="404 - Not Found" cssPath="not_found.css">
+      <Layout 
+        title="404 - Not Found" 
+        cssPath="not_found.css"
+        siteConfig={siteConfig}
+      >
         <h1>404 - Page Not Found</h1>
         <a href="/">トップページに戻る</a>
       </Layout>,
@@ -59,7 +82,11 @@ app.get('/posts/:slug', (c) => {
   }
 
   return c.html(
-    <Layout title={post.title} cssPath="post.css">
+    <Layout 
+      title={post.title} 
+      cssPath="post.css"
+      siteConfig={siteConfig}
+    >
       <article>
         <h1>{post.title}</h1>
         <div>{raw(post.content)}</div>
