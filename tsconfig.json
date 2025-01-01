@@ -7,7 +7,7 @@
     "strict": true,
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "types": ["@cloudflare/workers-types"],
+    "types": ["@cloudflare/workers-types", "node"],
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,

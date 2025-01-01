@@ -1,0 +1,9 @@
+[
+  {
+    "title": "タイトル",
+    "description": "これはサンプル記事です",
+    "date": "2024-01-01T00:00:00.000Z",
+    "slug": "sample-post",
+    "content": "<h1>見出し1</h1>\n<p>aaaaaaa</p>\n<h2>見出し2</h2>\n<p>bbbbbbbbbb</p>\n"
+  }
+]

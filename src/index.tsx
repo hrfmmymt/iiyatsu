@@ -1,21 +1,24 @@
 import { Hono } from 'hono';
 import { serveStatic } from 'hono/cloudflare-workers';
 import { Layout } from './components/Layout';
-import type { Env, Post } from './types';
+import type { Env } from './types';
+import { raw } from 'hono/html';
 
 const app = new Hono<Env>();
 
-// 記事リスト（後でファイルから読み込むように変更）
-const posts: Post[] = [
-  {
-    title: '記事タイトル',
-    description: '記事の説明文',
-    date: '2024-01-01',
-    url: '/sample-post',
-  },
-];
+// 記事データの型定義
+type Post = {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+  content: string;
+};
 
-app.use('/*', serveStatic({ root: './public' }));
+// 記事データの読み込み
+import posts from '../public/posts/posts.json';
+
+app.use('/*', serveStatic({ root: './public', manifest: {} }));
 
 // トップページ
 app.get('/', (c) => {
@@ -23,9 +26,9 @@ app.get('/', (c) => {
     <Layout title="My Blog">
       <h1>記事一覧</h1>
       <ul>
-        {posts.map((post) => (
-          <li key={post.url}>
-            <a href={post.url}>{post.title}</a>
+        {posts.map((post: Post) => (
+          <li key={post.slug}>
+            <a href={`/posts/${post.slug}`}>{post.title}</a>
             <p>{post.description}</p>
             <small>{post.date}</small>
           </li>
@@ -36,27 +39,29 @@ app.get('/', (c) => {
 });
 
 // 記事ページ
-app.get('/:post', (c) => {
-  const post = c.req.param('post');
-  const postData = posts.find((p) => p.url === `/${post}`);
-
-  if (!postData) {
+app.get('/posts/:slug', (c) => {
+  const slug = c.req.param('slug');
+  const post = posts.find((p: Post) => p.slug === slug);
+  
+  if (!post) {
     return c.html(
       <Layout title="404 - Not Found">
         <h1>404 - Page Not Found</h1>
-        <a href="/">トップページ</a>
+        <a href="/">トップページに戻る</a>
       </Layout>,
       404,
     );
   }
 
   return c.html(
-    <Layout title={postData.title}>
-      <h1>{postData.title}</h1>
-      <p>{postData.description}</p>
-      <small>{postData.date}</small>
+    <Layout title={post.title}>
+      <article>
+        <h1>{post.title}</h1>
+        <div>{raw(post.content)}</div>
+        <small>{post.date}</small>
+      </article>
       <hr />
-      <a href="/">トップページ</a>
+      <a href="/">トップページに戻る</a>
     </Layout>,
   );
 });
