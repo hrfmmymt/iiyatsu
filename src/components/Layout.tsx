@@ -3,6 +3,7 @@ import type { Child } from 'hono/jsx';
 
 import { Head } from './Head';
 import { Header } from './Header';
+import { Footer } from './Footer';
 
 // サイト設定の型
 type SiteConfig = {
@@ -13,6 +14,10 @@ type SiteConfig = {
   ogImage: string;
   gaId: string;
   year: string;
+  privacyPolicy: {
+    summary: string;
+    details: string;
+  };
 };
 
 type Props = {
@@ -44,6 +49,7 @@ export const Layout: FC<Props> = ({
       <div class="container">
         {children}
       </div>
+      <Footer privacyPolicy={siteConfig.privacyPolicy} />
     </body>
   </html>
 );

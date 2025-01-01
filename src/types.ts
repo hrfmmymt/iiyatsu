@@ -27,4 +27,6 @@ export interface Env extends HonoEnv {
   SITE_URL: string;
   SITE_OG_IMAGE: string;
   GA_ID: string;
+  PRIVACY_POLICY_SUMMARY: string;
+  PRIVACY_POLICY_DETAILS: string;
 }

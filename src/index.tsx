@@ -2,8 +2,11 @@ import { Hono } from 'hono';
 import { serveStatic } from 'hono/cloudflare-workers';
 import { raw } from 'hono/html';
 
+import postsData from '../public/posts/posts.json';
+
 import { Layout } from './components/Layout';
 import { PostNavigation } from './components/PostNavigation';
+import { Profile } from './components/Profile';
 import type { Env } from './types';
 
 const app = new Hono<Env>();
@@ -18,8 +21,19 @@ type Post = {
 };
 
 // 記事データの読み込み
-import postsData from '../public/posts/posts.json';
 const posts = postsData as Post[];
+
+const profileData = {
+  name: 'hrfmmymt',
+  links: [
+    { title: 'Twitter', url: 'https://twitter.com/hrfmmymt' },
+    { title: 'Facebook', url: 'https://www.facebook.com/hrfmmymt' },
+    { title: 'Github', url: 'https://github.com/hrfmmymt' },
+    { title: 'Mail', url: 'mailto:hrfmmymt@gmail.com' },
+    { title: 'Website', url: 'https://hrfmmymt.github.io/' },
+    { title: 'Portfolio site', url: 'https://hrfmmymt.com/' },
+  ],
+};
 
 const createSiteConfig = (env: Env) => ({
   author: env.SITE_AUTHOR,
@@ -29,6 +43,10 @@ const createSiteConfig = (env: Env) => ({
   ogImage: env.SITE_OG_IMAGE,
   gaId: env.GA_ID,
   year: new Date().getFullYear().toString(),
+  privacyPolicy: {
+    summary: env.PRIVACY_POLICY_SUMMARY,
+    details: env.PRIVACY_POLICY_DETAILS,
+  },
 });
 
 app.use('/styles/*', serveStatic({ root: './', manifest: {} }));
@@ -47,12 +65,13 @@ app.get('/', (c) => {
       cssPath="top.css"
       siteConfig={siteConfig}
     >
-      <ul>
+      <Profile name={profileData.name} links={profileData.links} />
+      <ul class="post-list">
         {posts.map((post: Post) => (
-          <li key={post.slug}>
-            <a href={`/posts/${post.slug}`}>{post.title}</a>
-            <p>{post.description}</p>
-            <small>{post.date}</small>
+          <li key={post.slug} class="post-item">
+            <p class="post-meta"><time class="post-date" datetime={post.date}>{post.date}</time></p>
+            <a class="post-title" href={`/posts/${post.slug}`}>{post.title}</a>
+            <p class="post-meta"><span>{post.description}</span></p>
           </li>
         ))}
       </ul>
@@ -86,14 +105,12 @@ app.get('/posts/:slug', (c) => {
       cssPath="post.css"
       siteConfig={siteConfig}
     >
-      <article>
+      <article class="post-article">
         <h1>{post.title}</h1>
         <div>{raw(post.content)}</div>
         <small>{post.date}</small>
       </article>
       <PostNavigation post={post} />
-      <hr />
-      <a href="/">トップページに戻る</a>
     </Layout>,
   );
 });
