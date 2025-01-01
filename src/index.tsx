@@ -47,7 +47,6 @@ app.get('/', (c) => {
       cssPath="top.css"
       siteConfig={siteConfig}
     >
-      <h1>記事一覧</h1>
       <ul>
         {posts.map((post: Post) => (
           <li key={post.slug}>

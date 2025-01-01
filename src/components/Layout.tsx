@@ -2,6 +2,7 @@ import type { FC } from 'hono/jsx';
 import type { Child } from 'hono/jsx';
 
 import { Head } from './Head';
+import { Header } from './Header';
 
 // サイト設定の型
 type SiteConfig = {
@@ -39,6 +40,7 @@ export const Layout: FC<Props> = ({
       cssPath={cssPath}
     />
     <body>
+      <Header siteTitle={siteConfig.title} />
       <div class="container">
         {children}
       </div>
