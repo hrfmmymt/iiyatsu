@@ -2,7 +2,8 @@ export type Post = {
   title: string;
   description: string;
   date: string;
-  url: string;
+  slug: string;
+  content: string;
 };
 
 export type Env = Record<string, unknown>;

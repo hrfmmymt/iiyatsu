@@ -16,7 +16,8 @@ type Post = {
 };
 
 // 記事データの読み込み
-import posts from '../public/posts/posts.json';
+import postsData from '../public/posts/posts.json';
+const posts = postsData as Post[];
 
 app.use('/*', serveStatic({ root: './public', manifest: {} }));
 
