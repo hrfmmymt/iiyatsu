@@ -19,12 +19,15 @@ type Post = {
 import postsData from '../public/posts/posts.json';
 const posts = postsData as Post[];
 
-app.use('/*', serveStatic({ root: './public', manifest: {} }));
+app.use('/styles/*', serveStatic({ root: './', manifest: {} }));
+app.use('/favicon.ico', serveStatic({ path: './favicon.ico', manifest: {} }));
+app.use('/font/*', serveStatic({ path: './font', manifest: {} }));
+app.use('/posts/*', serveStatic({ path: './', manifest: {} }));
 
 // トップページ
 app.get('/', (c) => {
   return c.html(
-    <Layout title="My Blog">
+    <Layout title="My Blog" cssPath="top.css">
       <h1>記事一覧</h1>
       <ul>
         {posts.map((post: Post) => (
@@ -46,7 +49,7 @@ app.get('/posts/:slug', (c) => {
   
   if (!post) {
     return c.html(
-      <Layout title="404 - Not Found">
+      <Layout title="404 - Not Found" cssPath="not_found.css">
         <h1>404 - Page Not Found</h1>
         <a href="/">トップページに戻る</a>
       </Layout>,
@@ -55,7 +58,7 @@ app.get('/posts/:slug', (c) => {
   }
 
   return c.html(
-    <Layout title={post.title}>
+    <Layout title={post.title} cssPath="post.css">
       <article>
         <h1>{post.title}</h1>
         <div>{raw(post.content)}</div>

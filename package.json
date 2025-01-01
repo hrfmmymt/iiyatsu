@@ -10,7 +10,7 @@
     "deploy": "wrangler deploy src/index.tsx",
     "build": "run-p build:*",
     "build:content": "tsx src/scripts/build-content.ts",
-    "build:css": "postcss src/styles/main.css -o public/styles/main.css",
+    "build:css": "postcss src/styles/*.css -d public/styles/",
     "new-post": "tsx scripts/new-post.ts",
     "lint": "biome lint .",
     "format": "biome format . --write"
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@cloudflare/workers-types": "^4.20241224.0",
+    "@openameba/spindle-syntax-themes": "^1.1.1",
     "@types/marked": "^5.0.2",
     "@types/node": "^20.17.11",
     "autoprefixer": "^10.4.20",

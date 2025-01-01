@@ -1,7 +1,7 @@
 /*
  * Top page
  */
-@import 'base.css';
+@import 'main.css';
 
 .profile > *,
 .post-list {
