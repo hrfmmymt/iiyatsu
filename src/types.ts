@@ -6,4 +6,15 @@ export type Post = {
   content: string;
 };
 
+export type PostWithNavigation = Post & {
+  prevPost?: {
+    title: string;
+    slug: string;
+  };
+  nextPost?: {
+    title: string;
+    slug: string;
+  };
+};
+
 export type Env = Record<string, unknown>;

@@ -1,8 +1,10 @@
 import { Hono } from 'hono';
 import { serveStatic } from 'hono/cloudflare-workers';
-import { Layout } from './components/Layout';
-import type { Env } from './types';
 import { raw } from 'hono/html';
+
+import { Layout } from './components/Layout';
+import { PostNavigation } from './components/PostNavigation';
+import type { Env } from './types';
 
 const app = new Hono<Env>();
 
@@ -21,7 +23,6 @@ const posts = postsData as Post[];
 
 app.use('/styles/*', serveStatic({ root: './', manifest: {} }));
 app.use('/favicon.ico', serveStatic({ path: './favicon.ico', manifest: {} }));
-app.use('/font/*', serveStatic({ path: './font', manifest: {} }));
 app.use('/posts/*', serveStatic({ path: './', manifest: {} }));
 
 // トップページ
@@ -64,6 +65,7 @@ app.get('/posts/:slug', (c) => {
         <div>{raw(post.content)}</div>
         <small>{post.date}</small>
       </article>
+      <PostNavigation post={post} />
       <hr />
       <a href="/">トップページに戻る</a>
     </Layout>,
