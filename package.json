@@ -11,7 +11,7 @@
     "build": "run-p build:*",
     "build:content": "tsx src/scripts/build-content.ts",
     "build:css": "postcss src/styles/*.css -d public/styles/",
-    "new-post": "tsx scripts/new-post.ts",
+    "new-post": "tsx src/scripts/new-post.ts",
     "lint": "biome lint .",
     "format": "biome format . --write"
   },
