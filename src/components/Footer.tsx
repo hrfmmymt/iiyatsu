@@ -11,9 +11,6 @@ type Props = {
 
 export const Footer: FC<Props> = ({ privacyPolicy }) => (
   <footer class="footer">
-    <PrivacyPolicy 
-      summary={privacyPolicy.summary}
-      details={privacyPolicy.details}
-    />
+    <PrivacyPolicy summary={privacyPolicy.summary} details={privacyPolicy.details} />
   </footer>
 );

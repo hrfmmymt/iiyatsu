@@ -23,8 +23,8 @@ type Props = {
   err?: Error;
 };
 
-export const ErrorLayout: FC<Props> = ({ 
-  title, 
+export const ErrorLayout: FC<Props> = ({
+  title,
   cssPath,
   siteConfig,
   statusCode,
@@ -46,15 +46,17 @@ export const ErrorLayout: FC<Props> = ({
       <main class="wrapper">
         <h1 style={`--error-code: '${statusCode}'`}>{statusCode}</h1>
         <footer class="error-footer">
-          {errorMessage ? 
+          {errorMessage ? (
             <>
               <p>{errorMessage}</p>
               <p class="error-detail">
                 {process.env.NODE_ENV === 'development' ? err?.message : 'something went wrong.'}
               </p>
-            </> : null
-          }
-          <p>go to <a href="/">toppage</a>.</p>
+            </>
+          ) : null}
+          <p>
+            go to <a href="/">toppage</a>.
+          </p>
           <a href="/" class="error-footer-link">
             <Logo />
           </a>

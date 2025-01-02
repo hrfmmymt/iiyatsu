@@ -15,14 +15,18 @@ const addNavigationLinks = (posts: Post[]): PostWithNavigation[] => {
 
     return {
       ...post,
-      nextPost: nextPost ? {
-        title: nextPost.title,
-        slug: nextPost.slug,
-      } : undefined,
-      prevPost: prevPost ? {
-        title: prevPost.title,
-        slug: prevPost.slug,
-      } : undefined,
+      nextPost: nextPost
+        ? {
+            title: nextPost.title,
+            slug: nextPost.slug,
+          }
+        : undefined,
+      prevPost: prevPost
+        ? {
+            title: prevPost.title,
+            slug: prevPost.slug,
+          }
+        : undefined,
     };
   });
 };
@@ -55,7 +59,7 @@ async function buildPosts(): Promise<void> {
     const filePath = path.join(POSTS_DIR, file);
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(fileContent);
-    
+
     const slug = file.replace('.md', '');
     const html = await marked(content);
 

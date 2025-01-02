@@ -70,18 +70,22 @@ app.get('/', (c) => {
   const siteConfig = createSiteConfig(c.env as Env);
 
   return c.html(
-    <Layout 
-      title={siteConfig.title}
-      cssPath="top.css"
-      siteConfig={siteConfig}
-    >
+    <Layout title={siteConfig.title} cssPath="top.css" siteConfig={siteConfig}>
       <Profile name={profileData.name} links={profileData.links} />
       <ul class="post-list">
         {posts.map((post: Post) => (
           <li key={post.slug} class="post-item">
-            <p class="post-meta"><time class="post-date" datetime={post.date}>{post.date}</time></p>
-            <a class="post-title" href={`/posts/${post.slug}`}>{post.title}</a>
-            <p class="post-meta"><span>{post.description}</span></p>
+            <p class="post-meta">
+              <time class="post-date" datetime={post.date}>
+                {post.date}
+              </time>
+            </p>
+            <a class="post-title" href={`/posts/${post.slug}`}>
+              {post.title}
+            </a>
+            <p class="post-meta">
+              <span>{post.description}</span>
+            </p>
           </li>
         ))}
       </ul>
@@ -98,24 +102,19 @@ app.get('/posts/:slug', (c) => {
   // 404ページ（存在しない記事へのアクセス）
   if (!post) {
     return c.html(
-      <ErrorLayout 
-        title="404 - Not Found" 
+      <ErrorLayout
+        title="404 - Not Found"
         cssPath="error.css"
         siteConfig={siteConfig}
         errorMessage={ERROR_MESSAGE[404]}
         statusCode={404}
-      >
-      </ErrorLayout>,
+      />,
       404,
     );
   }
 
   return c.html(
-    <Layout 
-      title={post.title} 
-      cssPath="post.css"
-      siteConfig={siteConfig}
-    >
+    <Layout title={post.title} cssPath="post.css" siteConfig={siteConfig}>
       <article class="post-article">
         <h1>{post.title}</h1>
         <div>{raw(post.content)}</div>
@@ -141,7 +140,7 @@ app.get('/test-500', () => {
 
 // 非同期の500エラーテスト用のルート
 app.get('/test-500-async', async () => {
-  await new Promise(resolve => setTimeout(resolve, 100));
+  await new Promise((resolve) => setTimeout(resolve, 100));
   throw new Error('Intentional async 500 error for testing');
 });
 
@@ -154,23 +153,20 @@ app.get('/test-503', () => {
 app.onError((err, c) => {
   console.error(`${err}`);
   const siteConfig = createSiteConfig(c.env as Env);
-  
+
   // エラーの種類に応じて異なるステータスコードとメッセージを設定
   const statusCode = err instanceof ServiceUnavailableError ? 503 : 500;
-  const errorMessage = statusCode === 503 
-    ? ERROR_MESSAGE[503]
-    : ERROR_MESSAGE[500];
+  const errorMessage = statusCode === 503 ? ERROR_MESSAGE[503] : ERROR_MESSAGE[500];
 
   return c.html(
-    <ErrorLayout 
+    <ErrorLayout
       title={`${statusCode} - ${errorMessage}`}
       cssPath="error.css"
       siteConfig={siteConfig}
       errorMessage={errorMessage}
       err={err}
       statusCode={statusCode}
-    >
-    </ErrorLayout>,
+    />,
     statusCode,
   );
 });
@@ -180,14 +176,13 @@ app.notFound((c) => {
   const siteConfig = createSiteConfig(c.env as Env);
 
   return c.html(
-    <ErrorLayout 
-      title="404 - Not Found" 
+    <ErrorLayout
+      title="404 - Not Found"
       cssPath="error.css"
       siteConfig={siteConfig}
       errorMessage={ERROR_MESSAGE[404]}
       statusCode={404}
-    >
-    </ErrorLayout>,
+    />,
     404,
   );
 });

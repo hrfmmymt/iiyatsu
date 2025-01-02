@@ -27,12 +27,7 @@ type Props = {
   siteConfig: SiteConfig;
 };
 
-export const Layout: FC<Props> = ({ 
-  title, 
-  children, 
-  cssPath,
-  siteConfig,
-}) => (
+export const Layout: FC<Props> = ({ title, children, cssPath, siteConfig }) => (
   <html lang="ja">
     <Head
       title={title}

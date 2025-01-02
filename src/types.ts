@@ -1,4 +1,4 @@
-import type { Env as HonoEnv } from 'hono'
+import type { Env as HonoEnv } from 'hono';
 
 export type Post = {
   title: string;

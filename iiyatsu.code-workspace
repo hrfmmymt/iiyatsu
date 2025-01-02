@@ -5,29 +5,4 @@
       "path": "."
     }
   ],
-  "settings": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": null,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit",
-      "source.fixAll.stylelint": "explicit"
-    },
-    "css.validate": false,
-    "[css]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
-    "prettier.requireConfig": true,
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true,
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
-    "[markdown]": {
-      "editor.formatOnSave": false
-    }
-  }
 }

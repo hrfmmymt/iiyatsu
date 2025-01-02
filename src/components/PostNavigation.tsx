@@ -22,7 +22,7 @@ export const PostNavigation: FC<PostNavigationProps> = ({ post }) => (
           <>
             <dt>前に出た記事</dt>
             <dd>
-            <a href={`/posts/${post.prevPost.slug}`}>{post.prevPost.title}</a>
+              <a href={`/posts/${post.prevPost.slug}`}>{post.prevPost.title}</a>
             </dd>
           </>
         )}
