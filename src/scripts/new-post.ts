@@ -4,30 +4,36 @@ import readline from 'node:readline/promises';
 
 const POSTS_DIR = path.join(process.cwd(), 'src', 'content', 'posts');
 
-// 現在の日本時間を YYYY-MM-DD 形式で取得
-const getJstDate = () => {
+// 現在の日本時間を取得
+const getJstDateTime = () => {
   const date = new Date();
   const jstDate = new Date(date.getTime() + 9 * 60 * 60 * 1000);
-  return jstDate.toISOString().split('T')[0];
+  return {
+    // ファイル名用のYYYYMMDD形式
+    dateForSlug: jstDate.toISOString().split('T')[0].replace(/-/g, ''),
+    // Front Matter用のISO文字列（ミリ秒まで、UTC形式）
+    isoString: new Date(jstDate.getTime() - 9 * 60 * 60 * 1000).toISOString(),
+  };
 };
 
 // スラッグを生成（日付-タイトル の形式）
 const generateSlug = (title: string) => {
-  const date = getJstDate();
+  const { dateForSlug } = getJstDateTime();
   const sanitizedTitle = title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  return `${date}-${sanitizedTitle}`;
+  return `${dateForSlug}-${sanitizedTitle}`;
 };
 
 // 新規記事のテンプレート
 const generateTemplate = (title: string, description: string) => {
-  const date = getJstDate();
+  const { isoString } = getJstDateTime();
+
   return `---
 title: ${title}
 description: ${description}
-date: ${date}
+date: ${isoString}
 ---
 
 `;
