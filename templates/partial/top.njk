@@ -1,9 +1,0 @@
-<ul class="post-list">
-  {% for item in postList -%}
-  <li class="post-item">
-    <p class="post-meta"><time class="post-date" datetime="{{item.date}}">{{item.date}}</time></p>
-    <a class="post-title" href="{{ item.url }}">{{item.title}}</a>
-    <p class="post-meta"><span>{{item.description}}</span></p>
-  </li>
-  {% endfor -%}
-</ul>
