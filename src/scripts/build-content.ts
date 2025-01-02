@@ -7,6 +7,20 @@ import type { Post, PostWithNavigation } from '../types';
 const POSTS_DIR = path.join(process.cwd(), 'src', 'content', 'posts');
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'posts');
 
+// 日付フォーマット用の関数
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  const jstDate = new Date(date.getTime() + 9 * 60 * 60 * 1000); // UTC+9
+
+  // YYYY-MM-DD形式の表示用文字列
+  const displayDate = jstDate.toISOString().split('T')[0];
+
+  // datetime属性用のISO文字列（日本時間）
+  const isoDate = jstDate.toISOString();
+
+  return { displayDate, isoDate };
+};
+
 // 記事データに前後の記事のデータを追加する
 const addNavigationLinks = (posts: Post[]): PostWithNavigation[] => {
   return posts.map((post, index) => {
@@ -62,11 +76,13 @@ async function buildPosts(): Promise<void> {
 
     const slug = file.replace('.md', '');
     const html = await marked(content);
+    const { displayDate, isoDate } = formatDate(data.date);
 
     const post: Post = {
       title: data.title,
       description: data.description,
-      date: data.date,
+      date: displayDate,
+      datetime: isoDate,
       slug,
       content: html,
     };

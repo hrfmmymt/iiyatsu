@@ -1,7 +1,6 @@
 /*
  * post page
  */
-@import "main.css";
 @import "@openameba/spindle-syntax-themes/highlightjs-light.css" screen;
 @import "@openameba/spindle-syntax-themes/highlightjs-dark.css"
   screen and (prefers-color-scheme: dark);

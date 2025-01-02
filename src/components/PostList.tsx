@@ -5,12 +5,20 @@ type Props = {
 };
 
 export const PostList = ({ posts }: Props) => (
-  <ul>
-    {posts.map((post) => (
-      <li key={post.slug}>
-        <a href={`/posts/${post.slug}`}>{post.title}</a>
-        <p>{post.description}</p>
-        <small>{post.date}</small>
+  <ul class="post-list">
+    {posts.map((post: Post) => (
+      <li key={post.slug} class="post-item">
+        <p class="post-meta">
+          <time class="post-date" datetime={post.datetime}>
+            {post.date}
+          </time>
+        </p>
+        <a class="post-title" href={`/posts/${post.slug}`}>
+          {post.title}
+        </a>
+        <p class="post-meta">
+          <span>{post.description}</span>
+        </p>
       </li>
     ))}
   </ul>

@@ -97,3 +97,13 @@ ul {
   max-width: 32rem;
   padding: 0 1rem;
 }
+
+.post-meta {
+  color: var(--text-color-sub);
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.post-date {
+  font-size: 0.8rem;
+}

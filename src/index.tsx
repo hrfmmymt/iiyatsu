@@ -4,23 +4,14 @@ import { raw } from 'hono/html';
 
 import postsData from '../public/posts/posts.json';
 
+import type { Env, Post } from './types';
 import { Layout } from './components/Layout';
 import { PostNavigation } from './components/PostNavigation';
 import { Profile } from './components/Profile';
-import type { Env } from './types';
-import { Logo } from './components/Logo';
 import { ErrorLayout } from './components/ErrorLayout';
+import { PostList } from './components/PostList';
 
 const app = new Hono<Env>();
-
-// 記事データの型定義
-type Post = {
-  title: string;
-  description: string;
-  date: string;
-  slug: string;
-  content: string;
-};
 
 // 記事データの読み込み
 const posts = postsData as Post[];
@@ -72,23 +63,7 @@ app.get('/', (c) => {
   return c.html(
     <Layout title={siteConfig.title} cssPath="top.css" siteConfig={siteConfig}>
       <Profile name={profileData.name} links={profileData.links} />
-      <ul class="post-list">
-        {posts.map((post: Post) => (
-          <li key={post.slug} class="post-item">
-            <p class="post-meta">
-              <time class="post-date" datetime={post.date}>
-                {post.date}
-              </time>
-            </p>
-            <a class="post-title" href={`/posts/${post.slug}`}>
-              {post.title}
-            </a>
-            <p class="post-meta">
-              <span>{post.description}</span>
-            </p>
-          </li>
-        ))}
-      </ul>
+      <PostList posts={posts} />
     </Layout>,
   );
 });
@@ -118,7 +93,11 @@ app.get('/posts/:slug', (c) => {
       <article class="post-article">
         <h1>{post.title}</h1>
         <div>{raw(post.content)}</div>
-        <small>{post.date}</small>
+        <p class="post-meta">
+          <time class="post-date" datetime={post.datetime}>
+            {post.date}
+          </time>
+        </p>
       </article>
       <PostNavigation post={post} />
     </Layout>,
