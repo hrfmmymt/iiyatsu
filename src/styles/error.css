@@ -39,7 +39,7 @@ h1 {
 
 h1::before,
 h1::after {
-  content: '404';
+  content: var(--error-code);
   display: block;
   height: 100%;
   left: 0;
@@ -87,14 +87,20 @@ h1::after {
   }
 }
 
-.link {
-  bottom: 10%;
+.error-footer {
+  bottom: 4%;
   color: #fff;
   position: absolute;
 }
 
-.wrapper a {
+.error-detail {
+  margin-top: 1rem;
+}
+
+.error-footer-link {
   color: #fff;
+  display: block;
+  margin-top: 1rem;
 }
 
 .logo {

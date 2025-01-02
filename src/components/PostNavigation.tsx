@@ -7,7 +7,7 @@ type PostNavigationProps = {
 
 export const PostNavigation: FC<PostNavigationProps> = ({ post }) => (
   <>
-    <footer class="post-footer">&#8718;</footer>
+    <div class="post-footer">&#8718;</div>
     <nav class="post-recent">
       <dl>
         {post.nextPost && (

@@ -2,10 +2,8 @@ import type { FC } from 'hono/jsx';
 import type { Child } from 'hono/jsx';
 
 import { Head } from './Head';
-import { Header } from './Header';
-import { Footer } from './Footer';
+import { Logo } from './Logo';
 
-// サイト設定の型
 type SiteConfig = {
   author: string;
   title: string;
@@ -14,24 +12,24 @@ type SiteConfig = {
   ogImage: string;
   gaId: string;
   year: string;
-  privacyPolicy: {
-    summary: string;
-    details: string;
-  };
 };
 
 type Props = {
   title: string;
-  children: Child | Child[];
   cssPath?: string;
   siteConfig: SiteConfig;
+  statusCode: number;
+  errorMessage?: string;
+  err?: Error;
 };
 
-export const Layout: FC<Props> = ({ 
+export const ErrorLayout: FC<Props> = ({ 
   title, 
-  children, 
   cssPath,
   siteConfig,
+  statusCode,
+  errorMessage,
+  err,
 }) => (
   <html lang="ja">
     <Head
@@ -46,9 +44,21 @@ export const Layout: FC<Props> = ({
     />
     <body>
       <main class="wrapper">
-        <Header siteTitle={siteConfig.title} />
-        {children}
-        <Footer privacyPolicy={siteConfig.privacyPolicy} />
+        <h1 style={`--error-code: '${statusCode}'`}>{statusCode}</h1>
+        <footer class="error-footer">
+          {errorMessage ? 
+            <>
+              <p>{errorMessage}</p>
+              <p class="error-detail">
+                {process.env.NODE_ENV === 'development' ? err?.message : 'something went wrong.'}
+              </p>
+            </> : null
+          }
+          <p>go to <a href="/">toppage</a>.</p>
+          <a href="/" class="error-footer-link">
+            <Logo />
+          </a>
+        </footer>
       </main>
     </body>
   </html>
