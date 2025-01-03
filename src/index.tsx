@@ -54,7 +54,7 @@ app.use('/styles/*', serveStatic({ root: './', manifest: {} }));
 app.use('/favicon.ico', serveStatic({ path: './favicon.ico', manifest: {} }));
 app.use('/posts/*', serveStatic({ path: './', manifest: {} }));
 app.use('/manifest.json', serveStatic({ path: './manifest.json', manifest: {} }));
-app.use('/img/*', serveStatic({ path: './img', manifest: {} }));
+app.use('/img/*', serveStatic({ path: './', manifest: {} }));
 
 // トップページ
 app.get('/', (c) => {
