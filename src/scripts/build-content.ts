@@ -1,7 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
-import { marked } from 'marked';
+import { Marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js';
+
 import type { Post, PostWithNavigation } from '../types';
 
 const POSTS_DIR = path.join(process.cwd(), 'src', 'content', 'posts');
@@ -58,6 +61,17 @@ const sortPostsByDate = (posts: Post[]) => {
   });
 };
 
+const marked = new Marked(
+  markedHighlight({
+    emptyLangClass: 'hljs',
+    langPrefix: 'hljs language-',
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    },
+  }),
+);
+
 async function buildPosts(): Promise<void> {
   // 出力ディレクトリの作成
   if (!fs.existsSync(OUTPUT_DIR)) {
@@ -79,7 +93,7 @@ async function buildPosts(): Promise<void> {
     const { data, content } = matter(fileContent);
 
     const slug = file.replace('.md', '');
-    const html = await marked(content);
+    const html = await marked.parse(content);
     const { displayDate, isoDate } = formatDate(data.date);
 
     const post: Post = {
