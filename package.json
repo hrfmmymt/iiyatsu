@@ -5,12 +5,15 @@
   "keywords": [],
   "author": "hrfmmymt",
   "license": "ISC",
+  "type": "module",
   "scripts": {
     "dev": "wrangler dev src/index.tsx",
     "deploy": "wrangler deploy src/index.tsx",
     "build": "run-p build:*",
     "build:content": "tsx src/scripts/build-content.ts",
     "build:css": "postcss src/styles/*.css -d public/styles/",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "new-post": "tsx src/scripts/new-post.ts",
     "lint": "biome lint .",
     "format": "biome format . --write"
@@ -24,8 +27,10 @@
     "@biomejs/biome": "^1.9.4",
     "@cloudflare/workers-types": "^4.20241224.0",
     "@openameba/spindle-syntax-themes": "^1.1.1",
+    "@testing-library/jest-dom": "^6.6.3",
     "@types/marked": "^5.0.2",
     "@types/node": "^20.17.11",
+    "@vitest/coverage-v8": "^2.1.8",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "highlight.js": "^11.11.1",
@@ -36,6 +41,7 @@
     "postcss-import": "^16.1.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
     "wrangler": "^3.99.0"
   }
 }
