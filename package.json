@@ -8,10 +8,10 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler dev src/index.tsx",
-    "deploy": "wrangler deploy src/index.tsx",
     "build": "run-p build:*",
     "build:content": "tsx src/scripts/build-content.ts",
     "build:css": "postcss src/styles/*.css -d public/styles/",
+    "deploy": "wrangler deploy",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "new-post": "tsx src/scripts/new-post.ts",
