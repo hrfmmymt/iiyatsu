@@ -1,0 +1,16 @@
+name = "iiyatsu"
+main = "src/index.tsx"
+compatibility_date = "2024-12-31"
+
+[vars]
+SITE_AUTHOR = "Hirofumi Miyamoto"
+SITE_TITLE = "iiyatsu - hrfmmymt's weblog"
+SITE_DESCRIPTION = "hrfmmymt's weblog"
+SITE_URL = "https://iiyatsu.hrfmmymt.com/"
+SITE_OG_IMAGE = "/img/icon/icon.png"
+GA_ID = "G-SXQ1HCL844"
+PRIVACY_POLICY_SUMMARY = "This website uses Google Analytics, a web analytics service provided by Google."
+PRIVACY_POLICY_DETAILS = "Google Analytics uses \"cookies\", which are text files placed on your computer, to help the website analyse how users use the site."
+
+[site]
+bucket = "./public"

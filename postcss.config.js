@@ -1,7 +1,10 @@
-module.exports = {
+export default {
   plugins: [
-    require('autoprefixer')(),
-    require('cssnano')(),
-    require('postcss-import')(),
-  ]
-}
+    // @ts-expect-error: postcss-import types
+    (await import('postcss-import')).default,
+    // @ts-expect-error: autoprefixer types
+    (await import('autoprefixer')).default,
+    // @ts-expect-error: cssnano types
+    (await import('cssnano')).default,
+  ],
+};

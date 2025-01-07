@@ -1,19 +1,22 @@
 {
-  "include": ["index.ts", "src/app.ts"],
-  "exclude": ["node_modules", "__tests__"],
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2021",
-    "sourceMap": true,
-    "pretty": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "ES2019",
+    "module": "ES2022",
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "types": ["@cloudflare/workers-types", "node"],
     "resolveJsonModule": true,
-  }
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "."
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

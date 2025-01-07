@@ -21,3 +21,4 @@ tmp
 .vercel
 .secrets
 .env
+.dev.vars

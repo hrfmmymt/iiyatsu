@@ -1,0 +1,129 @@
+/*
+ * post page
+ */
+@import "@openameba/spindle-syntax-themes/highlightjs-light.css" screen;
+@import "@openameba/spindle-syntax-themes/highlightjs-dark.css"
+  screen and (prefers-color-scheme: dark);
+
+.post-article,
+.post-footer,
+.post-recent {
+  max-width: 32rem;
+}
+
+.post-article {
+  line-height: 2;
+  margin: 2rem auto 0;
+}
+
+.post-article h1 {
+  font-size: 2rem;
+}
+
+.post-article h2 {
+  border-bottom: 1px solid;
+  margin-bottom: 1rem;
+}
+
+.post-article h3 {
+  margin-bottom: -1rem;
+  margin-top: 0.5rem;
+}
+
+.post-article h4 {
+  margin: 0 0 -1rem;
+}
+
+.post-article p {
+  margin: 1rem 0;
+  word-wrap: break-word;
+}
+
+.post-article a {
+  text-decoration: underline;
+}
+
+.post-article li a {
+  word-break: break-all;
+}
+
+.post-article img,
+.post-article video {
+  background-color: var(--skeleton-color);
+  height: auto;
+  width: 100%;
+}
+
+.post-article code {
+  background-color: var(--code-background-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: 2px;
+  margin: 1.4em 0;
+  overflow-wrap: break-word;
+  padding: 0.1em;
+}
+
+.post-article pre > code {
+  background-color: var(--code-background-color);
+  border: none;
+  display: block;
+  margin: 0;
+  overflow: auto;
+  padding: 0.6em;
+}
+
+.post-article blockquote {
+  border-left: 0.25em solid #dfe2e5;
+  color: var(--text-color-sub);
+  margin: 1em 0;
+  padding: 0 1em;
+  word-wrap: break-word;
+}
+
+.post-article ul {
+  list-style-type: disc;
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.post-article ul ul {
+  list-style-type: circle;
+  margin: 0;
+}
+
+.post-article ul ul ul {
+  list-style-type: square;
+}
+
+.post-article ol {
+  padding-left: 2rem;
+}
+
+.post-article time,
+.post-article .description {
+  color: var(--text-color-sub);
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.post-article time {
+  font-size: 0.8rem;
+}
+
+.post-article .description {
+  font-size: 0.9rem;
+}
+
+.post-footer,
+.post-recent {
+  margin: 3rem auto;
+}
+
+/*
+ * for mobile
+ */
+@media (max-width: 414px) {
+  .post-article {
+    padding: 0 1rem;
+  }
+}
