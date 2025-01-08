@@ -7,7 +7,7 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev src/index.tsx",
+    "dev": "wrangler dev",
     "build": "run-p build:*",
     "build:content": "tsx src/scripts/build-content.ts",
     "build:css": "postcss src/styles/*.css -d public/styles/",
@@ -42,6 +42,6 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8",
-    "wrangler": "^3.99.0"
+    "wrangler": "^3.100.0"
   }
 }
