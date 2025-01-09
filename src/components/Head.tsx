@@ -55,7 +55,8 @@ export const Head: FC<Props> = ({
 
     {/* links */}
     <link rel="canonical" href={url} />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/img/icon/favicon.ico" />
     <link rel="image_src" href={ogImage} />
     <link rel="icon" type="image/png" href={ogImage} />
     <link rel="apple-touch-icon" href={ogImage} />

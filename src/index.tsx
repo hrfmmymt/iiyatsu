@@ -50,11 +50,7 @@ const ERROR_MESSAGE = {
   503: 'service temporarily unavailable',
 };
 
-app.use('/styles/*', serveStatic({ root: './', manifest: {} }));
-app.use('/favicon.ico', serveStatic({ path: './favicon.ico', manifest: {} }));
-app.use('/posts/*', serveStatic({ path: './', manifest: {} }));
-app.use('/manifest.json', serveStatic({ path: './manifest.json', manifest: {} }));
-app.use('/img/*', serveStatic({ path: './', manifest: {} }));
+app.use('*', serveStatic({ root: './', manifest: {} }));
 
 // トップページ
 app.get('/', (c) => {
