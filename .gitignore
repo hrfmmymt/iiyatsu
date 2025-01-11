@@ -1,24 +1,33 @@
-node_modules
-yarn-error.log*
-.DS_Store
+# prod
+dist/
 
-*.js
-!script.js
-!test_*.js
-!build_sw.js
-!sw.js
-!img-opt.js
-!webp.js
-!postcss.config.js
+# dev
+.yarn/
+!.yarn/releases
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf
 
-.nyc_output
-coverage
+# deps
+node_modules/
+.wrangler
 
-public/img/post
-videos
-tmp
-
-.vercel
-.secrets
+# env
 .env
+.env.production
 .dev.vars
+
+# logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# misc
+.DS_Store

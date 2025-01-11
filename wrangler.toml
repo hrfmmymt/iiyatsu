@@ -1,7 +1,7 @@
 name = "iiyatsu"
-main = "src/index.tsx"
 compatibility_date = "2024-12-31"
-compatibility_flags = ['nodejs_compat']
+pages_build_output_dir = "./dist"
+compatibility_flags = [ "nodejs_compat" ]
 
 [vars]
 SITE_AUTHOR = "Hirofumi Miyamoto"
@@ -12,13 +12,3 @@ SITE_OG_IMAGE = "/img/icon/icon.png"
 GA_ID = "G-SXQ1HCL844"
 PRIVACY_POLICY_SUMMARY = "This website uses Google Analytics, a web analytics service provided by Google."
 PRIVACY_POLICY_DETAILS = "Google Analytics uses \"cookies\", which are text files placed on your computer, to help the website analyse how users use the site."
-
-[build]
-command = "npm run build"
-
-[site]
-bucket = "./public"
-
-kv_namespaces = [
-  { binding = "__STATIC_CONTENT", id = "0938841cbf67408f91066c9d20cd5790" }
-]

@@ -50,8 +50,6 @@ const ERROR_MESSAGE = {
   503: 'service temporarily unavailable',
 };
 
-app.use('*', serveStatic({ root: './', manifest: {} }));
-
 // トップページ
 app.get('/', (c) => {
   const siteConfig = createSiteConfig(c.env as Env);
