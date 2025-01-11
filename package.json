@@ -34,7 +34,7 @@
     "@hono/vite-dev-server": "^0.18.0",
     "@openameba/spindle-syntax-themes": "^1.1.1",
     "@testing-library/jest-dom": "^6.6.3",
-    "@types/dotenv": "^6.1.1",
+    "@types/dotenv": "^8.0.0",
     "@vitest/coverage-v8": "^2.1.8",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
