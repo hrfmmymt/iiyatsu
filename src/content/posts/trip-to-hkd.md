@@ -49,7 +49,7 @@ date: 2018-08-22
 
 ![](https://lh3.googleusercontent.com/pw/AM-JKLVtznYYfgfg3M2mg0SklMUgoYiqL3cAAzRQKEhzmw1hNMvkkWwL9TP2MTXdfvyvWHpj8mws3LRuh1sRQQ9iF_Ak7InWaW0YxvkbCUfm6gylt23H-lYei-Hr8ifdwDW0RYqzOBp5fVMQ_SPZ9myDH09wfw=w780-h1040)
 
-夕食をとってからタクシーで函館山に行きました。運転手がちょっと不安になるくらい親切で、道中のガイドはもちろんのこと、到着後にはデジカメで写真を撮りまくってコンビニで現像して渡してくれました。ありがとう（木々たちよ）。
+夕食をとってからタクシーで函館山に行きました。運転手がちょっと不安になるくらい親切で、道中のガイドはもちろんのこと、到着後にはデジカメで写真を撮りまくってコンビニで現像して渡してくれました。ありがとう。
 
 ![](https://lh3.googleusercontent.com/pw/AM-JKLVpgFWhjX6C6ysbysRBEbYMXzg1THU7cuQLyEQ5BRy4wr7I_IE5X9_VIU-F6q77HK_mJPveIjd-6m4JpIpudFZEAKRaqcvbwasKTjttlz4ie5vS59NLbb0hdgAMGaINhIib88vFaWKk5hWicbTrhKPg_A=w780-h585)
 
