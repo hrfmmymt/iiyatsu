@@ -1,5 +1,4 @@
-import type { FC } from 'hono/jsx';
-import type { Child } from 'hono/jsx';
+import type { FC, Child } from 'hono/jsx';
 
 import { Head } from './Head';
 import { Header } from './Header';
