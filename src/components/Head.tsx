@@ -64,5 +64,8 @@ export const Head: FC<Props> = ({
     {/* styles */}
     <link rel="stylesheet" href="/static/styles/main.css" />
     {cssPath && <link rel="stylesheet" href={`/static/styles/${cssPath}`} />}
+
+    {/* scripts */}
+    <script src="/static/js/script.js" defer />
   </head>
 );

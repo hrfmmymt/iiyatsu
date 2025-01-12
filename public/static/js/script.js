@@ -1,9 +1,13 @@
-// serviceworker
+// Service Worker の登録
 if ('serviceWorker' in navigator) {
-  try {
-    navigator.serviceWorker.register('../sw.js');
-    console.log('SW registered');
-  } catch (err) {
-    console.log(err);
-  }
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/static/sw.js')
+      .then((registration) => {
+        console.log('SW registered:', registration);
+      })
+      .catch((error) => {
+        console.log('SW registration failed:', error);
+      });
+  });
 }
