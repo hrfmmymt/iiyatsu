@@ -12,6 +12,9 @@
       "recommended": true,
       "style": {
         "useBlockStatements": "error"
+      },
+      "correctness": {
+        "noUnusedImports": "error"
       }
     }
   },

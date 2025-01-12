@@ -1,5 +1,4 @@
 import { Hono } from 'hono';
-import { serveStatic } from 'hono/cloudflare-workers';
 import { raw } from 'hono/html';
 
 import postsData from '../public/posts/posts.json';
