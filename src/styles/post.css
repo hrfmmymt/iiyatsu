@@ -122,8 +122,10 @@
 /*
  * for mobile
  */
-@media (max-width: 414px) {
-  .post-article {
+@media (max-width: 430px) {
+  .post-article,
+  .post-footer,
+  .post-recent {
     padding: 0 1rem;
   }
 }
