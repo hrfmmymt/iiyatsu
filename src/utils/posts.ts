@@ -1,4 +1,4 @@
-import type { Post, PostWithNavigation } from 'src/types';
+import type { Post, PostWithNavigation } from '../types';
 
 // 記事データに前後の記事のデータを追加する
 export const addNavigationLinks = (posts: Post[]): PostWithNavigation[] => {
