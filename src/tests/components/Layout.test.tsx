@@ -26,6 +26,7 @@ describe('Layout', () => {
 
     const html = layout.toString();
 
+    expect(html).toContain('<!DOCTYPE html>');
     expect(html).toContain('<html lang="ja"');
     expect(html).toContain('<title>Test Page</title>');
     expect(html).toContain('class="wrapper"');

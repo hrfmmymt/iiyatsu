@@ -1,4 +1,5 @@
 import type { FC, Child } from 'hono/jsx';
+import { raw } from 'hono/html';
 
 import { Head } from './Head';
 import { Header } from './Header';
@@ -27,23 +28,26 @@ type Props = {
 };
 
 export const Layout: FC<Props> = ({ title, children, cssPath, siteConfig }) => (
-  <html lang="ja">
-    <Head
-      title={title}
-      author={siteConfig.author}
-      year={siteConfig.year}
-      description={siteConfig.description}
-      url={siteConfig.url}
-      ogImage={siteConfig.ogImage}
-      gaId={siteConfig.gaId}
-      cssPath={cssPath}
-    />
-    <body>
-      <main class="wrapper">
-        <Header siteTitle={siteConfig.title} />
-        {children}
-        <Footer privacyPolicy={siteConfig.privacyPolicy} />
-      </main>
-    </body>
-  </html>
+  <>
+    {raw('<!DOCTYPE html>')}
+    <html lang="ja">
+      <Head
+        title={title}
+        author={siteConfig.author}
+        year={siteConfig.year}
+        description={siteConfig.description}
+        url={siteConfig.url}
+        ogImage={siteConfig.ogImage}
+        gaId={siteConfig.gaId}
+        cssPath={cssPath}
+      />
+      <body>
+        <main class="wrapper">
+          <Header siteTitle={siteConfig.title} />
+          {children}
+          <Footer privacyPolicy={siteConfig.privacyPolicy} />
+        </main>
+      </body>
+    </html>
+  </>
 );
