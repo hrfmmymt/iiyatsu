@@ -1,1 +1,5 @@
 # iiyatsu
+
+```
+touch .dev.vars
+```
