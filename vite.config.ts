@@ -9,7 +9,13 @@ const devVars = existsSync('.dev.vars') ? parse(readFileSync('.dev.vars', 'utf-8
 
 export default defineConfig({
   plugins: [
-    build(),
+    build({
+      outputDir: './dist',
+      routes: {
+        include: ['/*'],
+        exclude: ['/static/*']
+      }
+    }),
     devServer({
       adapter,
       entry: 'src/index.tsx'
