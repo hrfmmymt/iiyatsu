@@ -1,11 +1,11 @@
-import { readFileSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import build from '@hono/vite-build/cloudflare-pages'
 import devServer from '@hono/vite-dev-server'
 import adapter from '@hono/vite-dev-server/cloudflare'
 import { defineConfig } from 'vite'
 import { parse } from 'dotenv'
 
-const devVars = parse(readFileSync('.dev.vars', 'utf-8'));
+const devVars = existsSync('.dev.vars') ? parse(readFileSync('.dev.vars', 'utf-8')) : {};
 
 export default defineConfig({
   plugins: [
