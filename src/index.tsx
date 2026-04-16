@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { raw } from 'hono/html';
+import { secureHeaders } from 'hono/secure-headers';
 
 import postsData from '../public/posts/posts.json';
 
@@ -11,6 +12,37 @@ import { ErrorLayout } from './components/ErrorLayout';
 import { PostList } from './components/PostList';
 
 const app = new Hono<Env>();
+
+// セキュリティヘッダー
+app.use(
+  '*',
+  secureHeaders({
+    contentSecurityPolicy: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        'https://www.googletagmanager.com',
+        "'unsafe-inline'",
+      ],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", 'https:', 'data:'],
+      connectSrc: [
+        "'self'",
+        'https://www.google-analytics.com',
+        'https://www.googletagmanager.com',
+      ],
+      fontSrc: ["'self'"],
+      frameSrc: ["'none'"],
+    },
+    crossOriginEmbedderPolicy: false,
+    referrerPolicy: 'strict-origin-when-cross-origin',
+    permissionsPolicy: {
+      camera: [],
+      microphone: [],
+      geolocation: [],
+    },
+  }),
+);
 
 // 記事データの読み込み
 const posts = postsData as Post[];
@@ -105,21 +137,21 @@ class ServiceUnavailableError extends Error {
   }
 }
 
-// 500エラーテスト用のルート
-app.get('/test-500', () => {
-  throw new Error('Intentional 500 error for testing');
-});
+// テスト用エンドポイント（開発環境のみ）
+if (import.meta.env.DEV) {
+  app.get('/test-500', () => {
+    throw new Error('Intentional 500 error for testing');
+  });
 
-// 非同期の500エラーテスト用のルート
-app.get('/test-500-async', async () => {
-  await new Promise((resolve) => setTimeout(resolve, 100));
-  throw new Error('Intentional async 500 error for testing');
-});
+  app.get('/test-500-async', async () => {
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    throw new Error('Intentional async 500 error for testing');
+  });
 
-// データベースエラーを模したテスト
-app.get('/test-503', () => {
-  throw new ServiceUnavailableError('Database connection failed');
-});
+  app.get('/test-503', () => {
+    throw new ServiceUnavailableError('Database connection failed');
+  });
+}
 
 // エラーハンドラー
 app.onError((err, c) => {
@@ -136,7 +168,7 @@ app.onError((err, c) => {
       cssPath="error.css"
       siteConfig={siteConfig}
       errorMessage={errorMessage}
-      err={err}
+      err={import.meta.env.DEV ? err : undefined}
       statusCode={statusCode}
     />,
     statusCode,

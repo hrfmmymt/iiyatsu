@@ -43,16 +43,23 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
-  if (!event.request.url.startsWith('http')) return;
+  if (!event.request.url.startsWith('https')) return;
+
+  // 外部オリジンのリクエストはキャッシュしない
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.origin !== self.location.origin) return;
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const networked = fetch(event.request)
         .then((response) => {
-          const cacheCopy = response.clone();
-          caches.open(CACHE_KEY).then((cache) => {
-            cache.put(event.request, cacheCopy);
-          });
+          // 正常なレスポンスのみキャッシュ（エラーやopaqueレスポンスを除外）
+          if (response.ok && response.type === 'basic') {
+            const cacheCopy = response.clone();
+            caches.open(CACHE_KEY).then((cache) => {
+              cache.put(event.request, cacheCopy);
+            });
+          }
           return response;
         })
         .catch(() => {

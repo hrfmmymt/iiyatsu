@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import DOMPurify from 'isomorphic-dompurify';
 import matter from 'gray-matter';
 import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
@@ -32,6 +33,30 @@ const marked = new Marked(
   }),
 );
 
+// highlight.jsが生成するspan.hljs-*クラスを許可するサニタイズ設定
+const sanitizeHtml = (html: string): string => {
+  return DOMPurify.sanitize(html, {
+    ALLOWED_TAGS: [
+      'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+      'p', 'br', 'hr',
+      'ul', 'ol', 'li',
+      'blockquote', 'pre', 'code', 'span',
+      'a', 'strong', 'em', 'del', 's',
+      'table', 'thead', 'tbody', 'tr', 'th', 'td',
+      'img', 'figure', 'figcaption',
+      'details', 'summary',
+      'sup', 'sub',
+    ],
+    ALLOWED_ATTR: [
+      'href', 'title', 'target', 'rel',
+      'src', 'alt', 'width', 'height',
+      'class', 'id',
+      'colspan', 'rowspan',
+    ],
+    ALLOW_DATA_ATTR: false,
+  });
+};
+
 async function buildPosts(): Promise<void> {
   // 出力ディレクトリの作成
   if (!fs.existsSync(OUTPUT_DIR)) {
@@ -53,7 +78,8 @@ async function buildPosts(): Promise<void> {
     const { data, content } = matter(fileContent);
 
     const slug = file.replace('.md', '');
-    const html = await marked.parse(content);
+    const rawHtml = await marked.parse(content);
+    const html = sanitizeHtml(rawHtml);
     const { displayDate, isoDate } = formatDate(data.date);
 
     const post: Post = {
