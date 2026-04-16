@@ -24,10 +24,11 @@ type Props = {
   title: string;
   children: Child | Child[];
   cssPath?: string;
+  pageUrl?: string;
   siteConfig: SiteConfig;
 };
 
-export const Layout: FC<Props> = ({ title, children, cssPath, siteConfig }) => (
+export const Layout: FC<Props> = ({ title, children, cssPath, pageUrl, siteConfig }) => (
   <>
     {raw('<!DOCTYPE html>')}
     <html lang="ja">
@@ -37,6 +38,7 @@ export const Layout: FC<Props> = ({ title, children, cssPath, siteConfig }) => (
         year={siteConfig.year}
         description={siteConfig.description}
         url={siteConfig.url}
+        pageUrl={pageUrl}
         ogImage={siteConfig.ogImage}
         gaId={siteConfig.gaId}
         cssPath={cssPath}

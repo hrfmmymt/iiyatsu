@@ -114,7 +114,7 @@ app.get('/posts/:slug', (c) => {
   }
 
   return c.html(
-    <Layout title={post.title} cssPath="post.css" siteConfig={siteConfig}>
+    <Layout title={post.title} cssPath="post.css" pageUrl={`${siteConfig.url}posts/${slug}`} siteConfig={siteConfig}>
       <article class="post-article">
         <h1>{post.title}</h1>
         <div>{raw(post.content)}</div>

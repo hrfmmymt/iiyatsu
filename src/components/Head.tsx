@@ -7,6 +7,7 @@ type Props = {
   year: string;
   description: string;
   url: string;
+  pageUrl?: string;
   ogImage: string;
   cssPath?: string;
   gaId?: string;
@@ -18,6 +19,7 @@ export const Head: FC<Props> = ({
   year,
   description,
   url,
+  pageUrl,
   ogImage,
   cssPath,
   gaId,
@@ -48,13 +50,13 @@ export const Head: FC<Props> = ({
     {/* ogp */}
     <meta property="og:description" content={description} />
     <meta property="og:title" content={title} />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={pageUrl ?? url} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
 
     {/* links */}
-    <link rel="canonical" href={url} />
+    <link rel="canonical" href={pageUrl ?? url} />
     <link rel="manifest" href="/static/manifest.json" />
     <link rel="shortcut icon" href="/static/img/icon/favicon.ico" />
     <link rel="image_src" href={ogImage} />
