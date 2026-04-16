@@ -69,25 +69,5 @@ export const Head: FC<Props> = ({
 
     {/* scripts */}
     <script src="/static/js/script.js" defer />
-
-    {/* speculation rules: prefetch + prerender for post pages */}
-    <script type="speculationrules">
-      {raw(
-        JSON.stringify({
-          prefetch: [
-            {
-              where: { href_matches: '/posts/*' },
-              eagerness: 'moderate',
-            },
-          ],
-          prerender: [
-            {
-              where: { href_matches: '/posts/*' },
-              eagerness: 'moderate',
-            },
-          ],
-        }),
-      )}
-    </script>
   </head>
 );
