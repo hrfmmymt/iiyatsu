@@ -119,6 +119,10 @@
   margin: 3rem auto;
 }
 
+.post-recent dt + dd + dt {
+  margin-top: 1rem;
+}
+
 /*
  * for mobile
  */
