@@ -1,25 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
 import { Layout } from '../../components/Layout';
+import { siteConfig } from '../../config';
 
 describe('Layout', () => {
-  const mockSiteConfig = {
-    author: 'Test Author',
-    title: 'Test Title',
-    description: 'Test Description',
-    url: 'https://test.com',
-    ogImage: 'test.jpg',
-    gaId: 'UA-TEST',
-    year: '2024',
-    privacyPolicy: {
-      summary: 'Test Summary',
-      details: 'Test Details',
-    },
-  };
-
   it('正しくレンダリングされること', () => {
     const layout = (
-      <Layout title="Test Page" cssPath="test.css" siteConfig={mockSiteConfig}>
+      <Layout title="Test Page" cssPath="test.css" siteConfig={siteConfig}>
         <div>Test Content</div>
       </Layout>
     );
@@ -31,6 +18,6 @@ describe('Layout', () => {
     expect(html).toContain('<title>Test Page</title>');
     expect(html).toContain('class="wrapper"');
     expect(html).toContain('Test Content');
-    expect(html).toContain('Test Summary');
+    expect(html).toContain(siteConfig.privacyPolicy.summary);
   });
 });
