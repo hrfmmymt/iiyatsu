@@ -1,11 +1,27 @@
 [
   {
+    "title": "SSG化した(またかよ)",
+    "description": "tech",
+    "date": "2026-04-16",
+    "datetime": "2026-04-16T07:00:00.000Z",
+    "slug": "20260416-ssg",
+    "content": "<p>※この記事は全て Claude Code (Claude Opus 4.6) に書いてもらっています。</p>\n<p>四回目のリビルドです。express→fastify→honoという遍歴を経てきた当ブログですが、この度ランタイムを捨てました。</p>\n<h2>背景</h2>\n<p>前回のhono化で JSX が使えるようになって快適に書けるようになったのですが、冷静に考えるとこのブログはリクエスト時に動的にHTMLを生成する必要が一切ない。全部静的コンテンツなので。\nあとCloudflare Workersのバンドルサイズが記事数に依存する構造になっていて、記事が増えるたびにバンドルが膨れていくのが気になっていました。いつか上限に引っかかりそうだなという。</p>\n<h2>やったこと</h2>\n<p>hono の JSX コンポーネントをビルド時のテンプレートとしてそのまま再利用する形にしました。<code>Layout.toString()</code> でHTML文字列が取れるので、それをファイルに書き出すだけ。SSGビルドスクリプトを一つ追加して、vite build や Worker 周りの設定は不要になったので消しました。</p>\n<p>コンポーネント、CSS、ユーティリティ関数は一切変更なし。SSR時代に書いた JSX コンポーネントがそのまま使えたのは hono のおかげですね。</p>\n<h2>遍歴</h2>\n<table>\n<thead>\n<tr>\n<th>時期</th>\n<th>構成</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>2018</td>\n<td>Express + mustache + AMP + Firebase</td>\n</tr>\n<tr>\n<td>2021</td>\n<td>Fastify + Nunjucks + Vercel</td>\n</tr>\n<tr>\n<td>2025</td>\n<td>Hono SSR + Cloudflare Pages</td>\n</tr>\n<tr>\n<td>2026</td>\n<td>SSG (Hono JSX テンプレート) + Cloudflare Pages</td>\n</tr>\n</tbody></table>\n<p>だんだんシンプルになっている気がします。次は Markdown を手書きHTMLに戻すとかでしょうか。それはない。</p>\n",
+    "prevPost": {
+      "title": "このブログをhonoで作り直した",
+      "slug": "20250125-hono"
+    }
+  },
+  {
     "title": "このブログをhonoで作り直した",
     "description": "tech",
     "date": "2025-01-25",
     "datetime": "2025-01-25T03:11:02.761Z",
     "slug": "20250125-hono",
     "content": "<p>三回目のリビルドです。ここのところ当ブログサイトが何もしていないのに壊れることがしばしばあってその度突貫で直していたのですが、今般色々とタイミング合ったのでhonoで全部作り直してみました。</p>\n<h4>before</h4>\n<p><img src=\"https://lh3.googleusercontent.com/pw/AP1GczO3JmsLz9LmPUgYedTmbDsyHIgMi0o5ei0cFPEpEipARgrxX0mIsUWypadLM5CrA6nUUe8JrZrtev1kS02c12L3L26IWXBF4k74VC0SgGda3mA9n0wD_Hi-uec75B1GItnby6mQT-x06qQRro_BGUW9NQ=w2904-h1646-s-no-gm?authuser=0\" alt=\"error screen shot\"></p>\n<p>express→fastify→honoという遍歴になりました。今回honoを選んだ理由は特にありません。なんか最近よく聞くから、くらいのものです。<br>使ってみたらビルトインでJSXが使えるのがとても良かったです。今まではテンプレートエンジンでHandlebarsやNunjucksを使っていたのですが、正直あまり前向きにな気持ちではなかったので。</p>\n<p>それとこれは特に何もやってないのですが、パフォーマンスが良くなった気がします。</p>\n\n  \n\n\n<h2>その他</h2>\n<ul>\n<li>Webフォントをやめた(これよね)</li>\n<li>ESlintとPrettierの代わりにBiomeを導入した</li>\n<li>ホスティング先をVercelからCloudflare Pagesに変更した<ul>\n<li>hrfmmymt.comも同様<ul>\n<li>ポートフォリオサイトも一部変更箇所あるので別記事で書くかも</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n",
+    "nextPost": {
+      "title": "SSG化した(またかよ)",
+      "slug": "20260416-ssg"
+    },
     "prevPost": {
       "title": "ポートフォリオサイトを Next.js で換装した",
       "slug": "convert-portfolio-site-to-nextjs"

@@ -99,6 +99,22 @@
   padding-left: 2rem;
 }
 
+.post-article table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.post-article th,
+.post-article td {
+  border: 1px solid var(--text-color-sub);
+  padding: 0.5em 0.75em;
+}
+
+.post-article th {
+  font-weight: 700;
+}
+
 .post-article time,
 .post-article .description {
   color: var(--text-color-sub);
