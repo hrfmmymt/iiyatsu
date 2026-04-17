@@ -51,10 +51,6 @@
 
 .post-meta a {
   color: inherit;
-  text-decoration: none;
-}
-
-.post-meta a:hover {
   text-decoration: underline;
 }
 
