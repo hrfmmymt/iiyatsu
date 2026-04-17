@@ -45,7 +45,7 @@ const sanitizeHtml = (html: string): string => {
       'table', 'thead', 'tbody', 'tr', 'th', 'td',
       'img', 'figure', 'figcaption',
       'details', 'summary',
-      'sup', 'sub',
+      'sup', 'sub', 'small',
     ],
     ALLOWED_ATTR: [
       'href', 'title', 'target', 'rel',
