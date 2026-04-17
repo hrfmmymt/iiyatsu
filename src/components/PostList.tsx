@@ -17,7 +17,7 @@ export const PostList = ({ posts }: Props) => (
           {post.title}
         </a>
         <p class="post-meta">
-          <span>{post.description}</span>
+          <a href={`/tags/${encodeURIComponent(post.description)}/`}>{post.description}</a>
         </p>
       </li>
     ))}

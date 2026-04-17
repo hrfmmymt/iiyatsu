@@ -49,6 +49,27 @@
   margin-bottom: 0.4rem;
 }
 
+.post-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+/* tag page */
+.tag-page {
+  margin: 0 auto;
+  max-width: 32rem;
+  padding: 0 1rem;
+}
+
+.tag-heading {
+  padding-top: 2rem;
+  margin-bottom: 0;
+}
+
 /*
  * for mobile
  */

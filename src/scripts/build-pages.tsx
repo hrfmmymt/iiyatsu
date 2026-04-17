@@ -112,6 +112,33 @@ function generateHeaders(): void {
   console.log('  ✓ dist/_headers');
 }
 
+function buildTagPages(posts: Post[]): void {
+  const tagMap = new Map<string, Post[]>();
+  for (const post of posts) {
+    const tag = post.description;
+    if (!tag) continue;
+    if (!tagMap.has(tag)) tagMap.set(tag, []);
+    tagMap.get(tag)!.push(post);
+  }
+
+  for (const [tag, tagPosts] of tagMap) {
+    const tagDir = path.join(DIST_DIR, 'tags', tag);
+    ensureDir(tagDir);
+
+    const html = renderToString(
+      <Layout title={`${tag} - ${siteConfig.title}`} cssPath="top.css" siteConfig={siteConfig}>
+        <div class="tag-page">
+          <h2 class="tag-heading">{tag}</h2>
+          <PostList posts={tagPosts} />
+        </div>
+      </Layout>,
+    );
+
+    fs.writeFileSync(path.join(tagDir, 'index.html'), html);
+  }
+  console.log(`  ✓ dist/tags/**/index.html (${tagMap.size} tags)`);
+}
+
 function buildPages(): void {
   console.log('Building static pages...');
 
@@ -128,6 +155,7 @@ function buildPages(): void {
 
   buildIndexPage(posts);
   buildPostPages(posts);
+  buildTagPages(posts);
   build404Page();
   buildOfflinePage();
   copyStaticFiles();
