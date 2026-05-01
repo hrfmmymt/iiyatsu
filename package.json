@@ -36,7 +36,7 @@
     "highlight.js": "^11.11.1",
     "isomorphic-dompurify": "^3.9.0",
     "jsdom": "^29.0.0",
-    "marked": "^17.0.0",
+    "marked": "^18.0.0",
     "marked-highlight": "^2.2.1",
     "npm-run-all2": "^8.0.0",
     "postcss": "^8.4.49",
