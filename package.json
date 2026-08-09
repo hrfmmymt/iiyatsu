@@ -39,7 +39,7 @@
     "marked": "^18.0.0",
     "marked-highlight": "^2.2.1",
     "npm-run-all2": "^8.0.0",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.26",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
     "tsx": "^4.19.2",
